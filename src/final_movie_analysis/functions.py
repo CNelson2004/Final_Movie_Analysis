@@ -479,7 +479,9 @@ def do_analysis_specific(df:pd.DataFrame):
 #Conclusion
 def main():
     dirty_df = retrieve_dirty_dataset_specific()
+    print("dirty dataset created and saved")
     df = retrieve_clean_dataset_specific(dirty_df)
+    print("clean dataset created and saved")
     do_analysis_specific(df)
 
 
