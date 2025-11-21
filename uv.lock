@@ -302,7 +302,7 @@ wheels = [
 
 [[package]]
 name = "final-movie-analysis"
-version = "0.1.0"
+version = "0.1.1"
 source = { editable = "." }
 dependencies = [
     { name = "bs4" },
@@ -319,7 +319,7 @@ dependencies = [
 requires-dist = [
     { name = "bs4", specifier = ">=0.0.2" },
     { name = "ipykernel", specifier = ">=7.1.0" },
-    { name = "lxml", specifier = ">=4.9.2" },
+    { name = "lxml", specifier = ">=6.0.2" },
     { name = "matplotlib", specifier = ">=3.10.7" },
     { name = "numpy", specifier = ">=2.3.4" },
     { name = "pandas", specifier = ">=2.3.3" },

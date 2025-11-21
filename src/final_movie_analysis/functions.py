@@ -491,13 +491,17 @@ def printing_full_dataset():
     pd.set_option('display.max_columns', None)
     display(df.head())
 
-def main():
+def data_creation():
     dirty_df = retrieve_dirty_dataset_specific()
     print("dirty dataset created and saved")
     print(dirty_df.head())
     df = retrieve_clean_dataset_specific()
     print("clean dataset created and saved")
     print(df.head())
+    return df
+
+def main():
+    data_creation()
     do_analysis_specific()
 
 
