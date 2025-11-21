@@ -508,3 +508,6 @@ def main():
 if __name__ == "__main__":
     #printing_full_dataset()
     main()
+
+# package installation note: first you must 'uv add' all dependencies into your environment, then you can download it.
+# uv pip install -i https://test.pypi.org/simple/ final-movie-analysis==0.1.1
