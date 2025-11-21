@@ -89,7 +89,7 @@ def get_dirty_urls_for_the_numbers(the_movies:dict[str:str]):
         #creating full url with it (make sure year is still there)
         full_url = f"{base}{clean}{suffix}"
         urls.append(full_url)
-        return urls,clean_dict
+    return urls,clean_dict
 
 
 def get_clean_and_bad_urls_for_the_numbers(urls:list[str],clean_dict: dict[str:str],email:str = "cnelson1845@gmail.com",robots:int = 5):
@@ -111,6 +111,7 @@ def get_clean_and_bad_urls_for_the_numbers(urls:list[str],clean_dict: dict[str:s
     i = -1
     #Just for me to see times during this
     start = time.time()
+    print("starting first section")
     for k,section in enumerate(sections):
         for url in section:
             i += 1
@@ -121,7 +122,7 @@ def get_clean_and_bad_urls_for_the_numbers(urls:list[str],clean_dict: dict[str:s
                 continue
             #checking if the website broke
             if r.status_code == 503:
-                print(f"currently on i: {i} out of 232, with url: {url}")
+                print(f"503 Error: currently on i: {i} out of 232, with url: {url}")
                 break
             current = url
             #placing year at the end of the title
@@ -388,11 +389,16 @@ def retrieve_information(urls: list[str], email:str = "cnelson1845@gmail.com",ro
 def retrieve_dirty_dataset_specific():
     '''Creates and return our specific dirty dataset dataframe, which we cleaned and used for analysis.'''
     r1,r2 = setup_2(email="cnelsosn1845@gmail.com")
+    print("retrieved response objects")
     the_movies = get_website_info(r1,r2)
+    print("retrieved website info")
     dirty_urls,clean_dict = get_dirty_urls_for_the_numbers(the_movies)
+    print("got dirty urls")
     urls,marked = get_clean_and_bad_urls_for_the_numbers(dirty_urls,clean_dict,email="cnelson1845@gmail.com")
     clean_urls = get_final_clean_urls(urls,marked)
+    print("cleaned urls")
     dirty_df = retrieve_information(clean_urls,email="cnelson1845@gmail.com")
+    print("got info from websites")
     return dirty_df
 
 
@@ -456,9 +462,10 @@ def add_columns_to_df(df:pd.DataFrame):
     return df
 
 
-def retrieve_clean_dataset_specific(dirty_df:pd.DataFrame):
+def retrieve_clean_dataset_specific():
     '''Retrieves our specific dataset in a cleaned dataframe
         You must use output from `retrieve_dirty_dataset_specific` for this to work.'''
+    dirty_df = pd.read_csv("dirty_data.csv")
     clean_df = clean_dataframe(dirty_df)
     full_df = add_columns_to_df(clean_df)
     return full_df
@@ -470,7 +477,7 @@ def temp():
     pass
 
 
-def do_analysis_specific(df:pd.DataFrame):
+def do_analysis_specific():
     '''Does our analysis for our specific data'''
     print("Currently under construction, please return later")
     pass
@@ -487,9 +494,11 @@ def printing_full_dataset():
 def main():
     dirty_df = retrieve_dirty_dataset_specific()
     print("dirty dataset created and saved")
-    df = retrieve_clean_dataset_specific(dirty_df)
+    print(dirty_df.head())
+    df = retrieve_clean_dataset_specific()
     print("clean dataset created and saved")
-    do_analysis_specific(df)
+    print(df.head())
+    do_analysis_specific()
 
 
 if __name__ == "__main__":
