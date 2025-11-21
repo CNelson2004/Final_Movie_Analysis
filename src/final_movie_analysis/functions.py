@@ -456,7 +456,7 @@ def add_columns_to_df(df:pd.DataFrame):
     return df
 
 
-def retrieve_clean_dataset_specific(dirty_df:pd.Dataframe):
+def retrieve_clean_dataset_specific(dirty_df:pd.DataFrame):
     '''Retrieves our specific dataset in a cleaned dataframe
         You must use output from `retrieve_dirty_dataset_specific` for this to work.'''
     clean_df = clean_dataframe(dirty_df)
@@ -477,6 +477,13 @@ def do_analysis_specific(df:pd.DataFrame):
 
 
 #Conclusion
+def printing_full_dataset():
+    from IPython.display import display
+
+    df = pd.read_csv("movie_data.csv")
+    pd.set_option('display.max_columns', None)
+    display(df.head())
+
 def main():
     dirty_df = retrieve_dirty_dataset_specific()
     print("dirty dataset created and saved")
@@ -486,4 +493,5 @@ def main():
 
 
 if __name__ == "__main__":
+    #printing_full_dataset()
     main()
