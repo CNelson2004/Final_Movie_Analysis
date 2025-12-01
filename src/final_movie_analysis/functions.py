@@ -472,14 +472,86 @@ def retrieve_clean_dataset_specific():
 
 
 #Data Analysis
-def temp():
-    #place to begin making functions from analysis section
-    pass
+def earnings_correlation():
+    '''Shows correlation between different earnings statistics'''
+    df = pd.read_csv("movie_data.csv")
+    print(df.corr(numeric_only=True))
+
+
+def graph_revenue():
+    '''Shows revenue of movies'''
+    df = pd.read_csv("movie_data.csv")
+    # graph of the revenues
+    mean_of = pd.DataFrame()
+    mean_of = df.groupby('Release Date')[['Inflation Adjusted Domestic Revenue','Domestic Revenue', 'Total Box Office Revenue','International Revenue','Domestic Video Revenue']].mean()
+    # 'Total Box Office Revenue','International Revenue',
+    mean_of[['Inflation Adjusted Domestic Revenue','Domestic Revenue','Domestic Video Revenue']].plot()
+    plt.xticks(rotation=45)
+    mean_of[['Total Box Office Revenue','International Revenue']].plot()
+    plt.xticks(rotation=45)
+    # the graphs show the correlations and the difference in there earnings
+    plt.show()
+
+def describe_revenue():
+    '''Shows summary statistics for three big revenue types'''
+    df = pd.read_csv("movie_data.csv")
+    df['Inflation Adjusted Domestic Revenue'].describe()
+    df['Domestic Revenue'].describe()
+    df['International Revenue'].describe()
+
+
+def season_earnings():
+    '''Returns revenue by season'''
+    df = pd.read_csv("movie_data.csv")
+    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Season')
+    plt.title('Revenue by Season of Movie Release')
+    plt.show()
+
+
+def genre_earnings():
+    '''Returns revenue by genre'''
+    df = pd.read_csv("movie_data.csv")
+    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Genre')
+    plt.xticks(rotation=45)
+    plt.title('Revenue by Genre')
+    plt.show()
+
+
+def production_method_earnings():
+    '''Returns revenue for different production methods'''
+    df = pd.read_csv("movie_data.csv")
+    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Production Method')
+    plt.xticks(rotation=45)
+    plt.title('Revenue by production method')
+    plt.show()
+
+
+def ratings_earnings():
+    '''Returns revenue by rating'''
+    df = pd.read_csv("movie_data.csv")
+    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='MPAA Rating')
+    plt.xticks(rotation=45)
+    plt.show()
+
+
+def findings():
+    '''prints the findings from our analysis'''
+    print("product budget is most strongly correlated with international earnings, this implies that the hight earning movies had the most funding (on average)")
+    print("Summer is the time for big box office hits, and fall is the time for movies that don't do well")
+    print("Adventure has the largest range, and seems to have the best chance to do well, but action is close behind")
+    print("Digital animation seems to usually do the best, I presume this is because it appeals to a wide range of people")
+
+    print("Overall, it seems that making movies that appeal to everyone, and releasing them in the summer is the best chance for making a high earning movie")
 
 
 def do_analysis_specific():
-    '''Does our analysis for our specific data'''
-    print("Currently under construction, please return later")
+    '''Does our analysis for our specific data to answer our research question'''
+    print("Our research question is: ")
+    print("The following is our analysis")
+    
+    print("Our general findings were:\n")
+    findings()
+    print("The answer we found was: ")
     pass
 
 
