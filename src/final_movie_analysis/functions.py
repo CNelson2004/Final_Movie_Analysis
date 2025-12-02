@@ -1,11 +1,11 @@
 #transferring cells from ipynb files into proper functions 
 import requests
 from bs4 import BeautifulSoup
-import lxml
+import numpy as np
 import pandas as pd
+import lxml
 import re
 import time
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -492,6 +492,7 @@ def graph_revenue():
     # the graphs show the correlations and the difference in there earnings
     plt.show()
 
+
 def describe_revenue():
     '''Shows summary statistics for three big revenue types'''
     df = pd.read_csv("movie_data.csv")
@@ -536,7 +537,7 @@ def ratings_earnings():
 
 def findings():
     '''prints the findings from our analysis'''
-    print("product budget is most strongly correlated with international earnings, this implies that the hight earning movies had the most funding (on average)")
+    print("product budget is most strongly correlated with international earnings, this implies that the high earning movies had the most funding (on average)")
     print("Summer is the time for big box office hits, and fall is the time for movies that don't do well")
     print("Adventure has the largest range, and seems to have the best chance to do well, but action is close behind")
     print("Digital animation seems to usually do the best, I presume this is because it appeals to a wide range of people")
@@ -546,9 +547,14 @@ def findings():
 
 def do_analysis_specific():
     '''Does our analysis for our specific data to answer our research question'''
-    print("Our research question is: ")
+    print("Our research question is: What features of a movie can best be used to predict its revenue?")
     print("The following is our analysis")
-    
+    earnings_correlation()
+    describe_revenue()
+    season_earnings()
+    genre_earnings()
+    production_method_earnings()
+    ratings_earnings()
     print("Our general findings were:\n")
     findings()
     print("The answer we found was: ")
@@ -579,7 +585,8 @@ def main():
 
 if __name__ == "__main__":
     #printing_full_dataset()
-    main()
+    #main()
+    do_analysis_specific()
 
 # package installation note: first you must 'uv add' all dependencies into your environment, then you can download it.
 # uv pip install -i https://test.pypi.org/simple/ final-movie-analysis==0.1.1
