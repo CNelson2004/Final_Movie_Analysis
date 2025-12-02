@@ -1,0 +1,9 @@
+---
+title: "Universal Studios Movie Analysis Package"
+---
+
+Here is a website all about my package for STAT 386
+
+Documentation [here](documentation.qmd)
+
+Get Started [here](tutorial.qmd)

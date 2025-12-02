@@ -1,0 +1,19 @@
+---
+title: "Getting Started"
+jupyter: python3
+---
+
+Here is how to use my package
+
+Obtain the data
+```{python}
+#from functions.py import data_creation
+# Note, this will take up to 2 hours, depending on your machine speed
+#data_creation()
+```
+
+Analyze the data
+```{python}
+#from functions.py import do_analysis_specific
+#do_analysis_specific()
+```
