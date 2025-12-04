@@ -8,6 +8,9 @@ import re
 import time
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.inspection import permutation_importance
+import shap
 
 
 #Data Gathering
@@ -561,6 +564,125 @@ def do_analysis_specific():
     pass
 
 
+#ML Analysis
+def format_data():
+    df_ml = pd.read_csv("movie_data.csv")
+    #dropping rows without target
+    df_ml = df_ml.dropna(subset=["Total Box Office Revenue"])
+    #dropping text columns we can't use
+    df_ml = df_ml.drop(columns=[
+        "Title", "Season", "MPAA Rating", "Genre", "Franchise", "Production Method"
+    ])
+    #dropping the time-data columns since we have month and year of film release separated
+    df_ml = df_ml.drop(columns=[
+        "Release Date", "Video Release Date"
+    ])
+    #filling in with median
+    num_cols = [
+        "Inflation Adjusted Domestic Revenue", "Domestic Revenue",
+        "International Revenue", "Domestic Video Revenue",
+        "Opening Weekend", "Production Budget", "Theater Number",
+        "Runtime", "Domestic DVD Revenue", "Domestic Bluray Revenue",
+        "Year", "Profit"
+    ]
+    for col in num_cols:
+        df_ml[col] = df_ml[col].fillna(df_ml[col].median())
+    #filling in month with mode
+    df_ml["Month"] = df_ml["Month"].fillna(df_ml["Month"].mode()[0])
+    #saving df
+    df_ml.to_csv("ml_movie_data.csv", index=False)
+    return df_ml
+
+
+def create_y(df_ml):
+    '''getting y for X and y'''
+    # Log-transform the target due to skewness of target
+    df_ml["log_revenue"] = np.log1p(df_ml["Total Box Office Revenue"])
+    y = df_ml["log_revenue"]
+    return y
+
+
+def create_X_y_after():
+    '''This is used after the movie has been released for awhile'''
+    df_ml = pd.read_csv("ml_movie_data.csv")
+    y = create_y(df_ml)
+    X = df_ml[["Inflation Adjusted Domestic Revenue","Domestic Revenue","Domestic Video Revenue","Opening Weekend","Production Budget","Theater Number","Runtime","Domestic DVD Revenue","Domestic Bluray Revenue","Month","Year","Profit"]]
+    return X,y
+
+
+def create_X_y_opening():
+    '''This is used after the movie has had its opening weekend'''
+    df_ml = pd.read_csv("ml_movie_data.csv")
+    y = create_y(df_ml)
+    X = df_ml[["Opening Weekend","Production Budget","Theater Number","Runtime","Month","Year"]]
+    return X,y
+
+
+def create_X_y_before():
+    '''This is used before the movie comes out and we only know the budget, year and month it will be out'''
+    df_ml = pd.read_csv("ml_movie_data.csv")
+    y = create_y(df_ml)
+    X = df_ml[["Production Budget","Runtime","Month"]]
+    return X,y
+
+
+def find_most_important_features_plot(X,y):
+    '''Finds most important labels, from X, for predicting a target, y, shown with shap'''
+    model = RandomForestRegressor(random_state=42)
+    model.fit(X, y)
+    explainer = shap.TreeExplainer(model)
+    shap_values = explainer.shap_values(X)
+    shap.summary_plot(shap_values, X)
+
+
+def find_most_important_features_numbers(X,y):
+    '''Finds most important labels, from X, for predicting a target, y, shown numbers from pandas sklearn'''
+    model = RandomForestRegressor(random_state=42)
+    model.fit(X, y)
+    print("From pandas:")
+    rf_importances = pd.Series(model.feature_importances_, index=X.columns)
+    print(rf_importances.sort_values(ascending=False))
+    print()
+    print("From sklearn")
+    perm = permutation_importance(model, X, y, n_repeats=20, random_state=42)
+    perm_importances = pd.Series(perm.importances_mean, index=X.columns)
+    print(perm_importances.sort_values(ascending=False))
+
+
+def do_ml_analysis_plots():
+    format_data()
+    print("Most important features before a movie opens")
+    X,y=create_X_y_before()
+    find_most_important_features_plot(X,y)
+    print("Most important features right after a movie opens")
+    X,y=create_X_y_opening()
+    find_most_important_features_plot(X,y)
+    print("Most important features long after a movie opened")
+    X,y=create_X_y_after()
+    find_most_important_features_plot(X,y)
+
+
+def do_ml_analysis_numbers():
+    format_data()
+    print("Most important features before a movie opens")
+    X,y=create_X_y_before()
+    find_most_important_features_numbers(X,y)
+    print("\n")
+    print("Most important features right after a movie opens")
+    X,y=create_X_y_opening()
+    find_most_important_features_numbers(X,y)
+    print("\n")
+    print("Most important features long after a movie opened")
+    X,y=create_X_y_after()
+    find_most_important_features_numbers(X,y)
+
+
+def ml_analysis_findings():
+    print("Based upon the data, it seems that before a movie opens, the budget is the best predictor of revenue, bigger budget likely means bigger revenue")
+    print("After a movie has had its opening weekend, those opening weekend numbers are the best for determining overall revenue")
+    print("AFter a movie has released, then using its US domestic box office revenue is a good way to predict overall revenue, this tells us domestic contributes far more than internal toe revenue.")
+
+
 #Conclusion
 def printing_full_dataset():
     from IPython.display import display
@@ -568,6 +690,7 @@ def printing_full_dataset():
     df = pd.read_csv("movie_data.csv")
     pd.set_option('display.max_columns', None)
     display(df.head())
+
 
 def data_creation():
     dirty_df = retrieve_dirty_dataset_specific()
@@ -578,15 +701,21 @@ def data_creation():
     print(df.head())
     return df
 
+
 def main():
     data_creation()
     do_analysis_specific()
+    do_ml_analysis_plots()
+    do_ml_analysis_numbers()
+    ml_analysis_findings()
 
 
 if __name__ == "__main__":
     #printing_full_dataset()
     #main()
-    do_analysis_specific()
+    #do_analysis_specific()
+    #do_ml_analysis_plots()
+    do_ml_analysis_numbers()
 
 # package installation note: first you must 'uv add' all dependencies into your environment, then you can download it.
 # uv pip install -i https://test.pypi.org/simple/ final-movie-analysis==0.1.1
