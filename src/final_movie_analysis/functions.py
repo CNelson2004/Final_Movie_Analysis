@@ -566,6 +566,7 @@ def do_analysis_specific():
 
 #ML Analysis
 def format_data():
+    '''Fixing NaN values by imputing most numeric values with median, due to skewness, except for month, which is imputed with mode. Any string columns are removed'''
     df_ml = pd.read_csv("movie_data.csv")
     #dropping rows without target
     df_ml = df_ml.dropna(subset=["Total Box Office Revenue"])
