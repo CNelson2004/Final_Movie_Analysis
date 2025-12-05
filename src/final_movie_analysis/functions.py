@@ -544,24 +544,15 @@ def findings():
     print("Summer is the time for big box office hits, and fall is the time for movies that don't do well")
     print("Adventure has the largest range, and seems to have the best chance to do well, but action is close behind")
     print("Digital animation seems to usually do the best, I presume this is because it appeals to a wide range of people")
-
     print("Overall, it seems that making movies that appeal to everyone, and releasing them in the summer is the best chance for making a high earning movie")
 
-
-def do_analysis_specific():
-    '''Does our analysis for our specific data to answer our research question'''
-    print("Our research question is: What features of a movie can best be used to predict its revenue?")
-    print("The following is our analysis")
+def do_analysis_all():
     earnings_correlation()
     describe_revenue()
     season_earnings()
     genre_earnings()
     production_method_earnings()
     ratings_earnings()
-    print("Our general findings were:\n")
-    findings()
-    print("The answer we found was: ")
-    pass
 
 
 #ML Analysis
@@ -678,7 +669,7 @@ def do_ml_analysis_numbers():
     find_most_important_features_numbers(X,y)
 
 
-def ml_analysis_findings():
+def ml_analysis_findings(): 
     print("Based upon the data, it seems that before a movie opens, the budget is the best predictor of revenue, bigger budget likely means bigger revenue")
     print("After a movie has had its opening weekend, those opening weekend numbers are the best for determining overall revenue")
     print("AFter a movie has released, then using its US domestic box office revenue is a good way to predict overall revenue, this tells us domestic contributes far more than internal toe revenue.")
@@ -703,20 +694,40 @@ def data_creation():
     return df
 
 
-def main():
+def do_analysis_specific():
+    '''Does our analysis for our specific data to answer our research question using all analysis'''
+    print("Our research question is: What features of a movie can best be used to predict its revenue?")
+    print("The following is our analysis")
+    earnings_correlation()
+    describe_revenue()
+    season_earnings()
+    genre_earnings()
+    production_method_earnings()
+    ratings_earnings()
+    print("Our general findings were:\n")
+    findings()
+    print("The answer we found was: ")
+    pass
+
+
+def totality():
     data_creation()
-    do_analysis_specific()
+    do_analysis_all()
+    findings()
     do_ml_analysis_plots()
     do_ml_analysis_numbers()
     ml_analysis_findings()
+    do_analysis_specific()
+
 
 
 if __name__ == "__main__":
     #printing_full_dataset()
-    #main()
-    #do_analysis_specific()
+    #totality()
+    #do_analysis_all()
+    do_analysis_specific()
     #do_ml_analysis_plots()
-    do_ml_analysis_numbers()
+    #do_ml_analysis_numbers()
 
 # package installation note: first you must 'uv add' all dependencies into your environment, then you can download it.
 # uv pip install -i https://test.pypi.org/simple/ final-movie-analysis==0.1.1
