@@ -7,3 +7,5 @@ Here is a website all about my package for STAT 386
 Documentation [here](documentation.qmd)
 
 Get Started [here](tutorial.qmd)
+
+Review the [Technical Report](rechnical_report.qmd)
