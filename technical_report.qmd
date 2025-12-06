@@ -5,7 +5,7 @@ description: "Project summary, methodology, and findings placeholder"
 
 ## Executive Summary
 
-_TODO: Provide a concise overview of the project objectives, key findings, and actionable recommendations._
+`_TODO: Provide a concise overview of the project objectives, key findings, and actionable recommendations._`
 Project Objectives: 
 
 Key Findings:
@@ -14,7 +14,7 @@ Actionable Recommendations:
 
 ## Project Context
 
-_TODO: Describe the motivation, stakeholders, and success criteria for this analysis._
+`_TODO: Describe the motivation, stakeholders, and success criteria for this analysis._`
 Motivation:
 
 Stakeholders:
@@ -47,10 +47,26 @@ Success Criteria:
 * A separated .csv was created for Machine Learning Analysis wherein the target, Total Box Office Revenue, was analyzed as a log of the original target due to the skewness of the target data 
 3. _Analysis workflow:_ `TODO - describe statistical or modeling techniques`
 4. _Tooling:_ `TODO - list packages, environments, and reproducibility steps`
+* Packages: The packages used were: 
+- bs4
+- ipykernel
+- lxml
+- matplotlib
+- numpy
+- pandas
+- requests
+- scikit-learn
+- seaborn
+- shap
+- streamlit
+- twine
+- quarto
+* Environments: The virtual environment UV was used for htis project 
+* Reproducibility Steps: Run the functions in order as given in the Tutorial
 
 ## Results & Diagnostics
 
-_TODO: Summarize the main metrics, charts, or model diagnostics produced. Include links to figures or tables once available._
+`_TODO: Summarize the main metrics, charts, or model diagnostics produced. Include links to figures or tables once available._`
 Main Metrics:
 
 Charts:
@@ -59,7 +75,7 @@ Model Diagnostics:
 
 ## Discussion & Next Steps
 
-_TODO: Interpret the results, note limitations, and capture open questions or future experiments._
+`_TODO: Interpret the results, note limitations, and capture open questions or future experiments._`
 Results:
 
 Limitations:
