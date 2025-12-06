@@ -21,10 +21,20 @@ _TODO: Describe the motivation, stakeholders, and success criteria for this anal
 
 1. _Data acquisition:_ `TODO - outline collection scripts/APIs`
 2. _Cleaning pipeline:_ `TODO - summarize transformations and validations implemented`
-3. _Analysis workflow:_ `TODO - describe statistical or modeling techniques`
+3. _Analysis workflow:_ 
+* coralate all the data to see what has an efect on incume
+* find the NAs for refrence
+* plot the money aganst oneanother to check for anomalys
+* find the avrage revinue for each year and then plot it for clearere visuals
+* find the statistics for some of the means
+* plot the catigorical data with regarrds to the Inflation Adjusted Domestic Revenue
+
+`we used some basic analasis such as  coralation, plots to visulise it (mostly line plots but some box plots for catagrorical data). this requiered only a few changes such as adding a colume for year or doing basic math, mostly wit dates, to get usable numbers for plots and coralation. there are some NAs in the data set, around 60 to 70 for each columne. the hiest one was 146 but that was Franchise wich wasnt really used in any analasis`
 4. _Tooling:_ `TODO - list packages, environments, and reproducibility steps`
 
 ## Results & Diagnostics
+
+
 
 _TODO: Summarize the main metrics, charts, or model diagnostics produced. Include links to figures or tables once available._
 
