@@ -188,6 +188,7 @@ def get_clean_and_bad_urls_for_the_numbers(urls:list[str],clean_dict: dict[str:s
                 continue
             #if it doesn't we add it to marked
             marked[i] = url
+            print(f"Added url number: {i}, which is {url}, to marked at ~{(time.time()-start)//60} minutes")
         #Getting time so I know its working
         print(f"Time of section {k+1}/{len(sections)} completion: ~{(time.time()-start)//60} minutes")
     #pretty printing it so I can read it    
@@ -724,9 +725,9 @@ def totality():
 
 if __name__ == "__main__":
     #printing_full_dataset()
-    totality()
+    #totality()
     #do_analysis_all()
-    #do_analysis_specific()
+    do_analysis_specific()
     #do_ml_analysis_plots()
     #do_ml_analysis_numbers()
 
