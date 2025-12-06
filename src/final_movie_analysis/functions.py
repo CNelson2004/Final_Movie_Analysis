@@ -131,17 +131,18 @@ def get_clean_and_bad_urls_for_the_numbers(urls:list[str],clean_dict: dict[str:s
                 print(f"503 Error: currently on i: {i} out of 232, with url: {url}")
                 break
             #setting up variables
-            current = url
             title_year = url.rsplit("/", 1)[-1].split("#", 1)[0]
             title = re.split(r"-\(\d{4}\)$", title_year)[0]
             year = int(clean_dict[title])
-            #removing year from title 
-            current = re.sub(r"-\(\d{4}\)$", "", url)
+            #removing year from title
+            current = re.sub(r"-\(\d{4}\)", "", str(url)) 
             time.sleep(5)
             s = requests.get(current,headers=headers)
             if s.status_code == 200:
                 urls[i] = current
                 continue
+            #setting current to be without a year for the following checks
+            url = current
             #attempting to add country to make url work
             current = re.sub(r'(?=#)', f'-({year}-United-Kingdom)', url)
             time.sleep(robots)
@@ -188,6 +189,7 @@ def get_clean_and_bad_urls_for_the_numbers(urls:list[str],clean_dict: dict[str:s
                 continue
             #if it doesn't we add it to marked
             marked[i] = url
+            #This is just for my sake, so I know its working when a section is taking a long time
             print(f"Added url number: {i}, which is {url}, to marked at ~{(time.time()-start)//60} minutes")
         #Getting time so I know its working
         print(f"Time of section {k+1}/{len(sections)} completion: ~{(time.time()-start)//60} minutes")
@@ -725,9 +727,9 @@ def totality():
 
 if __name__ == "__main__":
     #printing_full_dataset()
-    #totality()
+    totality()
     #do_analysis_all()
-    do_analysis_specific()
+    #do_analysis_specific()
     #do_ml_analysis_plots()
     #do_ml_analysis_numbers()
 
