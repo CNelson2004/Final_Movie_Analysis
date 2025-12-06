@@ -7,28 +7,13 @@ Here is how to use my package
 
 Note: None of these functions have any parameters, however, some of them need to be ran in a specific order, as will be discussed.
 
-Obtain the data
+Obtain the data. This function creates the dirty dataset, saves it as an csv, then cleans it and saves it as a csv. 
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
 from final_movie_analysis.functions import data_creation
 #Note, this will take up to 2 hours, depending on your machine speed
 data_creation()
-```
-
-If you specifically only want the dirty data and then want to clean it separately, you can use these two functions in this order. Know that you can run the dirty dataset function without running the cleaning function, but hte cleaning function requires the dirty dataset function runs before it. 
-```{python}
-import sys, os
-sys.path.append(os.path.abspath("src"))
-from final_movie_analysis.functions import retrieve_dirty_dataset_specific
-retrieve_dirty_dataset_specific()
-```
-
-```{python}
-import sys, os
-sys.path.append(os.path.abspath("src"))
-from final_movie_analysis.functions import retrieve_clean_dataset_specific
-retrieve_clean_dataset_specific()
 ```
 
 These are the analysis functions. Please know that these will not work unless you have run the functions relating to data gathering and cleaning, specifically `data_creation`. This applies to all functions from this point on.
