@@ -3,3 +3,55 @@ title: "Documentation"
 ---
 
 Functions:
+`retrieve_dirty_dataset_specific()`
+This function requires no parameters. 
+This function creates a new dataset from scratch by scraping the web, specifically the websites of wikipedia and the-numbers.
+It saves a pandas dataframe of this dirty data as a csv under the title 'dirty_data.csv'.
+
+
+`retrieve_clean_dataset_specific()`
+This function requires no parameters. However, `retrieve_dirty_dataset_specific` must be ran before this function can be used.
+It takes the dataframe, which was saved as a csv by `retrieve_dirty_dataset_specific` and cleans the data.
+It also adds the new columns Season and Profit.
+It saves this new pandas dataframe as a csv under the title 'movie_data.csv'.
+
+
+`data_creation()`
+This function requires no parameters.
+It is composed of `retrieve_dirty_dataset_specific` and `retrieve_clean_dataset_specific` and performs those two actions at once
+
+
+`do_analysis_all()`
+This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
+This function performs all the analyses functions as described above. 
+
+
+`findings()`
+This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
+This function prints our findings and interpretation of the data from `do_analysis_all`.
+
+
+`do_ml_analysis_plots()`
+This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
+This function utilizes machine learning techniques, specifically the library shap, to create plots demonstrating the significance of various features during different stages of a movie's release. 
+
+
+`do_ml_analysis_numbers()`
+This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
+This function utilizes machine learning techniques to create return numbers demonstrating the significance of various features during different stages of a movie's release. 
+
+
+`ml_analysis_findings()`
+This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
+This function returns our findings and interpretation of the data from `do_ml_analysis_plots` and `do_ml_analysis_numbers`.
+
+
+`do_analysis_specific()`
+This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
+This function states our research question, and utilizes `do_analysis_all()`, `findings`, `do_ml_analysis_numbers()`, `do_ml_analysis_plots()`, and `ml_analysis_findings()`, to provide an answer to that question. All of this is printed out into the terminal.
+
+
+`totality()`
+This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
+This function gathers, cleans, analyzes, and interprets the data. Specifically is performs the functions of `data_creation` and `do_analysis_specific` at the same time.
+

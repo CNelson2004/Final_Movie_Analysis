@@ -56,9 +56,10 @@ def get_website_info(r1: requests.Response, r2: requests.Response) -> dict[str:s
         #placing into dictionary
         the_movies[title] = year
     #removing movies from 2025
+    correct_years = [2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024]
     bad_keys = []
     for key,value in the_movies.items():
-        if int(value) == 2025:
+        if int(value) not in correct_years:
             bad_keys.append(key)
     for key in bad_keys:
         del the_movies[key]
@@ -88,9 +89,11 @@ def get_dirty_urls_for_the_numbers(the_movies:dict[str:str]):
         clean = re.sub(r'^A-(.+)$', r'\1-A', clean)
         clean = re.sub(r'^La-(.+)$', r'\1-La', clean)
         #adding it to another dictionary to keep track of years
-        clean_dict[clean] = the_movies[title]
+        year = the_movies[title]
+        clean_dict[clean] = year
+        formatted_year = f"-({year})"
         #creating full url with it (make sure year is still there)
-        full_url = f"{base}{clean}{suffix}"
+        full_url = f"{base}{clean}{formatted_year}{suffix}"
         urls.append(full_url)
     return urls,clean_dict
 
@@ -127,12 +130,14 @@ def get_clean_and_bad_urls_for_the_numbers(urls:list[str],clean_dict: dict[str:s
             if r.status_code == 503:
                 print(f"503 Error: currently on i: {i} out of 232, with url: {url}")
                 break
+            #setting up variables
             current = url
-            #placing year at the end of the title
-            title = url.rsplit("/", 1)[-1].split("#", 1)[0]
+            title_year = url.rsplit("/", 1)[-1].split("#", 1)[0]
+            title = re.split(r"-\(\d{4}\)$", title_year)[0]
             year = int(clean_dict[title])
-            current = re.sub(r'(?=#)', f'-({year})', url)
-            time.sleep(robots)
+            #removing year from title 
+            current = re.sub(r"-\(\d{4}\)$", "", url)
+            time.sleep(5)
             s = requests.get(current,headers=headers)
             if s.status_code == 200:
                 urls[i] = current
@@ -698,34 +703,30 @@ def do_analysis_specific():
     '''Does our analysis for our specific data to answer our research question using all analysis'''
     print("Our research question is: What features of a movie can best be used to predict its revenue?")
     print("The following is our analysis")
-    earnings_correlation()
-    describe_revenue()
-    season_earnings()
-    genre_earnings()
-    production_method_earnings()
-    ratings_earnings()
+    do_analysis_all()
     print("Our general findings were:\n")
     findings()
+    print("The following is our machine learning analysis")
+    do_ml_analysis_numbers()
+    do_ml_analysis_plots()
+    print("Our general findings were:\n")
+    ml_analysis_findings()
     print("The answer we found was: ")
+    print("This is because: ...")
     pass
 
 
 def totality():
     data_creation()
-    do_analysis_all()
-    findings()
-    do_ml_analysis_plots()
-    do_ml_analysis_numbers()
-    ml_analysis_findings()
     do_analysis_specific()
 
 
 
 if __name__ == "__main__":
     #printing_full_dataset()
-    #totality()
+    totality()
     #do_analysis_all()
-    do_analysis_specific()
+    #do_analysis_specific()
     #do_ml_analysis_plots()
     #do_ml_analysis_numbers()
 
