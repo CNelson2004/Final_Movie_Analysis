@@ -1,13 +1,16 @@
 #transferring cells from ipynb files into proper functions 
 import requests
 from bs4 import BeautifulSoup
-import lxml
+import numpy as np
 import pandas as pd
+import lxml
 import re
 import time
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.inspection import permutation_importance
+import shap
 
 
 #Data Gathering
@@ -472,15 +475,204 @@ def retrieve_clean_dataset_specific():
 
 
 #Data Analysis
-def temp():
-    #place to begin making functions from analysis section
-    pass
+def earnings_correlation():
+    '''Shows correlation between different earnings statistics'''
+    df = pd.read_csv("movie_data.csv")
+    print(df.corr(numeric_only=True))
 
 
-def do_analysis_specific():
-    '''Does our analysis for our specific data'''
-    print("Currently under construction, please return later")
-    pass
+def graph_revenue():
+    '''Shows revenue of movies'''
+    df = pd.read_csv("movie_data.csv")
+    # graph of the revenues
+    mean_of = pd.DataFrame()
+    mean_of = df.groupby('Release Date')[['Inflation Adjusted Domestic Revenue','Domestic Revenue', 'Total Box Office Revenue','International Revenue','Domestic Video Revenue']].mean()
+    # 'Total Box Office Revenue','International Revenue',
+    mean_of[['Inflation Adjusted Domestic Revenue','Domestic Revenue','Domestic Video Revenue']].plot()
+    plt.xticks(rotation=45)
+    mean_of[['Total Box Office Revenue','International Revenue']].plot()
+    plt.xticks(rotation=45)
+    # the graphs show the correlations and the difference in there earnings
+    plt.show()
+
+
+def describe_revenue():
+    '''Shows summary statistics for three big revenue types'''
+    df = pd.read_csv("movie_data.csv")
+    df['Inflation Adjusted Domestic Revenue'].describe()
+    df['Domestic Revenue'].describe()
+    df['International Revenue'].describe()
+
+
+def season_earnings():
+    '''Returns revenue by season'''
+    df = pd.read_csv("movie_data.csv")
+    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Season')
+    plt.title('Revenue by Season of Movie Release')
+    plt.show()
+
+
+def genre_earnings():
+    '''Returns revenue by genre'''
+    df = pd.read_csv("movie_data.csv")
+    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Genre')
+    plt.xticks(rotation=45)
+    plt.title('Revenue by Genre')
+    plt.show()
+
+
+def production_method_earnings():
+    '''Returns revenue for different production methods'''
+    df = pd.read_csv("movie_data.csv")
+    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Production Method')
+    plt.xticks(rotation=45)
+    plt.title('Revenue by production method')
+    plt.show()
+
+
+def ratings_earnings():
+    '''Returns revenue by rating'''
+    df = pd.read_csv("movie_data.csv")
+    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='MPAA Rating')
+    plt.xticks(rotation=45)
+    plt.show()
+
+
+def findings():
+    '''prints the findings from our analysis'''
+    print("product budget is most strongly correlated with international earnings, this implies that the high earning movies had the most funding (on average)")
+    print("Summer is the time for big box office hits, and fall is the time for movies that don't do well")
+    print("Adventure has the largest range, and seems to have the best chance to do well, but action is close behind")
+    print("Digital animation seems to usually do the best, I presume this is because it appeals to a wide range of people")
+    print("Overall, it seems that making movies that appeal to everyone, and releasing them in the summer is the best chance for making a high earning movie")
+
+def do_analysis_all():
+    earnings_correlation()
+    describe_revenue()
+    season_earnings()
+    genre_earnings()
+    production_method_earnings()
+    ratings_earnings()
+
+
+#ML Analysis
+def format_data():
+    '''Fixing NaN values by imputing most numeric values with median, due to skewness, except for month, which is imputed with mode. Any string columns are removed'''
+    df_ml = pd.read_csv("movie_data.csv")
+    #dropping rows without target
+    df_ml = df_ml.dropna(subset=["Total Box Office Revenue"])
+    #dropping text columns we can't use
+    df_ml = df_ml.drop(columns=[
+        "Title", "Season", "MPAA Rating", "Genre", "Franchise", "Production Method"
+    ])
+    #dropping the time-data columns since we have month and year of film release separated
+    df_ml = df_ml.drop(columns=[
+        "Release Date", "Video Release Date"
+    ])
+    #filling in with median
+    num_cols = [
+        "Inflation Adjusted Domestic Revenue", "Domestic Revenue",
+        "International Revenue", "Domestic Video Revenue",
+        "Opening Weekend", "Production Budget", "Theater Number",
+        "Runtime", "Domestic DVD Revenue", "Domestic Bluray Revenue",
+        "Year", "Profit"
+    ]
+    for col in num_cols:
+        df_ml[col] = df_ml[col].fillna(df_ml[col].median())
+    #filling in month with mode
+    df_ml["Month"] = df_ml["Month"].fillna(df_ml["Month"].mode()[0])
+    #saving df
+    df_ml.to_csv("ml_movie_data.csv", index=False)
+    return df_ml
+
+
+def create_y(df_ml):
+    '''getting y for X and y'''
+    # Log-transform the target due to skewness of target
+    df_ml["log_revenue"] = np.log1p(df_ml["Total Box Office Revenue"])
+    y = df_ml["log_revenue"]
+    return y
+
+
+def create_X_y_after():
+    '''This is used after the movie has been released for awhile'''
+    df_ml = pd.read_csv("ml_movie_data.csv")
+    y = create_y(df_ml)
+    X = df_ml[["Inflation Adjusted Domestic Revenue","Domestic Revenue","Domestic Video Revenue","Opening Weekend","Production Budget","Theater Number","Runtime","Domestic DVD Revenue","Domestic Bluray Revenue","Month","Year","Profit"]]
+    return X,y
+
+
+def create_X_y_opening():
+    '''This is used after the movie has had its opening weekend'''
+    df_ml = pd.read_csv("ml_movie_data.csv")
+    y = create_y(df_ml)
+    X = df_ml[["Opening Weekend","Production Budget","Theater Number","Runtime","Month","Year"]]
+    return X,y
+
+
+def create_X_y_before():
+    '''This is used before the movie comes out and we only know the budget, year and month it will be out'''
+    df_ml = pd.read_csv("ml_movie_data.csv")
+    y = create_y(df_ml)
+    X = df_ml[["Production Budget","Runtime","Month"]]
+    return X,y
+
+
+def find_most_important_features_plot(X,y):
+    '''Finds most important labels, from X, for predicting a target, y, shown with shap'''
+    model = RandomForestRegressor(random_state=42)
+    model.fit(X, y)
+    explainer = shap.TreeExplainer(model)
+    shap_values = explainer.shap_values(X)
+    shap.summary_plot(shap_values, X)
+
+
+def find_most_important_features_numbers(X,y):
+    '''Finds most important labels, from X, for predicting a target, y, shown numbers from pandas sklearn'''
+    model = RandomForestRegressor(random_state=42)
+    model.fit(X, y)
+    print("From pandas:")
+    rf_importances = pd.Series(model.feature_importances_, index=X.columns)
+    print(rf_importances.sort_values(ascending=False))
+    print()
+    print("From sklearn")
+    perm = permutation_importance(model, X, y, n_repeats=20, random_state=42)
+    perm_importances = pd.Series(perm.importances_mean, index=X.columns)
+    print(perm_importances.sort_values(ascending=False))
+
+
+def do_ml_analysis_plots():
+    format_data()
+    print("Most important features before a movie opens")
+    X,y=create_X_y_before()
+    find_most_important_features_plot(X,y)
+    print("Most important features right after a movie opens")
+    X,y=create_X_y_opening()
+    find_most_important_features_plot(X,y)
+    print("Most important features long after a movie opened")
+    X,y=create_X_y_after()
+    find_most_important_features_plot(X,y)
+
+
+def do_ml_analysis_numbers():
+    format_data()
+    print("Most important features before a movie opens")
+    X,y=create_X_y_before()
+    find_most_important_features_numbers(X,y)
+    print("\n")
+    print("Most important features right after a movie opens")
+    X,y=create_X_y_opening()
+    find_most_important_features_numbers(X,y)
+    print("\n")
+    print("Most important features long after a movie opened")
+    X,y=create_X_y_after()
+    find_most_important_features_numbers(X,y)
+
+
+def ml_analysis_findings(): 
+    print("Based upon the data, it seems that before a movie opens, the budget is the best predictor of revenue, bigger budget likely means bigger revenue")
+    print("After a movie has had its opening weekend, those opening weekend numbers are the best for determining overall revenue")
+    print("AFter a movie has released, then using its US domestic box office revenue is a good way to predict overall revenue, this tells us domestic contributes far more than internal toe revenue.")
 
 
 #Conclusion
@@ -491,6 +683,7 @@ def printing_full_dataset():
     pd.set_option('display.max_columns', None)
     display(df.head())
 
+
 def data_creation():
     dirty_df = retrieve_dirty_dataset_specific()
     print("dirty dataset created and saved")
@@ -500,14 +693,41 @@ def data_creation():
     print(df.head())
     return df
 
-def main():
+
+def do_analysis_specific():
+    '''Does our analysis for our specific data to answer our research question using all analysis'''
+    print("Our research question is: What features of a movie can best be used to predict its revenue?")
+    print("The following is our analysis")
+    earnings_correlation()
+    describe_revenue()
+    season_earnings()
+    genre_earnings()
+    production_method_earnings()
+    ratings_earnings()
+    print("Our general findings were:\n")
+    findings()
+    print("The answer we found was: ")
+    pass
+
+
+def totality():
     data_creation()
+    do_analysis_all()
+    findings()
+    do_ml_analysis_plots()
+    do_ml_analysis_numbers()
+    ml_analysis_findings()
     do_analysis_specific()
+
 
 
 if __name__ == "__main__":
     #printing_full_dataset()
-    main()
+    #totality()
+    #do_analysis_all()
+    do_analysis_specific()
+    #do_ml_analysis_plots()
+    #do_ml_analysis_numbers()
 
 # package installation note: first you must 'uv add' all dependencies into your environment, then you can download it.
 # uv pip install -i https://test.pypi.org/simple/ final-movie-analysis==0.1.1

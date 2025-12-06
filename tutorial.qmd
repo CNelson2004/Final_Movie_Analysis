@@ -1,0 +1,102 @@
+---
+title: "Getting Started"
+jupyter: python3
+---
+
+Here is how to use my package
+
+Note: None of these functions have any parameters, however, some of them need to be ran in a specific order, as will be discussed.
+
+Obtain the data
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import data_creation
+#Note, this will take up to 2 hours, depending on your machine speed
+data_creation()
+```
+
+If you specifically only want the dirty data and then want to clean it separately, you can use these two functions in this order. Know that you can run the dirty dataset function without running the cleaning function, but hte cleaning function requires the dirty dataset function runs before it. 
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import retrieve_dirty_dataset_specific
+retrieve_dirty_dataset_specific()
+```
+
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import retrieve_clean_dataset_specific
+retrieve_clean_dataset_specific()
+```
+
+These are the analysis functions. Please know that these will not work unless you have run the functions relating to data gathering and cleaning, specifically `data_creation`. This applies to all functions from this point on. 
+Analyze the data in general
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import do_analysis_all
+do_analysis_all()
+```
+
+If you would like to do these analyses individually, then you can use these following functions
+    [Describe what each function does and shows specifically]
+    earnings_correlation()
+    describe_revenue()
+    season_earnings()
+    genre_earnings()
+    production_method_earnings()
+    ratings_earnings()
+
+You can also use other analysis functions not included above:
+[Describe what each of them do]
+
+You can print the findings that we found from analyzing this data
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import findings
+findings()
+```
+
+Do analysis regarding feature importance in finding overall box office revenue
+If you only want plots:
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import do_ml_analysis_plots
+do_ml_analysis_plots()
+```
+
+If you want specific numbers
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import do_ml_analysis_numbers
+do_ml_analysis_numbers()
+```
+
+Again, you can print the findings that we found from analyzing this data
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import ml_analysis_findings
+ml_analysis_findings()
+```
+
+Finally, taking everything together, you can see what we found from the data in regards to our specific research question
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import do_analysis_specific
+do_analysis_specific()
+```
+
+If you would like to do these all at the same time, data gathering, cleaning, analysis, and interpretation, then you can use the 'totality' function
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import totality
+totality()
+```

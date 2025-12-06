@@ -1,0 +1,22 @@
+  project:
+    type: website
+    output-dir: docs
+
+  website:
+    title: "Universal Studios Movie Analysis Package"
+    navbar:
+      left:
+        - href: index.qmd
+          text: Home
+        - href: documentation.qmd
+          text: Documentation
+        - href: tutorial.qmd
+          text: Getting Started
+  
+  format:
+    html:
+      theme: cosmo
+      toc: true
+      code-fold: false
+      code-tools: true
+      css: styles.css
