@@ -31,7 +31,7 @@ from final_movie_analysis.functions import retrieve_clean_dataset_specific
 retrieve_clean_dataset_specific()
 ```
 
-These are the analysis functions. Please know that these will not work unless you have run the functions relating to data gathering and cleaning, specifically `data_creation`. This applies to all functions from this point on. 
+These are the analysis functions. Please know that these will not work unless you have run the functions relating to data gathering and cleaning, specifically `data_creation`. This applies to all functions from this point on.
 Analyze the data in general
 ```{python}
 import sys, os
