@@ -63,7 +63,7 @@ def get_website_info(r1: requests.Response, r2: requests.Response) -> dict[str:s
             bad_keys.append(key)
     for key in bad_keys:
         del the_movies[key]
-    return the_movies
+    return the_movies, movies
 
 
 def get_dirty_urls_for_the_numbers(the_movies:dict[str:str]):
@@ -189,8 +189,6 @@ def get_clean_and_bad_urls_for_the_numbers(urls:list[str],clean_dict: dict[str:s
                 continue
             #if it doesn't we add it to marked
             marked[i] = url
-            #This is just for my sake, so I know its working when a section is taking a long time
-            print(f"Added url number: {i}, which is {url}, to marked at ~{(time.time()-start)//60} minutes")
         #Getting time so I know its working
         print(f"Time of section {k+1}/{len(sections)} completion: ~{(time.time()-start)//60} minutes")
     #pretty printing it so I can read it    
@@ -246,7 +244,7 @@ def retrieve_information(urls: list[str], email:str = "cnelson1845@gmail.com",ro
             #this means something is wrong with the website, and we will simply consider it as the-numbers not having it.
             print(f"Because status code is not 200-Removed data for url: {url}, with status: {r.status_code}")
             continue
-        soup = BeautifulSoup(r.text)
+        soup = BeautifulSoup(r.text,features="lxml")
         #getting title and release year
         header = soup.find("h1")
         #This is here just in case
@@ -401,7 +399,7 @@ def retrieve_dirty_dataset_specific():
     '''Creates and return our specific dirty dataset dataframe, which we cleaned and used for analysis.'''
     r1,r2 = setup_2(email="cnelsosn1845@gmail.com")
     print("retrieved response objects")
-    the_movies = get_website_info(r1,r2)
+    the_movies, movies = get_website_info(r1,r2)
     print("retrieved website info")
     dirty_urls,clean_dict = get_dirty_urls_for_the_numbers(the_movies)
     print("got dirty urls")
@@ -410,11 +408,11 @@ def retrieve_dirty_dataset_specific():
     print("cleaned urls")
     dirty_df = retrieve_information(clean_urls,email="cnelson1845@gmail.com")
     print("got info from websites")
-    return dirty_df
+    return dirty_df, movies
 
 
 #Data Cleaning
-def clean_dataframe(df:pd.DataFrame):
+def clean_dataframe(df:pd.DataFrame, movies):
     '''Takes a dirty dataframe with data from the-numbers and makes it clean.'''
     #changing all None values to np.nan
     df = df.map(lambda x: np.nan if x is None else x)
@@ -444,6 +442,12 @@ def clean_dataframe(df:pd.DataFrame):
     df[cols] = df[cols].astype("Int64")
     #also making sure turning everything to strings didn't mess up the np.nans
     df = df.map(lambda x: np.nan if x == 'nan' else x)
+    #Making sure every movie title has its correct year and month if they are missing 
+    movies['Release date'] = pd.to_datetime(movies['Release date'])
+    lookup = movies.set_index('Title')['Release date']
+    df['Release Date'] = df['Release Date'].fillna(df['Title'].map(lookup))
+    cols = ["Release Date", "Video Release Date"]
+    df[cols] = df[cols].apply(pd.to_datetime, errors="coerce")
     return df
 
 
@@ -469,6 +473,9 @@ def add_columns_to_df(df:pd.DataFrame):
     df["Season"] = df["Month"].apply(get_season)
     #adding profit column (Total Box Office Revenue - production budget)
     df["Profit"] = df["Total Box Office Revenue"] - df["Production Budget"]
+    #Removing any rows that have the wrong year
+    df = df[(df['Year'] >= 2014) & (df['Year'] <= 2024)]
+    #saving dataframe
     df.to_csv("movie_data.csv", index=False)
     return df
 
@@ -476,8 +483,8 @@ def add_columns_to_df(df:pd.DataFrame):
 def retrieve_clean_dataset_specific():
     '''Retrieves our specific dataset in a cleaned dataframe
         You must use output from `retrieve_dirty_dataset_specific` for this to work.'''
-    dirty_df = pd.read_csv("dirty_data.csv")
-    clean_df = clean_dataframe(dirty_df)
+    dirty_df, movies = retrieve_dirty_dataset_specific()
+    clean_df = clean_dataframe(dirty_df, movies)
     full_df = add_columns_to_df(clean_df)
     return full_df
 
@@ -727,11 +734,12 @@ def totality():
 
 if __name__ == "__main__":
     #printing_full_dataset()
-    totality()
+    #totality()
     #do_analysis_all()
-    #do_analysis_specific()
+    do_analysis_specific()
     #do_ml_analysis_plots()
     #do_ml_analysis_numbers()
+    #retrieve_clean_dataset_specific()
 
 # package installation note: first you must 'uv add' all dependencies into your environment, then you can download it.
 # uv pip install -i https://test.pypi.org/simple/ final-movie-analysis==0.1.1

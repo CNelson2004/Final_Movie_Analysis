@@ -3,22 +3,11 @@ title: "Documentation"
 ---
 
 Functions:
-`retrieve_dirty_dataset_specific()`
-This function requires no parameters. 
-This function creates a new dataset from scratch by scraping the web, specifically the websites of wikipedia and the-numbers.
-It saves a pandas dataframe of this dirty data as a csv under the title 'dirty_data.csv'.
-
-
-`retrieve_clean_dataset_specific()`
-This function requires no parameters. However, `retrieve_dirty_dataset_specific` must be ran before this function can be used.
-It takes the dataframe, which was saved as a csv by `retrieve_dirty_dataset_specific` and cleans the data.
-It also adds the new columns Season and Profit.
-It saves this new pandas dataframe as a csv under the title 'movie_data.csv'.
-
-
 `data_creation()`
 This function requires no parameters.
-It is composed of `retrieve_dirty_dataset_specific` and `retrieve_clean_dataset_specific` and performs those two actions at once
+This function creates a new dataset from scratch by scraping the web, specifically the websites of wikipedia and the-numbers.
+It saves a pandas dataframe of this dirty data as a csv under the title 'dirty_data.csv'. Then it takes the dataframe and cleans the data.
+It also adds the new columns Season and Profit. It saves this new clean pandas dataframe as a csv under the title 'movie_data.csv'.
 
 
 `do_analysis_all()`

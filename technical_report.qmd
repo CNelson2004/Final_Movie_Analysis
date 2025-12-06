@@ -48,13 +48,13 @@ Success Criteria:
 * A separated .csv was created for Machine Learning Analysis wherein the target, Total Box Office Revenue, was analyzed as a log of the original target due to the skewness of the target data 
 
 3. _Analysis workflow:_ 
-* coralate all the data to see what has an efect on incume
-* find the NAs for refrence
-* plot the money aganst oneanother to check for anomalys
-* find the avrage revinue for each year and then plot it for clearere visuals
+* correlate all the data to see what has an effect on income
+* find the NAs for reference
+* plot the money against one another to check for anomalies
+* find the average revenue for each year and then plot it for clearer visuals
 * find the statistics for some of the means
-* plot the catigorical data with regarrds to the Inflation Adjusted Domestic Revenue
-"we used some basic analasis such as  coralation, plots to visulise it (mostly line plots but some box plots for catagrorical data). this requiered only a few changes such as adding a colume for year or doing basic math, mostly wit dates, to get usable numbers for plots and coralation. there are some NAs in the data set, around 60 to 70 for each columne. the hiest one was 146 but that was Franchise wich wasnt really used in any analasis"
+* plot the categorical data with regards to the Inflation Adjusted Domestic Revenue
+"We used some basic analysis such as  correlation, plots to visualize it (mostly line plots but some box plots for categorical data). This required only a few changes such as adding a column for year or doing basic math, mostly wit dates, to get usable numbers for plots and correlation. There are some NAs in the data set, around 60 to 70 for each column. The highest one was 146 but that was Franchise which wasn't really used in any analysis"
 
 4. _Tooling:_ `TODO - list packages, environments, and reproducibility steps`
 * Packages: The packages used were: 
