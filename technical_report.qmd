@@ -54,6 +54,7 @@ Success Criteria:
 * find the average revenue for each year and then plot it for clearer visuals
 * find the statistics for some of the means
 * plot the categorical data with regards to the Inflation Adjusted Domestic Revenue
+
 "We used some basic analysis such as  correlation, plots to visualize it (mostly line plots but some box plots for categorical data). This required only a few changes such as adding a column for year or doing basic math, mostly wit dates, to get usable numbers for plots and correlation. There are some NAs in the data set, around 60 to 70 for each column. The highest one was 146 but that was Franchise which wasn't really used in any analysis"
 
 4. _Tooling:_ `TODO - list packages, environments, and reproducibility steps`
