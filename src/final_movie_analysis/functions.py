@@ -7,7 +7,6 @@ import lxml
 import re
 import time
 import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.inspection import permutation_importance
 import shap
@@ -496,6 +495,11 @@ def earnings_correlation():
     print(df.corr(numeric_only=True))
 
 
+def get_NAs():
+    df = pd.read_csv("movie_data.csv")
+    print(df.isna().sum())
+
+
 def graph_revenue():
     '''Shows revenue of movies'''
     df = pd.read_csv("movie_data.csv")
@@ -503,11 +507,49 @@ def graph_revenue():
     mean_of = pd.DataFrame()
     mean_of = df.groupby('Release Date')[['Inflation Adjusted Domestic Revenue','Domestic Revenue', 'Total Box Office Revenue','International Revenue','Domestic Video Revenue']].mean()
     # 'Total Box Office Revenue','International Revenue',
-    mean_of[['Inflation Adjusted Domestic Revenue','Domestic Revenue','Domestic Video Revenue']].plot()
+    fig1, ax1 = plt.subplots()
+    mean_of[['Inflation Adjusted Domestic Revenue','Domestic Revenue','Domestic Video Revenue']].plot(ax=ax1)
     plt.xticks(rotation=45)
-    mean_of[['Total Box Office Revenue','International Revenue']].plot()
+    fig1.savefig("domestic_revenues.png", bbox_inches='tight', dpi=300)
+    fig2, ax2 = plt.subplots()
+    mean_of[['Total Box Office Revenue','International Revenue']].plot(ax=ax2)
     plt.xticks(rotation=45)
+    fig2.savefig("international_revenues.png", bbox_inches='tight', dpi=300)
     # the graphs show the correlations and the difference in there earnings
+    plt.show()
+
+
+def graph_revenue_by_year():
+    df = pd.read_csv("movie_data.csv")
+    df['Release_Date'] = pd.to_datetime(df['Release Date'])
+    df['year'] = df['Release_Date'].dt.year
+    yearly = df.groupby('year')['Inflation Adjusted Domestic Revenue'].mean().reset_index()
+    fig, ax = plt.subplots()
+    ax.plot(yearly['year'], yearly['Inflation Adjusted Domestic Revenue'])
+    ax.set_xlabel('Year')
+    ax.set_ylabel('Avg Inflation-Adjusted Domestic Revenue')
+    ax.set_title('Average Revenue by Year')
+    plt.xticks(rotation=45)
+    fig.savefig("revenue_by_year.png", bbox_inches='tight', dpi=300)
+    plt.show()
+
+
+def get_2019_movies():
+    df = pd.read_csv("movie_data.csv")
+    for title in df.loc[df['Year'] == 2019, 'Title']:
+        print(title)
+    print("There were only two movies this year, and it seems neither did well.")
+
+
+def graph_revenue_and_profit():
+    df = pd.read_csv("movie_data.csv")
+    mean_of = pd.DataFrame()
+    mean_of = df.groupby('Release Date')[['Total Box Office Revenue','Profit']].mean()
+    # 'Total Box Office Revenue','International Revenue',
+    fig, ax = plt.subplots()
+    mean_of[['Total Box Office Revenue','Profit']].plot(ax=ax)
+    plt.xticks(rotation=45)
+    fig.savefig("revenue_and_profit.png", bbox_inches='tight', dpi=300)
     plt.show()
 
 
@@ -522,52 +564,81 @@ def describe_revenue():
 def season_earnings():
     '''Returns revenue by season'''
     df = pd.read_csv("movie_data.csv")
-    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Season')
+    fig, ax = plt.subplots()
+    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Season',ax=ax)
     plt.title('Revenue by Season of Movie Release')
+    fig.savefig("revenue_by_season", bbox_inches='tight', dpi=300)
     plt.show()
 
 
 def genre_earnings():
     '''Returns revenue by genre'''
     df = pd.read_csv("movie_data.csv")
-    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Genre')
+    fig, ax = plt.subplots()
+    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Genre',ax=ax)
     plt.xticks(rotation=45)
     plt.title('Revenue by Genre')
+    fig.savefig("revenue_by_genre.png", bbox_inches='tight', dpi=300)
     plt.show()
 
 
 def production_method_earnings():
     '''Returns revenue for different production methods'''
     df = pd.read_csv("movie_data.csv")
-    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Production Method')
+    fig, ax = plt.subplots()
+    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Production Method',ax=ax)
     plt.xticks(rotation=45)
-    plt.title('Revenue by production method')
+    plt.title('Revenue by Production Method')
+    fig.savefig("revenue_by_production_method.png", bbox_inches='tight', dpi=300)
     plt.show()
 
 
 def ratings_earnings():
     '''Returns revenue by rating'''
     df = pd.read_csv("movie_data.csv")
-    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='MPAA Rating')
+    fig, ax = plt.subplots()
+    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='MPAA Rating',ax=ax)
     plt.xticks(rotation=45)
+    fig.savefig("revenue_by_rating.png", bbox_inches='tight', dpi=300)
     plt.show()
 
 
-def findings():
-    '''prints the findings from our analysis'''
-    print("product budget is most strongly correlated with international earnings, this implies that the high earning movies had the most funding (on average)")
-    print("Summer is the time for big box office hits, and fall is the time for movies that don't do well")
-    print("Adventure has the largest range, and seems to have the best chance to do well, but action is close behind")
-    print("Digital animation seems to usually do the best, I presume this is because it appeals to a wide range of people")
-    print("Overall, it seems that making movies that appeal to everyone, and releasing them in the summer is the best chance for making a high earning movie")
-
-def do_analysis_all():
-    earnings_correlation()
+def analyze_revenue():
     describe_revenue()
+    graph_revenue()
+    graph_revenue_by_year()
+    get_2019_movies()
+    graph_revenue_and_profit()
+
+
+def revenue_findings():
+    print("It seems Universal has done fairly well during this time period before 2019.")
+    print("However, this was only a misstep, although a costly one, as they have reached back into their pre-2019 revenue range")
+
+
+def factors_analysis():
+    get_NAs()
+    earnings_correlation()
     season_earnings()
     genre_earnings()
     production_method_earnings()
     ratings_earnings()
+
+
+def factors_findings():
+    '''prints the findings from our analysis'''
+    print("Product Budget is most strongly correlated with international earnings, this implies that the high earning movies had the most funding (on average)")
+    print("Summer is the time for big box office hits.")
+    print("Adventure movies have the largest range, but action movies and musical movies are close behind, with musical getting the higher revenue on average")
+    print("Digital animation seems to do the best on average, I presume this is because it appeals to a wide range of people")
+    print("Overall, it seems that making movies that appeal to everyone, thus PG with a genre of Adventure, Action, or Musical, with a high budget and releasing it in the summer is the best chance for making a high earning movie")
+
+
+def all_analysis():
+    factors_analysis()
+    factors_findings()
+    analyze_revenue()
+    revenue_findings()
 
 
 #ML Analysis
@@ -613,7 +684,7 @@ def create_X_y_after():
     '''This is used after the movie has been released for awhile'''
     df_ml = pd.read_csv("ml_movie_data.csv")
     y = create_y(df_ml)
-    X = df_ml[["Inflation Adjusted Domestic Revenue","Domestic Revenue","Domestic Video Revenue","Opening Weekend","Production Budget","Theater Number","Runtime","Domestic DVD Revenue","Domestic Bluray Revenue","Month","Year","Profit"]]
+    X = df_ml[["International Revenue","Inflation Adjusted Domestic Revenue","Domestic Revenue","Domestic Video Revenue","Opening Weekend","Production Budget","Theater Number","Runtime","Domestic DVD Revenue","Domestic Bluray Revenue","Month","Year","Profit"]]
     return X,y
 
 
@@ -685,9 +756,12 @@ def do_ml_analysis_numbers():
 
 
 def ml_analysis_findings(): 
-    print("Based upon the data, it seems that before a movie opens, the budget is the best predictor of revenue, bigger budget likely means bigger revenue")
-    print("After a movie has had its opening weekend, those opening weekend numbers are the best for determining overall revenue")
-    print("AFter a movie has released, then using its US domestic box office revenue is a good way to predict overall revenue, this tells us domestic contributes far more than internal toe revenue.")
+    print("Regarding the shap graphs, red refers to high values and blue is low values.")
+    print("Clustering shows the impact of that feature. If there is clustering near 0, then little impact is had from that feature. Spread out means large impact on target feature, and if there is clustering to the left or right, it shows skewness.")
+    print("Based upon the graphs, it seems that before a movie opens, the budget is the best predictor of revenue, bigger budget likely means bigger revenue, in both positive and negative directions.")
+    print("After a movie has had its opening weekend, those opening weekend numbers are the best for determining overall revenue, and those values are skewed toward the positive side.")
+    print("After a movie has released, then using its international revenue, (which is skewed right), is a good way to predict overall revenue, this tells us international contributes far more than domestic revenue to overall revenue.")
+    print("Thus appealing to people outside of the US is important, as much as if not more so than appealing to people within the US. I believe this is due to the fact that international as a whole is a larger population than just the US population.")
 
 
 #Conclusion
@@ -700,30 +774,28 @@ def printing_full_dataset():
 
 
 def data_creation():
-    dirty_df = retrieve_dirty_dataset_specific()
-    print("dirty dataset created and saved")
-    print(dirty_df.head())
     df = retrieve_clean_dataset_specific()
-    print("clean dataset created and saved")
+    print("dataset created and saved")
     print(df.head())
     return df
 
 
 def do_analysis_specific():
     '''Does our analysis for our specific data to answer our research question using all analysis'''
-    print("Our research question is: What features of a movie can best be used to predict its revenue?")
-    print("The following is our analysis")
-    do_analysis_all()
+    print("Our research question is: What features of a movie have the most influence and which contribute most to a high revenue? (Concerning Universal movies from 2014-2024)?")
+    print("\nThe following is our analysis:")
+    factors_analysis()
     print("Our general findings were:\n")
-    findings()
-    print("The following is our machine learning analysis")
-    do_ml_analysis_numbers()
+    factors_findings()
+    print("\nThe following is our machine learning analysis:")
     do_ml_analysis_plots()
     print("Our general findings were:\n")
     ml_analysis_findings()
-    print("The answer we found was: ")
-    print("This is because: ...")
-    pass
+    print("\nAfter our analysis, our end answer was: The features with the most influence on the end total box office revenue change depending on whether the movie has come out and for how long.")
+    print("If it has been out awhile, then its international revenue, if it just came out, its the opening weekend numbers, if it hasn't come out, then its the production budget.")
+    print("If you want better odds at making a high revenue movie, then make an Adventure, Action, or Musical Movie using Digital Animation.")
+    print("Make sure it is PG and that you release it in the summer.")
+    print("You should also begin with as large a production budget as possible, make sure it appeals to those outside as well as inside the US, and choose the best weekend in the Summer to release it for the best opening weekend revenue possible.")
 
 
 def totality():
@@ -731,15 +803,14 @@ def totality():
     do_analysis_specific()
 
 
-
 if __name__ == "__main__":
     #printing_full_dataset()
     #totality()
-    #do_analysis_all()
+    #data_creation()
     do_analysis_specific()
+    #all_analysis()
     #do_ml_analysis_plots()
     #do_ml_analysis_numbers()
-    #retrieve_clean_dataset_specific()
 
 # package installation note: first you must 'uv add' all dependencies into your environment, then you can download it.
 # uv pip install -i https://test.pypi.org/simple/ final-movie-analysis==0.1.1
