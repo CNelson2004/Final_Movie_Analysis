@@ -509,10 +509,12 @@ def graph_revenue():
     # 'Total Box Office Revenue','International Revenue',
     fig1, ax1 = plt.subplots()
     mean_of[['Inflation Adjusted Domestic Revenue','Domestic Revenue','Domestic Video Revenue']].plot(ax=ax1)
+    plt.ylabel("Avg Inflation-Adjusted Domestic Revenue")
     plt.xticks(rotation=45)
     fig1.savefig("domestic_revenues.png", bbox_inches='tight', dpi=300)
     fig2, ax2 = plt.subplots()
     mean_of[['Total Box Office Revenue','International Revenue']].plot(ax=ax2)
+    plt.ylabel("Avg Inflation-Adjusted Domestic Revenue")
     plt.xticks(rotation=45)
     fig2.savefig("international_revenues.png", bbox_inches='tight', dpi=300)
     # the graphs show the correlations and the difference in there earnings
@@ -548,6 +550,7 @@ def graph_revenue_and_profit():
     # 'Total Box Office Revenue','International Revenue',
     fig, ax = plt.subplots()
     mean_of[['Total Box Office Revenue','Profit']].plot(ax=ax)
+    plt.ylabel("Avg Inflation-Adjusted Domestic Revenue")
     plt.xticks(rotation=45)
     fig.savefig("revenue_and_profit.png", bbox_inches='tight', dpi=300)
     plt.show()
@@ -566,6 +569,7 @@ def season_earnings():
     df = pd.read_csv("movie_data.csv")
     fig, ax = plt.subplots()
     df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Season',ax=ax)
+    plt.ylabel("Total Box Office Revenue")
     plt.title('Revenue by Season of Movie Release')
     fig.savefig("revenue_by_season", bbox_inches='tight', dpi=300)
     plt.show()
@@ -576,6 +580,7 @@ def genre_earnings():
     df = pd.read_csv("movie_data.csv")
     fig, ax = plt.subplots()
     df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Genre',ax=ax)
+    plt.ylabel("Total Box Office Revenue")
     plt.xticks(rotation=45)
     plt.title('Revenue by Genre')
     fig.savefig("revenue_by_genre.png", bbox_inches='tight', dpi=300)
@@ -587,6 +592,7 @@ def production_method_earnings():
     df = pd.read_csv("movie_data.csv")
     fig, ax = plt.subplots()
     df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Production Method',ax=ax)
+    plt.ylabel("Total Box Office Revenue")
     plt.xticks(rotation=45)
     plt.title('Revenue by Production Method')
     fig.savefig("revenue_by_production_method.png", bbox_inches='tight', dpi=300)
@@ -598,6 +604,7 @@ def ratings_earnings():
     df = pd.read_csv("movie_data.csv")
     fig, ax = plt.subplots()
     df.boxplot(column='Inflation Adjusted Domestic Revenue', by='MPAA Rating',ax=ax)
+    plt.ylabel("Total Box Office Revenue")
     plt.xticks(rotation=45)
     fig.savefig("revenue_by_rating.png", bbox_inches='tight', dpi=300)
     plt.show()
@@ -704,13 +711,27 @@ def create_X_y_before():
     return X,y
 
 
-def find_most_important_features_plot(X,y):
+def find_most_important_features_plot(X,y,XNum):
     '''Finds most important labels, from X, for predicting a target, y, shown with shap'''
     model = RandomForestRegressor(random_state=42)
     model.fit(X, y)
     explainer = shap.TreeExplainer(model)
     shap_values = explainer.shap_values(X)
-    shap.summary_plot(shap_values, X)
+    shap.summary_plot(shap_values, X, show=False)
+    ax = plt.gca()
+    if XNum == 1:
+        ax.set_title("Feature Importance Regarding Total Box Office Revenue Before Movie Opens")
+        fig = plt.gcf()
+        fig.savefig("shap_before.png", bbox_inches='tight', dpi=300)
+    elif XNum == 2:
+        ax.set_title("Feature Importance Regarding Total Box Office Revenue Once Movie Opens")
+        fig = plt.gcf()
+        fig.savefig("shap_once.png", bbox_inches='tight', dpi=300)
+    elif XNum == 3:
+        ax.set_title("Feature Importance Regarding Total Box Office Revenue After Movie Opens")
+        fig = plt.gcf()
+        fig.savefig("shap_after.png", bbox_inches='tight', dpi=300)
+    plt.show()
 
 
 def find_most_important_features_numbers(X,y):
@@ -731,13 +752,13 @@ def do_ml_analysis_plots():
     format_data()
     print("Most important features before a movie opens")
     X,y=create_X_y_before()
-    find_most_important_features_plot(X,y)
+    find_most_important_features_plot(X,y,1)
     print("Most important features right after a movie opens")
     X,y=create_X_y_opening()
-    find_most_important_features_plot(X,y)
+    find_most_important_features_plot(X,y,2)
     print("Most important features long after a movie opened")
     X,y=create_X_y_after()
-    find_most_important_features_plot(X,y)
+    find_most_important_features_plot(X,y,3)
 
 
 def do_ml_analysis_numbers():
@@ -756,7 +777,7 @@ def do_ml_analysis_numbers():
 
 
 def ml_analysis_findings(): 
-    print("Regarding the shap graphs, red refers to high values and blue is low values.")
+    print("Regarding the shap graphs, which were made based on a Random Forest Model, red refers to high values and blue is low values.")
     print("Clustering shows the impact of that feature. If there is clustering near 0, then little impact is had from that feature. Spread out means large impact on target feature, and if there is clustering to the left or right, it shows skewness.")
     print("Based upon the graphs, it seems that before a movie opens, the budget is the best predictor of revenue, bigger budget likely means bigger revenue, in both positive and negative directions.")
     print("After a movie has had its opening weekend, those opening weekend numbers are the best for determining overall revenue, and those values are skewed toward the positive side.")
@@ -807,8 +828,9 @@ if __name__ == "__main__":
     #printing_full_dataset()
     #totality()
     #data_creation()
-    do_analysis_specific()
-    #all_analysis()
+    #do_analysis_specific()
+    all_analysis()
+    #factors_analysis()
     #do_ml_analysis_plots()
     #do_ml_analysis_numbers()
 
