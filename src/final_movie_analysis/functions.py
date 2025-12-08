@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.inspection import permutation_importance
 import shap
+from scipy import stats
+import pingouin as pg
 
 
 #Data Gathering
@@ -525,13 +527,23 @@ def graph_revenue_by_year():
     df = pd.read_csv("movie_data.csv")
     df['Release_Date'] = pd.to_datetime(df['Release Date'])
     df['year'] = df['Release_Date'].dt.year
-    yearly = df.groupby('year')['Inflation Adjusted Domestic Revenue'].mean().reset_index()
+    yearly = df.groupby('year')[['Inflation Adjusted Domestic Revenue','Domestic Revenue','International Revenue',
+                                'Total Box Office Revenue']].mean().reset_index()
     fig, ax = plt.subplots()
-    ax.plot(yearly['year'], yearly['Inflation Adjusted Domestic Revenue'])
+    # Plot each line separately and give labels
+    ax.plot(yearly['year'], yearly['Inflation Adjusted Domestic Revenue'],
+            label='Inflation Adjusted Domestic Revenue')
+    ax.plot(yearly['year'], yearly['Domestic Revenue'],
+            label='Domestic Revenue')
+    ax.plot(yearly['year'], yearly['Total Box Office Revenue'],
+            label='Total Box Office Revenue')
+    ax.plot(yearly['year'], yearly['International Revenue'],
+            label='International Revenue')
     ax.set_xlabel('Year')
-    ax.set_ylabel('Avg Inflation-Adjusted Domestic Revenue')
+    ax.set_ylabel('Revenue')
     ax.set_title('Average Revenue by Year')
     plt.xticks(rotation=45)
+    ax.legend()
     fig.savefig("revenue_by_year.png", bbox_inches='tight', dpi=300)
     plt.show()
 
@@ -550,7 +562,7 @@ def graph_revenue_and_profit():
     # 'Total Box Office Revenue','International Revenue',
     fig, ax = plt.subplots()
     mean_of[['Total Box Office Revenue','Profit']].plot(ax=ax)
-    plt.ylabel("Avg Inflation-Adjusted Domestic Revenue")
+    plt.ylabel("Money")
     plt.xticks(rotation=45)
     fig.savefig("revenue_and_profit.png", bbox_inches='tight', dpi=300)
     plt.show()
@@ -568,7 +580,7 @@ def season_earnings():
     '''Returns revenue by season'''
     df = pd.read_csv("movie_data.csv")
     fig, ax = plt.subplots()
-    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Season',ax=ax)
+    df.boxplot(column='Total Box Office Revenue', by='Season',ax=ax)
     plt.ylabel("Total Box Office Revenue")
     plt.title('Revenue by Season of Movie Release')
     fig.savefig("revenue_by_season", bbox_inches='tight', dpi=300)
@@ -579,7 +591,7 @@ def genre_earnings():
     '''Returns revenue by genre'''
     df = pd.read_csv("movie_data.csv")
     fig, ax = plt.subplots()
-    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Genre',ax=ax)
+    df.boxplot(column='Total Box Office Revenue', by='Genre',ax=ax)
     plt.ylabel("Total Box Office Revenue")
     plt.xticks(rotation=45)
     plt.title('Revenue by Genre')
@@ -591,7 +603,7 @@ def production_method_earnings():
     '''Returns revenue for different production methods'''
     df = pd.read_csv("movie_data.csv")
     fig, ax = plt.subplots()
-    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='Production Method',ax=ax)
+    df.boxplot(column='Total Box Office Revenue', by='Production Method',ax=ax)
     plt.ylabel("Total Box Office Revenue")
     plt.xticks(rotation=45)
     plt.title('Revenue by Production Method')
@@ -603,19 +615,106 @@ def ratings_earnings():
     '''Returns revenue by rating'''
     df = pd.read_csv("movie_data.csv")
     fig, ax = plt.subplots()
-    df.boxplot(column='Inflation Adjusted Domestic Revenue', by='MPAA Rating',ax=ax)
+    df.boxplot(column='Total Box Office Revenue', by='MPAA Rating',ax=ax)
     plt.ylabel("Total Box Office Revenue")
     plt.xticks(rotation=45)
     fig.savefig("revenue_by_rating.png", bbox_inches='tight', dpi=300)
     plt.show()
 
 
+def season_significance():
+    #getting rid of NA values for some other analysis
+    df = pd.read_csv("movie_data.csv")
+    print("Size of dataset before dropping NA values for Season and Inflation Adjusted Domestic Revenue")
+    print(len(df))
+    df = df.dropna(subset=['Season'])
+    df = df.dropna(subset=['Inflation Adjusted Domestic Revenue'])
+    print("Size of dataset after dropping NA values")
+    print(len(df))
+    print("Size of groups within Season")
+    print(df["Season"].value_counts())
+    groups = [df[df['Season'] == s]['Inflation Adjusted Domestic Revenue']
+          for s in df['Season'].unique()]
+    f_stat, p_value = stats.f_oneway(*groups)
+    print("F value and p value of Season as in relation to Inflation Adjusted Domestic Revenue")
+    print("F=",f_stat,"p =", p_value)
+    gh = pg.pairwise_gameshowell(dv='Inflation Adjusted Domestic Revenue',between="Season",data=df)
+    print("Actual significance between groups")
+    print(gh)
+
+
+def rating_significance():
+    #getting rid of NA values for some other analysis
+    df = pd.read_csv("movie_data.csv")
+    print("Size of dataset before dropping NA values for Rating and Inflation Adjusted Domestic Revenue")
+    print(len(df))
+    df = df.dropna(subset=['MPAA Rating'])
+    df = df.dropna(subset=['Inflation Adjusted Domestic Revenue'])
+    print("Size of dataset after dropping NA values")
+    print(len(df))
+    print("Size of groups within Rating")
+    print(df["MPAA Rating"].value_counts())
+    groups = [df[df['MPAA Rating'] == s]['Inflation Adjusted Domestic Revenue']
+          for s in df['MPAA Rating'].unique()]
+    f_stat, p_value = stats.f_oneway(*groups)
+    print("F value and p value of Rating as in relation to Inflation Adjusted Domestic Revenue")
+    print("F=",f_stat,"p =", p_value)
+    gh = pg.pairwise_gameshowell(dv='Inflation Adjusted Domestic Revenue',between="MPAA Rating",data=df)
+    print("Actual significance between groups")
+    print(gh)
+
+
+def genre_significance():
+    #getting rid of NA values for some other analysis
+    df = pd.read_csv("movie_data.csv")
+    print("Size of dataset before dropping NA values for Genre and Inflation Adjusted Domestic Revenue")
+    print(len(df))
+    df = df.dropna(subset=['Genre'])
+    df = df.dropna(subset=['Inflation Adjusted Domestic Revenue'])
+    print("Size of dataset after dropping NA values")
+    print(len(df))
+    print("Size of groups within Genre")
+    print(df["Genre"].value_counts())
+    groups = [df[df['Genre'] == s]['Inflation Adjusted Domestic Revenue']
+          for s in df['Genre'].unique()]
+    f_stat, p_value = stats.f_oneway(*groups)
+    print("F value and p value of Genre as in relation to Inflation Adjusted Domestic Revenue")
+    print("F=",f_stat,"p =", p_value)
+    gh = pg.pairwise_gameshowell(dv='Inflation Adjusted Domestic Revenue',between="Genre",data=df)
+    print("Actual significance between groups")
+    print(gh)
+
+
+def production_method_significance():
+    #getting rid of NA values for some other analysis
+    df = pd.read_csv("movie_data.csv")
+    print("Size of dataset before dropping NA values for Production Method and Inflation Adjusted Domestic Revenue")
+    print(len(df))
+    df = df.dropna(subset=['Production Method'])
+    df = df.dropna(subset=['Inflation Adjusted Domestic Revenue'])
+    print("Size of dataset after dropping NA values")
+    print(len(df))
+    print("Size of groups within Production Method")
+    print(df["Production Method"].value_counts())
+    groups = [df[df['Production Method'] == s]['Inflation Adjusted Domestic Revenue']
+          for s in df['Production Method'].unique()]
+    f_stat, p_value = stats.f_oneway(*groups)
+    print("F value and p value of Production Method as in relation to Inflation Adjusted Domestic Revenue")
+    print("F=",f_stat,"p =", p_value)
+    gh = pg.pairwise_gameshowell(dv='Inflation Adjusted Domestic Revenue',between="Production Method",data=df)
+    print("Actual significance between groups")
+    print(gh)
+
+
 def analyze_revenue():
+    print("Statistical Description of Revenue features")
     describe_revenue()
+    print("Graphs related to revenue and time")
     graph_revenue()
     graph_revenue_by_year()
-    get_2019_movies()
     graph_revenue_and_profit()
+    print("Checking out 2019")
+    get_2019_movies()
 
 
 def revenue_findings():
@@ -624,20 +723,30 @@ def revenue_findings():
 
 
 def factors_analysis():
+    print("Number of NAs in each column/feature")
     get_NAs()
+    print("Correlations between features")
     earnings_correlation()
+    print("Graphs regarding specific features and revenue")
     season_earnings()
+    ratings_earnings()
     genre_earnings()
     production_method_earnings()
-    ratings_earnings()
+    print("Significance between Various features")
+    season_significance()
+    rating_significance()
+    genre_significance()
+    production_method_significance()
 
 
 def factors_findings():
     '''prints the findings from our analysis'''
     print("Product Budget is most strongly correlated with international earnings, this implies that the high earning movies had the most funding (on average)")
     print("Summer is the time for big box office hits.")
-    print("Adventure movies have the largest range, but action movies and musical movies are close behind, with musical getting the higher revenue on average")
-    print("Digital animation seems to do the best on average, I presume this is because it appeals to a wide range of people")
+    print("Although PG and R may have similar medians, PG often outperforms R movies.")
+    print("Musicals have the highest median revenue, but Action has a far larger range, and has a greater number of movies with higher revenues, similar statements can be said about Adventure")
+    print("Digital animation seems to do the best on average, I presume this is because it appeals to a wide range of people, although Live Action is also very capable of doing well.")
+    print("Regarding significance, there is only true statistical significance between Summer and Fall in Seasons, and PG and R in Ratings")
     print("Overall, it seems that making movies that appeal to everyone, thus PG with a genre of Adventure, Action, or Musical, with a high budget and releasing it in the summer is the best chance for making a high earning movie")
 
 
@@ -786,7 +895,7 @@ def ml_analysis_findings():
 
 
 #Conclusion
-def printing_full_dataset():
+def print_dataset_head():
     from IPython.display import display
 
     df = pd.read_csv("movie_data.csv")
@@ -825,7 +934,7 @@ def totality():
 
 
 if __name__ == "__main__":
-    #printing_full_dataset()
+    #print_full_dataset()
     #totality()
     #data_creation()
     #do_analysis_specific()
