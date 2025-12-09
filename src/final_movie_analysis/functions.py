@@ -949,3 +949,6 @@ if __name__ == "__main__":
 
 # package installation note: first you must 'uv add' all dependencies into your environment, then you can download it.
 # uv pip install -i https://test.pypi.org/simple/ final-movie-analysis==0.1.1
+
+# test before uploading to testpypi  
+# uv run python -c "from final_movie_analysis import print_dataset_head; print_dataset_head()"
