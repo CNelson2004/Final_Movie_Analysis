@@ -11,29 +11,30 @@ This package demonstrates:
 ```bash
 pip install final-movie-analysis
 ```
+
 ## Usage
 ```py
-from final-movie-analysis import retrieve_dirty_dataset_specific, retrieve_clean_dataset_specific, do_analysis_specific
-
-#obtain dirty dataset
-dirty_df = retrieve_dirty_dataset_specific()
-print("dirty dataset created and saved")
-#clean the dirty dataset
-df = retrieve_clean_dataset_specific(dirty_df)
-print("clean dataset created and saved")
-#analyze the clean dataset
-do_analysis_specific(df)
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import totality
+#Create and analyze the data
+totality()
 ```
 
 ## Dependencies
 - Python >= 3.12
-- ipykernel >= 7.1.0"
-- lxml >= 6.0.2"
-- matplotlib >= 3.10.7"
-- numpy >= 2.3.4"
-- pandas >= 2.3.3"
-- requests >= 2.32.5"
-- seaborn >= 0.13.2"
+- bs4>=0.0.2
+- ipykernel >= 7.1.0
+- lxml >= 6.0.2
+- matplotlib >= 3.10.7
+- numpy >= 2.3.4
+- pandas >= 2.3.3
+- requests >= 2.32.5
+- seaborn >= 0.13.2
+- pingouin>=0.5.5
+- scikit-learn>=1.7.2
+- scipy>=1.16.3
+- shap>=0.49.1
 
 ## License
 MIT

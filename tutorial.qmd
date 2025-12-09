@@ -7,45 +7,169 @@ Here is how to use my package
 
 Note: None of these functions have any parameters, however, some of them need to be ran in a specific order, as will be discussed.
 
-Obtain the data. This function creates the dirty dataset, saves it as an csv, then cleans it and saves it as a csv. 
+First, obtain the data. This function creates the dirty dataset, saves it as an csv, then cleans it and saves it as a csv. 
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
 from final_movie_analysis.functions import data_creation
-#Note, this will take up to 1.5 hours, depending on your machine speed
+#Note, this will take up to 2 hours, depending on your machine speed
 data_creation()
 ```
 
-These are the analysis functions. Please know that these will not work unless you have run the functions relating to data gathering and cleaning, specifically `data_creation`. This applies to all functions from this point on.
-Analyze the data in general
+Please know that none of the following functions will work unless you have run `data_creation`, thus creating a csv for these functions to work with.
+
+If you would like to simply see the first few rows of the dataset, run this function:
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
-from final_movie_analysis.functions import do_analysis_all
-do_analysis_all()
+from final_movie_analysis.functions import print_dataset_head
+print_dataset_head()
+```
+
+These are the analysis functions. 
+Analysis related to the factors
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import analyze_revenue
+analyze_revenue()
+```
+
+Analysis related to the revenue over time
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import factors_analysis
+factors_analysis()
+```
+
+You can also print the findings that we found from analyzing this data
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import factors_findings
+factors_findings()
+```
+
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import revenue_findings
+revenue_findings()
 ```
 
 If you would like to do these analyses individually, then you can use these following functions
-    [Describe what each function does and shows specifically]
-    earnings_correlation()
-    describe_revenue()
-    season_earnings()
-    genre_earnings()
-    production_method_earnings()
-    ratings_earnings()
 
-You can also use other analysis functions not included above:
-[Describe what each of them do]
-
-You can print the findings that we found from analyzing this data
+Here you can get the number of NAs from each column:
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
-from final_movie_analysis.functions import findings
-findings()
+from final_movie_analysis.functions import getNAs
+getNAs()
 ```
 
-Do analysis regarding feature importance in finding overall box office revenue
+Get the correlation between the features
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import earnings_correlation
+earnings_correlation()
+```
+
+Get the graph regarding seasons and revenue
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import season_earnings
+season_earnings()
+```
+
+Get the graph regarding genre and revenue
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import genre_earnings
+genre_earnings()
+```
+
+Get the graph regarding production method and revenue
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import production_method_earnings
+production_method_earnings()
+```
+
+Get the graph regarding ratings and revenue
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import ratings_earnings
+ratings_earnings()
+```
+
+If you would like to see the statistical significance of various features, then use these functions:
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import season_significance
+season_significance()
+```
+
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import rating_significance
+rating_significance()
+```
+
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import genre_significance
+genre_significance()
+```
+
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import production_method_significance
+production_method_significance()
+```
+
+If you would like a statistical description of the revenue features, run this like so:
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import describe_revenue
+describe_revenue()
+```
+
+If you would like a graph of the revenue, run this:
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import graph_revenue
+graph_revenue()
+```
+
+If you would like to simplify that to each year, run this:
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import graph_revenue_by_year
+graph_revenue_by_year()
+```
+
+If you would like to check the above graph against profit, run this function like so:
+```{python}
+import sys, os
+sys.path.append(os.path.abspath("src"))
+from final_movie_analysis.functions import graph_revenue_and_profit
+graph_revenue_and_profit()
+```
+
+Now, you can do analysis regarding feature importance in finding overall box office revenue
 If you only want plots:
 ```{python}
 import sys, os
@@ -78,7 +202,7 @@ from final_movie_analysis.functions import do_analysis_specific
 do_analysis_specific()
 ```
 
-If you would like to do these all at the same time, data gathering, cleaning, analysis, and interpretation, then you can use the 'totality' function
+If you would like to do these all at the same time, data gathering, cleaning, analysis, and interpretation, then you can use the `totality` function. (This does not require that you run `data_creation` prior to running this function.)
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
