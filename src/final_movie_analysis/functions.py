@@ -1,16 +1,16 @@
 #transferring cells from ipynb files into proper functions 
+import re
+import time
 import requests
 from bs4 import BeautifulSoup
 import numpy as np
 import pandas as pd
-import lxml
-import re
-import time
 import matplotlib.pyplot as plt
+import lxml
+from scipy import stats
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.inspection import permutation_importance
 import shap
-from scipy import stats
 import pingouin as pg
 
 

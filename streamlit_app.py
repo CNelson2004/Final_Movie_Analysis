@@ -6,7 +6,7 @@ from contextlib import redirect_stdout
 import pandas as pd
 import streamlit as st
 
-from final_movie_analysis.functions import do_analysis_specific, describe_revenue, earnings_correlation, season_significance, rating_significance, production_method_significance, genre_significance, do_ml_analysis_numbers, revenue_findings, factors_findings, ml_analysis_findings
+from final_movie_analysis.functions import describe_revenue, earnings_correlation, season_significance, rating_significance, production_method_significance, genre_significance, do_ml_analysis_numbers, revenue_findings, factors_findings, ml_analysis_findings
 from streamlit_graphs import graph_revenue, graph_revenue_by_year, graph_revenue_and_profit, season_earnings, genre_earnings, production_method_earnings, ratings_earnings, ml_graph_once, ml_graph_before, ml_graph_after, answer_question
 
 
