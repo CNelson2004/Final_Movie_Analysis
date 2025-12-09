@@ -80,6 +80,9 @@ Success Criteria:
 `_TODO: Summarize the main metrics, charts, or model diagnostics produced. Include links to figures or tables once available._`
 Main Metrics:
 the main metrics for the plots and data of importance are as fallowes
+    genaral move revinue:
+        mean = 9.1 e^7
+        sd = 1. e^8
     season of releas:
         spring has the hiest revinue (there isnt a significant difrence between any except for summer and fall summer is beter (0.011))
         fall:   mean =  5.5 e^7,    sd = 7.17 e^7
@@ -117,7 +120,10 @@ variable and prepostions plot
 Results:
 
 Limitations:
+the catigorical and numarical analasis for coralation cant show causeation so we dont know if ajusting one will directly influence the other. whats more is that none of the resolts shown significance, this means that the vareance of revinue in any of our analasises is not difrent form the avrage mean.
 
 Open Questions:
 
+
 Future Experiments:
+inorder to reduce the amount of vareance it would be smart to seporte data more an exsample might be only action movies in winter compared to adventuer movies in winter. this would hopefully reduec the vareance and creat a more acurate analsis aswll as show any influence between vareables for exsample if R movies earning less revinue because most of them where relesed in winter. an analasis of movie ratings for these movies would also be informative as to what watchers value and there for what you could charge more for.
