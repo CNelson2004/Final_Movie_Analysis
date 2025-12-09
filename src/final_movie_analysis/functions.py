@@ -513,11 +513,14 @@ def graph_revenue():
     mean_of[['Inflation Adjusted Domestic Revenue','Domestic Revenue','Domestic Video Revenue']].plot(ax=ax1)
     plt.ylabel("Avg Inflation-Adjusted Domestic Revenue")
     plt.xticks(rotation=45)
+    plt.title('Domestic Revenue over time')
     fig1.savefig("domestic_revenues.png", bbox_inches='tight', dpi=300)
+
     fig2, ax2 = plt.subplots()
     mean_of[['Total Box Office Revenue','International Revenue']].plot(ax=ax2)
     plt.ylabel("Avg Inflation-Adjusted Domestic Revenue")
     plt.xticks(rotation=45)
+    plt.title('International and Total Revenue over time')
     fig2.savefig("international_revenues.png", bbox_inches='tight', dpi=300)
     # the graphs show the correlations and the difference in there earnings
     plt.show()
@@ -529,6 +532,7 @@ def graph_revenue_by_year():
     df['year'] = df['Release_Date'].dt.year
     yearly = df.groupby('year')[['Inflation Adjusted Domestic Revenue','Domestic Revenue','International Revenue',
                                 'Total Box Office Revenue']].mean().reset_index()
+    
     fig, ax = plt.subplots()
     # Plot each line separately and give labels
     ax.plot(yearly['year'], yearly['Inflation Adjusted Domestic Revenue'],
@@ -559,11 +563,11 @@ def graph_revenue_and_profit():
     df = pd.read_csv("movie_data.csv")
     mean_of = pd.DataFrame()
     mean_of = df.groupby('Release Date')[['Total Box Office Revenue','Profit']].mean()
-    # 'Total Box Office Revenue','International Revenue',
     fig, ax = plt.subplots()
     mean_of[['Total Box Office Revenue','Profit']].plot(ax=ax)
     plt.ylabel("Money")
     plt.xticks(rotation=45)
+    plt.title('Total Revenue and Profit over time')
     fig.savefig("revenue_and_profit.png", bbox_inches='tight', dpi=300)
     plt.show()
 
@@ -571,9 +575,9 @@ def graph_revenue_and_profit():
 def describe_revenue():
     '''Shows summary statistics for three big revenue types'''
     df = pd.read_csv("movie_data.csv")
-    df['Inflation Adjusted Domestic Revenue'].describe()
-    df['Domestic Revenue'].describe()
-    df['International Revenue'].describe()
+    print(df['Inflation Adjusted Domestic Revenue'].describe(), "\n")
+    print(df['Domestic Revenue'].describe(), "\n")
+    print(df['International Revenue'].describe(), "\n")
 
 
 def season_earnings():
@@ -921,7 +925,7 @@ def do_analysis_specific():
     do_ml_analysis_plots()
     print("Our general findings were:\n")
     ml_analysis_findings()
-    print("\nAfter our analysis, our end answer was: The features with the most influence on the end total box office revenue change depending on whether the movie has come out and for how long.")
+    print("\nAfter our analysis, our end answer is: The features with the most influence on the end total box office revenue change depending on whether the movie has come out and for how long.")
     print("If it has been out awhile, then its international revenue, if it just came out, its the opening weekend numbers, if it hasn't come out, then its the production budget.")
     print("If you want better odds at making a high revenue movie, then make an Adventure, Action, or Musical Movie using Digital Animation.")
     print("Make sure it is PG and that you release it in the summer.")
