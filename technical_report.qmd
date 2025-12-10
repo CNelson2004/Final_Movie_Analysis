@@ -11,15 +11,12 @@ Project Objectives:
 identify the best movies or hiest revinue movies by find what features determine high grossing movies. In other words, how would I make a movie, and when would I release it in order to return the highest amount of revenue
 
 Key Findings:
-none of the analasises done show anyting statisticly significant when put in refrenc to the Questins though there are some small difrences in move revinue depending on the season and other facters.
+none of the analasises done show anyting statisticly significant resalts when put in refrenc to the Questins though there are some small difrences in move revinue depending on the season and other facters.
 
 Actionable Recommendations:
-Becaus there are no significant facters more analasis is highly advised. we segjest seporating data (seporating it in to season movie type and other difrences) more for deaper analasisi this would hopefully reduce the vareation. the other idea for beter analasis is to identify the high earning revinue movies and find what they have in common and use that to see what could influence revinue.
+Becaus there are no significant facters more analasis is highly advised to reduce uncertanty. we segjest seporating data (seporating it in to season movie type and other difrences) more for deaper analasisi this would hopefully reduce the vareation. the other idea for beter analasis is to identify the high earning revinue movies and find what they have in common and use that to see what could influence revinue.
 the analasis did not show any statisticly significant data but some actions that might indicate a quality movie or improve revinue are
-1)
-2)
-3)
-
+ making a movie that appeals to everyone, and releasing in the summer, with a high starting budget, could results in the higher revenue. Making a PG movie using Digital Animation in the genre of Adventure or Action, which appeals to those inside and outside the US is antisapated to result in higher overall revenue.
 ## Project Context
 
 `_TODO: Describe the motivation, stakeholders, and success criteria for this analysis._`
@@ -27,10 +24,10 @@ Motivation:
 we want to know what movies have the hiest revinue and see what could help maximise the revinue of a movie. all this with the belife that revinue for movies is an indicater of how good a movie is. 
 
 Success Criteria:
-the goal is to identify the best indicaters of a movie and ether use them to maxamise revinue or identify the best movies from them.
+Identify distinct features that are important for overall movie revenue
 
 Stakeholders:
-this project has 2 intorested partys. one is indeviduals who want to enjoy a good movie and not pay for low quality entertainment, and the secnd is companies who want to maxamise the amount of revinue they earn with as little loss as posable.
+this project has 2 intorested partys. one is indeviduals who want to enjoy a good movie and not pay for low quality entertainment, and the secnd is companies (Business/Board of Trustees/Boss) who want to maxamise the amount of revinue they earn with as little loss as posable.
 
 ## Data Sources
 
