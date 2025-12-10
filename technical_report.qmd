@@ -6,28 +6,26 @@ format: html
 
 ## Executive Summary
 
-`_TODO: Provide a concise overview of the project objectives, key findings, and actionable recommendations._`
 Project Objectives: 
-identify the best movies or hiest revinue movies by find what features determine high grossing movies. In other words, how would I make a movie, and when would I release it in order to return the highest amount of revenue
+Identify the best movies or highest revenue movies by find what features determine high grossing movies. In other words, how would I make a movie, and when would I release it in order to return the highest amount of revenue
 
 Key Findings:
-none of the analasises done show anyting statisticly significant resalts when put in refrenc to the Questins though there are some small difrences in move revinue depending on the season and other facters.
+None of the analyses done show anything statistically significant results when put in reference to the Questions though there are some small differences in move revenue depending on the season and other factors.
 
 Actionable Recommendations:
-Becaus there are no significant facters more analasis is highly advised to reduce uncertanty. we segjest seporating data (seporating it in to season movie type and other difrences) more for deaper analasisi this would hopefully reduce the vareation. the other idea for beter analasis is to identify the high earning revinue movies and find what they have in common and use that to see what could influence revinue.
-the analasis did not show any statisticly significant data but some actions that might indicate a quality movie or improve revinue are
- making a movie that appeals to everyone, and releasing in the summer, with a high starting budget, could results in the higher revenue. Making a PG movie using Digital Animation in the genre of Adventure or Action, which appeals to those inside and outside the US is antisapated to result in higher overall revenue.
+Because there are no significant factors, more analysis is highly advised to reduce uncertainty. We suggest separating data (separating it in to season, movie type, and other differences) more for deeper analysis this would hopefully reduce the variation. The other idea for better analysis is to identify the high earning revenue movies and find what they have in common and use that to see what could influence revenue.
+The analysis did not show any statistically significant data but some actions that might indicate a quality movie or improve revenue are making a movie that appeals to everyone, and releasing in the summer, with a high starting budget, could results in the higher revenue. Making a PG movie using Digital Animation in the genre of Adventure or Action, which appeals to those inside and outside the US is anticipated to result in higher overall revenue.
+
 ## Project Context
 
-`_TODO: Describe the motivation, stakeholders, and success criteria for this analysis._`
 Motivation:
-we want to know what movies have the hiest revinue and see what could help maximise the revinue of a movie. all this with the belife that revinue for movies is an indicater of how good a movie is. 
+We want to know what movies have the highest revenue and see what could help maximize the revenue of a movie. All this with the belief that revenue for movies is an indicator of how good a movie is. 
 
 Success Criteria:
-Identify distinct features that are important for overall movie revenue
+Identify distinct features that are important for overall movie revenue.
 
 Stakeholders:
-this project has 2 intorested partys. one is indeviduals who want to enjoy a good movie and not pay for low quality entertainment, and the secnd is companies (Business/Board of Trustees/Boss) who want to maxamise the amount of revinue they earn with as little loss as posable.
+This project has 2 interested parties. One is individuals who want to enjoy a good movie and not pay for low quality entertainment, and the second is companies (Business/Board of Trustees/Boss) who want to maximize the amount of revenue they earn with as little loss as possible.
 
 ## Data Sources
 
@@ -130,13 +128,12 @@ MSE
 Cross Validation 
 Variable and Prepositions Plot
 
+*Model Diagnostics*: We chose not to create a prediction model, and thus have no model diagnostics. 
 *Model Diagnostics*: We chose not to createa prediciton model because no statisticly significant vareables where identified, and thus have no model diagnostics. 
 (Could do t-test or ANOVA if wanted for model diagnostics) (Could include significance stats here.)
 
-
 ## Discussion & Next Steps
 
-`_TODO: Interpret the results, note limitations, and capture open questions or future experiments._`
 *Results*:
 there where no stiatisticly significant vareables becasue the vareance was so high. there are some facters that apear to have some influece such as season of releas, genre, and rating (R, PG, G) but futher analais could revieal more influence if vareance was reduced
 
