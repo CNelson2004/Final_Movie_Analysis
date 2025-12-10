@@ -1,5 +1,6 @@
 ---
 title: "Documentation"
+format: html
 ---
 
 Functions:

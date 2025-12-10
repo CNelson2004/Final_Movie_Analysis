@@ -1,23 +1,24 @@
 ---
 title: "Technical Report"
 description: "Project Summary, Methodology, and Findings"
+format: html
 ---
 
 ## Executive Summary
 
-Project Objectives: The objective of this project is to find what features determine high grossing movies. In other words, how would I make a movie, and when would I release it in order to return the highest amount of revenue?
+*Project Objectives*: The objective of this project is to find what features determine high grossing movies. In other words, how would I make a movie, and when would I release it in order to return the highest amount of revenue?
 
-Key Findings: In total, we found that making a movie that appeals to everyone, is released in the summer, and has a high starting budget, results in the highest revenue. Specifically, making a PG movie using Digital Animation in the genre of Adventure or Action, which appeals to those inside and outside the US will result in the highest overall revenue. This movie should be made with the largest production budget possible, (to get the best talent), and should be released in the summer, specifically on whatever weekend has the best chance of creating the highest opening weekend revenue possible.
+*Key Findings*: In total, we found that making a movie that appeals to everyone, is released in the summer, and has a high starting budget, results in the highest revenue. Specifically, making a PG movie using Digital Animation in the genre of Adventure or Action, which appeals to those inside and outside the US will result in the highest overall revenue. This movie should be made with the largest production budget possible, (to get the best talent), and should be released in the summer, specifically on whatever weekend has the best chance of creating the highest opening weekend revenue possible.
 
-Actionable Recommendations: Create a movie as described in the Key Findings above. 
+*Actionable Recommendations*: Create a movie as described in the Key Findings above. 
 
 ## Project Context
 
-Motivation: Identify best way to create a movie, and the best time to release a movie to maximize revenue.
+*Motivation*: Identify best way to create a movie, and the best time to release a movie to maximize revenue.
 
-Stakeholders: Business/Board of Trustees/Boss
+*Stakeholders*: Business/Board of Trustees/Boss
 
-Success Criteria: Identify distinct features that are important for overall movie revenue
+*Success Criteria*: Identify distinct features that are important for overall movie revenue
 
 ## Data Sources
 
@@ -32,7 +33,7 @@ Success Criteria: Identify distinct features that are important for overall movi
 `TODO - outline collection scripts/APIs`
 1. _Data acquisition:_ Used common web scraping techniques to obtain data from Wikipedia and The Numbers. Specifically the libraries: requests and beautiful soup. 
 
-2. _Cleaning pipeline:_ `
+2. _Cleaning pipeline:_
 * Changed Release Date into a datetime object.
 * Changed all revenue numbers from strings containing $ to proper integers. 
 * Changed runtime from a string to an integer 
@@ -77,7 +78,7 @@ Success Criteria: Identify distinct features that are important for overall movi
 ## Results & Diagnostics
 
 `_TODO: Summarize the main metrics, charts, or model diagnostics produced. Include links to figures or tables once available._` `(Attach units to values)`
-Main Metrics:
+*Main Metrics*:
 The main metrics for the plots and data of importance are as follows:
     General Movie Revenue:
         mean = 9.1 e^7 [**Attach unit to numbers like these Ex: 9.1 M dollars**]
@@ -103,25 +104,25 @@ The main metrics for the plots and data of importance are as follows:
         Animation/ Live Actin: mean = 1.58 e^8 ,sd = 1.68 e^8
         Digital Animation:     mean = 2.1 e^8  ,sd = 1.7 e^8
 
-Charts: (Add description underneath it if chart doesn't include labels)
+*Charts*: (Add description underneath it if chart doesn't include labels)
 MSE
 Cross Validation 
 Variable and Prepositions Plot
 
-Model Diagnostics: We chose not to createa prediciton model, and thus have no model diagnostics. 
+*Model Diagnostics*: We chose not to createa prediciton model, and thus have no model diagnostics. 
 (Could do t-test or ANOVA if wanted for model diagnostics) (Could include significance stats here.)
 
 
 ## Discussion & Next Steps
 
 `_TODO: Interpret the results, note limitations, and capture open questions or future experiments._`
-Results:
+*Results*:
 
-Limitations:
+*Limitations*:
 The categorical and numerical analysis for correlation can't show causation so we don't know if adjusting one will directly influence the other. Additionally, none of the results shown significance, this means that the variance of revenue in any of our analyses is not different form the average mean.
 
-Open Questions:
+*Open Questions*:
 
 
-Future Experiments:
+*Future Experiments*:
 In order to reduce the amount of variance it would be smart to separate data more, an example might be only action movies in winter compared to adventure movies in winter. This would hopefully reduce the variance and create a more accurate analysis as well as show any influence between variables, for example if R movies earning less revenue because most of them were released in winter. An analysis of movie ratings for these movies would also be informative as to what watchers value and there for what you could charge more for.

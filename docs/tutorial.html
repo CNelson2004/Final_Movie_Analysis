@@ -188,14 +188,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Here is how to use this package.</p>
 <p>Note: None of these functions have any parameters, however, some of them need to be ran in a specific order, as will be discussed.</p>
 <p>First, obtain the data. This function creates the dirty dataset, saves it as an csv, <code>dirty_data.csv</code> then cleans it and saves it as a csv, <code>movie_data.csv</code>.</p>
-<div id="a6da7448" class="cell" data-execution_count="1">
+<div id="966c2e06" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> data_creation</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Note, this will take up to 2 hours, depending on your machine speed, it returns nothing, copy and uncomment to run yourself</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Note, this will take up to 2 hours, depending on your machine speed, it returns nothing visually, copy and uncomment to run yourself</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#data_creation()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Please know that none of the following functions will work unless you have run <code>data_creation</code>, thus creating a csv for these functions to work with.</strong></p>
 <p>If you would like to simply see the first few rows of the dataset, run this function:</p>
-<div id="5a6a6340" class="cell" data-execution_count="2">
+<div id="98f8bf80" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> print_dataset_head</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>print_dataset_head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -363,7 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>These are the analysis functions. Analysis related to the factors:</p>
-<div id="39614483" class="cell" data-execution_count="3">
+<div id="41fd642b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> analyze_revenue</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>analyze_revenue()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -436,7 +436,7 @@ There were only two movies this year, and it seems neither did well.</code></pre
 </div>
 </div>
 <p>Analysis related to the revenue over time:</p>
-<div id="c319f80b" class="cell" data-execution_count="4">
+<div id="89c81258" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> factors_analysis</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>factors_analysis()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -783,7 +783,7 @@ C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_
 </div>
 </div>
 <p>You can also print the findings that we found from analyzing this data:</p>
-<div id="68c022eb" class="cell" data-execution_count="5">
+<div id="7d64dcbf" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> factors_findings</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>factors_findings()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -796,7 +796,7 @@ Regarding significance, there is only true statistical significance between Summ
 Overall, it seems that making movies that appeal to everyone, thus PG with a genre of Adventure, Action, or Musical, with a high budget and releasing it in the summer is the best chance for making a high earning movie</code></pre>
 </div>
 </div>
-<div id="9e81e5df" class="cell" data-execution_count="6">
+<div id="e04e8d46" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> revenue_findings</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>revenue_findings()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -806,7 +806,7 @@ However, this was only a misstep, although a costly one, as they have reached ba
 </div>
 <p>If you would like to do these analyses individually, then you can use these following functions.</p>
 <p>Here you can get the number of NAs from each column:</p>
-<div id="f3f1e8de" class="cell" data-execution_count="7">
+<div id="b9ae879f" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> get_NAs</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>get_NAs()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -836,7 +836,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>Get the correlation between the features:</p>
-<div id="642776ef" class="cell" data-execution_count="8">
+<div id="8a455cfa" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> earnings_correlation</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>earnings_correlation()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -970,7 +970,7 @@ Profit                              -0.013253  1.000000  </code></pre>
 </div>
 </div>
 <p>Get the graph regarding seasons and revenue:</p>
-<div id="f208de63" class="cell" data-execution_count="9">
+<div id="3dd05c9c" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> season_earnings</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>season_earnings()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -982,7 +982,7 @@ Profit                              -0.013253  1.000000  </code></pre>
 </div>
 </div>
 <p>Get the graph regarding genre and revenue:</p>
-<div id="a89892d8" class="cell" data-execution_count="10">
+<div id="3602f2ca" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> genre_earnings</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>genre_earnings()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -994,7 +994,7 @@ Profit                              -0.013253  1.000000  </code></pre>
 </div>
 </div>
 <p>Get the graph regarding production method and revenue:</p>
-<div id="90484732" class="cell" data-execution_count="11">
+<div id="51b0386f" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> production_method_earnings</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>production_method_earnings()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1006,7 +1006,7 @@ Profit                              -0.013253  1.000000  </code></pre>
 </div>
 </div>
 <p>Get the graph regarding ratings and revenue:</p>
-<div id="97b550d7" class="cell" data-execution_count="12">
+<div id="ca4d0251" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> ratings_earnings</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>ratings_earnings()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1018,7 +1018,7 @@ Profit                              -0.013253  1.000000  </code></pre>
 </div>
 </div>
 <p>If you would like to see the statistical significance of various features, then use these functions:</p>
-<div id="a4dfb2c2" class="cell" data-execution_count="13">
+<div id="3ecc6e63" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> season_significance</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>season_significance()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1053,7 +1053,7 @@ Actual significance between groups
 5  2.388903  60.158560  0.090152  0.493958  </code></pre>
 </div>
 </div>
-<div id="500010bd" class="cell" data-execution_count="14">
+<div id="c909e04e" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> rating_significance</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>rating_significance()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1087,7 +1087,7 @@ C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_
   ret = ret.dtype.type(ret / rcount)</code></pre>
 </div>
 </div>
-<div id="65e8a4cd" class="cell" data-execution_count="15">
+<div id="a12a9943" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> genre_significance</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>genre_significance()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1161,7 +1161,7 @@ C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_
   ret = ret.dtype.type(ret / rcount)</code></pre>
 </div>
 </div>
-<div id="60e37d79" class="cell" data-execution_count="16">
+<div id="61b50ba4" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> production_method_significance</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>production_method_significance()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1197,7 +1197,7 @@ Actual significance between groups
 </div>
 </div>
 <p>If you would like a statistical description of the revenue features, run this like so:</p>
-<div id="d6d4165a" class="cell" data-execution_count="17">
+<div id="adda3d0f" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> describe_revenue</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>describe_revenue()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1234,7 +1234,7 @@ Name: International Revenue, dtype: float64
 </div>
 </div>
 <p>If you would like a graph of the revenue, run this:</p>
-<div id="c7c3d2c6" class="cell" data-execution_count="18">
+<div id="acf7fd0f" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>graph_revenue()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1253,7 +1253,7 @@ Name: International Revenue, dtype: float64
 </div>
 </div>
 <p>If you would like to simplify that to each year, run this:</p>
-<div id="9c609a77" class="cell" data-execution_count="19">
+<div id="da4b76a2" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue_by_year</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>graph_revenue_by_year()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1265,7 +1265,7 @@ Name: International Revenue, dtype: float64
 </div>
 </div>
 <p>If you would like to check the above graph against profit, run this function like so:</p>
-<div id="48bb9655" class="cell" data-execution_count="20">
+<div id="88e8d7bd" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue_and_profit</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>graph_revenue_and_profit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1277,7 +1277,7 @@ Name: International Revenue, dtype: float64
 </div>
 </div>
 <p>Now, you can do analysis regarding feature importance in finding overall box office revenue If you only want plots:</p>
-<div id="a1ee7754" class="cell" data-execution_count="21">
+<div id="4f9a3d07" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_ml_analysis_plots</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>do_ml_analysis_plots()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1312,7 +1312,7 @@ Name: International Revenue, dtype: float64
 </div>
 </div>
 <p>If you want specific numbers:</p>
-<div id="6e69a37d" class="cell" data-execution_count="22">
+<div id="eb91b782" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_ml_analysis_numbers</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>do_ml_analysis_numbers()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1385,7 +1385,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>Again, you can print the findings that we found from analyzing this data:</p>
-<div id="0f3aee9e" class="cell" data-execution_count="23">
+<div id="a32d1acd" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> ml_analysis_findings</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>ml_analysis_findings()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1398,7 +1398,7 @@ Thus appealing to people outside of the US is important, as much as if not more 
 </div>
 </div>
 <p>Finally, taking everything together, you can see what we found from the data in regards to our specific research question:</p>
-<div id="1bf1c7af" class="cell" data-execution_count="24">
+<div id="81d020f4" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_analysis_specific</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>do_analysis_specific()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1801,7 +1801,7 @@ You should also begin with as large a production budget as possible, make sure i
 </div>
 </div>
 <p>If you would like to do these all at the same time, data gathering, cleaning, analysis, and interpretation, then you can use the <code>totality</code> function: (This is the only function that does not require that you run <code>data_creation</code> prior to running it.)</p>
-<div id="3a2573f2" class="cell" data-execution_count="25">
+<div id="cac6e4db" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> totality</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Note, since this include data_creation this will take up to 2 hours, depending on your machine speed, copy and uncomment to run yourself</span></span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="co">#totality()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2266,165 +2266,166 @@ You should also begin with as large a production budget as possible, make sure i
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Getting Started"</span></span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>Here is how to use this package.</span>
-<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>Note: None of these functions have any parameters, however, some of them need to be ran in a specific order, as will be discussed.</span>
-<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>First, obtain the data. This function creates the dirty dataset, saves it as an csv, <span class="in">`dirty_data.csv`</span> then cleans it and saves it as a csv, <span class="in">`movie_data.csv`</span>. </span>
-<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> data_creation</span>
-<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Note, this will take up to 2 hours, depending on your machine speed, it returns nothing, copy and uncomment to run yourself</span></span>
-<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a><span class="co">#data_creation()</span></span>
-<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a>**Please know that none of the following functions will work unless you have run `data_creation`, thus creating a csv for these functions to work with.**</span>
-<span id="cb56-20"><a href="#cb56-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-21"><a href="#cb56-21" aria-hidden="true" tabindex="-1"></a>If you would like to simply see the first few rows of the dataset, run this function:</span>
-<span id="cb56-24"><a href="#cb56-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-25"><a href="#cb56-25" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> print_dataset_head</span>
-<span id="cb56-26"><a href="#cb56-26" aria-hidden="true" tabindex="-1"></a>print_dataset_head()</span>
-<span id="cb56-27"><a href="#cb56-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-28"><a href="#cb56-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-29"><a href="#cb56-29" aria-hidden="true" tabindex="-1"></a>These are the analysis functions.</span>
-<span id="cb56-30"><a href="#cb56-30" aria-hidden="true" tabindex="-1"></a>Analysis related to the factors:</span>
-<span id="cb56-33"><a href="#cb56-33" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-34"><a href="#cb56-34" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> analyze_revenue</span>
-<span id="cb56-35"><a href="#cb56-35" aria-hidden="true" tabindex="-1"></a>analyze_revenue()</span>
-<span id="cb56-36"><a href="#cb56-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-37"><a href="#cb56-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-38"><a href="#cb56-38" aria-hidden="true" tabindex="-1"></a>Analysis related to the revenue over time:</span>
-<span id="cb56-41"><a href="#cb56-41" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-42"><a href="#cb56-42" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> factors_analysis</span>
-<span id="cb56-43"><a href="#cb56-43" aria-hidden="true" tabindex="-1"></a>factors_analysis()</span>
-<span id="cb56-44"><a href="#cb56-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-45"><a href="#cb56-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-46"><a href="#cb56-46" aria-hidden="true" tabindex="-1"></a>You can also print the findings that we found from analyzing this data:</span>
-<span id="cb56-49"><a href="#cb56-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-50"><a href="#cb56-50" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> factors_findings</span>
-<span id="cb56-51"><a href="#cb56-51" aria-hidden="true" tabindex="-1"></a>factors_findings()</span>
-<span id="cb56-52"><a href="#cb56-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-53"><a href="#cb56-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-56"><a href="#cb56-56" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-57"><a href="#cb56-57" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> revenue_findings</span>
-<span id="cb56-58"><a href="#cb56-58" aria-hidden="true" tabindex="-1"></a>revenue_findings()</span>
-<span id="cb56-59"><a href="#cb56-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-60"><a href="#cb56-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-61"><a href="#cb56-61" aria-hidden="true" tabindex="-1"></a>If you would like to do these analyses individually, then you can use these following functions.</span>
-<span id="cb56-62"><a href="#cb56-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-63"><a href="#cb56-63" aria-hidden="true" tabindex="-1"></a>Here you can get the number of NAs from each column:</span>
-<span id="cb56-66"><a href="#cb56-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-67"><a href="#cb56-67" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> get_NAs</span>
-<span id="cb56-68"><a href="#cb56-68" aria-hidden="true" tabindex="-1"></a>get_NAs()</span>
-<span id="cb56-69"><a href="#cb56-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-70"><a href="#cb56-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-71"><a href="#cb56-71" aria-hidden="true" tabindex="-1"></a>Get the correlation between the features:</span>
-<span id="cb56-74"><a href="#cb56-74" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-75"><a href="#cb56-75" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> earnings_correlation</span>
-<span id="cb56-76"><a href="#cb56-76" aria-hidden="true" tabindex="-1"></a>earnings_correlation()</span>
-<span id="cb56-77"><a href="#cb56-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-78"><a href="#cb56-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-79"><a href="#cb56-79" aria-hidden="true" tabindex="-1"></a>Get the graph regarding seasons and revenue:</span>
-<span id="cb56-82"><a href="#cb56-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-83"><a href="#cb56-83" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> season_earnings</span>
-<span id="cb56-84"><a href="#cb56-84" aria-hidden="true" tabindex="-1"></a>season_earnings()</span>
-<span id="cb56-85"><a href="#cb56-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-86"><a href="#cb56-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-87"><a href="#cb56-87" aria-hidden="true" tabindex="-1"></a>Get the graph regarding genre and revenue:</span>
-<span id="cb56-90"><a href="#cb56-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-91"><a href="#cb56-91" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> genre_earnings</span>
-<span id="cb56-92"><a href="#cb56-92" aria-hidden="true" tabindex="-1"></a>genre_earnings()</span>
-<span id="cb56-93"><a href="#cb56-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-94"><a href="#cb56-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-95"><a href="#cb56-95" aria-hidden="true" tabindex="-1"></a>Get the graph regarding production method and revenue:</span>
-<span id="cb56-98"><a href="#cb56-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-99"><a href="#cb56-99" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> production_method_earnings</span>
-<span id="cb56-100"><a href="#cb56-100" aria-hidden="true" tabindex="-1"></a>production_method_earnings()</span>
-<span id="cb56-101"><a href="#cb56-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-102"><a href="#cb56-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-103"><a href="#cb56-103" aria-hidden="true" tabindex="-1"></a>Get the graph regarding ratings and revenue:</span>
-<span id="cb56-106"><a href="#cb56-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-107"><a href="#cb56-107" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> ratings_earnings</span>
-<span id="cb56-108"><a href="#cb56-108" aria-hidden="true" tabindex="-1"></a>ratings_earnings()</span>
-<span id="cb56-109"><a href="#cb56-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-110"><a href="#cb56-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-111"><a href="#cb56-111" aria-hidden="true" tabindex="-1"></a>If you would like to see the statistical significance of various features, then use these functions:</span>
-<span id="cb56-114"><a href="#cb56-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-115"><a href="#cb56-115" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> season_significance</span>
-<span id="cb56-116"><a href="#cb56-116" aria-hidden="true" tabindex="-1"></a>season_significance()</span>
-<span id="cb56-117"><a href="#cb56-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-118"><a href="#cb56-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-121"><a href="#cb56-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-122"><a href="#cb56-122" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> rating_significance</span>
-<span id="cb56-123"><a href="#cb56-123" aria-hidden="true" tabindex="-1"></a>rating_significance()</span>
-<span id="cb56-124"><a href="#cb56-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-125"><a href="#cb56-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-128"><a href="#cb56-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-129"><a href="#cb56-129" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> genre_significance</span>
-<span id="cb56-130"><a href="#cb56-130" aria-hidden="true" tabindex="-1"></a>genre_significance()</span>
-<span id="cb56-131"><a href="#cb56-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-132"><a href="#cb56-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-135"><a href="#cb56-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-136"><a href="#cb56-136" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> production_method_significance</span>
-<span id="cb56-137"><a href="#cb56-137" aria-hidden="true" tabindex="-1"></a>production_method_significance()</span>
-<span id="cb56-138"><a href="#cb56-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-139"><a href="#cb56-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-140"><a href="#cb56-140" aria-hidden="true" tabindex="-1"></a>If you would like a statistical description of the revenue features, run this like so:</span>
-<span id="cb56-143"><a href="#cb56-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-144"><a href="#cb56-144" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> describe_revenue</span>
-<span id="cb56-145"><a href="#cb56-145" aria-hidden="true" tabindex="-1"></a>describe_revenue()</span>
-<span id="cb56-146"><a href="#cb56-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-147"><a href="#cb56-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-148"><a href="#cb56-148" aria-hidden="true" tabindex="-1"></a>If you would like a graph of the revenue, run this:</span>
-<span id="cb56-151"><a href="#cb56-151" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-152"><a href="#cb56-152" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue</span>
-<span id="cb56-153"><a href="#cb56-153" aria-hidden="true" tabindex="-1"></a>graph_revenue()</span>
-<span id="cb56-154"><a href="#cb56-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-155"><a href="#cb56-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-156"><a href="#cb56-156" aria-hidden="true" tabindex="-1"></a>If you would like to simplify that to each year, run this:</span>
-<span id="cb56-159"><a href="#cb56-159" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-160"><a href="#cb56-160" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue_by_year</span>
-<span id="cb56-161"><a href="#cb56-161" aria-hidden="true" tabindex="-1"></a>graph_revenue_by_year()</span>
-<span id="cb56-162"><a href="#cb56-162" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-163"><a href="#cb56-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-164"><a href="#cb56-164" aria-hidden="true" tabindex="-1"></a>If you would like to check the above graph against profit, run this function like so:</span>
-<span id="cb56-167"><a href="#cb56-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-168"><a href="#cb56-168" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue_and_profit</span>
-<span id="cb56-169"><a href="#cb56-169" aria-hidden="true" tabindex="-1"></a>graph_revenue_and_profit()</span>
-<span id="cb56-170"><a href="#cb56-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-171"><a href="#cb56-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-172"><a href="#cb56-172" aria-hidden="true" tabindex="-1"></a>Now, you can do analysis regarding feature importance in finding overall box office revenue</span>
-<span id="cb56-173"><a href="#cb56-173" aria-hidden="true" tabindex="-1"></a>If you only want plots:</span>
-<span id="cb56-176"><a href="#cb56-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-177"><a href="#cb56-177" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_ml_analysis_plots</span>
-<span id="cb56-178"><a href="#cb56-178" aria-hidden="true" tabindex="-1"></a>do_ml_analysis_plots()</span>
-<span id="cb56-179"><a href="#cb56-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-180"><a href="#cb56-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-181"><a href="#cb56-181" aria-hidden="true" tabindex="-1"></a>If you want specific numbers:</span>
-<span id="cb56-184"><a href="#cb56-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-185"><a href="#cb56-185" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_ml_analysis_numbers</span>
-<span id="cb56-186"><a href="#cb56-186" aria-hidden="true" tabindex="-1"></a>do_ml_analysis_numbers()</span>
-<span id="cb56-187"><a href="#cb56-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-188"><a href="#cb56-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-189"><a href="#cb56-189" aria-hidden="true" tabindex="-1"></a>Again, you can print the findings that we found from analyzing this data:</span>
-<span id="cb56-192"><a href="#cb56-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-193"><a href="#cb56-193" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> ml_analysis_findings</span>
-<span id="cb56-194"><a href="#cb56-194" aria-hidden="true" tabindex="-1"></a>ml_analysis_findings()</span>
-<span id="cb56-195"><a href="#cb56-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-196"><a href="#cb56-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-197"><a href="#cb56-197" aria-hidden="true" tabindex="-1"></a>Finally, taking everything together, you can see what we found from the data in regards to our specific research question:</span>
-<span id="cb56-200"><a href="#cb56-200" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-201"><a href="#cb56-201" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_analysis_specific</span>
-<span id="cb56-202"><a href="#cb56-202" aria-hidden="true" tabindex="-1"></a>do_analysis_specific()</span>
-<span id="cb56-203"><a href="#cb56-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb56-204"><a href="#cb56-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-205"><a href="#cb56-205" aria-hidden="true" tabindex="-1"></a>If you would like to do these all at the same time, data gathering, cleaning, analysis, and interpretation, then you can use the <span class="in">`totality`</span> function: (This is the only function that does not require that you run <span class="in">`data_creation`</span> prior to running it.)</span>
-<span id="cb56-208"><a href="#cb56-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb56-209"><a href="#cb56-209" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> totality</span>
-<span id="cb56-210"><a href="#cb56-210" aria-hidden="true" tabindex="-1"></a><span class="co">#Note, since this include data_creation this will take up to 2 hours, depending on your machine speed, copy and uncomment to run yourself</span></span>
-<span id="cb56-211"><a href="#cb56-211" aria-hidden="true" tabindex="-1"></a><span class="co">#totality()</span></span>
-<span id="cb56-212"><a href="#cb56-212" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>Here is how to use this package.</span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>Note: None of these functions have any parameters, however, some of them need to be ran in a specific order, as will be discussed.</span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>First, obtain the data. This function creates the dirty dataset, saves it as an csv, <span class="in">`dirty_data.csv`</span> then cleans it and saves it as a csv, <span class="in">`movie_data.csv`</span>. </span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> data_creation</span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Note, this will take up to 2 hours, depending on your machine speed, it returns nothing visually, copy and uncomment to run yourself</span></span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a><span class="co">#data_creation()</span></span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-20"><a href="#cb56-20" aria-hidden="true" tabindex="-1"></a>**Please know that none of the following functions will work unless you have run `data_creation`, thus creating a csv for these functions to work with.**</span>
+<span id="cb56-21"><a href="#cb56-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-22"><a href="#cb56-22" aria-hidden="true" tabindex="-1"></a>If you would like to simply see the first few rows of the dataset, run this function:</span>
+<span id="cb56-25"><a href="#cb56-25" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-26"><a href="#cb56-26" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> print_dataset_head</span>
+<span id="cb56-27"><a href="#cb56-27" aria-hidden="true" tabindex="-1"></a>print_dataset_head()</span>
+<span id="cb56-28"><a href="#cb56-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-29"><a href="#cb56-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-30"><a href="#cb56-30" aria-hidden="true" tabindex="-1"></a>These are the analysis functions.</span>
+<span id="cb56-31"><a href="#cb56-31" aria-hidden="true" tabindex="-1"></a>Analysis related to the factors:</span>
+<span id="cb56-34"><a href="#cb56-34" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-35"><a href="#cb56-35" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> analyze_revenue</span>
+<span id="cb56-36"><a href="#cb56-36" aria-hidden="true" tabindex="-1"></a>analyze_revenue()</span>
+<span id="cb56-37"><a href="#cb56-37" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-38"><a href="#cb56-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-39"><a href="#cb56-39" aria-hidden="true" tabindex="-1"></a>Analysis related to the revenue over time:</span>
+<span id="cb56-42"><a href="#cb56-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-43"><a href="#cb56-43" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> factors_analysis</span>
+<span id="cb56-44"><a href="#cb56-44" aria-hidden="true" tabindex="-1"></a>factors_analysis()</span>
+<span id="cb56-45"><a href="#cb56-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-46"><a href="#cb56-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-47"><a href="#cb56-47" aria-hidden="true" tabindex="-1"></a>You can also print the findings that we found from analyzing this data:</span>
+<span id="cb56-50"><a href="#cb56-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-51"><a href="#cb56-51" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> factors_findings</span>
+<span id="cb56-52"><a href="#cb56-52" aria-hidden="true" tabindex="-1"></a>factors_findings()</span>
+<span id="cb56-53"><a href="#cb56-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-54"><a href="#cb56-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-57"><a href="#cb56-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-58"><a href="#cb56-58" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> revenue_findings</span>
+<span id="cb56-59"><a href="#cb56-59" aria-hidden="true" tabindex="-1"></a>revenue_findings()</span>
+<span id="cb56-60"><a href="#cb56-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-61"><a href="#cb56-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-62"><a href="#cb56-62" aria-hidden="true" tabindex="-1"></a>If you would like to do these analyses individually, then you can use these following functions.</span>
+<span id="cb56-63"><a href="#cb56-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-64"><a href="#cb56-64" aria-hidden="true" tabindex="-1"></a>Here you can get the number of NAs from each column:</span>
+<span id="cb56-67"><a href="#cb56-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-68"><a href="#cb56-68" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> get_NAs</span>
+<span id="cb56-69"><a href="#cb56-69" aria-hidden="true" tabindex="-1"></a>get_NAs()</span>
+<span id="cb56-70"><a href="#cb56-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-71"><a href="#cb56-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-72"><a href="#cb56-72" aria-hidden="true" tabindex="-1"></a>Get the correlation between the features:</span>
+<span id="cb56-75"><a href="#cb56-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-76"><a href="#cb56-76" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> earnings_correlation</span>
+<span id="cb56-77"><a href="#cb56-77" aria-hidden="true" tabindex="-1"></a>earnings_correlation()</span>
+<span id="cb56-78"><a href="#cb56-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-79"><a href="#cb56-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-80"><a href="#cb56-80" aria-hidden="true" tabindex="-1"></a>Get the graph regarding seasons and revenue:</span>
+<span id="cb56-83"><a href="#cb56-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-84"><a href="#cb56-84" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> season_earnings</span>
+<span id="cb56-85"><a href="#cb56-85" aria-hidden="true" tabindex="-1"></a>season_earnings()</span>
+<span id="cb56-86"><a href="#cb56-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-87"><a href="#cb56-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-88"><a href="#cb56-88" aria-hidden="true" tabindex="-1"></a>Get the graph regarding genre and revenue:</span>
+<span id="cb56-91"><a href="#cb56-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-92"><a href="#cb56-92" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> genre_earnings</span>
+<span id="cb56-93"><a href="#cb56-93" aria-hidden="true" tabindex="-1"></a>genre_earnings()</span>
+<span id="cb56-94"><a href="#cb56-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-95"><a href="#cb56-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-96"><a href="#cb56-96" aria-hidden="true" tabindex="-1"></a>Get the graph regarding production method and revenue:</span>
+<span id="cb56-99"><a href="#cb56-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-100"><a href="#cb56-100" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> production_method_earnings</span>
+<span id="cb56-101"><a href="#cb56-101" aria-hidden="true" tabindex="-1"></a>production_method_earnings()</span>
+<span id="cb56-102"><a href="#cb56-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-103"><a href="#cb56-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-104"><a href="#cb56-104" aria-hidden="true" tabindex="-1"></a>Get the graph regarding ratings and revenue:</span>
+<span id="cb56-107"><a href="#cb56-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-108"><a href="#cb56-108" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> ratings_earnings</span>
+<span id="cb56-109"><a href="#cb56-109" aria-hidden="true" tabindex="-1"></a>ratings_earnings()</span>
+<span id="cb56-110"><a href="#cb56-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-111"><a href="#cb56-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-112"><a href="#cb56-112" aria-hidden="true" tabindex="-1"></a>If you would like to see the statistical significance of various features, then use these functions:</span>
+<span id="cb56-115"><a href="#cb56-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-116"><a href="#cb56-116" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> season_significance</span>
+<span id="cb56-117"><a href="#cb56-117" aria-hidden="true" tabindex="-1"></a>season_significance()</span>
+<span id="cb56-118"><a href="#cb56-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-119"><a href="#cb56-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-122"><a href="#cb56-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-123"><a href="#cb56-123" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> rating_significance</span>
+<span id="cb56-124"><a href="#cb56-124" aria-hidden="true" tabindex="-1"></a>rating_significance()</span>
+<span id="cb56-125"><a href="#cb56-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-126"><a href="#cb56-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-129"><a href="#cb56-129" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-130"><a href="#cb56-130" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> genre_significance</span>
+<span id="cb56-131"><a href="#cb56-131" aria-hidden="true" tabindex="-1"></a>genre_significance()</span>
+<span id="cb56-132"><a href="#cb56-132" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-133"><a href="#cb56-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-136"><a href="#cb56-136" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-137"><a href="#cb56-137" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> production_method_significance</span>
+<span id="cb56-138"><a href="#cb56-138" aria-hidden="true" tabindex="-1"></a>production_method_significance()</span>
+<span id="cb56-139"><a href="#cb56-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-140"><a href="#cb56-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-141"><a href="#cb56-141" aria-hidden="true" tabindex="-1"></a>If you would like a statistical description of the revenue features, run this like so:</span>
+<span id="cb56-144"><a href="#cb56-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-145"><a href="#cb56-145" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> describe_revenue</span>
+<span id="cb56-146"><a href="#cb56-146" aria-hidden="true" tabindex="-1"></a>describe_revenue()</span>
+<span id="cb56-147"><a href="#cb56-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-148"><a href="#cb56-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-149"><a href="#cb56-149" aria-hidden="true" tabindex="-1"></a>If you would like a graph of the revenue, run this:</span>
+<span id="cb56-152"><a href="#cb56-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-153"><a href="#cb56-153" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue</span>
+<span id="cb56-154"><a href="#cb56-154" aria-hidden="true" tabindex="-1"></a>graph_revenue()</span>
+<span id="cb56-155"><a href="#cb56-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-156"><a href="#cb56-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-157"><a href="#cb56-157" aria-hidden="true" tabindex="-1"></a>If you would like to simplify that to each year, run this:</span>
+<span id="cb56-160"><a href="#cb56-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-161"><a href="#cb56-161" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue_by_year</span>
+<span id="cb56-162"><a href="#cb56-162" aria-hidden="true" tabindex="-1"></a>graph_revenue_by_year()</span>
+<span id="cb56-163"><a href="#cb56-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-164"><a href="#cb56-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-165"><a href="#cb56-165" aria-hidden="true" tabindex="-1"></a>If you would like to check the above graph against profit, run this function like so:</span>
+<span id="cb56-168"><a href="#cb56-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-169"><a href="#cb56-169" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue_and_profit</span>
+<span id="cb56-170"><a href="#cb56-170" aria-hidden="true" tabindex="-1"></a>graph_revenue_and_profit()</span>
+<span id="cb56-171"><a href="#cb56-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-172"><a href="#cb56-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-173"><a href="#cb56-173" aria-hidden="true" tabindex="-1"></a>Now, you can do analysis regarding feature importance in finding overall box office revenue</span>
+<span id="cb56-174"><a href="#cb56-174" aria-hidden="true" tabindex="-1"></a>If you only want plots:</span>
+<span id="cb56-177"><a href="#cb56-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-178"><a href="#cb56-178" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_ml_analysis_plots</span>
+<span id="cb56-179"><a href="#cb56-179" aria-hidden="true" tabindex="-1"></a>do_ml_analysis_plots()</span>
+<span id="cb56-180"><a href="#cb56-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-181"><a href="#cb56-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-182"><a href="#cb56-182" aria-hidden="true" tabindex="-1"></a>If you want specific numbers:</span>
+<span id="cb56-185"><a href="#cb56-185" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-186"><a href="#cb56-186" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_ml_analysis_numbers</span>
+<span id="cb56-187"><a href="#cb56-187" aria-hidden="true" tabindex="-1"></a>do_ml_analysis_numbers()</span>
+<span id="cb56-188"><a href="#cb56-188" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-189"><a href="#cb56-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-190"><a href="#cb56-190" aria-hidden="true" tabindex="-1"></a>Again, you can print the findings that we found from analyzing this data:</span>
+<span id="cb56-193"><a href="#cb56-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-194"><a href="#cb56-194" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> ml_analysis_findings</span>
+<span id="cb56-195"><a href="#cb56-195" aria-hidden="true" tabindex="-1"></a>ml_analysis_findings()</span>
+<span id="cb56-196"><a href="#cb56-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-197"><a href="#cb56-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-198"><a href="#cb56-198" aria-hidden="true" tabindex="-1"></a>Finally, taking everything together, you can see what we found from the data in regards to our specific research question:</span>
+<span id="cb56-201"><a href="#cb56-201" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-202"><a href="#cb56-202" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_analysis_specific</span>
+<span id="cb56-203"><a href="#cb56-203" aria-hidden="true" tabindex="-1"></a>do_analysis_specific()</span>
+<span id="cb56-204"><a href="#cb56-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-205"><a href="#cb56-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-206"><a href="#cb56-206" aria-hidden="true" tabindex="-1"></a>If you would like to do these all at the same time, data gathering, cleaning, analysis, and interpretation, then you can use the <span class="in">`totality`</span> function: (This is the only function that does not require that you run <span class="in">`data_creation`</span> prior to running it.)</span>
+<span id="cb56-209"><a href="#cb56-209" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-210"><a href="#cb56-210" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> totality</span>
+<span id="cb56-211"><a href="#cb56-211" aria-hidden="true" tabindex="-1"></a><span class="co">#Note, since this include data_creation this will take up to 2 hours, depending on your machine speed, copy and uncomment to run yourself</span></span>
+<span id="cb56-212"><a href="#cb56-212" aria-hidden="true" tabindex="-1"></a><span class="co">#totality()</span></span>
+<span id="cb56-213"><a href="#cb56-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

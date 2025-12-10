@@ -1,6 +1,7 @@
 ---
 title: "Getting Started"
 jupyter: python3
+format: html
 ---
 
 Here is how to use this package.
@@ -10,7 +11,7 @@ Note: None of these functions have any parameters, however, some of them need to
 First, obtain the data. This function creates the dirty dataset, saves it as an csv, `dirty_data.csv` then cleans it and saves it as a csv, `movie_data.csv`. 
 ```{python}
 from final_movie_analysis import data_creation
-#Note, this will take up to 2 hours, depending on your machine speed, it returns nothing, copy and uncomment to run yourself
+#Note, this will take up to 2 hours, depending on your machine speed, it returns nothing visually, copy and uncomment to run yourself
 #data_creation()
 ```
 

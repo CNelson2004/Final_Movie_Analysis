@@ -1,5 +1,6 @@
 ---
 title: "Universal Studios Movie Analysis Package"
+format: html
 ---
 
 Here is a website all about my package for STAT 386
