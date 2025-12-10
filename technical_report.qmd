@@ -7,25 +7,25 @@ format: html
 ## Executive Summary
 
 Project Objectives: 
-Identify the best movies or highest revenue movies by find what features determine high grossing movies. In other words, how would I make a movie, and when would I release it in order to return the highest amount of revenue
+Identify the highest revenue movies by finding what features determine high grossing movies. In other words, how would I make a movie, and when would I release it in order to return the highest amount of revenue?
 
 Key Findings:
-None of the analyses done show anything statistically significant results when put in reference to the Questions though there are some small differences in move revenue depending on the season and other factors.
+None of the analyses done show anything statistically significant results when put in reference to the questions, though there are some small differences in movie revenue depending on various factors, (such as Season and Genre), these factors are not mentioned specifically since they are statistically irrelevant.
 
 Actionable Recommendations:
-Because there are no significant factors, more analysis is highly advised to reduce uncertainty. We suggest separating data (separating it in to season, movie type, and other differences) more for deeper analysis this would hopefully reduce the variation. The other idea for better analysis is to identify the high earning revenue movies and find what they have in common and use that to see what could influence revenue.
-The analysis did not show any statistically significant data but some actions that might indicate a quality movie or improve revenue are making a movie that appeals to everyone, and releasing in the summer, with a high starting budget, could results in the higher revenue. Making a PG movie using Digital Animation in the genre of Adventure or Action, which appeals to those inside and outside the US is anticipated to result in higher overall revenue.
+Because there are no significant factors, more analysis is highly advised to reduce uncertainty. We suggest separating data (such as into season, movie type, etc) for a deeper analysis, which likely reduce the variation. Additionally, analysis identifying the high earning revenue movies and finding what they have in common could be used to see what influences revenue.
+The analysis did not show any statistically significant data, but some actions that might indicate a high revenue movie is a movie that appeals to everyone, is released in the summer, and has a high starting budget. Making a PG movie using Digital Animation in the genre of Adventure or Action, which appeals to those inside and outside the US, is anticipated to result in higher overall revenue.
 
 ## Project Context
 
 Motivation:
-We want to know what movies have the highest revenue and see what could help maximize the revenue of a movie. All this with the belief that revenue for movies is an indicator of how good a movie is. 
+We want to know what movies have the highest revenue and see what could help maximize the revenue of a movie. Please note that this is with the belief that revenue for movies is an indicator of how good a movie is. 
 
 Success Criteria:
-Identify distinct features that are important for overall movie revenue.
+Identify distinct features that are important for and impact overall movie revenue.
 
 Stakeholders:
-This project has 2 interested parties. One is individuals who want to enjoy a good movie and not pay for low quality entertainment, and the second is companies (Business/Board of Trustees/Boss) who want to maximize the amount of revenue they earn with as little loss as possible.
+This project has two interested parties. One is individuals who want to enjoy a good movie and do not want to pay for low quality entertainment, and the second is companies, (Business/Board of Trustees/Boss), who want to maximize the amount of revenue they earn when creating a movie.
 
 ## Data Sources
 
@@ -37,8 +37,7 @@ This project has 2 interested parties. One is individuals who want to enjoy a go
 
 ## Methodology
 
-`TODO - outline collection scripts/APIs`
-1. _Data acquisition:_ Used common web scraping techniques to obtain data from Wikipedia and The Numbers. Specifically the libraries: requests and beautiful soup. 
+1. _Data acquisition:_ Used common web scraping techniques to obtain data from Wikipedia and The Numbers using the libraries: requests, beautiful soup, regex, and pandas. Specifically, our function `data_creation` uses the init function for both requests and beautiful soup, `read_html` from pandas, `sub`, `match` from regex, `get` from requests, and `find` from beautiful soup. 
 
 2. _Cleaning pipeline:_
 * Changed Release Date into a datetime object.
@@ -55,7 +54,7 @@ This project has 2 interested parties. One is individuals who want to enjoy a go
 * This was validated by checking that all columns were of specified types and manually viewing the dataset, and all was as expected
 * A separated csv was created for Machine Learning Analysis wherein the target, Total Box Office Revenue, was analyzed as a log of the original target due to the skewness of the target data, this separate csv, `ml_movie_data.csv`, also removes all non-numeric columns.
 * `ml_movie_data.csv` is the transformed version of `movie_data.csv`
-* This was validated by checking the new transformed column
+* This was validated by checking the new transformed column and csv as a whole.
 
 
 3. _Analysis workflow:_ 
@@ -88,39 +87,39 @@ This project has 2 interested parties. One is individuals who want to enjoy a go
 *Main Metrics*:
 The main metrics for the plots and data of importance are as follows:
     General Movie Revenue:
-        mean = 9.1$ e^7 (91 million us daller)
-        sd = 1. e^8 (100 million us daller) [Since this sd shows that the data is skewed, add the median]
+        mean = 9.1$ e^7 (91 million US dollars)
+        sd = 1. e^8 (100 million US dollars) [Since this sd shows that the data is skewed, add the median]
     Season of Release:
         spring has the highest revenue (there isn't a significant difference between any except for summer and fall summer is better (0.011))
-        fall:   mean =  5.5 e^7 (55 million us daller),    
-                sd = 7.17 e^7   (71 million us daller)
-        winter: mean =  7.9 e^7 (79 million us daller),    
-                sd = 7.62 e^7   (76 million us daller)
-        spring: mean =  9.3 e^8,(930 million us daller)
-                sd = 1.3 e^8    (103 million us daller)
-        summer: mean =  1.493 e^8, (149 million us daller) 
-                sd = 1.8 e^8    (180 million us daller)
+        fall:   mean =  5.5 e^7 (55 million US dollars),    
+                sd = 7.17 e^7   (71 million US dollars)
+        winter: mean =  7.9 e^7 (79 million US dollars),    
+                sd = 7.62 e^7   (76 million US dollars)
+        spring: mean =  9.3 e^8,(930 million US dollars)
+                sd = 1.3 e^8    (103 million US dollars)
+        summer: mean =  1.493 e^8, (149 million US dollars) 
+                sd = 1.8 e^8    (180 million US dollars)
 
     Genre:
         the highest means are in 'Musicals', 'Action', 'Adventure' with means and sd of
-        Musicals: mean = 1.6 e^8 (160 million us daller),
-                    sd = 1.8 e^8 (180 million us daller)
-        Action:   mean = 1.9 e^8 (190 million us daller),
-                    sd = 2.18 e^8 (218 million us daller)
-        Adventure:mean = 1.88 e^8 (188 million us daller),
-                    sd = 1.78 e^8 (178 million us daller)
+        Musicals: mean = 1.6 e^8 (160 million US dollars),
+                    sd = 1.8 e^8 (180 million US dollars)
+        Action:   mean = 1.9 e^8 (190 million US dollars),
+                    sd = 2.18 e^8 (218 million US dollars)
+        Adventure:mean = 1.88 e^8 (188 million US dollars),
+                    sd = 1.78 e^8 (178 million US dollars)
 
     Movie Rating:
-        PG: mean = 1.2 e^8 (120 million us daller),
-            sd = 1.5 e^8 (150 million us daller)
-        R: mean = 5.5 e^7 (55 million us daller),
-            sd = 6.4 e^7 (64 million us daller)
+        PG: mean = 1.2 e^8 (120 million US dollars),
+            sd = 1.5 e^8 (150 million US dollars)
+        R: mean = 5.5 e^7 (55 million US dollars),
+            sd = 6.4 e^7 (64 million US dollars)
 
     Production Method:
-        Animation/ Live Actin: mean = 1.58 e^8 (158 million us daller),
-                                sd = 1.68 e^8 (168 million us daller)
-        Digital Animation:     mean = 2.1 e^8 (210 million us daller),
-                                sd = 1.7 e^8 (170 million us daller)
+        Animation/ Live Actin: mean = 1.58 e^8 (158 million US dollars),
+                                sd = 1.68 e^8 (168 million US dollars)
+        Digital Animation:     mean = 2.1 e^8 (210 million US dollars),
+                                sd = 1.7 e^8 (170 million US dollars)
 
 *Charts*: (Add description underneath it if chart doesn't include labels)
 ![avrage yearly revinue](revenue_by_year.png)
@@ -131,23 +130,21 @@ MSE
 Cross Validation 
 Variable and Prepositions Plot
 
-*Model Diagnostics*: We chose not to create a prediction model, and thus have no model diagnostics. 
-*Model Diagnostics*: We chose not to createa prediciton model because no statisticly significant vareables where identified, and thus have no model diagnostics. 
-(Could do t-test or ANOVA if wanted for model diagnostics) (Could include significance stats here.)
+*Model Diagnostics*: We chose not to create a prediction model because no statistically significant variables were identified, and thus have no model diagnostics. 
 
 ## Discussion & Next Steps
 
 *Results*:
-there where no stiatisticly significant vareables becasue the vareance was so high. there are some facters that apear to have some influece such as season of releas, genre, and rating (R, PG, G) but futher analais could revieal more influence if vareance was reduced
+There were no statistically significant variables because the variance was so high. There are some factors that appear to have some influence such as season of release, genre, and rating (R, PG, G) but further analysis could reveal more influence if variance was reduced.
 
 *Limitations*:
 The categorical and numerical analysis for correlation can't show causation so we don't know if adjusting one will directly influence the other. Additionally, none of the results shown significance, this means that the variance of revenue in any of our analyses is not different form the average mean.
 
 Open Questions:
-1. if you seporate things further (year of production, season of production, geanre, etc.) douse it tell a more clear story about the data
-2. are move rating actualy related to the revinue earned for that movie.
-3. are there other factors that influence revinue? storyline, plot twists, etc.
-4. do outliers (high or low revinue movies) have common faters?
+1. If you separate things further (year of production, season of production, genre, etc.) dose it tell a clearer story about the data?
+2. Are movie ratings related to the revenue earned for that movie?
+3. Are there other factors that influence revenue? (storyline, plot twists, etc)
+4. Do outliers (very high or very low revenue movies) have common factors?
 
 *Future Experiments*:
-In order to reduce the amount of variance it would be smart to separate data more, an example might be only action movies in winter compared to adventure movies in winter. This would hopefully reduce the variance and create a more accurate analysis as well as show any influence between variables, for example if R movies earning less revenue because most of them were released in winter. An analysis of movie ratings for these movies would also be informative as to what watchers value and there for what you could charge more for.
+In order to reduce the amount of variance it would be smart to separate data more, an example might be only action movies in winter compared to adventure movies in winter. This would hopefully reduce the variance and create a more accurate analysis as well as show any influence between variables, for example if R movies earning less revenue because most of them were released in winter, then an analysis of movie ratings for these movies would be informative as to what watchers value and therefore what you could charge more for.
