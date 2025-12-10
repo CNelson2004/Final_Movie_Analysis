@@ -25,6 +25,9 @@ dependencies = [
     "pingouin>=0.5.5",
 ]
 
+[tool.uv]
+paths = ["src"]
+
 [project.urls]
 Homepage = "https://github.com/CNelson2004/Final_Movie_Analysis"
 Repository = "https://github.com/CNelson2004/Final_Movie_Analysis.git"
