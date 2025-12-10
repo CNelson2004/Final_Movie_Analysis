@@ -123,7 +123,10 @@ The main metrics for the plots and data of importance are as follows:
                                 sd = 1.7 e^8 (170 million us daller)
 
 *Charts*: (Add description underneath it if chart doesn't include labels)
-()
+![avrage yearly revinue](revenue_by_year.png)
+this shows the difrences in revinue and there coralation. in our analasis we used 'inflated ajusted domsetic revinue'
+![revine by genre](revinue_by_genre.png)
+The revinue by genre shows that acton adventuer and musicals normaly earn the most but its not statisticly significant
 MSE
 Cross Validation 
 Variable and Prepositions Plot
