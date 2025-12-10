@@ -1,5 +1,3 @@
-
 /.quarto/
-/docs/site_libs/
 .venv
 **/*.quarto_ipynb
