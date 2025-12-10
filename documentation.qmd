@@ -107,7 +107,7 @@ This function returns our interpretation and analysis of the revenue graphs.
 
 `do_ml_analysis_plots()`
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
-This function utilizes machine learning techniques, specifically the library shap, to create plots demonstrating the significance of various features during different stages of a movie's release. 
+This function utilizes machine learning techniques, specifically the library shap, to create plots demonstrating the significance of various features during different stages of a movie's release. These plots are saved as a png. 
 
 
 `do_ml_analysis_numbers()`

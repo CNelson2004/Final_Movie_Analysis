@@ -1,26 +1,28 @@
 ---
 title: "Technical Report"
-description: "Project summary, methodology, and findings placeholder"
+description: "Project Summary, Methodology, and Findings Placeholder"
 ---
 
 ## Executive Summary
 
 `_TODO: Provide a concise overview of the project objectives, key findings, and actionable recommendations._`
-Project Objectives: 
+Project Objectives: (Research Question)
 
-Key Findings:
+Key Findings: (Answer to Research Question)
 
-Actionable Recommendations:
+Actionable Recommendations: 
 
 ## Project Context
 
 `_TODO: Describe the motivation, stakeholders, and success criteria for this analysis._`
-Motivation:
+Motivation: (What you want to do with your research question) (why of the research question)
+Identify best time to release a movie to maximize profit
 
-Stakeholders:
+Stakeholders: (As if we are presenting to a business/board of trustees/boss)
 
 Success Criteria:
-
+Distinct features and their influence identified. 
+(What success of your research question looks like)
 
 ## Data Sources
 
@@ -28,14 +30,15 @@ Success Criteria:
 * List of movies: [Universal Movies from 2020-2029](https://en.wikipedia.org/wiki/List_of_Universal_Pictures_films_(2020%E2%80%932029)) and [Universal Movies from 2010-2019](https://en.wikipedia.org/wiki/List_of_Universal_Pictures_films_(2010%E2%80%932019))
 * Financial Data for movies: [The Numbers](https://www.the-numbers.com/)
 - _Supplementary data:_ These were the only sites used `TODO - describe any external references`
-- _Data access notes:_ Wait five seconds between requests, all information is open access with no licenses needed `TODO - mention licenses or refresh cadence`
+- _Data access notes:_ Wait five seconds between requests, all information is open access with no licenses needed.
 
 ## Methodology
 
-1. _Data acquisition:_ Used common web scraping techniques to obtain data from Wikipedia and The Numbers. Specifically the libraries: requests and beautiful soup. `TODO - outline collection scripts/APIs`
+`TODO - outline collection scripts/APIs`
+1. _Data acquisition:_ Used common web scraping techniques to obtain data from Wikipedia and The Numbers. Specifically the libraries: requests and beautiful soup. 
 
-2. _Cleaning pipeline:_ `TODO - summarize transformations and validations implemented`
-* Separated Release Date into Year and Month, and used month to create a new column called Season
+2. _Cleaning pipeline:_ `
+* Changed Release Date into a datetime object.
 * Changed all revenue numbers from strings containing $ to proper integers. 
 * Changed runtime from a string to an integer 
 * Changed all None values to np.Nan
@@ -45,19 +48,24 @@ Success Criteria:
 - Production budget as related to worldwide box office
 - MPAA Rating specifics
 * Created a profits column by taking Total Box Office Revenue - Budget
-* A separated .csv was created for Machine Learning Analysis wherein the target, Total Box Office Revenue, was analyzed as a log of the original target due to the skewness of the target data 
+* Also created a Year, Month, and Season column based upon release date
+* This was validated by checking that all columns were of specified types and manually viewing the dataset, and all was as expected
+* A separated csv was created for Machine Learning Analysis wherein the target, Total Box Office Revenue, was analyzed as a log of the original target due to the skewness of the target data, this separate csv, `ml_movie_data.csv`, also removes all non-numeric columns.
+* `ml_movie_data.csv` is the transformed version of `movie_data.csv`
+* This was validated by checking the new transformed column
+
 
 3. _Analysis workflow:_ 
-* correlate all the data to see what has an effect on income
-* find the NAs for reference
-* plot the money against one another to check for anomalies
-* find the average revenue for each year and then plot it for clearer visuals
-* find the statistics for some of the means
-* plot the categorical data with regards to the Inflation Adjusted Domestic Revenue
+* Correlate all the data to see what has an effect on income
+* Find the NAs for reference
+* Plot the money against one another to check for anomalies
+* Find the average revenue for each year and then plot it for clearer visuals
+* Find the statistics for some of the means
+* Plot the categorical data with regards to the Inflation Adjusted Domestic Revenue
 
 "We used some basic analysis such as  correlation, plots to visualize it (mostly line plots but some box plots for categorical data). This required only a few changes such as adding a column for year or doing basic math, mostly wit dates, to get usable numbers for plots and correlation. There are some NAs in the data set, around 60 to 70 for each column. The highest one was 146 but that was Franchise which wasn't really used in any analysis"
 
-4. _Tooling:_ `TODO - list packages, environments, and reproducibility steps`
+4. _Tooling:_ 
 * Packages: The packages used were: 
 - bs4
 - ipykernel
@@ -68,8 +76,8 @@ Success Criteria:
 - requests
 - scikit-learn
 - shap
-* Environments: The virtual environment UV was used for this project 
-* Reproducibility Steps: Run the functions in order as given in the [tutorial](tutorial.qmd)
+* Environments: The virtual environment UV was used for this project with Python 3.13. 
+* Reproducibility Steps: Run `totality()` to reproduce our dataset, results, and interpretation, for more details see the [tutorial](tutorial.qmd)
 
 ## Results & Diagnostics
 

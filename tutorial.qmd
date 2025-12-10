@@ -3,11 +3,11 @@ title: "Getting Started"
 jupyter: python3
 ---
 
-Here is how to use my package
+Here is how to use this package.
 
 Note: None of these functions have any parameters, however, some of them need to be ran in a specific order, as will be discussed.
 
-First, obtain the data. This function creates the dirty dataset, saves it as an csv, then cleans it and saves it as a csv. 
+First, obtain the data. This function creates the dirty dataset, saves it as an csv, `dirty_data.csv` then cleans it and saves it as a csv, `movie_data.csv`. 
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
@@ -16,7 +16,7 @@ from final_movie_analysis.functions import data_creation
 data_creation()
 ```
 
-Please know that none of the following functions will work unless you have run `data_creation`, thus creating a csv for these functions to work with.
+**Please know that none of the following functions will work unless you have run `data_creation`, thus creating a csv for these functions to work with.**
 
 If you would like to simply see the first few rows of the dataset, run this function:
 ```{python}
@@ -26,8 +26,8 @@ from final_movie_analysis.functions import print_dataset_head
 print_dataset_head()
 ```
 
-These are the analysis functions. 
-Analysis related to the factors
+These are the analysis functions.
+Analysis related to the factors:
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
@@ -35,7 +35,7 @@ from final_movie_analysis.functions import analyze_revenue
 analyze_revenue()
 ```
 
-Analysis related to the revenue over time
+Analysis related to the revenue over time:
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
@@ -43,7 +43,7 @@ from final_movie_analysis.functions import factors_analysis
 factors_analysis()
 ```
 
-You can also print the findings that we found from analyzing this data
+You can also print the findings that we found from analyzing this data:
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
@@ -58,7 +58,7 @@ from final_movie_analysis.functions import revenue_findings
 revenue_findings()
 ```
 
-If you would like to do these analyses individually, then you can use these following functions
+If you would like to do these analyses individually, then you can use these following functions.
 
 Here you can get the number of NAs from each column:
 ```{python}
@@ -68,7 +68,7 @@ from final_movie_analysis.functions import getNAs
 getNAs()
 ```
 
-Get the correlation between the features
+Get the correlation between the features:
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
@@ -76,7 +76,7 @@ from final_movie_analysis.functions import earnings_correlation
 earnings_correlation()
 ```
 
-Get the graph regarding seasons and revenue
+Get the graph regarding seasons and revenue:
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
@@ -84,7 +84,7 @@ from final_movie_analysis.functions import season_earnings
 season_earnings()
 ```
 
-Get the graph regarding genre and revenue
+Get the graph regarding genre and revenue:
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
@@ -92,7 +92,7 @@ from final_movie_analysis.functions import genre_earnings
 genre_earnings()
 ```
 
-Get the graph regarding production method and revenue
+Get the graph regarding production method and revenue:
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
@@ -100,7 +100,7 @@ from final_movie_analysis.functions import production_method_earnings
 production_method_earnings()
 ```
 
-Get the graph regarding ratings and revenue
+Get the graph regarding ratings and revenue:
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
@@ -178,7 +178,7 @@ from final_movie_analysis.functions import do_ml_analysis_plots
 do_ml_analysis_plots()
 ```
 
-If you want specific numbers
+If you want specific numbers:
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
@@ -186,7 +186,7 @@ from final_movie_analysis.functions import do_ml_analysis_numbers
 do_ml_analysis_numbers()
 ```
 
-Again, you can print the findings that we found from analyzing this data
+Again, you can print the findings that we found from analyzing this data:
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
@@ -194,7 +194,7 @@ from final_movie_analysis.functions import ml_analysis_findings
 ml_analysis_findings()
 ```
 
-Finally, taking everything together, you can see what we found from the data in regards to our specific research question
+Finally, taking everything together, you can see what we found from the data in regards to our specific research question:
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
@@ -202,7 +202,7 @@ from final_movie_analysis.functions import do_analysis_specific
 do_analysis_specific()
 ```
 
-If you would like to do these all at the same time, data gathering, cleaning, analysis, and interpretation, then you can use the `totality` function. (This does not require that you run `data_creation` prior to running this function.)
+If you would like to do these all at the same time, data gathering, cleaning, analysis, and interpretation, then you can use the `totality` function: (This is the only function that does not require that you run `data_creation` prior to running it.)
 ```{python}
 import sys, os
 sys.path.append(os.path.abspath("src"))
