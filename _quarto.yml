@@ -1,10 +1,16 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - styles.css
+
+metadata:
+  relative-paths: true
 
 website:
   title: "Universal Studios Movie Analysis Package"
   description: "A tutorial and description of the package: final-movie-analysis"
+  site-url: "https://cnelson2004.github.io/Final_Movie_Analysis/"
   navbar:
     background: primary
     left:
@@ -16,11 +22,3 @@ website:
         text: Getting Started
       - href: technical_report.qmd
         text: Technical report
-
-format:
-  html:
-    theme: cosmo
-    toc: true
-    code-fold: false
-    code-tools: true
-    css: styles.css
