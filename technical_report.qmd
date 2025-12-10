@@ -1,6 +1,6 @@
 ---
 title: "Technical Report"
-description: "Project Summary, Methodology, and Findings Placeholder"
+description: "Project Summary, Methodology, and Findings"
 ---
 
 ## Executive Summary
@@ -22,9 +22,9 @@ Success Criteria: Identify distinct features that are important for overall movi
 ## Data Sources
 
 - _Primary dataset:_ 
-* List of movies: [Universal Movies from 2020-2029](https://en.wikipedia.org/wiki/List_of_Universal_Pictures_films_(2020%E2%80%932029)) and [Universal Movies from 2010-2019](https://en.wikipedia.org/wiki/List_of_Universal_Pictures_films_(2010%E2%80%932019))
-* Financial Data for movies: [The Numbers](https://www.the-numbers.com/)
-- _Supplementary data:_ These were the only sites used `TODO - describe any external references`
+    * [Universal Movies from 2020-2029](https://en.wikipedia.org/wiki/List_of_Universal_Pictures_films_(2020%E2%80%932029)) and [Universal Movies from 2010-2019](https://en.wikipedia.org/wiki/List_of_Universal_Pictures_films_(2010%E2%80%932019))
+    * Financial Data for movies: [The Numbers](https://www.the-numbers.com/)
+- _Supplementary data:_ These were the only sites/sources used 
 - _Data access notes:_ Wait five seconds between requests, all information is open access with no licenses needed.
 
 ## Methodology
@@ -38,10 +38,10 @@ Success Criteria: Identify distinct features that are important for overall movi
 * Changed runtime from a string to an integer 
 * Changed all None values to np.Nan
 * Removed all extraneous information, specifically 
-- Who released the movie and what type of release it was (for both video and theater release date)
-- Percentage of total gross for opening weekend
-- Production budget as related to worldwide box office
-- MPAA Rating specifics
+    - Who released the movie and what type of release it was (for both video and theater release date)
+    - Percentage of total gross for opening weekend
+    - Production budget as related to worldwide box office
+    - MPAA Rating specifics
 * Created a profits column by taking Total Box Office Revenue - Budget
 * Also created a Year, Month, and Season column based upon release date
 * This was validated by checking that all columns were of specified types and manually viewing the dataset, and all was as expected
@@ -62,26 +62,26 @@ Success Criteria: Identify distinct features that are important for overall movi
 
 4. _Tooling:_ 
 * Packages: The packages used were: 
-- bs4
-- ipykernel
-- lxml
-- matplotlib
-- numpy
-- pandas
-- requests
-- scikit-learn
-- shap
+    - bs4
+    - ipykernel
+    - lxml
+    - matplotlib
+    - numpy
+    - pandas
+    - requests
+    - scikit-learn
+    - shap
 * Environments: The virtual environment UV was used for this project with Python 3.13. 
 * Reproducibility Steps: Run `totality()` to reproduce our dataset, results, and interpretation, for more details see the [tutorial](tutorial.qmd)
 
 ## Results & Diagnostics
 
-`_TODO: Summarize the main metrics, charts, or model diagnostics produced. Include links to figures or tables once available._`
+`_TODO: Summarize the main metrics, charts, or model diagnostics produced. Include links to figures or tables once available._` `(Attach units to values)`
 Main Metrics:
 The main metrics for the plots and data of importance are as follows:
     General Movie Revenue:
-        mean = 9.1 e^7
-        sd = 1. e^8
+        mean = 9.1 e^7 [**Attach unit to numbers like these Ex: 9.1 M dollars**]
+        sd = 1. e^8  [Since this sd shows that the data is skewed, add the median]
     Season of Release:
         spring has the highest revenue (there isn't a significant difference between any except for summer and fall summer is better (0.011))
         fall:   mean =  5.5 e^7,    sd = 7.17 e^7
@@ -103,12 +103,14 @@ The main metrics for the plots and data of importance are as follows:
         Animation/ Live Actin: mean = 1.58 e^8 ,sd = 1.68 e^8
         Digital Animation:     mean = 2.1 e^8  ,sd = 1.7 e^8
 
-Charts:
-
-Model Diagnostics:
+Charts: (Add description underneath it if chart doesn't include labels)
 MSE
 Cross Validation 
 Variable and Prepositions Plot
+
+Model Diagnostics: We chose not to createa prediciton model, and thus have no model diagnostics. 
+(Could do t-test or ANOVA if wanted for model diagnostics) (Could include significance stats here.)
+
 
 ## Discussion & Next Steps
 

@@ -3,7 +3,9 @@ title: "Documentation"
 ---
 
 Functions:
+
 `data_creation()`
+
 This function requires no parameters.
 This function creates a new dataset from scratch by scraping the web, specifically the websites of wikipedia and the-numbers.
 It saves a pandas dataframe of this dirty data as a csv under the title 'dirty_data.csv'. Then it takes the dataframe and cleans the data.
@@ -11,120 +13,143 @@ It also adds the new columns Season and Profit. It saves this new clean pandas d
 
 
 `print_dataset_head()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function prints out the first five rows of the csv, as a pandas dataframe, for viewing.
 
 
-`getNAs()`
+`get_NAs()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function returns the number of NA values in each column/feature of 'movie_data.csv'.
 
 
 `earnings_correlation()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function returns the correlation matrix between all numerical features. 
 
 
 `season_earnings()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function returns a boxplot showing total box office revenue as grouped by seasons, and saves that graph as a png.
 
 
 `genre_earnings()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function returns a boxplot showing total box office revenue as grouped by genre, and saves that graph as a png.
 
 
 `production_method_earnings()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function returns a boxplot showing total box office revenue as grouped by production method, and saves that graph as a png.
 
 
 `ratings_earnings()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function returns a boxplot showing total box office revenue as grouped by ratings, and saves that graph as a png.
 
 
 `season_significance()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This functions returns the F value and p value of Season as in regards to Inflation Adjusted Domestic Revenue, (to ensure inflation doesn't  mess up our numbers), and the statistical significance between the various seasons. 
 
 
 `rating_significance()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This functions returns the F value and p value of Rating as in regards to Inflation Adjusted Domestic Revenue, (to ensure inflation doesn't  mess up our numbers), and the statistical significance between the various ratings. 
 
 
 `genre_significance()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This functions returns the F value and p value of Genre as in regards to Inflation Adjusted Domestic Revenue, (to ensure inflation doesn't  mess up our numbers), and the statistical significance between the various genres. 
 
 
 `production_method_significance()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This functions returns the F value and p value of Production Method as in regards to Inflation Adjusted Domestic Revenue, (to ensure inflation doesn't  mess up our numbers), and the statistical significance between the various methods. 
 
 
 `describe_revenue()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This functions returns a statistical description of the various types of revenue.
 
 
 `graph_revenue()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function returns a graph showing total box office revenue over time, and saves that graph as a png.
 
 
 `graph_revenue_by_year()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function returns a graph various revenues over time, grouped by year, and saves that graph as a png.
 
 
 `graph_revenue_and_profit()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function returns a graph showing Total Box Office Revenue and Profit over time, and saves that graph as a png.
 
 
 `analyze_revenue()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function runs `describe_revenue`, `graph_revenue`, `graph_revenue_by_year`, and `graph_revenue_and_profit` all at once.
 
 
 `factors_analysis()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function runs `get_NAs`, `earnings_correlation`, `season_earnings`, `ratings_earnings`, `genre_earnings`, `production_method_earnings`, `season_significance`, `rating_significance`, `genre_significance`, and `production_method_significance` all at once.
 
 
 `factors_findings()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function returns our interpretation and analysis of the feature graphs and the ones of statistical significance. 
 
 
 `revenue_findings()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function returns our interpretation and analysis of the revenue graphs. 
 
 
 `do_ml_analysis_plots()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function utilizes machine learning techniques, specifically the library shap, to create plots demonstrating the significance of various features during different stages of a movie's release. These plots are saved as a png. 
 
 
 `do_ml_analysis_numbers()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function utilizes machine learning techniques to create return numbers demonstrating the significance of various features during different stages of a movie's release. 
 
 
 `ml_analysis_findings()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function returns our findings and interpretation of the data from `do_ml_analysis_plots` and `do_ml_analysis_numbers`.
 
 
 `do_analysis_specific()`
+
 This function requires no parameters. However, `data_creation` must be ran before this function can be used since it requires 'movie_data.csv'.
 This function states our research question, and utilizes `factors_analysis`, `factors_findings`, `do_ml_analysis_plots`, and `ml_analysis_findings`, to provide an answer to that question. All of this is printed out into the terminal.
 
 
 `totality()`
-This function gathers, cleans, analyzes, and interprets the data. Specifically is performs the functions of `data_creation` and `do_analysis_specific` at the same time.
 
+This function gathers, cleans, analyzes, and interprets the data. Specifically is performs the functions of `data_creation` and `do_analysis_specific` at the same time.

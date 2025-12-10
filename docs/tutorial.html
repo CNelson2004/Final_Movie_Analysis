@@ -1,0 +1,2435 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Getting Started – Universal Studios Movie Analysis Package</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-029b10fc0dc652dab2ec1ac156c1a037.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Universal Studios Movie Analysis Package</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./documentation.html"> 
+<span class="menu-text">Documentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./tutorial.html" aria-current="page"> 
+<span class="menu-text">Getting Started</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./technical_report.html"> 
+<span class="menu-text">Technical report</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Getting Started</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Here is how to use this package.</p>
+<p>Note: None of these functions have any parameters, however, some of them need to be ran in a specific order, as will be discussed.</p>
+<p>First, obtain the data. This function creates the dirty dataset, saves it as an csv, <code>dirty_data.csv</code> then cleans it and saves it as a csv, <code>movie_data.csv</code>.</p>
+<div id="a6da7448" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> data_creation</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Note, this will take up to 2 hours, depending on your machine speed, it returns nothing, copy and uncomment to run yourself</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#data_creation()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Please know that none of the following functions will work unless you have run <code>data_creation</code>, thus creating a csv for these functions to work with.</strong></p>
+<p>If you would like to simply see the first few rows of the dataset, run this function:</p>
+<div id="5a6a6340" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> print_dataset_head</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>print_dataset_head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Title</th>
+<th data-quarto-table-cell-role="th">Release Date</th>
+<th data-quarto-table-cell-role="th">Inflation Adjusted Domestic Revenue</th>
+<th data-quarto-table-cell-role="th">Domestic Revenue</th>
+<th data-quarto-table-cell-role="th">International Revenue</th>
+<th data-quarto-table-cell-role="th">Total Box Office Revenue</th>
+<th data-quarto-table-cell-role="th">Domestic Video Revenue</th>
+<th data-quarto-table-cell-role="th">Opening Weekend</th>
+<th data-quarto-table-cell-role="th">Production Budget</th>
+<th data-quarto-table-cell-role="th">Theater Number</th>
+<th data-quarto-table-cell-role="th">MPAA Rating</th>
+<th data-quarto-table-cell-role="th">Runtime</th>
+<th data-quarto-table-cell-role="th">Genre</th>
+<th data-quarto-table-cell-role="th">Franchise</th>
+<th data-quarto-table-cell-role="th">Production Method</th>
+<th data-quarto-table-cell-role="th">Video Release Date</th>
+<th data-quarto-table-cell-role="th">Domestic DVD Revenue</th>
+<th data-quarto-table-cell-role="th">Domestic Bluray Revenue</th>
+<th data-quarto-table-cell-role="th">Month</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">Season</th>
+<th data-quarto-table-cell-role="th">Profit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Ride Along</td>
+<td>2014-01-17</td>
+<td>185781035.0</td>
+<td>134202565.0</td>
+<td>19531235.0</td>
+<td>153733800.0</td>
+<td>32235555.0</td>
+<td>41516170.0</td>
+<td>25000000.0</td>
+<td>2867.0</td>
+<td>PG</td>
+<td>100.0</td>
+<td>Comedy</td>
+<td>Ride Along</td>
+<td>Live Action</td>
+<td>2014-04-15</td>
+<td>21354671.0</td>
+<td>10880884.0</td>
+<td>1.0</td>
+<td>2014.0</td>
+<td>Winter</td>
+<td>128733800.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Endless Love</td>
+<td>2014-02-14</td>
+<td>32446343.0</td>
+<td>23438250.0</td>
+<td>11279923.0</td>
+<td>34718173.0</td>
+<td>5650051.0</td>
+<td>13307125.0</td>
+<td>20000000.0</td>
+<td>2896.0</td>
+<td>PG</td>
+<td>105.0</td>
+<td>Drama</td>
+<td>NaN</td>
+<td>Live Action</td>
+<td>2014-05-27</td>
+<td>4314112.0</td>
+<td>1335939.0</td>
+<td>2.0</td>
+<td>2014.0</td>
+<td>Winter</td>
+<td>14718173.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>A Million Ways to Die in The West</td>
+<td>2014-05-30</td>
+<td>59140035.0</td>
+<td>42720965.0</td>
+<td>44057592.0</td>
+<td>86778557.0</td>
+<td>15244102.0</td>
+<td>16797385.0</td>
+<td>40000000.0</td>
+<td>3160.0</td>
+<td>R</td>
+<td>115.0</td>
+<td>Western</td>
+<td>NaN</td>
+<td>Live Action</td>
+<td>2014-10-07</td>
+<td>9630534.0</td>
+<td>5613568.0</td>
+<td>5.0</td>
+<td>2014.0</td>
+<td>Spring</td>
+<td>46778557.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>The Anomaly</td>
+<td>2015-09-25</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>105632.0</td>
+<td>105632.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Not Rated</td>
+<td>96.0</td>
+<td>Action</td>
+<td>NaN</td>
+<td>Live Action</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>9.0</td>
+<td>2015.0</td>
+<td>Fall</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Boyhood</td>
+<td>2014-07-11</td>
+<td>35086086.0</td>
+<td>25379975.0</td>
+<td>31893074.0</td>
+<td>57273049.0</td>
+<td>6319139.0</td>
+<td>387618.0</td>
+<td>4000000.0</td>
+<td>775.0</td>
+<td>R</td>
+<td>164.0</td>
+<td>Drama</td>
+<td>NaN</td>
+<td>Live Action</td>
+<td>2015-01-06</td>
+<td>3794682.0</td>
+<td>2524457.0</td>
+<td>7.0</td>
+<td>2014.0</td>
+<td>Summer</td>
+<td>53273049.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>These are the analysis functions. Analysis related to the factors:</p>
+<div id="39614483" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> analyze_revenue</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>analyze_revenue()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Statistical Description of Revenue features
+count    1.840000e+02
+mean     9.166218e+07
+std      1.253947e+08
+min      1.192100e+04
+25%      1.612724e+07
+50%      5.366071e+07
+75%      1.048190e+08
+max      8.763738e+08
+Name: Inflation Adjusted Domestic Revenue, dtype: float64 
+
+count    1.840000e+02
+mean     7.700907e+07
+std      1.056860e+08
+min      8.886000e+03
+25%      1.482090e+07
+50%      4.310387e+07
+75%      9.222670e+07
+max      6.534066e+08
+Name: Domestic Revenue, dtype: float64 
+
+count    1.860000e+02
+mean     1.188179e+08
+std      2.075318e+08
+min      1.259000e+03
+25%      9.771500e+06
+50%      3.498074e+07
+75%      1.041047e+08
+max      1.157058e+09
+Name: International Revenue, dtype: float64 
+
+Graphs related to revenue and time</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-4-output-2.png" width="576" height="500" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-4-output-3.png" width="597" height="500" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-4-output-4.png" width="589" height="470" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-4-output-5.png" width="597" height="500" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Checking out 2019
+Seberg
+The Wolf Hour
+There were only two movies this year, and it seems neither did well.</code></pre>
+</div>
+</div>
+<p>Analysis related to the revenue over time:</p>
+<div id="c319f80b" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> factors_analysis</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>factors_analysis()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of NAs in each column/feature
+Title                                    0
+Release Date                             0
+Inflation Adjusted Domestic Revenue      9
+Domestic Revenue                         9
+International Revenue                    7
+Total Box Office Revenue                 7
+Domestic Video Revenue                  36
+Opening Weekend                          9
+Production Budget                       38
+Theater Number                           9
+MPAA Rating                              2
+Runtime                                  5
+Genre                                    0
+Franchise                              127
+Production Method                        0
+Video Release Date                      58
+Domestic DVD Revenue                    38
+Domestic Bluray Revenue                 37
+Month                                    0
+Year                                     0
+Season                                   0
+Profit                                  40
+dtype: int64
+Correlations between features
+                                     Inflation Adjusted Domestic Revenue  \
+Inflation Adjusted Domestic Revenue                             1.000000   
+Domestic Revenue                                                0.988986   
+International Revenue                                           0.845688   
+Total Box Office Revenue                                        0.929063   
+Domestic Video Revenue                                          0.833442   
+Opening Weekend                                                 0.950344   
+Production Budget                                               0.511400   
+Theater Number                                                  0.560468   
+Runtime                                                         0.137451   
+Domestic DVD Revenue                                            0.780602   
+Domestic Bluray Revenue                                         0.852619   
+Month                                                          -0.081826   
+Year                                                           -0.107609   
+Profit                                                          0.934480   
+
+                                     Domestic Revenue  International Revenue  \
+Inflation Adjusted Domestic Revenue          0.988986               0.845688   
+Domestic Revenue                             1.000000               0.833409   
+International Revenue                        0.833409               1.000000   
+Total Box Office Revenue                     0.924478               0.981282   
+Domestic Video Revenue                       0.762171               0.749621   
+Opening Weekend                              0.942916               0.848824   
+Production Budget                            0.525543               0.695213   
+Theater Number                               0.571425               0.498169   
+Runtime                                      0.151164               0.175903   
+Domestic DVD Revenue                         0.704336               0.685929   
+Domestic Bluray Revenue                      0.788123               0.777023   
+Month                                       -0.070794              -0.101224   
+Year                                        -0.020963              -0.081818   
+Profit                                       0.926134               0.960576   
+
+                                     Total Box Office Revenue  \
+Inflation Adjusted Domestic Revenue                  0.929063   
+Domestic Revenue                                     0.924478   
+International Revenue                                0.981282   
+Total Box Office Revenue                             1.000000   
+Domestic Video Revenue                               0.778929   
+Opening Weekend                                      0.914988   
+Production Budget                                    0.664753   
+Theater Number                                       0.543357   
+Runtime                                              0.172566   
+Domestic DVD Revenue                                 0.715224   
+Domestic Bluray Revenue                              0.806402   
+Month                                               -0.092632   
+Year                                                -0.065265   
+Profit                                               0.988647   
+
+                                     Domestic Video Revenue  Opening Weekend  \
+Inflation Adjusted Domestic Revenue                0.833442         0.950344   
+Domestic Revenue                                   0.762171         0.942916   
+International Revenue                              0.749621         0.848824   
+Total Box Office Revenue                           0.778929         0.914988   
+Domestic Video Revenue                             1.000000         0.784715   
+Opening Weekend                                    0.784715         1.000000   
+Production Budget                                  0.440700         0.554679   
+Theater Number                                     0.406222         0.586074   
+Runtime                                            0.070274         0.165187   
+Domestic DVD Revenue                               0.978963         0.737902   
+Domestic Bluray Revenue                            0.987980         0.808918   
+Month                                             -0.101716        -0.152239   
+Year                                              -0.283579        -0.072551   
+Profit                                             0.778925         0.908836   
+
+                                     Production Budget  Theater Number  \
+Inflation Adjusted Domestic Revenue           0.511400        0.560468   
+Domestic Revenue                              0.525543        0.571425   
+International Revenue                         0.695213        0.498169   
+Total Box Office Revenue                      0.664753        0.543357   
+Domestic Video Revenue                        0.440700        0.406222   
+Opening Weekend                               0.554679        0.586074   
+Production Budget                             1.000000        0.519260   
+Theater Number                                0.519260        1.000000   
+Runtime                                       0.351751        0.080149   
+Domestic DVD Revenue                          0.356323        0.384517   
+Domestic Bluray Revenue                       0.488259        0.415343   
+Month                                        -0.073929       -0.249906   
+Year                                          0.164424        0.033188   
+Profit                                        0.544957        0.523003   
+
+                                      Runtime  Domestic DVD Revenue  \
+Inflation Adjusted Domestic Revenue  0.137451              0.780602   
+Domestic Revenue                     0.151164              0.704336   
+International Revenue                0.175903              0.685929   
+Total Box Office Revenue             0.172566              0.715224   
+Domestic Video Revenue               0.070274              0.978963   
+Opening Weekend                      0.165187              0.737902   
+Production Budget                    0.351751              0.356323   
+Theater Number                       0.080149              0.384517   
+Runtime                              1.000000              0.018185   
+Domestic DVD Revenue                 0.018185              1.000000   
+Domestic Bluray Revenue              0.102433              0.935994   
+Month                                0.080953             -0.117623   
+Year                                 0.098635             -0.345193   
+Profit                               0.128938              0.720783   
+
+                                     Domestic Bluray Revenue     Month  \
+Inflation Adjusted Domestic Revenue                 0.852619 -0.081826   
+Domestic Revenue                                    0.788123 -0.070794   
+International Revenue                               0.777023 -0.101224   
+Total Box Office Revenue                            0.806402 -0.092632   
+Domestic Video Revenue                              0.987980 -0.101716   
+Opening Weekend                                     0.808918 -0.152239   
+Production Budget                                   0.488259 -0.073929   
+Theater Number                                      0.415343 -0.249906   
+Runtime                                             0.102433  0.080953   
+Domestic DVD Revenue                                0.935994 -0.117623   
+Domestic Bluray Revenue                             1.000000 -0.082515   
+Month                                              -0.082515  1.000000   
+Year                                               -0.226625  0.006445   
+Profit                                              0.802874 -0.053230   
+
+                                         Year    Profit  
+Inflation Adjusted Domestic Revenue -0.107609  0.934480  
+Domestic Revenue                    -0.020963  0.926134  
+International Revenue               -0.081818  0.960576  
+Total Box Office Revenue            -0.065265  0.988647  
+Domestic Video Revenue              -0.283579  0.778925  
+Opening Weekend                     -0.072551  0.908836  
+Production Budget                    0.164424  0.544957  
+Theater Number                       0.033188  0.523003  
+Runtime                              0.098635  0.128938  
+Domestic DVD Revenue                -0.345193  0.720783  
+Domestic Bluray Revenue             -0.226625  0.802874  
+Month                                0.006445 -0.053230  
+Year                                 1.000000 -0.013253  
+Profit                              -0.013253  1.000000  
+Graphs regarding specific features and revenue</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-5-output-2.png" width="614" height="458" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-5-output-3.png" width="614" height="502" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-5-output-4.png" width="616" height="554" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-5-output-5.png" width="614" height="562" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Significance between Various features
+Size of dataset before dropping NA values for Season and Inflation Adjusted Domestic Revenue
+193
+Size of dataset after dropping NA values
+184
+Size of groups within Season
+Season
+Fall      60
+Winter    46
+Summer    46
+Spring    32
+Name: count, dtype: int64
+F value and p value of Season as in relation to Inflation Adjusted Domestic Revenue
+F= 5.3932058216371965 p = 0.001411491781130348
+Actual significance between groups
+        A       B       mean(A)       mean(B)          diff            se  \
+0    Fall  Spring  5.578652e+07  9.337217e+07 -3.758564e+07  2.565229e+07   
+1    Fall  Summer  5.578652e+07  1.493809e+08 -9.359436e+07  2.852965e+07   
+2    Fall  Winter  5.578652e+07  7.954824e+07 -2.376172e+07  1.456369e+07   
+3  Spring  Summer  9.337217e+07  1.493809e+08 -5.600871e+07  3.606181e+07   
+4  Spring  Winter  9.337217e+07  7.954824e+07  1.382392e+07  2.643131e+07   
+5  Summer  Winter  1.493809e+08  7.954824e+07  6.983264e+07  2.923209e+07   
+
+          T         df      pval    hedges  
+0 -1.465196  40.509742  0.467414 -0.378804  
+1 -3.280599  55.635636  0.009426 -0.704149  
+2 -1.631573  93.847664  0.366074 -0.320017  
+3 -1.553131  75.675841  0.411456 -0.335606  
+4  0.523013  44.697481  0.953100  0.131034  
+5  2.388903  60.158560  0.090152  0.493958  
+Size of dataset before dropping NA values for Rating and Inflation Adjusted Domestic Revenue
+193
+Size of dataset after dropping NA values
+183
+Size of groups within Rating
+MPAA Rating
+PG           99
+R            83
+Not Rated     1
+Name: count, dtype: int64
+F value and p value of Rating as in relation to Inflation Adjusted Domestic Revenue
+F= 7.404756144821042 p = 0.0008121030505167055
+Actual significance between groups
+           A   B       mean(A)       mean(B)          diff            se  \
+0  Not Rated  PG  1.201100e+04  1.237362e+08 -1.237242e+08           NaN   
+1  Not Rated   R  1.201100e+04  5.560414e+07 -5.559213e+07           NaN   
+2         PG   R  1.237362e+08  5.560414e+07  6.813202e+07  1.697149e+07   
+
+          T         df      pval    hedges  
+0       NaN        NaN       NaN       NaN  
+1       NaN        NaN       NaN       NaN  
+2  4.014498  135.92307  0.000287  0.559066  
+Size of dataset before dropping NA values for Genre and Inflation Adjusted Domestic Revenue
+193
+Size of dataset after dropping NA values
+184
+Size of groups within Genre
+Genre
+Drama                  36
+Horror                 34
+Comedy                 28
+Thriller/Suspense      24
+Adventure              20
+Action                 20
+Romantic Comedy         8
+Musical                 7
+Western                 2
+Documentary             2
+Black Comedy            2
+Concert/Performance     1
+Name: count, dtype: int64
+F value and p value of Genre as in relation to Inflation Adjusted Domestic Revenue
+F= 4.465722384054676 p = 6.411785864108112e-06</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\pingouin\effsize.py:802: RuntimeWarning: Degrees of freedom &lt;= 0 for slice
+  poolsd = np.sqrt(((nx - 1) * x.var(ddof=1) + (ny - 1) * y.var(ddof=1)) / dof)
+C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\_methods.py:214: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Actual significance between groups
+                    A                    B       mean(A)       mean(B)  \
+0              Action            Adventure  1.963182e+08  1.882093e+08   
+1              Action         Black Comedy  1.963182e+08  4.237018e+07   
+2              Action               Comedy  1.963182e+08  8.285935e+07   
+3              Action  Concert/Performance  1.963182e+08  3.084563e+07   
+4              Action          Documentary  1.963182e+08  7.169701e+06   
+..                ...                  ...           ...           ...   
+61            Musical    Thriller/Suspense  1.677520e+08  3.812061e+07   
+62            Musical              Western  1.677520e+08  3.683710e+07   
+63    Romantic Comedy    Thriller/Suspense  4.220978e+07  3.812061e+07   
+64    Romantic Comedy              Western  4.220978e+07  3.683710e+07   
+65  Thriller/Suspense              Western  3.812061e+07  3.683710e+07   
+
+            diff            se         T         df      pval  \
+0   8.108952e+06  6.318937e+07  0.128328  36.553457  1.000000   
+1   1.539480e+08  5.471040e+07  2.813871  13.552389  0.271421   
+2   1.134589e+08  5.053843e+07  2.245002  21.565724  0.538103   
+3   1.654726e+08           NaN       NaN        NaN       NaN   
+4   1.891485e+08  4.899280e+07  3.860741  19.103555  0.035984   
+..           ...           ...       ...        ...       ...   
+61  1.296314e+08  7.065554e+07  1.834695   6.334165  0.765263   
+62  1.309149e+08  7.318249e+07  1.788882   6.860053  0.787355   
+63  4.089173e+06  2.045250e+07  0.199935  14.189944  1.000000   
+64  5.372674e+06  2.796024e+07  0.192154   2.359936  1.000000   
+65  1.283501e+06  2.512709e+07  0.051080   1.606032  1.000000   
+
+                  hedges  
+0               0.039775  
+1                0.69402  
+2                0.74546  
+3   [0.7562841992533841]  
+4               0.853264  
+..                   ...  
+61              1.289487  
+62               0.67993  
+63              0.072831  
+64              0.105523  
+65              0.022245  
+
+[66 rows x 10 columns]
+Size of dataset before dropping NA values for Production Method and Inflation Adjusted Domestic Revenue
+193
+Size of dataset after dropping NA values
+184
+Size of groups within Production Method
+Production Method
+Live Action              158
+Digital Animation         20
+Animation/Live Action      4
+Stop-Motion Animation      2
+Name: count, dtype: int64
+F value and p value of Production Method as in relation to Inflation Adjusted Domestic Revenue
+F= 8.099830161552962 p = 4.327376635141457e-05
+Actual significance between groups
+                       A                      B       mean(A)       mean(B)  \
+0  Animation/Live Action      Digital Animation  1.584505e+08  2.101516e+08   
+1  Animation/Live Action            Live Action  1.584505e+08  7.529021e+07   
+2  Animation/Live Action  Stop-Motion Animation  1.584505e+08  6.657618e+07   
+3      Digital Animation            Live Action  2.101516e+08  7.529021e+07   
+4      Digital Animation  Stop-Motion Animation  2.101516e+08  6.657618e+07   
+5            Live Action  Stop-Motion Animation  7.529021e+07  6.657618e+07   
+
+           diff            se         T         df      pval    hedges  
+0 -5.170116e+07  9.309698e+07 -0.555347   4.457904  0.940732 -0.282421  
+1  8.316027e+07  8.459604e+07  0.983028   3.063438  0.769524  0.753063  
+2  9.187429e+07  8.423968e+07  1.090630   3.012115  0.718739  0.504165  
+3  1.348614e+08  4.073751e+07  3.310498  20.822304  0.016326  1.138114  
+4  1.435755e+08  3.999225e+07  3.590082  19.315075  0.009471  0.795899  
+5  8.714027e+06  9.424538e+06  0.924610  32.783121  0.791924  0.080193  </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\pingouin\effsize.py:802: RuntimeWarning: Degrees of freedom &lt;= 0 for slice
+  poolsd = np.sqrt(((nx - 1) * x.var(ddof=1) + (ny - 1) * y.var(ddof=1)) / dof)
+C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\_methods.py:214: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)</code></pre>
+</div>
+</div>
+<p>You can also print the findings that we found from analyzing this data:</p>
+<div id="68c022eb" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> factors_findings</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>factors_findings()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Product Budget is most strongly correlated with international earnings, this implies that the high earning movies had the most funding (on average)
+Summer is the time for big box office hits.
+Although PG and R may have similar medians, PG often outperforms R movies.
+Musicals have the highest median revenue, but Action has a far larger range, and has a greater number of movies with higher revenues, similar statements can be said about Adventure
+Digital animation seems to do the best on average, I presume this is because it appeals to a wide range of people, although Live Action is also very capable of doing well.
+Regarding significance, there is only true statistical significance between Summer and Fall in Seasons, and PG and R in Ratings
+Overall, it seems that making movies that appeal to everyone, thus PG with a genre of Adventure, Action, or Musical, with a high budget and releasing it in the summer is the best chance for making a high earning movie</code></pre>
+</div>
+</div>
+<div id="9e81e5df" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> revenue_findings</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>revenue_findings()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It seems Universal has done fairly well during this time period before 2019.
+However, this was only a misstep, although a costly one, as they have reached back into their pre-2019 revenue range</code></pre>
+</div>
+</div>
+<p>If you would like to do these analyses individually, then you can use these following functions.</p>
+<p>Here you can get the number of NAs from each column:</p>
+<div id="f3f1e8de" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> get_NAs</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>get_NAs()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Title                                    0
+Release Date                             0
+Inflation Adjusted Domestic Revenue      9
+Domestic Revenue                         9
+International Revenue                    7
+Total Box Office Revenue                 7
+Domestic Video Revenue                  36
+Opening Weekend                          9
+Production Budget                       38
+Theater Number                           9
+MPAA Rating                              2
+Runtime                                  5
+Genre                                    0
+Franchise                              127
+Production Method                        0
+Video Release Date                      58
+Domestic DVD Revenue                    38
+Domestic Bluray Revenue                 37
+Month                                    0
+Year                                     0
+Season                                   0
+Profit                                  40
+dtype: int64</code></pre>
+</div>
+</div>
+<p>Get the correlation between the features:</p>
+<div id="642776ef" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> earnings_correlation</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>earnings_correlation()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                     Inflation Adjusted Domestic Revenue  \
+Inflation Adjusted Domestic Revenue                             1.000000   
+Domestic Revenue                                                0.988986   
+International Revenue                                           0.845688   
+Total Box Office Revenue                                        0.929063   
+Domestic Video Revenue                                          0.833442   
+Opening Weekend                                                 0.950344   
+Production Budget                                               0.511400   
+Theater Number                                                  0.560468   
+Runtime                                                         0.137451   
+Domestic DVD Revenue                                            0.780602   
+Domestic Bluray Revenue                                         0.852619   
+Month                                                          -0.081826   
+Year                                                           -0.107609   
+Profit                                                          0.934480   
+
+                                     Domestic Revenue  International Revenue  \
+Inflation Adjusted Domestic Revenue          0.988986               0.845688   
+Domestic Revenue                             1.000000               0.833409   
+International Revenue                        0.833409               1.000000   
+Total Box Office Revenue                     0.924478               0.981282   
+Domestic Video Revenue                       0.762171               0.749621   
+Opening Weekend                              0.942916               0.848824   
+Production Budget                            0.525543               0.695213   
+Theater Number                               0.571425               0.498169   
+Runtime                                      0.151164               0.175903   
+Domestic DVD Revenue                         0.704336               0.685929   
+Domestic Bluray Revenue                      0.788123               0.777023   
+Month                                       -0.070794              -0.101224   
+Year                                        -0.020963              -0.081818   
+Profit                                       0.926134               0.960576   
+
+                                     Total Box Office Revenue  \
+Inflation Adjusted Domestic Revenue                  0.929063   
+Domestic Revenue                                     0.924478   
+International Revenue                                0.981282   
+Total Box Office Revenue                             1.000000   
+Domestic Video Revenue                               0.778929   
+Opening Weekend                                      0.914988   
+Production Budget                                    0.664753   
+Theater Number                                       0.543357   
+Runtime                                              0.172566   
+Domestic DVD Revenue                                 0.715224   
+Domestic Bluray Revenue                              0.806402   
+Month                                               -0.092632   
+Year                                                -0.065265   
+Profit                                               0.988647   
+
+                                     Domestic Video Revenue  Opening Weekend  \
+Inflation Adjusted Domestic Revenue                0.833442         0.950344   
+Domestic Revenue                                   0.762171         0.942916   
+International Revenue                              0.749621         0.848824   
+Total Box Office Revenue                           0.778929         0.914988   
+Domestic Video Revenue                             1.000000         0.784715   
+Opening Weekend                                    0.784715         1.000000   
+Production Budget                                  0.440700         0.554679   
+Theater Number                                     0.406222         0.586074   
+Runtime                                            0.070274         0.165187   
+Domestic DVD Revenue                               0.978963         0.737902   
+Domestic Bluray Revenue                            0.987980         0.808918   
+Month                                             -0.101716        -0.152239   
+Year                                              -0.283579        -0.072551   
+Profit                                             0.778925         0.908836   
+
+                                     Production Budget  Theater Number  \
+Inflation Adjusted Domestic Revenue           0.511400        0.560468   
+Domestic Revenue                              0.525543        0.571425   
+International Revenue                         0.695213        0.498169   
+Total Box Office Revenue                      0.664753        0.543357   
+Domestic Video Revenue                        0.440700        0.406222   
+Opening Weekend                               0.554679        0.586074   
+Production Budget                             1.000000        0.519260   
+Theater Number                                0.519260        1.000000   
+Runtime                                       0.351751        0.080149   
+Domestic DVD Revenue                          0.356323        0.384517   
+Domestic Bluray Revenue                       0.488259        0.415343   
+Month                                        -0.073929       -0.249906   
+Year                                          0.164424        0.033188   
+Profit                                        0.544957        0.523003   
+
+                                      Runtime  Domestic DVD Revenue  \
+Inflation Adjusted Domestic Revenue  0.137451              0.780602   
+Domestic Revenue                     0.151164              0.704336   
+International Revenue                0.175903              0.685929   
+Total Box Office Revenue             0.172566              0.715224   
+Domestic Video Revenue               0.070274              0.978963   
+Opening Weekend                      0.165187              0.737902   
+Production Budget                    0.351751              0.356323   
+Theater Number                       0.080149              0.384517   
+Runtime                              1.000000              0.018185   
+Domestic DVD Revenue                 0.018185              1.000000   
+Domestic Bluray Revenue              0.102433              0.935994   
+Month                                0.080953             -0.117623   
+Year                                 0.098635             -0.345193   
+Profit                               0.128938              0.720783   
+
+                                     Domestic Bluray Revenue     Month  \
+Inflation Adjusted Domestic Revenue                 0.852619 -0.081826   
+Domestic Revenue                                    0.788123 -0.070794   
+International Revenue                               0.777023 -0.101224   
+Total Box Office Revenue                            0.806402 -0.092632   
+Domestic Video Revenue                              0.987980 -0.101716   
+Opening Weekend                                     0.808918 -0.152239   
+Production Budget                                   0.488259 -0.073929   
+Theater Number                                      0.415343 -0.249906   
+Runtime                                             0.102433  0.080953   
+Domestic DVD Revenue                                0.935994 -0.117623   
+Domestic Bluray Revenue                             1.000000 -0.082515   
+Month                                              -0.082515  1.000000   
+Year                                               -0.226625  0.006445   
+Profit                                              0.802874 -0.053230   
+
+                                         Year    Profit  
+Inflation Adjusted Domestic Revenue -0.107609  0.934480  
+Domestic Revenue                    -0.020963  0.926134  
+International Revenue               -0.081818  0.960576  
+Total Box Office Revenue            -0.065265  0.988647  
+Domestic Video Revenue              -0.283579  0.778925  
+Opening Weekend                     -0.072551  0.908836  
+Production Budget                    0.164424  0.544957  
+Theater Number                       0.033188  0.523003  
+Runtime                              0.098635  0.128938  
+Domestic DVD Revenue                -0.345193  0.720783  
+Domestic Bluray Revenue             -0.226625  0.802874  
+Month                                0.006445 -0.053230  
+Year                                 1.000000 -0.013253  
+Profit                              -0.013253  1.000000  </code></pre>
+</div>
+</div>
+<p>Get the graph regarding seasons and revenue:</p>
+<div id="f208de63" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> season_earnings</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>season_earnings()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-10-output-1.png" width="614" height="458" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Get the graph regarding genre and revenue:</p>
+<div id="a89892d8" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> genre_earnings</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>genre_earnings()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-11-output-1.png" width="616" height="554" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Get the graph regarding production method and revenue:</p>
+<div id="90484732" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> production_method_earnings</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>production_method_earnings()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-12-output-1.png" width="614" height="562" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Get the graph regarding ratings and revenue:</p>
+<div id="97b550d7" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> ratings_earnings</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>ratings_earnings()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-13-output-1.png" width="614" height="502" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If you would like to see the statistical significance of various features, then use these functions:</p>
+<div id="a4dfb2c2" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> season_significance</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>season_significance()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Size of dataset before dropping NA values for Season and Inflation Adjusted Domestic Revenue
+193
+Size of dataset after dropping NA values
+184
+Size of groups within Season
+Season
+Fall      60
+Winter    46
+Summer    46
+Spring    32
+Name: count, dtype: int64
+F value and p value of Season as in relation to Inflation Adjusted Domestic Revenue
+F= 5.3932058216371965 p = 0.001411491781130348
+Actual significance between groups
+        A       B       mean(A)       mean(B)          diff            se  \
+0    Fall  Spring  5.578652e+07  9.337217e+07 -3.758564e+07  2.565229e+07   
+1    Fall  Summer  5.578652e+07  1.493809e+08 -9.359436e+07  2.852965e+07   
+2    Fall  Winter  5.578652e+07  7.954824e+07 -2.376172e+07  1.456369e+07   
+3  Spring  Summer  9.337217e+07  1.493809e+08 -5.600871e+07  3.606181e+07   
+4  Spring  Winter  9.337217e+07  7.954824e+07  1.382392e+07  2.643131e+07   
+5  Summer  Winter  1.493809e+08  7.954824e+07  6.983264e+07  2.923209e+07   
+
+          T         df      pval    hedges  
+0 -1.465196  40.509742  0.467414 -0.378804  
+1 -3.280599  55.635636  0.009426 -0.704149  
+2 -1.631573  93.847664  0.366074 -0.320017  
+3 -1.553131  75.675841  0.411456 -0.335606  
+4  0.523013  44.697481  0.953100  0.131034  
+5  2.388903  60.158560  0.090152  0.493958  </code></pre>
+</div>
+</div>
+<div id="500010bd" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> rating_significance</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>rating_significance()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Size of dataset before dropping NA values for Rating and Inflation Adjusted Domestic Revenue
+193
+Size of dataset after dropping NA values
+183
+Size of groups within Rating
+MPAA Rating
+PG           99
+R            83
+Not Rated     1
+Name: count, dtype: int64
+F value and p value of Rating as in relation to Inflation Adjusted Domestic Revenue
+F= 7.404756144821042 p = 0.0008121030505167055
+Actual significance between groups
+           A   B       mean(A)       mean(B)          diff            se  \
+0  Not Rated  PG  1.201100e+04  1.237362e+08 -1.237242e+08           NaN   
+1  Not Rated   R  1.201100e+04  5.560414e+07 -5.559213e+07           NaN   
+2         PG   R  1.237362e+08  5.560414e+07  6.813202e+07  1.697149e+07   
+
+          T         df      pval    hedges  
+0       NaN        NaN       NaN       NaN  
+1       NaN        NaN       NaN       NaN  
+2  4.014498  135.92307  0.000287  0.559066  </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\pingouin\effsize.py:802: RuntimeWarning: Degrees of freedom &lt;= 0 for slice
+  poolsd = np.sqrt(((nx - 1) * x.var(ddof=1) + (ny - 1) * y.var(ddof=1)) / dof)
+C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\_methods.py:214: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)</code></pre>
+</div>
+</div>
+<div id="65e8a4cd" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> genre_significance</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>genre_significance()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Size of dataset before dropping NA values for Genre and Inflation Adjusted Domestic Revenue
+193
+Size of dataset after dropping NA values
+184
+Size of groups within Genre
+Genre
+Drama                  36
+Horror                 34
+Comedy                 28
+Thriller/Suspense      24
+Adventure              20
+Action                 20
+Romantic Comedy         8
+Musical                 7
+Western                 2
+Documentary             2
+Black Comedy            2
+Concert/Performance     1
+Name: count, dtype: int64
+F value and p value of Genre as in relation to Inflation Adjusted Domestic Revenue
+F= 4.465722384054676 p = 6.411785864108112e-06
+Actual significance between groups
+                    A                    B       mean(A)       mean(B)  \
+0              Action            Adventure  1.963182e+08  1.882093e+08   
+1              Action         Black Comedy  1.963182e+08  4.237018e+07   
+2              Action               Comedy  1.963182e+08  8.285935e+07   
+3              Action  Concert/Performance  1.963182e+08  3.084563e+07   
+4              Action          Documentary  1.963182e+08  7.169701e+06   
+..                ...                  ...           ...           ...   
+61            Musical    Thriller/Suspense  1.677520e+08  3.812061e+07   
+62            Musical              Western  1.677520e+08  3.683710e+07   
+63    Romantic Comedy    Thriller/Suspense  4.220978e+07  3.812061e+07   
+64    Romantic Comedy              Western  4.220978e+07  3.683710e+07   
+65  Thriller/Suspense              Western  3.812061e+07  3.683710e+07   
+
+            diff            se         T         df      pval  \
+0   8.108952e+06  6.318937e+07  0.128328  36.553457  1.000000   
+1   1.539480e+08  5.471040e+07  2.813871  13.552389  0.271421   
+2   1.134589e+08  5.053843e+07  2.245002  21.565724  0.538103   
+3   1.654726e+08           NaN       NaN        NaN       NaN   
+4   1.891485e+08  4.899280e+07  3.860741  19.103555  0.035984   
+..           ...           ...       ...        ...       ...   
+61  1.296314e+08  7.065554e+07  1.834695   6.334165  0.765263   
+62  1.309149e+08  7.318249e+07  1.788882   6.860053  0.787355   
+63  4.089173e+06  2.045250e+07  0.199935  14.189944  1.000000   
+64  5.372674e+06  2.796024e+07  0.192154   2.359936  1.000000   
+65  1.283501e+06  2.512709e+07  0.051080   1.606032  1.000000   
+
+                  hedges  
+0               0.039775  
+1                0.69402  
+2                0.74546  
+3   [0.7562841992533841]  
+4               0.853264  
+..                   ...  
+61              1.289487  
+62               0.67993  
+63              0.072831  
+64              0.105523  
+65              0.022245  
+
+[66 rows x 10 columns]</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\pingouin\effsize.py:802: RuntimeWarning: Degrees of freedom &lt;= 0 for slice
+  poolsd = np.sqrt(((nx - 1) * x.var(ddof=1) + (ny - 1) * y.var(ddof=1)) / dof)
+C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\_methods.py:214: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)</code></pre>
+</div>
+</div>
+<div id="60e37d79" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> production_method_significance</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>production_method_significance()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Size of dataset before dropping NA values for Production Method and Inflation Adjusted Domestic Revenue
+193
+Size of dataset after dropping NA values
+184
+Size of groups within Production Method
+Production Method
+Live Action              158
+Digital Animation         20
+Animation/Live Action      4
+Stop-Motion Animation      2
+Name: count, dtype: int64
+F value and p value of Production Method as in relation to Inflation Adjusted Domestic Revenue
+F= 8.099830161552962 p = 4.327376635141457e-05
+Actual significance between groups
+                       A                      B       mean(A)       mean(B)  \
+0  Animation/Live Action      Digital Animation  1.584505e+08  2.101516e+08   
+1  Animation/Live Action            Live Action  1.584505e+08  7.529021e+07   
+2  Animation/Live Action  Stop-Motion Animation  1.584505e+08  6.657618e+07   
+3      Digital Animation            Live Action  2.101516e+08  7.529021e+07   
+4      Digital Animation  Stop-Motion Animation  2.101516e+08  6.657618e+07   
+5            Live Action  Stop-Motion Animation  7.529021e+07  6.657618e+07   
+
+           diff            se         T         df      pval    hedges  
+0 -5.170116e+07  9.309698e+07 -0.555347   4.457904  0.940732 -0.282421  
+1  8.316027e+07  8.459604e+07  0.983028   3.063438  0.769524  0.753063  
+2  9.187429e+07  8.423968e+07  1.090630   3.012115  0.718739  0.504165  
+3  1.348614e+08  4.073751e+07  3.310498  20.822304  0.016326  1.138114  
+4  1.435755e+08  3.999225e+07  3.590082  19.315075  0.009471  0.795899  
+5  8.714027e+06  9.424538e+06  0.924610  32.783121  0.791924  0.080193  </code></pre>
+</div>
+</div>
+<p>If you would like a statistical description of the revenue features, run this like so:</p>
+<div id="d6d4165a" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> describe_revenue</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>describe_revenue()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>count    1.840000e+02
+mean     9.166218e+07
+std      1.253947e+08
+min      1.192100e+04
+25%      1.612724e+07
+50%      5.366071e+07
+75%      1.048190e+08
+max      8.763738e+08
+Name: Inflation Adjusted Domestic Revenue, dtype: float64 
+
+count    1.840000e+02
+mean     7.700907e+07
+std      1.056860e+08
+min      8.886000e+03
+25%      1.482090e+07
+50%      4.310387e+07
+75%      9.222670e+07
+max      6.534066e+08
+Name: Domestic Revenue, dtype: float64 
+
+count    1.860000e+02
+mean     1.188179e+08
+std      2.075318e+08
+min      1.259000e+03
+25%      9.771500e+06
+50%      3.498074e+07
+75%      1.041047e+08
+max      1.157058e+09
+Name: International Revenue, dtype: float64 
+</code></pre>
+</div>
+</div>
+<p>If you would like a graph of the revenue, run this:</p>
+<div id="c7c3d2c6" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>graph_revenue()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-19-output-1.png" width="576" height="500" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-19-output-2.png" width="597" height="500" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If you would like to simplify that to each year, run this:</p>
+<div id="9c609a77" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue_by_year</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>graph_revenue_by_year()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-20-output-1.png" width="589" height="470" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If you would like to check the above graph against profit, run this function like so:</p>
+<div id="48bb9655" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue_and_profit</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>graph_revenue_and_profit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-21-output-1.png" width="597" height="500" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now, you can do analysis regarding feature importance in finding overall box office revenue If you only want plots:</p>
+<div id="a1ee7754" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_ml_analysis_plots</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>do_ml_analysis_plots()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Most important features before a movie opens</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-22-output-2.png" width="736" height="262" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Most important features right after a movie opens</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-22-output-4.png" width="732" height="377" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Most important features long after a movie opened</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-22-output-6.png" width="824" height="646" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If you want specific numbers:</p>
+<div id="6e69a37d" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_ml_analysis_numbers</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>do_ml_analysis_numbers()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Most important features before a movie opens
+From pandas:
+Production Budget    0.524021
+Runtime              0.306188
+Month                0.169792
+dtype: float64
+
+From sklearn
+Production Budget    1.375690
+Runtime              0.418263
+Month                0.250395
+dtype: float64
+
+
+Most important features right after a movie opens
+From pandas:
+Opening Weekend      0.679353
+Theater Number       0.132923
+Production Budget    0.058614
+Runtime              0.053524
+Month                0.045182
+Year                 0.030403
+dtype: float64
+
+From sklearn
+Opening Weekend      1.145087
+Theater Number       0.156192
+Production Budget    0.057371
+Month                0.051710
+Runtime              0.047897
+Year                 0.031549
+dtype: float64
+
+
+Most important features long after a movie opened
+From pandas:
+International Revenue                  0.737347
+Profit                                 0.094947
+Inflation Adjusted Domestic Revenue    0.064101
+Domestic Revenue                       0.060054
+Opening Weekend                        0.010411
+Theater Number                         0.007223
+Year                                   0.006142
+Month                                  0.004747
+Production Budget                      0.003233
+Runtime                                0.003209
+Domestic Video Revenue                 0.003009
+Domestic DVD Revenue                   0.002988
+Domestic Bluray Revenue                0.002588
+dtype: float64
+
+From sklearn
+International Revenue                  1.744502
+Profit                                 0.072713
+Inflation Adjusted Domestic Revenue    0.051576
+Domestic Revenue                       0.048672
+Opening Weekend                        0.004173
+Month                                  0.003341
+Theater Number                         0.003229
+Production Budget                      0.002157
+Year                                   0.002092
+Domestic Video Revenue                 0.002011
+Domestic Bluray Revenue                0.001940
+Domestic DVD Revenue                   0.001479
+Runtime                                0.000998
+dtype: float64</code></pre>
+</div>
+</div>
+<p>Again, you can print the findings that we found from analyzing this data:</p>
+<div id="0f3aee9e" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> ml_analysis_findings</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>ml_analysis_findings()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Regarding the shap graphs, which were made based on a Random Forest Model, red refers to high values and blue is low values.
+Clustering shows the impact of that feature. If there is clustering near 0, then little impact is had from that feature. Spread out means large impact on target feature, and if there is clustering to the left or right, it shows skewness.
+Based upon the graphs, it seems that before a movie opens, the budget is the best predictor of revenue, bigger budget likely means bigger revenue, in both positive and negative directions.
+After a movie has had its opening weekend, those opening weekend numbers are the best for determining overall revenue, and those values are skewed toward the positive side.
+After a movie has released, then using its international revenue, (which is skewed right), is a good way to predict overall revenue, this tells us international contributes far more than domestic revenue to overall revenue.
+Thus appealing to people outside of the US is important, as much as if not more so than appealing to people within the US. I believe this is due to the fact that international as a whole is a larger population than just the US population.</code></pre>
+</div>
+</div>
+<p>Finally, taking everything together, you can see what we found from the data in regards to our specific research question:</p>
+<div id="1bf1c7af" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_analysis_specific</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>do_analysis_specific()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Our research question is: What features of a movie have the most influence and which contribute most to a high revenue? (Concerning Universal movies from 2014-2024)?
+
+The following is our analysis:
+Number of NAs in each column/feature
+Title                                    0
+Release Date                             0
+Inflation Adjusted Domestic Revenue      9
+Domestic Revenue                         9
+International Revenue                    7
+Total Box Office Revenue                 7
+Domestic Video Revenue                  36
+Opening Weekend                          9
+Production Budget                       38
+Theater Number                           9
+MPAA Rating                              2
+Runtime                                  5
+Genre                                    0
+Franchise                              127
+Production Method                        0
+Video Release Date                      58
+Domestic DVD Revenue                    38
+Domestic Bluray Revenue                 37
+Month                                    0
+Year                                     0
+Season                                   0
+Profit                                  40
+dtype: int64
+Correlations between features
+                                     Inflation Adjusted Domestic Revenue  \
+Inflation Adjusted Domestic Revenue                             1.000000   
+Domestic Revenue                                                0.988986   
+International Revenue                                           0.845688   
+Total Box Office Revenue                                        0.929063   
+Domestic Video Revenue                                          0.833442   
+Opening Weekend                                                 0.950344   
+Production Budget                                               0.511400   
+Theater Number                                                  0.560468   
+Runtime                                                         0.137451   
+Domestic DVD Revenue                                            0.780602   
+Domestic Bluray Revenue                                         0.852619   
+Month                                                          -0.081826   
+Year                                                           -0.107609   
+Profit                                                          0.934480   
+
+                                     Domestic Revenue  International Revenue  \
+Inflation Adjusted Domestic Revenue          0.988986               0.845688   
+Domestic Revenue                             1.000000               0.833409   
+International Revenue                        0.833409               1.000000   
+Total Box Office Revenue                     0.924478               0.981282   
+Domestic Video Revenue                       0.762171               0.749621   
+Opening Weekend                              0.942916               0.848824   
+Production Budget                            0.525543               0.695213   
+Theater Number                               0.571425               0.498169   
+Runtime                                      0.151164               0.175903   
+Domestic DVD Revenue                         0.704336               0.685929   
+Domestic Bluray Revenue                      0.788123               0.777023   
+Month                                       -0.070794              -0.101224   
+Year                                        -0.020963              -0.081818   
+Profit                                       0.926134               0.960576   
+
+                                     Total Box Office Revenue  \
+Inflation Adjusted Domestic Revenue                  0.929063   
+Domestic Revenue                                     0.924478   
+International Revenue                                0.981282   
+Total Box Office Revenue                             1.000000   
+Domestic Video Revenue                               0.778929   
+Opening Weekend                                      0.914988   
+Production Budget                                    0.664753   
+Theater Number                                       0.543357   
+Runtime                                              0.172566   
+Domestic DVD Revenue                                 0.715224   
+Domestic Bluray Revenue                              0.806402   
+Month                                               -0.092632   
+Year                                                -0.065265   
+Profit                                               0.988647   
+
+                                     Domestic Video Revenue  Opening Weekend  \
+Inflation Adjusted Domestic Revenue                0.833442         0.950344   
+Domestic Revenue                                   0.762171         0.942916   
+International Revenue                              0.749621         0.848824   
+Total Box Office Revenue                           0.778929         0.914988   
+Domestic Video Revenue                             1.000000         0.784715   
+Opening Weekend                                    0.784715         1.000000   
+Production Budget                                  0.440700         0.554679   
+Theater Number                                     0.406222         0.586074   
+Runtime                                            0.070274         0.165187   
+Domestic DVD Revenue                               0.978963         0.737902   
+Domestic Bluray Revenue                            0.987980         0.808918   
+Month                                             -0.101716        -0.152239   
+Year                                              -0.283579        -0.072551   
+Profit                                             0.778925         0.908836   
+
+                                     Production Budget  Theater Number  \
+Inflation Adjusted Domestic Revenue           0.511400        0.560468   
+Domestic Revenue                              0.525543        0.571425   
+International Revenue                         0.695213        0.498169   
+Total Box Office Revenue                      0.664753        0.543357   
+Domestic Video Revenue                        0.440700        0.406222   
+Opening Weekend                               0.554679        0.586074   
+Production Budget                             1.000000        0.519260   
+Theater Number                                0.519260        1.000000   
+Runtime                                       0.351751        0.080149   
+Domestic DVD Revenue                          0.356323        0.384517   
+Domestic Bluray Revenue                       0.488259        0.415343   
+Month                                        -0.073929       -0.249906   
+Year                                          0.164424        0.033188   
+Profit                                        0.544957        0.523003   
+
+                                      Runtime  Domestic DVD Revenue  \
+Inflation Adjusted Domestic Revenue  0.137451              0.780602   
+Domestic Revenue                     0.151164              0.704336   
+International Revenue                0.175903              0.685929   
+Total Box Office Revenue             0.172566              0.715224   
+Domestic Video Revenue               0.070274              0.978963   
+Opening Weekend                      0.165187              0.737902   
+Production Budget                    0.351751              0.356323   
+Theater Number                       0.080149              0.384517   
+Runtime                              1.000000              0.018185   
+Domestic DVD Revenue                 0.018185              1.000000   
+Domestic Bluray Revenue              0.102433              0.935994   
+Month                                0.080953             -0.117623   
+Year                                 0.098635             -0.345193   
+Profit                               0.128938              0.720783   
+
+                                     Domestic Bluray Revenue     Month  \
+Inflation Adjusted Domestic Revenue                 0.852619 -0.081826   
+Domestic Revenue                                    0.788123 -0.070794   
+International Revenue                               0.777023 -0.101224   
+Total Box Office Revenue                            0.806402 -0.092632   
+Domestic Video Revenue                              0.987980 -0.101716   
+Opening Weekend                                     0.808918 -0.152239   
+Production Budget                                   0.488259 -0.073929   
+Theater Number                                      0.415343 -0.249906   
+Runtime                                             0.102433  0.080953   
+Domestic DVD Revenue                                0.935994 -0.117623   
+Domestic Bluray Revenue                             1.000000 -0.082515   
+Month                                              -0.082515  1.000000   
+Year                                               -0.226625  0.006445   
+Profit                                              0.802874 -0.053230   
+
+                                         Year    Profit  
+Inflation Adjusted Domestic Revenue -0.107609  0.934480  
+Domestic Revenue                    -0.020963  0.926134  
+International Revenue               -0.081818  0.960576  
+Total Box Office Revenue            -0.065265  0.988647  
+Domestic Video Revenue              -0.283579  0.778925  
+Opening Weekend                     -0.072551  0.908836  
+Production Budget                    0.164424  0.544957  
+Theater Number                       0.033188  0.523003  
+Runtime                              0.098635  0.128938  
+Domestic DVD Revenue                -0.345193  0.720783  
+Domestic Bluray Revenue             -0.226625  0.802874  
+Month                                0.006445 -0.053230  
+Year                                 1.000000 -0.013253  
+Profit                              -0.013253  1.000000  
+Graphs regarding specific features and revenue</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-25-output-2.png" width="614" height="458" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-25-output-3.png" width="614" height="502" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-25-output-4.png" width="616" height="554" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-25-output-5.png" width="614" height="562" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Significance between Various features
+Size of dataset before dropping NA values for Season and Inflation Adjusted Domestic Revenue
+193
+Size of dataset after dropping NA values
+184
+Size of groups within Season
+Season
+Fall      60
+Winter    46
+Summer    46
+Spring    32
+Name: count, dtype: int64
+F value and p value of Season as in relation to Inflation Adjusted Domestic Revenue
+F= 5.3932058216371965 p = 0.001411491781130348
+Actual significance between groups
+        A       B       mean(A)       mean(B)          diff            se  \
+0    Fall  Spring  5.578652e+07  9.337217e+07 -3.758564e+07  2.565229e+07   
+1    Fall  Summer  5.578652e+07  1.493809e+08 -9.359436e+07  2.852965e+07   
+2    Fall  Winter  5.578652e+07  7.954824e+07 -2.376172e+07  1.456369e+07   
+3  Spring  Summer  9.337217e+07  1.493809e+08 -5.600871e+07  3.606181e+07   
+4  Spring  Winter  9.337217e+07  7.954824e+07  1.382392e+07  2.643131e+07   
+5  Summer  Winter  1.493809e+08  7.954824e+07  6.983264e+07  2.923209e+07   
+
+          T         df      pval    hedges  
+0 -1.465196  40.509742  0.467414 -0.378804  
+1 -3.280599  55.635636  0.009426 -0.704149  
+2 -1.631573  93.847664  0.366074 -0.320017  
+3 -1.553131  75.675841  0.411456 -0.335606  
+4  0.523013  44.697481  0.953100  0.131034  
+5  2.388903  60.158560  0.090152  0.493958  
+Size of dataset before dropping NA values for Rating and Inflation Adjusted Domestic Revenue
+193
+Size of dataset after dropping NA values
+183
+Size of groups within Rating
+MPAA Rating
+PG           99
+R            83
+Not Rated     1
+Name: count, dtype: int64
+F value and p value of Rating as in relation to Inflation Adjusted Domestic Revenue
+F= 7.404756144821042 p = 0.0008121030505167055
+Actual significance between groups
+           A   B       mean(A)       mean(B)          diff            se  \
+0  Not Rated  PG  1.201100e+04  1.237362e+08 -1.237242e+08           NaN   
+1  Not Rated   R  1.201100e+04  5.560414e+07 -5.559213e+07           NaN   
+2         PG   R  1.237362e+08  5.560414e+07  6.813202e+07  1.697149e+07   
+
+          T         df      pval    hedges  
+0       NaN        NaN       NaN       NaN  
+1       NaN        NaN       NaN       NaN  
+2  4.014498  135.92307  0.000287  0.559066  
+Size of dataset before dropping NA values for Genre and Inflation Adjusted Domestic Revenue
+193
+Size of dataset after dropping NA values
+184
+Size of groups within Genre
+Genre
+Drama                  36
+Horror                 34
+Comedy                 28
+Thriller/Suspense      24
+Adventure              20
+Action                 20
+Romantic Comedy         8
+Musical                 7
+Western                 2
+Documentary             2
+Black Comedy            2
+Concert/Performance     1
+Name: count, dtype: int64
+F value and p value of Genre as in relation to Inflation Adjusted Domestic Revenue
+F= 4.465722384054676 p = 6.411785864108112e-06</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\pingouin\effsize.py:802: RuntimeWarning: Degrees of freedom &lt;= 0 for slice
+  poolsd = np.sqrt(((nx - 1) * x.var(ddof=1) + (ny - 1) * y.var(ddof=1)) / dof)
+C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\_methods.py:214: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\pingouin\effsize.py:802: RuntimeWarning: Degrees of freedom &lt;= 0 for slice
+  poolsd = np.sqrt(((nx - 1) * x.var(ddof=1) + (ny - 1) * y.var(ddof=1)) / dof)
+C:\Users\cnels\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\_methods.py:214: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Actual significance between groups
+                    A                    B       mean(A)       mean(B)  \
+0              Action            Adventure  1.963182e+08  1.882093e+08   
+1              Action         Black Comedy  1.963182e+08  4.237018e+07   
+2              Action               Comedy  1.963182e+08  8.285935e+07   
+3              Action  Concert/Performance  1.963182e+08  3.084563e+07   
+4              Action          Documentary  1.963182e+08  7.169701e+06   
+..                ...                  ...           ...           ...   
+61            Musical    Thriller/Suspense  1.677520e+08  3.812061e+07   
+62            Musical              Western  1.677520e+08  3.683710e+07   
+63    Romantic Comedy    Thriller/Suspense  4.220978e+07  3.812061e+07   
+64    Romantic Comedy              Western  4.220978e+07  3.683710e+07   
+65  Thriller/Suspense              Western  3.812061e+07  3.683710e+07   
+
+            diff            se         T         df      pval  \
+0   8.108952e+06  6.318937e+07  0.128328  36.553457  1.000000   
+1   1.539480e+08  5.471040e+07  2.813871  13.552389  0.271421   
+2   1.134589e+08  5.053843e+07  2.245002  21.565724  0.538103   
+3   1.654726e+08           NaN       NaN        NaN       NaN   
+4   1.891485e+08  4.899280e+07  3.860741  19.103555  0.035984   
+..           ...           ...       ...        ...       ...   
+61  1.296314e+08  7.065554e+07  1.834695   6.334165  0.765263   
+62  1.309149e+08  7.318249e+07  1.788882   6.860053  0.787355   
+63  4.089173e+06  2.045250e+07  0.199935  14.189944  1.000000   
+64  5.372674e+06  2.796024e+07  0.192154   2.359936  1.000000   
+65  1.283501e+06  2.512709e+07  0.051080   1.606032  1.000000   
+
+                  hedges  
+0               0.039775  
+1                0.69402  
+2                0.74546  
+3   [0.7562841992533841]  
+4               0.853264  
+..                   ...  
+61              1.289487  
+62               0.67993  
+63              0.072831  
+64              0.105523  
+65              0.022245  
+
+[66 rows x 10 columns]
+Size of dataset before dropping NA values for Production Method and Inflation Adjusted Domestic Revenue
+193
+Size of dataset after dropping NA values
+184
+Size of groups within Production Method
+Production Method
+Live Action              158
+Digital Animation         20
+Animation/Live Action      4
+Stop-Motion Animation      2
+Name: count, dtype: int64
+F value and p value of Production Method as in relation to Inflation Adjusted Domestic Revenue
+F= 8.099830161552962 p = 4.327376635141457e-05
+Actual significance between groups
+                       A                      B       mean(A)       mean(B)  \
+0  Animation/Live Action      Digital Animation  1.584505e+08  2.101516e+08   
+1  Animation/Live Action            Live Action  1.584505e+08  7.529021e+07   
+2  Animation/Live Action  Stop-Motion Animation  1.584505e+08  6.657618e+07   
+3      Digital Animation            Live Action  2.101516e+08  7.529021e+07   
+4      Digital Animation  Stop-Motion Animation  2.101516e+08  6.657618e+07   
+5            Live Action  Stop-Motion Animation  7.529021e+07  6.657618e+07   
+
+           diff            se         T         df      pval    hedges  
+0 -5.170116e+07  9.309698e+07 -0.555347   4.457904  0.940732 -0.282421  
+1  8.316027e+07  8.459604e+07  0.983028   3.063438  0.769524  0.753063  
+2  9.187429e+07  8.423968e+07  1.090630   3.012115  0.718739  0.504165  
+3  1.348614e+08  4.073751e+07  3.310498  20.822304  0.016326  1.138114  
+4  1.435755e+08  3.999225e+07  3.590082  19.315075  0.009471  0.795899  
+5  8.714027e+06  9.424538e+06  0.924610  32.783121  0.791924  0.080193  
+Our general findings were:
+
+Product Budget is most strongly correlated with international earnings, this implies that the high earning movies had the most funding (on average)
+Summer is the time for big box office hits.
+Although PG and R may have similar medians, PG often outperforms R movies.
+Musicals have the highest median revenue, but Action has a far larger range, and has a greater number of movies with higher revenues, similar statements can be said about Adventure
+Digital animation seems to do the best on average, I presume this is because it appeals to a wide range of people, although Live Action is also very capable of doing well.
+Regarding significance, there is only true statistical significance between Summer and Fall in Seasons, and PG and R in Ratings
+Overall, it seems that making movies that appeal to everyone, thus PG with a genre of Adventure, Action, or Musical, with a high budget and releasing it in the summer is the best chance for making a high earning movie
+
+The following is our machine learning analysis:
+Most important features before a movie opens</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-25-output-9.png" width="736" height="262" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Most important features right after a movie opens</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-25-output-11.png" width="732" height="377" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Most important features long after a movie opened</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tutorial_files/figure-html/cell-25-output-13.png" width="824" height="646" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Our general findings were:
+
+Regarding the shap graphs, which were made based on a Random Forest Model, red refers to high values and blue is low values.
+Clustering shows the impact of that feature. If there is clustering near 0, then little impact is had from that feature. Spread out means large impact on target feature, and if there is clustering to the left or right, it shows skewness.
+Based upon the graphs, it seems that before a movie opens, the budget is the best predictor of revenue, bigger budget likely means bigger revenue, in both positive and negative directions.
+After a movie has had its opening weekend, those opening weekend numbers are the best for determining overall revenue, and those values are skewed toward the positive side.
+After a movie has released, then using its international revenue, (which is skewed right), is a good way to predict overall revenue, this tells us international contributes far more than domestic revenue to overall revenue.
+Thus appealing to people outside of the US is important, as much as if not more so than appealing to people within the US. I believe this is due to the fact that international as a whole is a larger population than just the US population.
+
+After our analysis, our end answer is: The features with the most influence on the end total box office revenue change depending on whether the movie has come out and for how long.
+If it has been out awhile, then its international revenue, if it just came out, its the opening weekend numbers, if it hasn't come out, then its the production budget.
+If you want better odds at making a high revenue movie, then make an Adventure, Action, or Musical Movie using Digital Animation.
+Make sure it is PG and that you release it in the summer.
+You should also begin with as large a production budget as possible, make sure it appeals to those outside as well as inside the US, and choose the best weekend in the Summer to release it for the best opening weekend revenue possible.</code></pre>
+</div>
+</div>
+<p>If you would like to do these all at the same time, data gathering, cleaning, analysis, and interpretation, then you can use the <code>totality</code> function: (This is the only function that does not require that you run <code>data_creation</code> prior to running it.)</p>
+<div id="3a2573f2" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> totality</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Note, since this include data_creation this will take up to 2 hours, depending on your machine speed, copy and uncomment to run yourself</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="co">#totality()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+
+<!-- -->
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Getting Started"</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>Here is how to use this package.</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>Note: None of these functions have any parameters, however, some of them need to be ran in a specific order, as will be discussed.</span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>First, obtain the data. This function creates the dirty dataset, saves it as an csv, <span class="in">`dirty_data.csv`</span> then cleans it and saves it as a csv, <span class="in">`movie_data.csv`</span>. </span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> data_creation</span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Note, this will take up to 2 hours, depending on your machine speed, it returns nothing, copy and uncomment to run yourself</span></span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a><span class="co">#data_creation()</span></span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a>**Please know that none of the following functions will work unless you have run `data_creation`, thus creating a csv for these functions to work with.**</span>
+<span id="cb56-20"><a href="#cb56-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-21"><a href="#cb56-21" aria-hidden="true" tabindex="-1"></a>If you would like to simply see the first few rows of the dataset, run this function:</span>
+<span id="cb56-24"><a href="#cb56-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-25"><a href="#cb56-25" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> print_dataset_head</span>
+<span id="cb56-26"><a href="#cb56-26" aria-hidden="true" tabindex="-1"></a>print_dataset_head()</span>
+<span id="cb56-27"><a href="#cb56-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-28"><a href="#cb56-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-29"><a href="#cb56-29" aria-hidden="true" tabindex="-1"></a>These are the analysis functions.</span>
+<span id="cb56-30"><a href="#cb56-30" aria-hidden="true" tabindex="-1"></a>Analysis related to the factors:</span>
+<span id="cb56-33"><a href="#cb56-33" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-34"><a href="#cb56-34" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> analyze_revenue</span>
+<span id="cb56-35"><a href="#cb56-35" aria-hidden="true" tabindex="-1"></a>analyze_revenue()</span>
+<span id="cb56-36"><a href="#cb56-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-37"><a href="#cb56-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-38"><a href="#cb56-38" aria-hidden="true" tabindex="-1"></a>Analysis related to the revenue over time:</span>
+<span id="cb56-41"><a href="#cb56-41" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-42"><a href="#cb56-42" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> factors_analysis</span>
+<span id="cb56-43"><a href="#cb56-43" aria-hidden="true" tabindex="-1"></a>factors_analysis()</span>
+<span id="cb56-44"><a href="#cb56-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-45"><a href="#cb56-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-46"><a href="#cb56-46" aria-hidden="true" tabindex="-1"></a>You can also print the findings that we found from analyzing this data:</span>
+<span id="cb56-49"><a href="#cb56-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-50"><a href="#cb56-50" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> factors_findings</span>
+<span id="cb56-51"><a href="#cb56-51" aria-hidden="true" tabindex="-1"></a>factors_findings()</span>
+<span id="cb56-52"><a href="#cb56-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-53"><a href="#cb56-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-56"><a href="#cb56-56" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-57"><a href="#cb56-57" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> revenue_findings</span>
+<span id="cb56-58"><a href="#cb56-58" aria-hidden="true" tabindex="-1"></a>revenue_findings()</span>
+<span id="cb56-59"><a href="#cb56-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-60"><a href="#cb56-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-61"><a href="#cb56-61" aria-hidden="true" tabindex="-1"></a>If you would like to do these analyses individually, then you can use these following functions.</span>
+<span id="cb56-62"><a href="#cb56-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-63"><a href="#cb56-63" aria-hidden="true" tabindex="-1"></a>Here you can get the number of NAs from each column:</span>
+<span id="cb56-66"><a href="#cb56-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-67"><a href="#cb56-67" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> get_NAs</span>
+<span id="cb56-68"><a href="#cb56-68" aria-hidden="true" tabindex="-1"></a>get_NAs()</span>
+<span id="cb56-69"><a href="#cb56-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-70"><a href="#cb56-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-71"><a href="#cb56-71" aria-hidden="true" tabindex="-1"></a>Get the correlation between the features:</span>
+<span id="cb56-74"><a href="#cb56-74" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-75"><a href="#cb56-75" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> earnings_correlation</span>
+<span id="cb56-76"><a href="#cb56-76" aria-hidden="true" tabindex="-1"></a>earnings_correlation()</span>
+<span id="cb56-77"><a href="#cb56-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-78"><a href="#cb56-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-79"><a href="#cb56-79" aria-hidden="true" tabindex="-1"></a>Get the graph regarding seasons and revenue:</span>
+<span id="cb56-82"><a href="#cb56-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-83"><a href="#cb56-83" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> season_earnings</span>
+<span id="cb56-84"><a href="#cb56-84" aria-hidden="true" tabindex="-1"></a>season_earnings()</span>
+<span id="cb56-85"><a href="#cb56-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-86"><a href="#cb56-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-87"><a href="#cb56-87" aria-hidden="true" tabindex="-1"></a>Get the graph regarding genre and revenue:</span>
+<span id="cb56-90"><a href="#cb56-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-91"><a href="#cb56-91" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> genre_earnings</span>
+<span id="cb56-92"><a href="#cb56-92" aria-hidden="true" tabindex="-1"></a>genre_earnings()</span>
+<span id="cb56-93"><a href="#cb56-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-94"><a href="#cb56-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-95"><a href="#cb56-95" aria-hidden="true" tabindex="-1"></a>Get the graph regarding production method and revenue:</span>
+<span id="cb56-98"><a href="#cb56-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-99"><a href="#cb56-99" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> production_method_earnings</span>
+<span id="cb56-100"><a href="#cb56-100" aria-hidden="true" tabindex="-1"></a>production_method_earnings()</span>
+<span id="cb56-101"><a href="#cb56-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-102"><a href="#cb56-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-103"><a href="#cb56-103" aria-hidden="true" tabindex="-1"></a>Get the graph regarding ratings and revenue:</span>
+<span id="cb56-106"><a href="#cb56-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-107"><a href="#cb56-107" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> ratings_earnings</span>
+<span id="cb56-108"><a href="#cb56-108" aria-hidden="true" tabindex="-1"></a>ratings_earnings()</span>
+<span id="cb56-109"><a href="#cb56-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-110"><a href="#cb56-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-111"><a href="#cb56-111" aria-hidden="true" tabindex="-1"></a>If you would like to see the statistical significance of various features, then use these functions:</span>
+<span id="cb56-114"><a href="#cb56-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-115"><a href="#cb56-115" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> season_significance</span>
+<span id="cb56-116"><a href="#cb56-116" aria-hidden="true" tabindex="-1"></a>season_significance()</span>
+<span id="cb56-117"><a href="#cb56-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-118"><a href="#cb56-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-121"><a href="#cb56-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-122"><a href="#cb56-122" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> rating_significance</span>
+<span id="cb56-123"><a href="#cb56-123" aria-hidden="true" tabindex="-1"></a>rating_significance()</span>
+<span id="cb56-124"><a href="#cb56-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-125"><a href="#cb56-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-128"><a href="#cb56-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-129"><a href="#cb56-129" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> genre_significance</span>
+<span id="cb56-130"><a href="#cb56-130" aria-hidden="true" tabindex="-1"></a>genre_significance()</span>
+<span id="cb56-131"><a href="#cb56-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-132"><a href="#cb56-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-135"><a href="#cb56-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-136"><a href="#cb56-136" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> production_method_significance</span>
+<span id="cb56-137"><a href="#cb56-137" aria-hidden="true" tabindex="-1"></a>production_method_significance()</span>
+<span id="cb56-138"><a href="#cb56-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-139"><a href="#cb56-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-140"><a href="#cb56-140" aria-hidden="true" tabindex="-1"></a>If you would like a statistical description of the revenue features, run this like so:</span>
+<span id="cb56-143"><a href="#cb56-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-144"><a href="#cb56-144" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> describe_revenue</span>
+<span id="cb56-145"><a href="#cb56-145" aria-hidden="true" tabindex="-1"></a>describe_revenue()</span>
+<span id="cb56-146"><a href="#cb56-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-147"><a href="#cb56-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-148"><a href="#cb56-148" aria-hidden="true" tabindex="-1"></a>If you would like a graph of the revenue, run this:</span>
+<span id="cb56-151"><a href="#cb56-151" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-152"><a href="#cb56-152" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue</span>
+<span id="cb56-153"><a href="#cb56-153" aria-hidden="true" tabindex="-1"></a>graph_revenue()</span>
+<span id="cb56-154"><a href="#cb56-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-155"><a href="#cb56-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-156"><a href="#cb56-156" aria-hidden="true" tabindex="-1"></a>If you would like to simplify that to each year, run this:</span>
+<span id="cb56-159"><a href="#cb56-159" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-160"><a href="#cb56-160" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue_by_year</span>
+<span id="cb56-161"><a href="#cb56-161" aria-hidden="true" tabindex="-1"></a>graph_revenue_by_year()</span>
+<span id="cb56-162"><a href="#cb56-162" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-163"><a href="#cb56-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-164"><a href="#cb56-164" aria-hidden="true" tabindex="-1"></a>If you would like to check the above graph against profit, run this function like so:</span>
+<span id="cb56-167"><a href="#cb56-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-168"><a href="#cb56-168" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> graph_revenue_and_profit</span>
+<span id="cb56-169"><a href="#cb56-169" aria-hidden="true" tabindex="-1"></a>graph_revenue_and_profit()</span>
+<span id="cb56-170"><a href="#cb56-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-171"><a href="#cb56-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-172"><a href="#cb56-172" aria-hidden="true" tabindex="-1"></a>Now, you can do analysis regarding feature importance in finding overall box office revenue</span>
+<span id="cb56-173"><a href="#cb56-173" aria-hidden="true" tabindex="-1"></a>If you only want plots:</span>
+<span id="cb56-176"><a href="#cb56-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-177"><a href="#cb56-177" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_ml_analysis_plots</span>
+<span id="cb56-178"><a href="#cb56-178" aria-hidden="true" tabindex="-1"></a>do_ml_analysis_plots()</span>
+<span id="cb56-179"><a href="#cb56-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-180"><a href="#cb56-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-181"><a href="#cb56-181" aria-hidden="true" tabindex="-1"></a>If you want specific numbers:</span>
+<span id="cb56-184"><a href="#cb56-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-185"><a href="#cb56-185" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_ml_analysis_numbers</span>
+<span id="cb56-186"><a href="#cb56-186" aria-hidden="true" tabindex="-1"></a>do_ml_analysis_numbers()</span>
+<span id="cb56-187"><a href="#cb56-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-188"><a href="#cb56-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-189"><a href="#cb56-189" aria-hidden="true" tabindex="-1"></a>Again, you can print the findings that we found from analyzing this data:</span>
+<span id="cb56-192"><a href="#cb56-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-193"><a href="#cb56-193" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> ml_analysis_findings</span>
+<span id="cb56-194"><a href="#cb56-194" aria-hidden="true" tabindex="-1"></a>ml_analysis_findings()</span>
+<span id="cb56-195"><a href="#cb56-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-196"><a href="#cb56-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-197"><a href="#cb56-197" aria-hidden="true" tabindex="-1"></a>Finally, taking everything together, you can see what we found from the data in regards to our specific research question:</span>
+<span id="cb56-200"><a href="#cb56-200" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-201"><a href="#cb56-201" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> do_analysis_specific</span>
+<span id="cb56-202"><a href="#cb56-202" aria-hidden="true" tabindex="-1"></a>do_analysis_specific()</span>
+<span id="cb56-203"><a href="#cb56-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb56-204"><a href="#cb56-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-205"><a href="#cb56-205" aria-hidden="true" tabindex="-1"></a>If you would like to do these all at the same time, data gathering, cleaning, analysis, and interpretation, then you can use the <span class="in">`totality`</span> function: (This is the only function that does not require that you run <span class="in">`data_creation`</span> prior to running it.)</span>
+<span id="cb56-208"><a href="#cb56-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb56-209"><a href="#cb56-209" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> final_movie_analysis <span class="im">import</span> totality</span>
+<span id="cb56-210"><a href="#cb56-210" aria-hidden="true" tabindex="-1"></a><span class="co">#Note, since this include data_creation this will take up to 2 hours, depending on your machine speed, copy and uncomment to run yourself</span></span>
+<span id="cb56-211"><a href="#cb56-211" aria-hidden="true" tabindex="-1"></a><span class="co">#totality()</span></span>
+<span id="cb56-212"><a href="#cb56-212" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
