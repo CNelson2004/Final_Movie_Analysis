@@ -3,9 +3,17 @@ A little package for analyzing universal studios movies from 2014-2024
 
 ## Description
 This package demonstrates:
-- How to scrape information from a webpage for a dirty dataset (`retrieve_dirty_dataset_specific`)
-- How to make a dirty dataset clean (`retrieve_clean_dataset_specific`)
+- How to scrape movie information from the web for a dirty dataset and clean it (`data_creation`)
+- View the dataset (`print_dataset_head`)
 - How to analyze a movie dataset (`do_analysis_specific`)
+- How to check missingness in the dataset (`get_NAs`)
+- How do it all in one step (`totality`)
+- How to analyze feature importance (`do_ml_analysis_plots`, `do_ml_analysis_numbers`, `ml_analysis_findings`)
+- How to analyze feature significance (`season_significance`, `rating_significance`, `genre_significance`, `production_method_significance`)
+- How to analyze factor relation (`factors_analysis`, `earnings_correlation`, `season_earnings`, `genre_earnings`, `production_method_earnings`, `ratings_earnings`)
+- How to analyze a feature over time (`graph_revenue`, `graph_revenue_by_year`, `graph_revenue_and_profit`, `analyze_revenue`)
+- How to check one feature specifically (`describe_revenue`)
+- How to interpret analysis (`factors_findings`, `revenue_findings`)
 
 ## Installation
 ```bash
@@ -22,19 +30,16 @@ totality()
 ```
 
 ## Dependencies
-- Python >= 3.12
+- requests>=2.32.5
 - bs4>=0.0.2
-- ipykernel >= 7.1.0
-- lxml >= 6.0.2
-- matplotlib >= 3.10.7
-- numpy >= 2.3.4
-- pandas >= 2.3.3
-- requests >= 2.32.5
-- seaborn >= 0.13.2
-- pingouin>=0.5.5
-- scikit-learn>=1.7.2
+- numpy>=2.3.4
+- pandas>=2.3.3
+- matplotlib>=3.10.7
+- lxml>=6.0.2
 - scipy>=1.16.3
+- scikit-learn>=1.7.2
 - shap>=0.49.1
+- pingouin>=0.5.5
 
 ## License
 MIT
