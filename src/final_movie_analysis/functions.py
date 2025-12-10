@@ -942,13 +942,16 @@ if __name__ == "__main__":
     #totality()
     #data_creation()
     #do_analysis_specific()
-    all_analysis()
+    #all_analysis()
     #factors_analysis()
     #do_ml_analysis_plots()
     #do_ml_analysis_numbers()
+    pass
 
 # package installation note: first you must 'uv add' all dependencies into your environment, then you can download it.
-# uv pip install -i https://test.pypi.org/simple/ final-movie-analysis==0.1.1
+# pip install -i https://test.pypi.org/simple/ final-movie-analysis==0.1.2
+# If that doesn't work, use this
+# uv pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple\ final-movie-analysis==0.1.2
 
 # test before uploading to testpypi  
 # uv run python -c "from final_movie_analysis import print_dataset_head; print_dataset_head()"

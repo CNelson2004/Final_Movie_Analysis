@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>web_scrape – website</title>
+<title>web_scrape – Universal Studios Movie Analysis Package</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-029b10fc0dc652dab2ec1ac156c1a037.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">website</span>
+    <span class="navbar-title">Universal Studios Movie Analysis Package</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -141,6 +141,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="./tutorial.html"> 
 <span class="menu-text">Getting Started</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./technical_report.html"> 
+<span class="menu-text">Technical report</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -193,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 200</code></pre>
 </div>
 </div>
-<div id="d8c3a312" class="cell">
+<div id="d8c3a312" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#using pandas to get all the tables and then turning the relevant ones into dataframes</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Doing 2024-2014 results in (after cleaning) a little over 200 entries. All time frames for runtime are given with this set in mind.</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#This cell can be changed to expand the time frame</span></span>
@@ -209,9 +213,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>dfs.append(tables02)</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dfs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>C:\Users\cnels\AppData\Local\Temp\ipykernel_34708\2640283519.py:2: FutureWarning: Passing literal html to 'read_html' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+<pre><code>C:\Users\cnels\AppData\Local\Temp\ipykernel_14660\765748046.py:4: FutureWarning: Passing literal html to 'read_html' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
   tables1 = pd.read_html(r1.text)
-C:\Users\cnels\AppData\Local\Temp\ipykernel_34708\2640283519.py:3: FutureWarning: Passing literal html to 'read_html' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+C:\Users\cnels\AppData\Local\Temp\ipykernel_14660\765748046.py:5: FutureWarning: Passing literal html to 'read_html' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
   tables2 = pd.read_html(r2.text)</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
@@ -361,7 +365,7 @@ C:\Users\cnels\AppData\Local\Temp\ipykernel_34708\2640283519.py:3: FutureWarning
 16  distribution outside France, Germany and Austr...  
 17  distribution in North and Latin America, Russi...  
 18        co-production with HartBeat Productions[13]  
-19  distribution only; produced by Let It Play and...  
+19  distribution in the U.S., Latin America, the U...  
 20  co-production with Platinum Dunes, Blumhouse P...  
 21  co-production with Perfect World Pictures and ...  
 22                                       Russian film  
@@ -455,18 +459,18 @@ C:\Users\cnels\AppData\Local\Temp\ipykernel_34708\2640283519.py:3: FutureWarning
 18  Winner of the Academy Award for Best Picture N...  
 19  co-production with MRC, Scholastic Entertainme...  
 20  co-production with DreamWorks Pictures, Perfec...  
-21  Italian theatrical distribution only; produced...  ,            Release date                            Title  \
-0      January 10, 2020                           Seberg   
-1      January 17, 2020                         Dolittle   
-2      January 24, 2020                 The Turning[N 1]   
-3     February 13, 2020                   The Photograph   
-4     February 27, 2020                    The Wolf Hour   
-..                  ...                              ...   
-137     August 22, 2025                     Honey Don't!   
-138  September 12, 2025  Downton Abbey: The Grand Finale   
-139  September 19, 2025                              Him   
-140  September 26, 2025     Gabby's Dollhouse: The Movie   
-141    October 17, 2025                    Black Phone 2   
+21  Italian theatrical distribution only; produced...  ,            Release date                         Title  \
+0      January 10, 2020                        Seberg   
+1      January 17, 2020                      Dolittle   
+2      January 24, 2020              The Turning[N 1]   
+3     February 13, 2020                The Photograph   
+4     February 27, 2020                 The Wolf Hour   
+..                  ...                           ...   
+139  September 19, 2025                           Him   
+140  September 26, 2025  Gabby's Dollhouse: The Movie   
+141    October 17, 2025                 Black Phone 2   
+142   November 21, 2025              Wicked: For Good   
+143    December 5, 2025     Five Nights at Freddy's 2   
 
                                                  Notes  
 0    distribution in Latin America, the U.K., Irela...  
@@ -475,13 +479,13 @@ C:\Users\cnels\AppData\Local\Temp\ipykernel_34708\2640283519.py:3: FutureWarning
 3           co-production with Will Packer Productions  
 4    distribution in all media excluding airlines a...  
 ..                                                 ...  
-137  international distribution only;[178] produced...  
-138  international distribution only; produced by F...  
 139  co-production with Monkeypaw Productions[180][...  
 140  distribution only; produced by DreamWorks Anim...  
 141  co-production with Blumhouse Productions[183][...  
+142  co-production with Marc Platt Productions[184]...  
+143  co-production with Blumhouse Productions and S...  
 
-[142 rows x 3 columns]]</code></pre>
+[144 rows x 3 columns]]</code></pre>
 </div>
 </div>
 <div id="7f1643fc" class="cell" data-execution_count="4">
@@ -504,7 +508,7 @@ C:\Users\cnels\AppData\Local\Temp\ipykernel_34708\2640283519.py:3: FutureWarning
 4  distribution only; produced by Point Grey Pict...  </code></pre>
 </div>
 </div>
-<div id="85537d32" class="cell" data-execution_count="5">
+<div id="85537d32" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#removing the unneeded notes column</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>movies <span class="op">=</span> movies.drop(<span class="st">'Notes'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(movies.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -530,7 +534,7 @@ C:\Users\cnels\AppData\Local\Temp\ipykernel_34708\2640283519.py:3: FutureWarning
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(the_movies))</span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>pprint(the_movies)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>257
+<pre><code>259
 {"A Dog's Purpose[N 1]": '2017',
  'A Million Ways to Die in the West': '2014',
  'A Walk Among the Tombstones': '2014',
@@ -587,6 +591,7 @@ C:\Users\cnels\AppData\Local\Temp\ipykernel_34708\2640283519.py:3: FutureWarning
  'Finch[N 1] *': '2021',
  'Firestarter §': '2022',
  'First Man[N 1]': '2018',
+ "Five Nights at Freddy's 2": '2025',
  "Five Nights at Freddy's §": '2023',
  'Frank &amp; Lola': '2016',
  'Freaky': '2020',
@@ -781,6 +786,7 @@ C:\Users\cnels\AppData\Local\Temp\ipykernel_34708\2640283519.py:3: FutureWarning
  'Watcher': '2022',
  'Welcome to Marwen[N 1]': '2018',
  'Wicked': '2024',
+ 'Wicked: For Good': '2025',
  'Wolf Man': '2025',
  'Women Talking': '2022',
  'Woody Woodpecker': '2017',
@@ -792,14 +798,15 @@ C:\Users\cnels\AppData\Local\Temp\ipykernel_34708\2640283519.py:3: FutureWarning
 </div>
 <div id="6a53e79e" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#removing movies from 2025</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>bad_keys <span class="op">=</span> []</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key,value <span class="kw">in</span> the_movies.items():</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">int</span>(value) <span class="op">==</span> <span class="dv">2025</span>:</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        bad_keys.append(key)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> bad_keys:</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">del</span> the_movies[key]</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(the_movies))</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>pprint(the_movies)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>correct_years <span class="op">=</span> [<span class="dv">2014</span>,<span class="dv">2015</span>,<span class="dv">2016</span>,<span class="dv">2017</span>,<span class="dv">2018</span>,<span class="dv">2019</span>,<span class="dv">2020</span>,<span class="dv">2021</span>,<span class="dv">2022</span>,<span class="dv">2023</span>,<span class="dv">2024</span>]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>bad_keys <span class="op">=</span> []</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key,value <span class="kw">in</span> the_movies.items():</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">int</span>(value) <span class="kw">not</span> <span class="kw">in</span> correct_years:</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        bad_keys.append(key)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> bad_keys:</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">del</span> the_movies[key]</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(the_movies))</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>pprint(the_movies) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>232
 {"A Dog's Purpose[N 1]": '2017',
@@ -1036,7 +1043,7 @@ C:\Users\cnels\AppData\Local\Temp\ipykernel_34708\2640283519.py:3: FutureWarning
  'You Should Have Left': '2020'}</code></pre>
 </div>
 </div>
-<div id="8c22e3cf" class="cell" data-execution_count="8">
+<div id="8c22e3cf" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#formatting titles for The Numbers url and getting all The Numbers urls</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Example 1: https://www.the-numbers.com/movie/As-Above-So-Below#tab=summary</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Example 2: https://www.the-numbers.com/movie/Little-Mermaid-The-(2023)#tab=summary</span></span>
@@ -1065,12 +1072,14 @@ C:\Users\cnels\AppData\Local\Temp\ipykernel_34708\2640283519.py:3: FutureWarning
 <span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>    clean <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="dv">^</span><span class="vs">A-</span><span class="kw">(</span><span class="dv">.</span><span class="op">+</span><span class="kw">)</span><span class="dv">$</span><span class="vs">'</span>, <span class="vs">r'</span><span class="ch">\1</span><span class="vs">-A'</span>, clean)</span>
 <span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    clean <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="dv">^</span><span class="vs">La-</span><span class="kw">(</span><span class="dv">.</span><span class="op">+</span><span class="kw">)</span><span class="dv">$</span><span class="vs">'</span>, <span class="vs">r'</span><span class="ch">\1</span><span class="vs">-La'</span>, clean)</span>
 <span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">#adding it to another dictionary to keep track of years</span></span>
-<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>    clean_dict[clean] <span class="op">=</span> the_movies[title]</span>
-<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>    <span class="co">#creating full url with it (make sure year is still there)</span></span>
-<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>    full_url <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>base<span class="sc">}{</span>clean<span class="sc">}{</span>suffix<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>    urls.append(full_url)</span>
-<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(urls))</span>
-<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>pprint(urls)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>    year <span class="op">=</span> the_movies[title]</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>    clean_dict[clean] <span class="op">=</span> year</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>    formatted_year <span class="op">=</span> <span class="ss">f"-(</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">)"</span></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>    <span class="co">#creating full url with it (make sure year is still there)</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>    full_url <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>base<span class="sc">}{</span>clean<span class="sc">}{</span>formatted_year<span class="sc">}{</span>suffix<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>    urls.append(full_url)</span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(urls))</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>pprint(urls)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>232
 ['https://www.the-numbers.com/movie/Ride-Along#tab=summary',
@@ -1304,18 +1313,258 @@ C:\Users\cnels\AppData\Local\Temp\ipykernel_34708\2640283519.py:3: FutureWarning
  'https://www.the-numbers.com/movie/Wild-Robot-The#tab=summary',
  'https://www.the-numbers.com/movie/Piece-by-Piece#tab=summary',
  'https://www.the-numbers.com/movie/Wicked#tab=summary',
- 'https://www.the-numbers.com/movie/Nosferatu#tab=summary']</code></pre>
+ 'https://www.the-numbers.com/movie/Nosferatu#tab=summary']
+{'355-The': '2022',
+ 'Abigail': '2024',
+ 'Addams-Family-2-The': '2021',
+ 'Adults-The': '2023',
+ 'All-My-Life': '2020',
+ 'Almost-Christmas': '2016',
+ 'Ambulance': '2022',
+ 'American-Made': '2017',
+ 'American-Society-of-Magical-Negroes-The': '2024',
+ 'Anomaly-The': '2014',
+ 'Argylle': '2024',
+ 'Armageddon-Time': '2022',
+ 'As-Above-So-Below': '2014',
+ 'Babes': '2024',
+ 'Bad-Guys-The': '2022',
+ 'Beast': '2022',
+ 'Belfast': '2021',
+ 'Bikeriders-The': '2024',
+ 'Black-Phone-The': '2022',
+ 'Blackfish': '2014',
+ 'Blackhat': '2015',
+ 'Blockers': '2018',
+ 'Book-Club-The-Next-Chapter': '2023',
+ 'Boss-Baby-Family-Business-The': '2021',
+ 'Boss-The': '2016',
+ 'Boxtrolls-The': '2014',
+ 'Boy-Next-Door-The': '2015',
+ 'Boyhood': '2014',
+ 'Breaking-In': '2018',
+ 'Brian-and-Charles': '2022',
+ 'Bridget-Joness-Baby': '2016',
+ 'Bros': '2022',
+ 'By-the-Sea': '2015',
+ 'Candyman': '2021',
+ 'Central-Intelligence': '2016',
+ 'Cocaine-Bear': '2023',
+ 'Colle-La': '2017',
+ 'Crimson-Peak': '2015',
+ 'Croods-A-New-Age-The': '2020',
+ 'Cyrano': '2022',
+ 'Daddy-Cool': '2017',
+ 'Dear-Evan-Hansen': '2021',
+ 'Despicable-Me-3': '2017',
+ 'Despicable-Me-4': '2024',
+ 'Dogs-Purpose-A': '2017',
+ 'Dolittle': '2020',
+ 'Dracula-Untold': '2014',
+ 'Dumb-and-Dumber-To': '2014',
+ 'Easter-Sunday': '2022',
+ 'Eileen': '2023',
+ 'Emily-the-Criminal': '2022',
+ 'Endless-Love': '2014',
+ 'Everest': '2015',
+ 'Ex-Machina': '2015',
+ 'Exorcist-Believer-The': '2023',
+ 'F9': '2021',
+ 'Fabelmans-The': '2022',
+ 'Fall-Guy-The': '2024',
+ 'Fast-X': '2023',
+ 'Fate-of-the-Furious-The': '2017',
+ 'Fifty-Shades-Darker': '2017',
+ 'Fifty-Shades-Freed': '2018',
+ 'Fifty-Shades-of-Grey': '2015',
+ 'Finch': '2021',
+ 'Firestarter': '2022',
+ 'First-Man': '2018',
+ 'First-Purge-The': '2018',
+ 'Five-Nights-at-Freddys': '2023',
+ 'Forever-Purge-The': '2021',
+ 'Forgiven-The': '2022',
+ 'Frank-and-Lola': '2016',
+ 'Freaky': '2020',
+ 'Furious-7': '2015',
+ 'Genie': '2023',
+ 'Get-On-Up': '2014',
+ 'Get-Out': '2017',
+ 'Girl-on-the-Train-The': '2016',
+ 'Girls-Trip': '2017',
+ 'Good-on-Paper': '2021',
+ 'Great-Wall-The': '2017',
+ 'Green-Book': '2018',
+ 'Green-Inferno-The': '2015',
+ 'Grinch-The': '2018',
+ 'Hail-Caesar': '2016',
+ 'Halloween': '2018',
+ 'Halloween-Ends': '2022',
+ 'Halloween-Kills': '2021',
+ 'Happy-Death-Day': '2017',
+ 'Horns': '2015',
+ 'House-of-Gucci': '2021',
+ 'House-with-a-Clock-in-Its-Walls-The': '2018',
+ 'Hunt-The': '2020',
+ 'Huntsman-Winters-War-The': '2016',
+ 'I-Am-Losing-Weight': '2018',
+ 'Insidious-The-Last-Key': '2018',
+ 'Invisible-Man-The': '2020',
+ 'Jason-Bourne': '2016',
+ 'Jem-and-the-Holograms': '2015',
+ 'Johnny-English-Strikes-Again': '2018',
+ 'Jurassic-World': '2015',
+ 'Jurassic-World-Dominion': '2022',
+ 'Jurassic-World-Fallen-Kingdom': '2018',
+ 'Kevin-Hart-What-Now?': '2016',
+ 'KikoRiki-Legend-of-the-Golden-Dragon': '2016',
+ 'Killer-The': '2024',
+ 'King-of-Staten-Island-The': '2020',
+ 'Knock-at-the-Cabin': '2023',
+ 'Krampus': '2015',
+ 'Kubo-and-the-Two-Strings': '2016',
+ 'Kung-Fu-Panda-4': '2024',
+ 'Lady-Bird': '2017',
+ 'Last-Voyage-of-the-Demeter-The': '2023',
+ 'Legend': '2015',
+ 'Legend-of-the-Christmas-Witch-The': '2018',
+ 'Licorice-Pizza': '2021',
+ 'Loro': '2018',
+ 'Lucy': '2014',
+ 'M3GAN': '2023',
+ 'Mamma-Mia-Here-We-Go-Again': '2018',
+ 'Marry-Me': '2022',
+ 'Migration': '2023',
+ 'Million-Ways-to-Die-in-the-West-A': '2014',
+ 'Minions': '2015',
+ 'Minions-The-Rise-of-Gru': '2022',
+ 'Monkey-Man': '2024',
+ 'Moonage-Daydream': '2022',
+ 'Mortal-Engines': '2018',
+ 'Mr-Malcolms-List': '2022',
+ 'Mrs-Harris-Goes-to-Paris': '2022',
+ 'Mummy-The': '2017',
+ 'My-Big-Fat-Greek-Wedding-2': '2016',
+ 'My-Big-Fat-Greek-Wedding-3': '2023',
+ 'Neighbors': '2014',
+ 'Neighbors-2-Sorority-Rising': '2016',
+ 'News-of-the-World': '2020',
+ 'Night-School': '2018',
+ 'Night-Swim': '2024',
+ 'No-Time-to-Die': '2021',
+ 'Nobody': '2021',
+ 'Non-Stop': '2014',
+ 'Nope': '2022',
+ 'Northern-Soul': '2014',
+ 'Northman-The': '2022',
+ 'Nosferatu': '2024',
+ 'Old': '2021',
+ 'Oppenheimer': '2023',
+ 'Oracle': '2023',
+ 'Ordinary-World': '2016',
+ 'Ouija': '2014',
+ 'Ouija-Origin-of-Evil': '2016',
+ 'Pacific-Rim-Uprising': '2018',
+ 'Panfilovs-28-Men': '2016',
+ 'Pearl': '2023',
+ 'People-Just-Do-Nothing-Big-in-Japan': '2021',
+ 'Phantom-of-the-Open-The': '2022',
+ 'Photograph-The': '2020',
+ 'Piece-by-Piece': '2024',
+ 'Pitch-Perfect-2': '2015',
+ 'Pitch-Perfect-3': '2017',
+ 'Please-Dont-Destroy-The-Treasure-of-Foggy-Mountain': '2023',
+ 'Popstar-Never-Stop-Never-Stopping': '2016',
+ 'Post-The': '2017',
+ 'Praise-This': '2023',
+ 'Profile': '2021',
+ 'Purge-Anarchy-The': '2014',
+ 'Purge-Election-Year-The': '2016',
+ 'Puss-in-Boots-The-Last-Wish': '2022',
+ 'Ratchet-and-Clank': '2016',
+ 'Redeeming-Love': '2022',
+ 'Renfield': '2023',
+ 'Respect': '2021',
+ 'Ride-Along': '2014',
+ 'Ride-Along-2': '2016',
+ 'Royal-Hotel-The': '2023',
+ 'Ruby-Gillman-Teenage-Kraken': '2023',
+ 'Sanctuary': '2023',
+ 'Seberg': '2020',
+ 'Secret-Life-of-Pets-The': '2016',
+ 'Seventh-Son': '2015',
+ 'She-Came-to-Me': '2024',
+ 'She-Said': '2022',
+ 'Shooting-Stars': '2023',
+ 'Silent-Twins-The': '2022',
+ 'Sing': '2016',
+ 'Sing-2': '2021',
+ 'Sisters': '2015',
+ 'Skyscraper': '2018',
+ 'Snow-Queen-3-Fire-and-Ice-The': '2016',
+ 'Snowman-The': '2017',
+ 'Sparks-Brothers-The': '2021',
+ 'Speak-No-Evil': '2024',
+ 'Spirit-Untamed': '2021',
+ 'Split': '2017',
+ 'Step-Up-All-In': '2014',
+ 'Steve-Jobs': '2015',
+ 'Straight-Outta-Compton': '2015',
+ 'Strays': '2023',
+ 'Substance-The': '2024',
+ 'Super-Mario-Bros-Movie-The': '2023',
+ 'Tag': '2015',
+ 'Tar': '2022',
+ 'Ted-2': '2015',
+ 'Thank-You-for-Your-Service': '2017',
+ 'Theory-of-Everything-The': '2014',
+ 'This-Is-the-Night': '2021',
+ 'Ticket-to-Paradise': '2022',
+ 'Till': '2022',
+ 'Trainwreck': '2015',
+ 'Trolls-Band-Together': '2023',
+ 'Trolls-World-Tour': '2020',
+ 'Truth-or-Dare': '2018',
+ 'Turning-The': '2020',
+ 'Twisters': '2024',
+ 'Unbroken': '2014',
+ 'Unfriended': '2015',
+ 'Uno-anzi-due': '2015',
+ 'Vampires-vs-the-Bronx': '2020',
+ 'Violent-Night': '2022',
+ 'Visit-The': '2015',
+ 'Walk-Among-the-Tombstones-A': '2014',
+ 'Warcraft': '2016',
+ 'Watcher': '2022',
+ 'Welcome-to-Marwen': '2018',
+ 'Wicked': '2024',
+ 'Wild-Robot-The': '2024',
+ 'Witch-The': '2016',
+ 'Wolf-Hour-The': '2020',
+ 'Women-Talking': '2022',
+ 'Woody-Woodpecker': '2017',
+ 'Woody-Woodpecker-Goes-to-Camp': '2024',
+ 'Yo-kai-Watch-The-Movie': '2017',
+ 'You-Should-Have-Left': '2020'}</code></pre>
 </div>
 </div>
-<div id="bd903182" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we need to divide up our urls so we don't overload the website, thus we complete this process separately</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>chunk_size <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>n_chunks <span class="op">=</span> (<span class="bu">len</span>(urls) <span class="op">+</span> chunk_size <span class="op">-</span> <span class="dv">1</span>) <span class="op">//</span> chunk_size   <span class="co"># ceiling division</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>sections <span class="op">=</span> np.array_split(urls, n_chunks)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(sections))</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(sections[<span class="dv">0</span>]))</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sections[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="cc5f4fe6" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#checking dictionary</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>unique_values <span class="op">=</span> <span class="bu">set</span>(clean_dict.values())</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unique_values)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'2016', '2014', '2024', '2022', '2017', '2020', '2023', '2015', '2018', '2021'}</code></pre>
+</div>
+</div>
+<div id="bd903182" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we need to divide up our urls so we don't overload the website, thus we complete this process separately</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>chunk_size <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>n_chunks <span class="op">=</span> (<span class="bu">len</span>(urls) <span class="op">+</span> chunk_size <span class="op">-</span> <span class="dv">1</span>) <span class="op">//</span> chunk_size   <span class="co"># ceiling division</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>sections <span class="op">=</span> np.array_split(urls, n_chunks)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(sections))</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(sections[<span class="dv">0</span>]))</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sections[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>5
 47
@@ -1368,125 +1617,119 @@ C:\Users\cnels\AppData\Local\Temp\ipykernel_34708\2640283519.py:3: FutureWarning
  'https://www.the-numbers.com/movie/Sisters#tab=summary']</code></pre>
 </div>
 </div>
-<div id="ccb2060f" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This takes about 50 minutes.</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#fixing the bad ones</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#setting up our variables</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>marked <span class="op">=</span> {}</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Just for me to see times during this</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>start <span class="op">=</span> time.time()</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k,section <span class="kw">in</span> <span class="bu">enumerate</span>(sections):</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> url <span class="kw">in</span> section:</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">#abiding by robots.txt</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> requests.get(url,headers<span class="op">=</span>headers)</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> r.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">#checking if the website broke</span></span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> r.status_code <span class="op">==</span> <span class="dv">503</span>:</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"currently on i: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> out of 232, with url: </span><span class="sc">{</span>url<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> url</span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">#placing year at the end of the title</span></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>        title <span class="op">=</span> url.rsplit(<span class="st">"/"</span>, <span class="dv">1</span>)[<span class="op">-</span><span class="dv">1</span>].split(<span class="st">"#"</span>, <span class="dv">1</span>)[<span class="dv">0</span>]</span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>        year <span class="op">=</span> <span class="bu">int</span>(clean_dict[title])</span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">)'</span>, url)</span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>        <span class="co">#attempting to add country to make url work</span></span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">-United-Kingdom)'</span>, url)</span>
-<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
-<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
-<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
-<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
-<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
-<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(UK)-(</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">)'</span>, url)</span>
-<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
-<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
-<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
-<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
-<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
-<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>        <span class="co">#setting year back by 1</span></span>
-<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(</span><span class="sc">{</span>year<span class="op">-</span><span class="dv">1</span><span class="sc">}</span><span class="ss">)'</span>, url)</span>
-<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
-<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
-<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
-<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
-<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
-<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">-Japan)'</span>, url)</span>
-<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
-<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
-<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
-<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
-<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
-<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(Italy)-(</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">)'</span>, url)</span>
-<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
-<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
-<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
-<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
-<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
-<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">-Australia)'</span>, url)</span>
-<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
-<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
-<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
-<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
-<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
-<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">-France)'</span>, url)</span>
-<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
-<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
-<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
-<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
-<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
-<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a>        <span class="co">#if it doesn't we add it to marked</span></span>
-<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a>        marked[i] <span class="op">=</span> url</span>
-<span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Getting time so I know its working</span></span>
-<span id="cb19-77"><a href="#cb19-77" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Time of section </span><span class="sc">{</span>k<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">len</span>(sections)<span class="sc">}</span><span class="ss"> completion: ~</span><span class="sc">{</span>(time.time()<span class="op">-</span>start)<span class="op">//</span><span class="dv">60</span><span class="sc">}</span><span class="ss"> minutes"</span>)</span>
-<span id="cb19-78"><a href="#cb19-78" aria-hidden="true" tabindex="-1"></a><span class="co">#pretty printing it so I can read it    </span></span>
-<span id="cb19-79"><a href="#cb19-79" aria-hidden="true" tabindex="-1"></a>pprint(marked)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Time of section 1/5 completion: ~7.0 minutes
-Time of section 2/5 completion: ~19.0 minutes
-Time of section 3/5 completion: ~30.0 minutes
-Time of section 4/5 completion: ~40.0 minutes
-Time of section 5/5 completion: ~51.0 minutes
-{34: np.str_('https://www.the-numbers.com/movie/Tag#tab=summary'),
- 50: np.str_('https://www.the-numbers.com/movie/KikoRiki-Legend-of-the-Golden-Dragon#tab=summary'),
- 59: np.str_('https://www.the-numbers.com/movie/Purge-Election-Year-The#tab=summary'),
- 72: np.str_('https://www.the-numbers.com/movie/Snow-Queen-3-Fire-and-Ice-The#tab=summary'),
- 81: np.str_('https://www.the-numbers.com/movie/Colle-La#tab=summary'),
- 87: np.str_('https://www.the-numbers.com/movie/Yo-kai-Watch-The-Movie#tab=summary'),
- 95: np.str_('https://www.the-numbers.com/movie/I-Am-Losing-Weight#tab=summary'),
- 99: np.str_('https://www.the-numbers.com/movie/Loro#tab=summary'),
- 110: np.str_('https://www.the-numbers.com/movie/Grinch-The#tab=summary'),
- 114: np.str_('https://www.the-numbers.com/movie/Legend-of-the-Christmas-Witch-The#tab=summary'),
- 133: np.str_('https://www.the-numbers.com/movie/Sparks-Brothers-The#tab=summary'),
- 135: np.str_('https://www.the-numbers.com/movie/F9#tab=summary'),
- 140: np.str_('https://www.the-numbers.com/movie/People-Just-Do-Nothing-Big-in-Japan#tab=summary'),
- 142: np.str_('https://www.the-numbers.com/movie/This-Is-the-Night#tab=summary'),
- 165: np.str_('https://www.the-numbers.com/movie/Forgiven-The#tab=summary'),
- 189: np.str_('https://www.the-numbers.com/movie/Pearl#tab=summary'),
- 196: np.str_('https://www.the-numbers.com/movie/Adults-The#tab=summary'),
- 203: np.str_('https://www.the-numbers.com/movie/Oracle#tab=summary')}</code></pre>
+<div id="ccb2060f" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This takes about 50 minutes.</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#fixing the bad ones</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#setting up our variables</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>marked <span class="op">=</span> {}</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Just for me to see times during this</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>start <span class="op">=</span> time.time()</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Starting first section"</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k,section <span class="kw">in</span> <span class="bu">enumerate</span>(sections):</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> url <span class="kw">in</span> section:</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">#abiding by robots.txt</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> requests.get(url,headers<span class="op">=</span>headers)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> r.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">#checking if the website broke</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> r.status_code <span class="op">==</span> <span class="dv">503</span>:</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"currently on i: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> out of 232, with url: </span><span class="sc">{</span>url<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">#setting up variables</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>        title_year <span class="op">=</span> url.rsplit(<span class="st">"/"</span>, <span class="dv">1</span>)[<span class="op">-</span><span class="dv">1</span>].split(<span class="st">"#"</span>, <span class="dv">1</span>)[<span class="dv">0</span>]</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>        title <span class="op">=</span> re.split(<span class="vs">r"-</span><span class="ch">\(</span><span class="dv">\d</span><span class="op">{4}</span><span class="ch">\)</span><span class="dv">$</span><span class="vs">"</span>, title_year)[<span class="dv">0</span>]</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>        year <span class="op">=</span> <span class="bu">int</span>(clean_dict[title])</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>        <span class="co">#removing year from title</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r"-</span><span class="ch">\(</span><span class="dv">\d</span><span class="op">{4}</span><span class="ch">\)</span><span class="vs">"</span>, <span class="st">""</span>, <span class="bu">str</span>(url)) </span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>        <span class="co">#setting current to be without a year for the following checks</span></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>        url <span class="op">=</span> current</span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>        <span class="co">#attempting to add country to make url work</span></span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">-United-Kingdom)'</span>, url)</span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(UK)-(</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">)'</span>, url)</span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
+<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
+<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a>        <span class="co">#setting year back by 1</span></span>
+<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(</span><span class="sc">{</span>year<span class="op">-</span><span class="dv">1</span><span class="sc">}</span><span class="ss">)'</span>, url)</span>
+<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
+<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
+<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
+<span id="cb21-53"><a href="#cb21-53" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb21-54"><a href="#cb21-54" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">-Japan)'</span>, url)</span>
+<span id="cb21-55"><a href="#cb21-55" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
+<span id="cb21-56"><a href="#cb21-56" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
+<span id="cb21-57"><a href="#cb21-57" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb21-58"><a href="#cb21-58" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
+<span id="cb21-59"><a href="#cb21-59" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb21-60"><a href="#cb21-60" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(Italy)-(</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">)'</span>, url)</span>
+<span id="cb21-61"><a href="#cb21-61" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
+<span id="cb21-62"><a href="#cb21-62" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
+<span id="cb21-63"><a href="#cb21-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb21-64"><a href="#cb21-64" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
+<span id="cb21-65"><a href="#cb21-65" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb21-66"><a href="#cb21-66" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">-Australia)'</span>, url)</span>
+<span id="cb21-67"><a href="#cb21-67" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
+<span id="cb21-68"><a href="#cb21-68" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
+<span id="cb21-69"><a href="#cb21-69" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb21-70"><a href="#cb21-70" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
+<span id="cb21-71"><a href="#cb21-71" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb21-72"><a href="#cb21-72" aria-hidden="true" tabindex="-1"></a>        current <span class="op">=</span> re.sub(<span class="vs">r'</span><span class="ex">(</span><span class="fu">?=</span><span class="vs">#</span><span class="ex">)</span><span class="vs">'</span>, <span class="ss">f'-(</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">-France)'</span>, url)</span>
+<span id="cb21-73"><a href="#cb21-73" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
+<span id="cb21-74"><a href="#cb21-74" aria-hidden="true" tabindex="-1"></a>        s <span class="op">=</span> requests.get(current,headers<span class="op">=</span>headers)</span>
+<span id="cb21-75"><a href="#cb21-75" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> s.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb21-76"><a href="#cb21-76" aria-hidden="true" tabindex="-1"></a>            urls[i] <span class="op">=</span> current</span>
+<span id="cb21-77"><a href="#cb21-77" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb21-78"><a href="#cb21-78" aria-hidden="true" tabindex="-1"></a>        <span class="co">#if it doesn't we add it to marked</span></span>
+<span id="cb21-79"><a href="#cb21-79" aria-hidden="true" tabindex="-1"></a>        marked[i] <span class="op">=</span> url</span>
+<span id="cb21-80"><a href="#cb21-80" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Added url number: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">, which is </span><span class="sc">{</span>url<span class="sc">}</span><span class="ss">, to marked at ~</span><span class="sc">{</span>(time.time()<span class="op">-</span>start)<span class="op">//</span><span class="dv">60</span><span class="sc">}</span><span class="ss"> minutes"</span>)</span>
+<span id="cb21-81"><a href="#cb21-81" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Getting time so I know its working</span></span>
+<span id="cb21-82"><a href="#cb21-82" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Time of section </span><span class="sc">{</span>k<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">len</span>(sections)<span class="sc">}</span><span class="ss"> completion: ~</span><span class="sc">{</span>(time.time()<span class="op">-</span>start)<span class="op">//</span><span class="dv">60</span><span class="sc">}</span><span class="ss"> minutes"</span>)</span>
+<span id="cb21-83"><a href="#cb21-83" aria-hidden="true" tabindex="-1"></a><span class="co">#pretty printing it so I can read it    </span></span>
+<span id="cb21-84"><a href="#cb21-84" aria-hidden="true" tabindex="-1"></a>pprint(marked)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[12]</span><span class="ansi-green-fg">, line 12</span>
+<span class="ansi-green-fg">     10</span> i += <span class="ansi-green-fg">1</span>
+<span class="ansi-green-fg">     11</span> <span style="font-style:italic;color:rgb(95,135,135)">#abiding by robots.txt</span>
+<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">12</span> <span class="ansi-yellow-bg">time</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">sleep</span><span class="ansi-yellow-bg">(</span><span class="ansi-green-fg ansi-yellow-bg">5</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">     13</span> r = requests.get(url,headers=headers)
+<span class="ansi-green-fg">     14</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> r.status_code == <span class="ansi-green-fg">200</span>:
+
+<span class="ansi-red-fg">KeyboardInterrupt</span>: </pre>
+</div>
 </div>
 </div>
 <div id="7a4adc5e" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#DO NOT ACCIDENTALLY RUN THIS BLOCK AGAIN AFTER RUNNING IT THE FIRST TIME UNLESS YOU ARE RUNNING ALL PREVIOUS BLOCKS AS WELL</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Removing the bad ones, since this means The-Numbers doesn't have them, or the url is not in english, </span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#or there was an alternative name that the wikipedia page didn't list, but that was only 1 in this trial</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>previous <span class="op">=</span> <span class="bu">len</span>(urls)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co">#removing backwards to ensure everything is deleted properly</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> <span class="bu">sorted</span>(marked.keys(), reverse<span class="op">=</span><span class="va">True</span>):</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    urls.pop(key)</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co">#checking again</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>pprint(urls)</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(urls))</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of urls removed: </span><span class="sc">{</span>previous <span class="op">-</span> <span class="bu">len</span>(urls)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#DO NOT ACCIDENTALLY RUN THIS BLOCK AGAIN AFTER RUNNING IT THE FIRST TIME UNLESS YOU ARE RUNNING ALL PREVIOUS BLOCKS AS WELL</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Removing the bad ones, since this means The-Numbers doesn't have them, or the url is not in english, </span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#or there was an alternative name that the wikipedia page didn't list, but that was only 1 in this trial</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>previous <span class="op">=</span> <span class="bu">len</span>(urls)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">#removing backwards to ensure everything is deleted properly</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> <span class="bu">sorted</span>(marked.keys(), reverse<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    urls.pop(key)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">#checking again</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>pprint(urls)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(urls))</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of urls removed: </span><span class="sc">{</span>previous <span class="op">-</span> <span class="bu">len</span>(urls)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['https://www.the-numbers.com/movie/Ride-Along#tab=summary',
  'https://www.the-numbers.com/movie/Endless-Love#tab=summary',
@@ -1707,178 +1950,178 @@ Number of urls removed: 18</code></pre>
 </div>
 </div>
 <div id="305f6614" class="cell" data-execution_count="14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This block takes 25-45 minutes</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#getting relevant information from each url</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>title <span class="op">=</span> []</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>date <span class="op">=</span> []</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>vid_date <span class="op">=</span> []</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>inf_adj_dom_rev <span class="op">=</span> []</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>dom_rev <span class="op">=</span> []</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>inter_rev <span class="op">=</span> []</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>total_theater_rev <span class="op">=</span> []</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>dom_dvd_rev <span class="op">=</span> []</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>dom_bluray_rev <span class="op">=</span> []</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>dom_video_rev <span class="op">=</span> []</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>opening_weekend <span class="op">=</span> []</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>budget <span class="op">=</span> []</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>theaters <span class="op">=</span> []</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>film_rating <span class="op">=</span> []</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>runtime <span class="op">=</span> []</span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>genre <span class="op">=</span> []</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>franchise <span class="op">=</span> []</span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>production_method <span class="op">=</span> []</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> j,url <span class="kw">in</span> <span class="bu">enumerate</span>(urls):</span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="dv">5</span>)</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> requests.get(url,headers<span class="op">=</span>headers)</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Checking if something in my cleaning went wrong</span></span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> r.status_code <span class="op">!=</span> <span class="dv">200</span>:</span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>        <span class="co">#this means something is wrong with the website, and we will simply consider it as the-numbers not having it.</span></span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Because status code is not 200-Removed data for url: </span><span class="sc">{</span>url<span class="sc">}</span><span class="ss">, with status: </span><span class="sc">{</span>r<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>    soup <span class="op">=</span> BeautifulSoup(r.text)</span>
-<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting title and release year</span></span>
-<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>    header <span class="op">=</span> soup.find(<span class="st">"h1"</span>)</span>
-<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>    <span class="co">#This is here just in case</span></span>
-<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> header <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>        <span class="co">#this means something is wrong with the website, and we will simply consider it as the-numbers not having it.</span></span>
-<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Because header is None-Removed data for url: </span><span class="sc">{</span>url<span class="sc">}</span><span class="ss">, with header: </span><span class="sc">{</span>header<span class="sc">.</span>text<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
-<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> re.match(<span class="vs">r'</span><span class="dv">^</span><span class="kw">(</span><span class="dv">.</span><span class="op">*</span><span class="kw">)</span><span class="dv">\s</span><span class="ch">\(</span><span class="kw">(</span><span class="dv">\d</span><span class="op">{4}</span><span class="kw">)</span><span class="ch">\)</span><span class="dv">$</span><span class="vs">'</span>, header.text) <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>        <span class="co">#this means something is wrong with the website, and we will simply consider it as the-numbers not having it.</span></span>
-<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Because header doesn't match-Removed data for url: </span><span class="sc">{</span>url<span class="sc">}</span><span class="ss">, with header: </span><span class="sc">{</span>header<span class="sc">.</span>text<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
-<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a>    title_ <span class="op">=</span> re.match(<span class="vs">r'</span><span class="dv">^</span><span class="kw">(</span><span class="dv">.</span><span class="op">*</span><span class="kw">)</span><span class="dv">\s</span><span class="ch">\(</span><span class="kw">(</span><span class="dv">\d</span><span class="op">{4}</span><span class="kw">)</span><span class="ch">\)</span><span class="dv">$</span><span class="vs">'</span>, header.text).group(<span class="dv">1</span>)</span>
-<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a>    title.append(title_)</span>
-<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting box office numbers</span></span>
-<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Domestic Box Office"</span>)</span>
-<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a>        dbo <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a>        dom_rev.append(dbo)</span>
-<span id="cb23-50"><a href="#cb23-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a>        dom_rev.append(<span class="va">None</span>)</span>
-<span id="cb23-52"><a href="#cb23-52" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"International Box Office"</span>)</span>
-<span id="cb23-53"><a href="#cb23-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-54"><a href="#cb23-54" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-55"><a href="#cb23-55" aria-hidden="true" tabindex="-1"></a>        ibo <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-56"><a href="#cb23-56" aria-hidden="true" tabindex="-1"></a>        inter_rev.append(ibo)</span>
-<span id="cb23-57"><a href="#cb23-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-58"><a href="#cb23-58" aria-hidden="true" tabindex="-1"></a>        inter_rev.append(<span class="va">None</span>)</span>
-<span id="cb23-59"><a href="#cb23-59" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Worldwide Box Office"</span>)</span>
-<span id="cb23-60"><a href="#cb23-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-61"><a href="#cb23-61" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-62"><a href="#cb23-62" aria-hidden="true" tabindex="-1"></a>        wwbo <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-63"><a href="#cb23-63" aria-hidden="true" tabindex="-1"></a>        total_theater_rev.append(wwbo)</span>
-<span id="cb23-64"><a href="#cb23-64" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-65"><a href="#cb23-65" aria-hidden="true" tabindex="-1"></a>        total_theater_rev.append(<span class="va">None</span>)</span>
-<span id="cb23-66"><a href="#cb23-66" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Infl. Adj. Dom. BO"</span>)</span>
-<span id="cb23-67"><a href="#cb23-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-68"><a href="#cb23-68" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-69"><a href="#cb23-69" aria-hidden="true" tabindex="-1"></a>        iadbo <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-70"><a href="#cb23-70" aria-hidden="true" tabindex="-1"></a>        inf_adj_dom_rev.append(iadbo)</span>
-<span id="cb23-71"><a href="#cb23-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-72"><a href="#cb23-72" aria-hidden="true" tabindex="-1"></a>        inf_adj_dom_rev.append(<span class="va">None</span>)</span>
-<span id="cb23-73"><a href="#cb23-73" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting video sales</span></span>
-<span id="cb23-74"><a href="#cb23-74" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Est. Domestic DVD Sales"</span>)</span>
-<span id="cb23-75"><a href="#cb23-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-76"><a href="#cb23-76" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-77"><a href="#cb23-77" aria-hidden="true" tabindex="-1"></a>        dvd <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-78"><a href="#cb23-78" aria-hidden="true" tabindex="-1"></a>        dom_dvd_rev.append(dvd)</span>
-<span id="cb23-79"><a href="#cb23-79" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-80"><a href="#cb23-80" aria-hidden="true" tabindex="-1"></a>        dom_dvd_rev.append(<span class="va">None</span>)</span>
-<span id="cb23-81"><a href="#cb23-81" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Est. Domestic Blu-ray Sales"</span>)</span>
-<span id="cb23-82"><a href="#cb23-82" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-83"><a href="#cb23-83" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-84"><a href="#cb23-84" aria-hidden="true" tabindex="-1"></a>        bluray <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-85"><a href="#cb23-85" aria-hidden="true" tabindex="-1"></a>        dom_bluray_rev.append(bluray)</span>
-<span id="cb23-86"><a href="#cb23-86" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-87"><a href="#cb23-87" aria-hidden="true" tabindex="-1"></a>        dom_bluray_rev.append(<span class="va">None</span>)</span>
-<span id="cb23-88"><a href="#cb23-88" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Total Est. Domestic Video Sales"</span>)</span>
-<span id="cb23-89"><a href="#cb23-89" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-90"><a href="#cb23-90" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-91"><a href="#cb23-91" aria-hidden="true" tabindex="-1"></a>        dvs <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-92"><a href="#cb23-92" aria-hidden="true" tabindex="-1"></a>        dom_video_rev.append(dvs)</span>
-<span id="cb23-93"><a href="#cb23-93" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-94"><a href="#cb23-94" aria-hidden="true" tabindex="-1"></a>        dom_video_rev.append(<span class="va">None</span>)</span>
-<span id="cb23-95"><a href="#cb23-95" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting opening weekend</span></span>
-<span id="cb23-96"><a href="#cb23-96" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="kw">lambda</span> t: t <span class="kw">and</span> <span class="st">"Opening"</span> <span class="kw">in</span> t <span class="kw">and</span> <span class="st">"Weekend"</span> <span class="kw">in</span> t)</span>
-<span id="cb23-97"><a href="#cb23-97" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-98"><a href="#cb23-98" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-99"><a href="#cb23-99" aria-hidden="true" tabindex="-1"></a>        ow <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-100"><a href="#cb23-100" aria-hidden="true" tabindex="-1"></a>        opening_weekend.append(ow)</span>
-<span id="cb23-101"><a href="#cb23-101" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-102"><a href="#cb23-102" aria-hidden="true" tabindex="-1"></a>        opening_weekend.append(<span class="va">None</span>)</span>
-<span id="cb23-103"><a href="#cb23-103" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting production budget</span></span>
-<span id="cb23-104"><a href="#cb23-104" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="kw">lambda</span> t: t <span class="kw">and</span> <span class="st">"Production"</span> <span class="kw">in</span> t <span class="kw">and</span> <span class="st">"Budget"</span> <span class="kw">in</span> t)</span>
-<span id="cb23-105"><a href="#cb23-105" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-106"><a href="#cb23-106" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-107"><a href="#cb23-107" aria-hidden="true" tabindex="-1"></a>        pb <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-108"><a href="#cb23-108" aria-hidden="true" tabindex="-1"></a>        budget.append(pb)</span>
-<span id="cb23-109"><a href="#cb23-109" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-110"><a href="#cb23-110" aria-hidden="true" tabindex="-1"></a>        budget.append(<span class="va">None</span>)</span>
-<span id="cb23-111"><a href="#cb23-111" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting theater counts</span></span>
-<span id="cb23-112"><a href="#cb23-112" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Theater counts:"</span>)</span>
-<span id="cb23-113"><a href="#cb23-113" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-114"><a href="#cb23-114" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-115"><a href="#cb23-115" aria-hidden="true" tabindex="-1"></a>        tc <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-116"><a href="#cb23-116" aria-hidden="true" tabindex="-1"></a>        theaters.append(tc)</span>
-<span id="cb23-117"><a href="#cb23-117" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-118"><a href="#cb23-118" aria-hidden="true" tabindex="-1"></a>        theaters.append(<span class="va">None</span>)</span>
-<span id="cb23-119"><a href="#cb23-119" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting dates</span></span>
-<span id="cb23-120"><a href="#cb23-120" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Domestic Releases:"</span>)</span>
-<span id="cb23-121"><a href="#cb23-121" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-122"><a href="#cb23-122" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-123"><a href="#cb23-123" aria-hidden="true" tabindex="-1"></a>        dom_rel <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-124"><a href="#cb23-124" aria-hidden="true" tabindex="-1"></a>        date.append(dom_rel)</span>
-<span id="cb23-125"><a href="#cb23-125" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-126"><a href="#cb23-126" aria-hidden="true" tabindex="-1"></a>        date.append(<span class="va">None</span>)</span>
-<span id="cb23-127"><a href="#cb23-127" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="kw">lambda</span> t: t <span class="kw">and</span> <span class="st">"Video"</span> <span class="kw">in</span> t <span class="kw">and</span> <span class="st">"Release"</span> <span class="kw">in</span> t)</span>
-<span id="cb23-128"><a href="#cb23-128" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-129"><a href="#cb23-129" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-130"><a href="#cb23-130" aria-hidden="true" tabindex="-1"></a>        v_rel <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-131"><a href="#cb23-131" aria-hidden="true" tabindex="-1"></a>        vid_date.append(v_rel)</span>
-<span id="cb23-132"><a href="#cb23-132" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-133"><a href="#cb23-133" aria-hidden="true" tabindex="-1"></a>        vid_date.append(<span class="va">None</span>)</span>
-<span id="cb23-134"><a href="#cb23-134" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting other features of the movie</span></span>
-<span id="cb23-135"><a href="#cb23-135" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="kw">lambda</span> t: t <span class="kw">and</span> <span class="st">"MPAA"</span> <span class="kw">in</span> t <span class="kw">and</span> <span class="st">"Rating"</span> <span class="kw">in</span> t)</span>
-<span id="cb23-136"><a href="#cb23-136" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-137"><a href="#cb23-137" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-138"><a href="#cb23-138" aria-hidden="true" tabindex="-1"></a>        rating <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-139"><a href="#cb23-139" aria-hidden="true" tabindex="-1"></a>        film_rating.append(rating)</span>
-<span id="cb23-140"><a href="#cb23-140" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-141"><a href="#cb23-141" aria-hidden="true" tabindex="-1"></a>        film_rating.append(<span class="va">None</span>)</span>
-<span id="cb23-142"><a href="#cb23-142" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Running Time:"</span>)</span>
-<span id="cb23-143"><a href="#cb23-143" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-144"><a href="#cb23-144" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-145"><a href="#cb23-145" aria-hidden="true" tabindex="-1"></a>        r_time <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-146"><a href="#cb23-146" aria-hidden="true" tabindex="-1"></a>        runtime.append(r_time)</span>
-<span id="cb23-147"><a href="#cb23-147" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-148"><a href="#cb23-148" aria-hidden="true" tabindex="-1"></a>        runtime.append(<span class="va">None</span>)</span>
-<span id="cb23-149"><a href="#cb23-149" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Franchise:"</span>)</span>
-<span id="cb23-150"><a href="#cb23-150" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-151"><a href="#cb23-151" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-152"><a href="#cb23-152" aria-hidden="true" tabindex="-1"></a>        f <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-153"><a href="#cb23-153" aria-hidden="true" tabindex="-1"></a>        franchise.append(f)</span>
-<span id="cb23-154"><a href="#cb23-154" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-155"><a href="#cb23-155" aria-hidden="true" tabindex="-1"></a>        franchise.append(<span class="va">None</span>)</span>
-<span id="cb23-156"><a href="#cb23-156" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Genre:"</span>)</span>
-<span id="cb23-157"><a href="#cb23-157" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-158"><a href="#cb23-158" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-159"><a href="#cb23-159" aria-hidden="true" tabindex="-1"></a>        g <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-160"><a href="#cb23-160" aria-hidden="true" tabindex="-1"></a>        genre.append(g)</span>
-<span id="cb23-161"><a href="#cb23-161" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-162"><a href="#cb23-162" aria-hidden="true" tabindex="-1"></a>        genre.append(<span class="va">None</span>)</span>
-<span id="cb23-163"><a href="#cb23-163" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="kw">lambda</span> t: t <span class="kw">and</span> <span class="st">"Method"</span> <span class="kw">in</span> t <span class="kw">and</span> <span class="st">"Production"</span> <span class="kw">in</span> t)</span>
-<span id="cb23-164"><a href="#cb23-164" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb23-165"><a href="#cb23-165" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
-<span id="cb23-166"><a href="#cb23-166" aria-hidden="true" tabindex="-1"></a>        pm <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-167"><a href="#cb23-167" aria-hidden="true" tabindex="-1"></a>        production_method.append(pm)</span>
-<span id="cb23-168"><a href="#cb23-168" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb23-169"><a href="#cb23-169" aria-hidden="true" tabindex="-1"></a>        production_method.append(<span class="va">None</span>)</span>
-<span id="cb23-170"><a href="#cb23-170" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Just a progress bar for my sake</span></span>
-<span id="cb23-171"><a href="#cb23-171" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Finished url </span><span class="sc">{</span>j<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">len</span>(urls)<span class="sc">}</span><span class="ss">, or </span><span class="sc">{</span><span class="bu">round</span>((j <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> <span class="bu">len</span>(urls) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">%"</span>)</span>
-<span id="cb23-172"><a href="#cb23-172" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">len</span>(title))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This block takes 25-45 minutes</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#getting relevant information from each url</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>title <span class="op">=</span> []</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>date <span class="op">=</span> []</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>vid_date <span class="op">=</span> []</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>inf_adj_dom_rev <span class="op">=</span> []</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>dom_rev <span class="op">=</span> []</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>inter_rev <span class="op">=</span> []</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>total_theater_rev <span class="op">=</span> []</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>dom_dvd_rev <span class="op">=</span> []</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>dom_bluray_rev <span class="op">=</span> []</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>dom_video_rev <span class="op">=</span> []</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>opening_weekend <span class="op">=</span> []</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>budget <span class="op">=</span> []</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>theaters <span class="op">=</span> []</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>film_rating <span class="op">=</span> []</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>runtime <span class="op">=</span> []</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>genre <span class="op">=</span> []</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>franchise <span class="op">=</span> []</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>production_method <span class="op">=</span> []</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> j,url <span class="kw">in</span> <span class="bu">enumerate</span>(urls):</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="dv">5</span>)</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> requests.get(url,headers<span class="op">=</span>headers)</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Checking if something in my cleaning went wrong</span></span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> r.status_code <span class="op">!=</span> <span class="dv">200</span>:</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>        <span class="co">#this means something is wrong with the website, and we will simply consider it as the-numbers not having it.</span></span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Because status code is not 200-Removed data for url: </span><span class="sc">{</span>url<span class="sc">}</span><span class="ss">, with status: </span><span class="sc">{</span>r<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>    soup <span class="op">=</span> BeautifulSoup(r.text)</span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting title and release year</span></span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>    header <span class="op">=</span> soup.find(<span class="st">"h1"</span>)</span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>    <span class="co">#This is here just in case</span></span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> header <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>        <span class="co">#this means something is wrong with the website, and we will simply consider it as the-numbers not having it.</span></span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Because header is None-Removed data for url: </span><span class="sc">{</span>url<span class="sc">}</span><span class="ss">, with header: </span><span class="sc">{</span>header<span class="sc">.</span>text<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> re.match(<span class="vs">r'</span><span class="dv">^</span><span class="kw">(</span><span class="dv">.</span><span class="op">*</span><span class="kw">)</span><span class="dv">\s</span><span class="ch">\(</span><span class="kw">(</span><span class="dv">\d</span><span class="op">{4}</span><span class="kw">)</span><span class="ch">\)</span><span class="dv">$</span><span class="vs">'</span>, header.text) <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>        <span class="co">#this means something is wrong with the website, and we will simply consider it as the-numbers not having it.</span></span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Because header doesn't match-Removed data for url: </span><span class="sc">{</span>url<span class="sc">}</span><span class="ss">, with header: </span><span class="sc">{</span>header<span class="sc">.</span>text<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>    title_ <span class="op">=</span> re.match(<span class="vs">r'</span><span class="dv">^</span><span class="kw">(</span><span class="dv">.</span><span class="op">*</span><span class="kw">)</span><span class="dv">\s</span><span class="ch">\(</span><span class="kw">(</span><span class="dv">\d</span><span class="op">{4}</span><span class="kw">)</span><span class="ch">\)</span><span class="dv">$</span><span class="vs">'</span>, header.text).group(<span class="dv">1</span>)</span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a>    title.append(title_)</span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting box office numbers</span></span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Domestic Box Office"</span>)</span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>        dbo <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a>        dom_rev.append(dbo)</span>
+<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a>        dom_rev.append(<span class="va">None</span>)</span>
+<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"International Box Office"</span>)</span>
+<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a>        ibo <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a>        inter_rev.append(ibo)</span>
+<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a>        inter_rev.append(<span class="va">None</span>)</span>
+<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Worldwide Box Office"</span>)</span>
+<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a>        wwbo <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a>        total_theater_rev.append(wwbo)</span>
+<span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a>        total_theater_rev.append(<span class="va">None</span>)</span>
+<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Infl. Adj. Dom. BO"</span>)</span>
+<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-68"><a href="#cb24-68" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-69"><a href="#cb24-69" aria-hidden="true" tabindex="-1"></a>        iadbo <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-70"><a href="#cb24-70" aria-hidden="true" tabindex="-1"></a>        inf_adj_dom_rev.append(iadbo)</span>
+<span id="cb24-71"><a href="#cb24-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-72"><a href="#cb24-72" aria-hidden="true" tabindex="-1"></a>        inf_adj_dom_rev.append(<span class="va">None</span>)</span>
+<span id="cb24-73"><a href="#cb24-73" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting video sales</span></span>
+<span id="cb24-74"><a href="#cb24-74" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Est. Domestic DVD Sales"</span>)</span>
+<span id="cb24-75"><a href="#cb24-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-76"><a href="#cb24-76" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-77"><a href="#cb24-77" aria-hidden="true" tabindex="-1"></a>        dvd <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-78"><a href="#cb24-78" aria-hidden="true" tabindex="-1"></a>        dom_dvd_rev.append(dvd)</span>
+<span id="cb24-79"><a href="#cb24-79" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-80"><a href="#cb24-80" aria-hidden="true" tabindex="-1"></a>        dom_dvd_rev.append(<span class="va">None</span>)</span>
+<span id="cb24-81"><a href="#cb24-81" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Est. Domestic Blu-ray Sales"</span>)</span>
+<span id="cb24-82"><a href="#cb24-82" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-83"><a href="#cb24-83" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-84"><a href="#cb24-84" aria-hidden="true" tabindex="-1"></a>        bluray <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-85"><a href="#cb24-85" aria-hidden="true" tabindex="-1"></a>        dom_bluray_rev.append(bluray)</span>
+<span id="cb24-86"><a href="#cb24-86" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-87"><a href="#cb24-87" aria-hidden="true" tabindex="-1"></a>        dom_bluray_rev.append(<span class="va">None</span>)</span>
+<span id="cb24-88"><a href="#cb24-88" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Total Est. Domestic Video Sales"</span>)</span>
+<span id="cb24-89"><a href="#cb24-89" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-90"><a href="#cb24-90" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-91"><a href="#cb24-91" aria-hidden="true" tabindex="-1"></a>        dvs <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-92"><a href="#cb24-92" aria-hidden="true" tabindex="-1"></a>        dom_video_rev.append(dvs)</span>
+<span id="cb24-93"><a href="#cb24-93" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-94"><a href="#cb24-94" aria-hidden="true" tabindex="-1"></a>        dom_video_rev.append(<span class="va">None</span>)</span>
+<span id="cb24-95"><a href="#cb24-95" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting opening weekend</span></span>
+<span id="cb24-96"><a href="#cb24-96" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="kw">lambda</span> t: t <span class="kw">and</span> <span class="st">"Opening"</span> <span class="kw">in</span> t <span class="kw">and</span> <span class="st">"Weekend"</span> <span class="kw">in</span> t)</span>
+<span id="cb24-97"><a href="#cb24-97" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-98"><a href="#cb24-98" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-99"><a href="#cb24-99" aria-hidden="true" tabindex="-1"></a>        ow <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-100"><a href="#cb24-100" aria-hidden="true" tabindex="-1"></a>        opening_weekend.append(ow)</span>
+<span id="cb24-101"><a href="#cb24-101" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-102"><a href="#cb24-102" aria-hidden="true" tabindex="-1"></a>        opening_weekend.append(<span class="va">None</span>)</span>
+<span id="cb24-103"><a href="#cb24-103" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting production budget</span></span>
+<span id="cb24-104"><a href="#cb24-104" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="kw">lambda</span> t: t <span class="kw">and</span> <span class="st">"Production"</span> <span class="kw">in</span> t <span class="kw">and</span> <span class="st">"Budget"</span> <span class="kw">in</span> t)</span>
+<span id="cb24-105"><a href="#cb24-105" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-106"><a href="#cb24-106" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-107"><a href="#cb24-107" aria-hidden="true" tabindex="-1"></a>        pb <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-108"><a href="#cb24-108" aria-hidden="true" tabindex="-1"></a>        budget.append(pb)</span>
+<span id="cb24-109"><a href="#cb24-109" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-110"><a href="#cb24-110" aria-hidden="true" tabindex="-1"></a>        budget.append(<span class="va">None</span>)</span>
+<span id="cb24-111"><a href="#cb24-111" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting theater counts</span></span>
+<span id="cb24-112"><a href="#cb24-112" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Theater counts:"</span>)</span>
+<span id="cb24-113"><a href="#cb24-113" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-114"><a href="#cb24-114" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-115"><a href="#cb24-115" aria-hidden="true" tabindex="-1"></a>        tc <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-116"><a href="#cb24-116" aria-hidden="true" tabindex="-1"></a>        theaters.append(tc)</span>
+<span id="cb24-117"><a href="#cb24-117" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-118"><a href="#cb24-118" aria-hidden="true" tabindex="-1"></a>        theaters.append(<span class="va">None</span>)</span>
+<span id="cb24-119"><a href="#cb24-119" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting dates</span></span>
+<span id="cb24-120"><a href="#cb24-120" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Domestic Releases:"</span>)</span>
+<span id="cb24-121"><a href="#cb24-121" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-122"><a href="#cb24-122" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-123"><a href="#cb24-123" aria-hidden="true" tabindex="-1"></a>        dom_rel <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-124"><a href="#cb24-124" aria-hidden="true" tabindex="-1"></a>        date.append(dom_rel)</span>
+<span id="cb24-125"><a href="#cb24-125" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-126"><a href="#cb24-126" aria-hidden="true" tabindex="-1"></a>        date.append(<span class="va">None</span>)</span>
+<span id="cb24-127"><a href="#cb24-127" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="kw">lambda</span> t: t <span class="kw">and</span> <span class="st">"Video"</span> <span class="kw">in</span> t <span class="kw">and</span> <span class="st">"Release"</span> <span class="kw">in</span> t)</span>
+<span id="cb24-128"><a href="#cb24-128" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-129"><a href="#cb24-129" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-130"><a href="#cb24-130" aria-hidden="true" tabindex="-1"></a>        v_rel <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-131"><a href="#cb24-131" aria-hidden="true" tabindex="-1"></a>        vid_date.append(v_rel)</span>
+<span id="cb24-132"><a href="#cb24-132" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-133"><a href="#cb24-133" aria-hidden="true" tabindex="-1"></a>        vid_date.append(<span class="va">None</span>)</span>
+<span id="cb24-134"><a href="#cb24-134" aria-hidden="true" tabindex="-1"></a>    <span class="co">#getting other features of the movie</span></span>
+<span id="cb24-135"><a href="#cb24-135" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="kw">lambda</span> t: t <span class="kw">and</span> <span class="st">"MPAA"</span> <span class="kw">in</span> t <span class="kw">and</span> <span class="st">"Rating"</span> <span class="kw">in</span> t)</span>
+<span id="cb24-136"><a href="#cb24-136" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-137"><a href="#cb24-137" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-138"><a href="#cb24-138" aria-hidden="true" tabindex="-1"></a>        rating <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-139"><a href="#cb24-139" aria-hidden="true" tabindex="-1"></a>        film_rating.append(rating)</span>
+<span id="cb24-140"><a href="#cb24-140" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-141"><a href="#cb24-141" aria-hidden="true" tabindex="-1"></a>        film_rating.append(<span class="va">None</span>)</span>
+<span id="cb24-142"><a href="#cb24-142" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Running Time:"</span>)</span>
+<span id="cb24-143"><a href="#cb24-143" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-144"><a href="#cb24-144" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-145"><a href="#cb24-145" aria-hidden="true" tabindex="-1"></a>        r_time <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-146"><a href="#cb24-146" aria-hidden="true" tabindex="-1"></a>        runtime.append(r_time)</span>
+<span id="cb24-147"><a href="#cb24-147" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-148"><a href="#cb24-148" aria-hidden="true" tabindex="-1"></a>        runtime.append(<span class="va">None</span>)</span>
+<span id="cb24-149"><a href="#cb24-149" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Franchise:"</span>)</span>
+<span id="cb24-150"><a href="#cb24-150" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-151"><a href="#cb24-151" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-152"><a href="#cb24-152" aria-hidden="true" tabindex="-1"></a>        f <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-153"><a href="#cb24-153" aria-hidden="true" tabindex="-1"></a>        franchise.append(f)</span>
+<span id="cb24-154"><a href="#cb24-154" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-155"><a href="#cb24-155" aria-hidden="true" tabindex="-1"></a>        franchise.append(<span class="va">None</span>)</span>
+<span id="cb24-156"><a href="#cb24-156" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="st">"Genre:"</span>)</span>
+<span id="cb24-157"><a href="#cb24-157" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-158"><a href="#cb24-158" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-159"><a href="#cb24-159" aria-hidden="true" tabindex="-1"></a>        g <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-160"><a href="#cb24-160" aria-hidden="true" tabindex="-1"></a>        genre.append(g)</span>
+<span id="cb24-161"><a href="#cb24-161" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-162"><a href="#cb24-162" aria-hidden="true" tabindex="-1"></a>        genre.append(<span class="va">None</span>)</span>
+<span id="cb24-163"><a href="#cb24-163" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> soup.find(<span class="st">"b"</span>, string<span class="op">=</span><span class="kw">lambda</span> t: t <span class="kw">and</span> <span class="st">"Method"</span> <span class="kw">in</span> t <span class="kw">and</span> <span class="st">"Production"</span> <span class="kw">in</span> t)</span>
+<span id="cb24-164"><a href="#cb24-164" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb24-165"><a href="#cb24-165" aria-hidden="true" tabindex="-1"></a>        value_cell <span class="op">=</span> label.find_parent(<span class="st">"td"</span>).find_next_sibling(<span class="st">"td"</span>)</span>
+<span id="cb24-166"><a href="#cb24-166" aria-hidden="true" tabindex="-1"></a>        pm <span class="op">=</span> value_cell.get_text(strip<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-167"><a href="#cb24-167" aria-hidden="true" tabindex="-1"></a>        production_method.append(pm)</span>
+<span id="cb24-168"><a href="#cb24-168" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-169"><a href="#cb24-169" aria-hidden="true" tabindex="-1"></a>        production_method.append(<span class="va">None</span>)</span>
+<span id="cb24-170"><a href="#cb24-170" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Just a progress bar for my sake</span></span>
+<span id="cb24-171"><a href="#cb24-171" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Finished url </span><span class="sc">{</span>j<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">len</span>(urls)<span class="sc">}</span><span class="ss">, or </span><span class="sc">{</span><span class="bu">round</span>((j <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> <span class="bu">len</span>(urls) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">%"</span>)</span>
+<span id="cb24-172"><a href="#cb24-172" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">len</span>(title))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Finished url 1/214, or 0.47%
 Finished url 2/214, or 0.93%
@@ -2097,15 +2340,15 @@ Finished url 214/214, or 100.0%</code></pre>
 </div>
 </div>
 <div id="9cf87038" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#putting the information into a dataframe</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">"Title"</span>:title,<span class="st">"Release Date"</span>:date,<span class="st">"Inflation Adjusted Domestic Revenue"</span>:inf_adj_dom_rev,<span class="st">"Domestic Revenue"</span>:dom_rev,<span class="st">"International Revenue"</span>:inter_rev,</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Total Box Office Revenue"</span>:total_theater_rev,<span class="st">"Domestic Video Revenue"</span>:dom_video_rev,<span class="st">"Opening Weekend"</span>:opening_weekend,<span class="st">"Production Budget"</span>:budget,</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Theater Number"</span>:theaters,<span class="st">"MPAA Rating"</span>:film_rating,<span class="st">"Runtime"</span>:runtime,<span class="st">"Genre"</span>:genre,<span class="st">"Franchise"</span>:franchise,<span class="st">"Production Method"</span>:production_method,</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Video Release Date"</span>:vid_date,<span class="st">"Domestic DVD Revenue"</span>:dom_dvd_rev,<span class="st">"Domestic Bluray Revenue"</span>:dom_bluray_rev})</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"dirty_data.csv"</span>)</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Looking at the dataframe for cleaning</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_columns'</span>, <span class="va">None</span>)</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>display(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#putting the information into a dataframe</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">"Title"</span>:title,<span class="st">"Release Date"</span>:date,<span class="st">"Inflation Adjusted Domestic Revenue"</span>:inf_adj_dom_rev,<span class="st">"Domestic Revenue"</span>:dom_rev,<span class="st">"International Revenue"</span>:inter_rev,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Total Box Office Revenue"</span>:total_theater_rev,<span class="st">"Domestic Video Revenue"</span>:dom_video_rev,<span class="st">"Opening Weekend"</span>:opening_weekend,<span class="st">"Production Budget"</span>:budget,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Theater Number"</span>:theaters,<span class="st">"MPAA Rating"</span>:film_rating,<span class="st">"Runtime"</span>:runtime,<span class="st">"Genre"</span>:genre,<span class="st">"Franchise"</span>:franchise,<span class="st">"Production Method"</span>:production_method,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Video Release Date"</span>:vid_date,<span class="st">"Domestic DVD Revenue"</span>:dom_dvd_rev,<span class="st">"Domestic Bluray Revenue"</span>:dom_bluray_rev})</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"dirty_data.csv"</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Looking at the dataframe for cleaning</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_columns'</span>, <span class="va">None</span>)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>display(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -2247,27 +2490,27 @@ Finished url 214/214, or 100.0%</code></pre>
 </div>
 </div>
 <div id="085f5f2e" class="cell" data-execution_count="16">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#cleaning the dataframe</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#changing all None values to np.nan</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.<span class="bu">map</span>(<span class="kw">lambda</span> x: np.nan <span class="cf">if</span> x <span class="kw">is</span> <span class="va">None</span> <span class="cf">else</span> x)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.<span class="bu">map</span>(<span class="kw">lambda</span> x: np.nan <span class="cf">if</span> x <span class="op">==</span> <span class="st">'n/a'</span> <span class="cf">else</span> x)</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">#removing extra parentheses (and other extra information)</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"Opening Weekend"</span>,<span class="st">"Production Budget"</span>,<span class="st">"Release Date"</span>]</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].<span class="bu">apply</span>(<span class="kw">lambda</span> s: s.<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="ch">\(</span><span class="dv">.</span><span class="op">*?</span><span class="ch">\)</span><span class="vs">"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>).<span class="bu">str</span>.strip())</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"Release Date"</span>,<span class="st">"Video Release Date"</span>]</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].<span class="bu">apply</span>(<span class="kw">lambda</span> s: s.<span class="bu">str</span>.replace(<span class="vs">r"by</span><span class="dv">.</span><span class="op">*</span><span class="dv">$</span><span class="vs">"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>, case<span class="op">=</span><span class="va">False</span>).<span class="bu">str</span>.strip())</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"MPAA Rating"</span>] <span class="op">=</span> df[<span class="st">"MPAA Rating"</span>].<span class="bu">str</span>.extract(<span class="vs">r"</span><span class="dv">^</span><span class="kw">(</span><span class="vs">G</span><span class="cf">|</span><span class="vs">PG</span><span class="cf">|</span><span class="vs">PG-13</span><span class="cf">|</span><span class="vs">R</span><span class="cf">|</span><span class="vs">NC-17</span><span class="cf">|</span><span class="vs">M</span><span class="cf">|</span><span class="vs">GP</span><span class="cf">|</span><span class="vs">X</span><span class="cf">|</span><span class="vs">Not Rated</span><span class="cf">|</span><span class="vs">Unrated</span><span class="cf">|</span><span class="vs">NR</span><span class="kw">)</span><span class="vs">"</span>, expand<span class="op">=</span><span class="va">False</span>).<span class="bu">str</span>.strip()</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Runtime"</span>] <span class="op">=</span> df[<span class="st">"Runtime"</span>].<span class="bu">str</span>.replace(<span class="st">" minutes"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>).<span class="bu">str</span>.strip()</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Theater Number"</span>] <span class="op">=</span> df[<span class="st">"Theater Number"</span>].<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="dv">^</span><span class="pp">[^/]</span><span class="op">*</span><span class="vs">/"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Theater Number"</span>] <span class="op">=</span> df[<span class="st">"Theater Number"</span>].<span class="bu">str</span>.replace(<span class="vs">r"max</span><span class="dv">.</span><span class="op">*</span><span class="dv">$</span><span class="vs">"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>).<span class="bu">str</span>.strip()</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co">#removing dollar signs</span></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"Inflation Adjusted Domestic Revenue"</span>,<span class="st">"Domestic Revenue"</span>,<span class="st">"International Revenue"</span>,<span class="st">"Total Box Office Revenue"</span>,<span class="st">"Domestic Video Revenue"</span>,<span class="st">"Production Budget"</span>,<span class="st">"Domestic DVD Revenue"</span>,<span class="st">"Domestic Bluray Revenue"</span>,<span class="st">"Opening Weekend"</span>]</span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].<span class="bu">apply</span>(<span class="kw">lambda</span> s: s.<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="ch">\$</span><span class="vs">"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>).<span class="bu">str</span>.strip())</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="co">#removing commas</span></span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"Inflation Adjusted Domestic Revenue"</span>,<span class="st">"Domestic Revenue"</span>,<span class="st">"International Revenue"</span>,<span class="st">"Total Box Office Revenue"</span>,<span class="st">"Domestic Video Revenue"</span>,<span class="st">"Production Budget"</span>,<span class="st">"Domestic DVD Revenue"</span>,<span class="st">"Domestic Bluray Revenue"</span>,<span class="st">"Opening Weekend"</span>,<span class="st">"Theater Number"</span>]</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].<span class="bu">apply</span>(<span class="kw">lambda</span> s: s.<span class="bu">str</span>.replace(<span class="vs">r","</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>).<span class="bu">str</span>.strip())</span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="co">#checking</span></span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>display(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#cleaning the dataframe</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#changing all None values to np.nan</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.<span class="bu">map</span>(<span class="kw">lambda</span> x: np.nan <span class="cf">if</span> x <span class="kw">is</span> <span class="va">None</span> <span class="cf">else</span> x)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.<span class="bu">map</span>(<span class="kw">lambda</span> x: np.nan <span class="cf">if</span> x <span class="op">==</span> <span class="st">'n/a'</span> <span class="cf">else</span> x)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">#removing extra parentheses (and other extra information)</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"Opening Weekend"</span>,<span class="st">"Production Budget"</span>,<span class="st">"Release Date"</span>]</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].<span class="bu">apply</span>(<span class="kw">lambda</span> s: s.<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="ch">\(</span><span class="dv">.</span><span class="op">*?</span><span class="ch">\)</span><span class="vs">"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>).<span class="bu">str</span>.strip())</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"Release Date"</span>,<span class="st">"Video Release Date"</span>]</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].<span class="bu">apply</span>(<span class="kw">lambda</span> s: s.<span class="bu">str</span>.replace(<span class="vs">r"by</span><span class="dv">.</span><span class="op">*</span><span class="dv">$</span><span class="vs">"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>, case<span class="op">=</span><span class="va">False</span>).<span class="bu">str</span>.strip())</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"MPAA Rating"</span>] <span class="op">=</span> df[<span class="st">"MPAA Rating"</span>].<span class="bu">str</span>.extract(<span class="vs">r"</span><span class="dv">^</span><span class="kw">(</span><span class="vs">G</span><span class="cf">|</span><span class="vs">PG</span><span class="cf">|</span><span class="vs">PG-13</span><span class="cf">|</span><span class="vs">R</span><span class="cf">|</span><span class="vs">NC-17</span><span class="cf">|</span><span class="vs">M</span><span class="cf">|</span><span class="vs">GP</span><span class="cf">|</span><span class="vs">X</span><span class="cf">|</span><span class="vs">Not Rated</span><span class="cf">|</span><span class="vs">Unrated</span><span class="cf">|</span><span class="vs">NR</span><span class="kw">)</span><span class="vs">"</span>, expand<span class="op">=</span><span class="va">False</span>).<span class="bu">str</span>.strip()</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Runtime"</span>] <span class="op">=</span> df[<span class="st">"Runtime"</span>].<span class="bu">str</span>.replace(<span class="st">" minutes"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>).<span class="bu">str</span>.strip()</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Theater Number"</span>] <span class="op">=</span> df[<span class="st">"Theater Number"</span>].<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="dv">^</span><span class="pp">[^/]</span><span class="op">*</span><span class="vs">/"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Theater Number"</span>] <span class="op">=</span> df[<span class="st">"Theater Number"</span>].<span class="bu">str</span>.replace(<span class="vs">r"max</span><span class="dv">.</span><span class="op">*</span><span class="dv">$</span><span class="vs">"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>).<span class="bu">str</span>.strip()</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="co">#removing dollar signs</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"Inflation Adjusted Domestic Revenue"</span>,<span class="st">"Domestic Revenue"</span>,<span class="st">"International Revenue"</span>,<span class="st">"Total Box Office Revenue"</span>,<span class="st">"Domestic Video Revenue"</span>,<span class="st">"Production Budget"</span>,<span class="st">"Domestic DVD Revenue"</span>,<span class="st">"Domestic Bluray Revenue"</span>,<span class="st">"Opening Weekend"</span>]</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].<span class="bu">apply</span>(<span class="kw">lambda</span> s: s.<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="ch">\$</span><span class="vs">"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>).<span class="bu">str</span>.strip())</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="co">#removing commas</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"Inflation Adjusted Domestic Revenue"</span>,<span class="st">"Domestic Revenue"</span>,<span class="st">"International Revenue"</span>,<span class="st">"Total Box Office Revenue"</span>,<span class="st">"Domestic Video Revenue"</span>,<span class="st">"Production Budget"</span>,<span class="st">"Domestic DVD Revenue"</span>,<span class="st">"Domestic Bluray Revenue"</span>,<span class="st">"Opening Weekend"</span>,<span class="st">"Theater Number"</span>]</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].<span class="bu">apply</span>(<span class="kw">lambda</span> s: s.<span class="bu">str</span>.replace(<span class="vs">r","</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>).<span class="bu">str</span>.strip())</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="co">#checking</span></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>display(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -2409,18 +2652,18 @@ Finished url 214/214, or 100.0%</code></pre>
 </div>
 </div>
 <div id="b35ef9e9" class="cell" data-execution_count="17">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#converting release date to datetime object</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"Release Date"</span>, <span class="st">"Video Release Date"</span>]</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].<span class="bu">apply</span>(pd.to_datetime, errors<span class="op">=</span><span class="st">"coerce"</span>)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#converting everything to its proper object type</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"MPAA Rating"</span>,<span class="st">"Genre"</span>,<span class="st">"Franchise"</span>,<span class="st">"Production Method"</span>]</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].astype(<span class="bu">str</span>)</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"Inflation Adjusted Domestic Revenue"</span>,<span class="st">"Domestic Revenue"</span>,<span class="st">"International Revenue"</span>,<span class="st">"Total Box Office Revenue"</span>,<span class="st">"Opening Weekend"</span>,<span class="st">"Production Budget"</span>,<span class="st">"Theater Number"</span>,<span class="st">"Runtime"</span>,<span class="st">"Domestic DVD Revenue"</span>,<span class="st">"Domestic Bluray Revenue"</span>, <span class="st">"Domestic Video Revenue"</span>]</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].astype(<span class="st">"Int64"</span>)</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co">#also making sure turning everything to strings didn't mess up the np.nans</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.<span class="bu">map</span>(<span class="kw">lambda</span> x: np.nan <span class="cf">if</span> x <span class="op">==</span> <span class="st">'nan'</span> <span class="cf">else</span> x)</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Checking types</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#converting release date to datetime object</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"Release Date"</span>, <span class="st">"Video Release Date"</span>]</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].<span class="bu">apply</span>(pd.to_datetime, errors<span class="op">=</span><span class="st">"coerce"</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co">#converting everything to its proper object type</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"MPAA Rating"</span>,<span class="st">"Genre"</span>,<span class="st">"Franchise"</span>,<span class="st">"Production Method"</span>]</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].astype(<span class="bu">str</span>)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"Inflation Adjusted Domestic Revenue"</span>,<span class="st">"Domestic Revenue"</span>,<span class="st">"International Revenue"</span>,<span class="st">"Total Box Office Revenue"</span>,<span class="st">"Opening Weekend"</span>,<span class="st">"Production Budget"</span>,<span class="st">"Theater Number"</span>,<span class="st">"Runtime"</span>,<span class="st">"Domestic DVD Revenue"</span>,<span class="st">"Domestic Bluray Revenue"</span>, <span class="st">"Domestic Video Revenue"</span>]</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].astype(<span class="st">"Int64"</span>)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="co">#also making sure turning everything to strings didn't mess up the np.nans</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.<span class="bu">map</span>(<span class="kw">lambda</span> x: np.nan <span class="cf">if</span> x <span class="op">==</span> <span class="st">'nan'</span> <span class="cf">else</span> x)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Checking types</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Title                                          object
 Release Date                           datetime64[ns]
@@ -2444,16 +2687,16 @@ dtype: object</code></pre>
 </div>
 </div>
 <div id="5fac4333" class="cell" data-execution_count="19">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#getting some unique counts to double check everything </span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Column: Film-Rating"</span>)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"MPAA Rating"</span>].unique())</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">40</span>)</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Column: Genre"</span>)</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"Genre"</span>].unique())</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">40</span>)</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Column: Production Method"</span>)</span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"Production Method"</span>].unique())</span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">40</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#getting some unique counts to double check everything </span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Column: Film-Rating"</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"MPAA Rating"</span>].unique())</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">40</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Column: Genre"</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"Genre"</span>].unique())</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">40</span>)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Column: Production Method"</span>)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"Production Method"</span>].unique())</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">40</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Column: Film-Rating
 ['PG' 'R' 'Not Rated' nan]
@@ -2469,75 +2712,93 @@ Column: Production Method
 ----------------------------------------</code></pre>
 </div>
 </div>
-<div id="9f8b01ca" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Adding additional columns for analysis</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co">#making month and year their own column</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Month"</span>] <span class="op">=</span> (df[<span class="st">"Release Date"</span>]).dt.month</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Year"</span>] <span class="op">=</span> (df[<span class="st">"Release Date"</span>]).dt.year</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">#adding season column</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_season(month):</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> month <span class="kw">in</span> [<span class="dv">12</span>, <span class="dv">1</span>, <span class="dv">2</span>]:</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Winter"</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> month <span class="kw">in</span> [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]:</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Spring"</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> month <span class="kw">in</span> [<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>]:</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Summer"</span></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> month <span class="kw">in</span> [<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>]:</span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Fall"</span></span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: </span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.nan</span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Season"</span>] <span class="op">=</span> df[<span class="st">"Month"</span>].<span class="bu">apply</span>(get_season)</span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a><span class="co">#adding profit column (Total Box Office Revenue - production budget)</span></span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Profit"</span>] <span class="op">=</span> df[<span class="st">"Total Box Office Revenue"</span>] <span class="op">-</span> df[<span class="st">"Production Budget"</span>]</span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="8445a842" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Making sure every movie title has its correct year and month if they are missing </span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>movies[<span class="st">'Release date'</span>] <span class="op">=</span> pd.to_datetime(movies[<span class="st">'Release date'</span>])</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>lookup <span class="op">=</span> movies.set_index(<span class="st">'Title'</span>)[<span class="st">'Release date'</span>]</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Release Date'</span>] <span class="op">=</span> df[<span class="st">'Release Date'</span>].fillna(df[<span class="st">'Title'</span>].<span class="bu">map</span>(lookup))</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">"Release Date"</span>, <span class="st">"Video Release Date"</span>]</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>df[cols] <span class="op">=</span> df[cols].<span class="bu">apply</span>(pd.to_datetime, errors<span class="op">=</span><span class="st">"coerce"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="9f8b01ca" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Adding additional columns for analysis</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">#making month and year their own column</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Month"</span>] <span class="op">=</span> (df[<span class="st">"Release Date"</span>]).dt.month</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Year"</span>] <span class="op">=</span> (df[<span class="st">"Release Date"</span>]).dt.year</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co">#adding season column</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_season(month):</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> month <span class="kw">in</span> [<span class="dv">12</span>, <span class="dv">1</span>, <span class="dv">2</span>]:</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Winter"</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> month <span class="kw">in</span> [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]:</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Spring"</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> month <span class="kw">in</span> [<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>]:</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Summer"</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> month <span class="kw">in</span> [<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>]:</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Fall"</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: </span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.nan</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Season"</span>] <span class="op">=</span> df[<span class="st">"Month"</span>].<span class="bu">apply</span>(get_season)</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="co">#adding profit column (Total Box Office Revenue - production budget)</span></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Profit"</span>] <span class="op">=</span> df[<span class="st">"Total Box Office Revenue"</span>] <span class="op">-</span> df[<span class="st">"Production Budget"</span>]</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          Title Release Date  Inflation Adjusted Domestic Revenue  \
-0    Ride Along   2014-01-17                          185781023.0   
-1  Endless Love   1981-07-17                          134255389.0   
-2     Blackfish   2013-07-19                            2884649.0   
-3      Non-Stop   2000-11-10                              80663.0   
-4     Neighbors   1981-12-18                          120158888.0   
+<pre><code>   Unnamed: 0         Title Release Date  Inflation Adjusted Domestic Revenue  \
+0           0    Ride Along   2014-01-17                          185781035.0   
+1           1  Endless Love   2014-02-14                           32446343.0   
+2           2     Blackfish   2013-07-19                            2884649.0   
+3           3      Non-Stop   2000-11-10                              80663.0   
+4           4     Neighbors   1981-12-18                          120158888.0   
 
    Domestic Revenue  International Revenue  Total Box Office Revenue  \
 0       134202565.0             19531235.0               153733800.0   
-1        33000000.0                    NaN                       NaN   
+1        23438250.0             11279923.0                34718173.0   
 2         2073582.0               281293.0                 2354875.0   
 3           38442.0                    NaN                       NaN   
 4        29916207.0                    NaN                       NaN   
 
-   Domestic Video Revenue  Opening Weekend  Production Budget  Theater Number  \
-0              32235491.0       41516170.0         25000000.0          2867.0   
-1                     NaN        4162921.0                NaN           632.0   
-2               1885360.0          75962.0                NaN            99.0   
-3                     NaN          23402.0                NaN            16.0   
-4                 36651.0        6481386.0                NaN          1415.0   
+   Domestic Video Revenue  Opening Weekend  Production Budget  ...  \
+0              32235555.0       41516170.0         25000000.0  ...   
+1               5650051.0       13307125.0         20000000.0  ...   
+2               1885864.0          75962.0                NaN  ...   
+3                     NaN          23402.0                NaN  ...   
+4                 36651.0        6481386.0                NaN  ...   
 
-  MPAA Rating  Runtime         Genre   Franchise Production Method  \
-0          PG    100.0        Comedy  Ride Along       Live Action   
-1           R    116.0         Drama         NaN       Live Action   
-2          PG     83.0   Documentary         NaN       Live Action   
-3   Not Rated      NaN           NaN         NaN               NaN   
-4           R     94.0  Black Comedy         NaN       Live Action   
+          Genre   Franchise  Production Method Video Release Date  \
+0        Comedy  Ride Along        Live Action         2014-04-15   
+1         Drama         NaN        Live Action         2014-05-27   
+2   Documentary         NaN        Live Action         2013-11-12   
+3           NaN         NaN                NaN                NaT   
+4  Black Comedy         NaN        Live Action         2019-03-12   
 
-  Video Release Date  Domestic DVD Revenue  Domestic Bluray Revenue  Month  \
-0         2014-04-15            21354607.0               10880884.0    1.0   
-1         2015-01-13                   NaN                      NaN    7.0   
-2         2013-11-12             1654556.0                 230804.0    7.0   
-3                NaT                   NaN                      NaN   11.0   
-4         2019-03-12                   NaN                  36651.0   12.0   
+  Domestic DVD Revenue Domestic Bluray Revenue Month    Year  Season  \
+0           21354671.0              10880884.0   1.0  2014.0  Winter   
+1            4314112.0               1335939.0   2.0  2014.0  Winter   
+2            1655060.0                230804.0   7.0  2013.0  Summer   
+3                  NaN                     NaN  11.0  2000.0    Fall   
+4                  NaN                 36651.0  12.0  1981.0  Winter   
 
-     Year  Season       Profit  
-0  2014.0  Winter  128733800.0  
-1  1981.0  Summer          NaN  
-2  2013.0  Summer          NaN  
-3  2000.0    Fall          NaN  
-4  1981.0  Winter          NaN  </code></pre>
+        Profit  
+0  128733800.0  
+1   14718173.0  
+2          NaN  
+3          NaN  
+4          NaN  
+
+[5 rows x 23 columns]</code></pre>
 </div>
 </div>
-<div id="b74fadf9" class="cell" data-execution_count="22">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#saving the dataframe as a csv</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"movie_data.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="b2760954" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Removing any rows that have the wrong year</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[(df[<span class="st">'Year'</span>] <span class="op">&gt;=</span> <span class="dv">2014</span>) <span class="op">&amp;</span> (df[<span class="st">'Year'</span>] <span class="op">&lt;=</span> <span class="dv">2024</span>)]</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.unique(df[<span class="st">"Year"</span>]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[2014. 2015. 2016. 2017. 2018. 2019. 2020. 2021. 2022. 2023. 2024.]</code></pre>
+</div>
+</div>
+<div id="b74fadf9" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#saving the dataframe as a csv</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"movie_data.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Documentation – website</title>
+<title>Documentation – Universal Studios Movie Analysis Package</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -75,7 +40,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dec27a635df3619fee3abd01ce5a42f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,10 +70,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -118,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">website</span>
+    <span class="navbar-title">Universal Studios Movie Analysis Package</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -139,6 +103,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./tutorial.html"> 
 <span class="menu-text">Getting Started</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./technical_report.html"> 
+<span class="menu-text">Technical report</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -150,15 +118,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Documentation</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<h1 class="title">Documentation</h1>
 </div>
 
 
@@ -176,9 +142,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Functions:</p>
+<p><code>data_creation()</code></p>
+<p>This function requires no parameters. This function creates a new dataset from scratch by scraping the web, specifically the websites of wikipedia and the-numbers. It saves a pandas dataframe of this dirty data as a csv under the title ‘dirty_data.csv’. Then it takes the dataframe and cleans the data. It also adds the new columns Season and Profit. It saves this new clean pandas dataframe as a csv under the title ‘movie_data.csv’.</p>
+<p><code>print_dataset_head()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function prints out the first five rows of the csv, as a pandas dataframe, for viewing.</p>
+<p><code>get_NAs()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function returns the number of NA values in each column/feature of ‘movie_data.csv’.</p>
+<p><code>earnings_correlation()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function returns the correlation matrix between all numerical features.</p>
+<p><code>season_earnings()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function returns a boxplot showing total box office revenue as grouped by seasons, and saves that graph as a png.</p>
+<p><code>genre_earnings()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function returns a boxplot showing total box office revenue as grouped by genre, and saves that graph as a png.</p>
+<p><code>production_method_earnings()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function returns a boxplot showing total box office revenue as grouped by production method, and saves that graph as a png.</p>
+<p><code>ratings_earnings()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function returns a boxplot showing total box office revenue as grouped by ratings, and saves that graph as a png.</p>
+<p><code>season_significance()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This functions returns the F value and p value of Season as in regards to Inflation Adjusted Domestic Revenue, (to ensure inflation doesn’t mess up our numbers), and the statistical significance between the various seasons.</p>
+<p><code>rating_significance()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This functions returns the F value and p value of Rating as in regards to Inflation Adjusted Domestic Revenue, (to ensure inflation doesn’t mess up our numbers), and the statistical significance between the various ratings.</p>
+<p><code>genre_significance()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This functions returns the F value and p value of Genre as in regards to Inflation Adjusted Domestic Revenue, (to ensure inflation doesn’t mess up our numbers), and the statistical significance between the various genres.</p>
+<p><code>production_method_significance()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This functions returns the F value and p value of Production Method as in regards to Inflation Adjusted Domestic Revenue, (to ensure inflation doesn’t mess up our numbers), and the statistical significance between the various methods.</p>
+<p><code>describe_revenue()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This functions returns a statistical description of the various types of revenue.</p>
+<p><code>graph_revenue()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function returns a graph showing total box office revenue over time, and saves that graph as a png.</p>
+<p><code>graph_revenue_by_year()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function returns a graph various revenues over time, grouped by year, and saves that graph as a png.</p>
+<p><code>graph_revenue_and_profit()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function returns a graph showing Total Box Office Revenue and Profit over time, and saves that graph as a png.</p>
+<p><code>analyze_revenue()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function runs <code>describe_revenue</code>, <code>graph_revenue</code>, <code>graph_revenue_by_year</code>, and <code>graph_revenue_and_profit</code> all at once.</p>
+<p><code>factors_analysis()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function runs <code>get_NAs</code>, <code>earnings_correlation</code>, <code>season_earnings</code>, <code>ratings_earnings</code>, <code>genre_earnings</code>, <code>production_method_earnings</code>, <code>season_significance</code>, <code>rating_significance</code>, <code>genre_significance</code>, and <code>production_method_significance</code> all at once.</p>
+<p><code>factors_findings()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function returns our interpretation and analysis of the feature graphs and the ones of statistical significance.</p>
+<p><code>revenue_findings()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function returns our interpretation and analysis of the revenue graphs.</p>
+<p><code>do_ml_analysis_plots()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function utilizes machine learning techniques, specifically the library shap, to create plots demonstrating the significance of various features during different stages of a movie’s release. These plots are saved as a png.</p>
+<p><code>do_ml_analysis_numbers()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function utilizes machine learning techniques to create return numbers demonstrating the significance of various features during different stages of a movie’s release.</p>
+<p><code>ml_analysis_findings()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function returns our findings and interpretation of the data from <code>do_ml_analysis_plots</code> and <code>do_ml_analysis_numbers</code>.</p>
+<p><code>do_analysis_specific()</code></p>
+<p>This function requires no parameters. However, <code>data_creation</code> must be ran before this function can be used since it requires ‘movie_data.csv’. This function states our research question, and utilizes <code>factors_analysis</code>, <code>factors_findings</code>, <code>do_ml_analysis_plots</code>, and <code>ml_analysis_findings</code>, to provide an answer to that question. All of this is printed out into the terminal.</p>
+<p><code>totality()</code></p>
+<p>This function gathers, cleans, analyzes, and interprets the data. Specifically is performs the functions of <code>data_creation</code> and <code>do_analysis_specific</code> at the same time.</p>
 
-
-<!-- -->
 
 
 </main> <!-- /main -->
@@ -253,60 +267,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       });
       clipboardModal.on('success', onCopySuccess);
     }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
-    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/cnelson2004\.github\.io\/Final_Movie_Analysis\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -632,13 +595,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Documentation"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Functions:</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
-</div></div></div></div></div>
+  </script>
 </div> <!-- /content -->
 
 

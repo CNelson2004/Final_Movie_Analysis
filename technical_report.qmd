@@ -1,13 +1,14 @@
 ---
 title: "Technical Report"
-description: "Project summary, methodology, and findings placeholder"
+description: "Project Summary, Methodology, and Findings"
+format: html
 ---
 
 ## Executive Summary
 
 `_TODO: Provide a concise overview of the project objectives, key findings, and actionable recommendations._`
 Project Objectives: 
-identify the best movies or hiest revinue movies 
+identify the best movies or hiest revinue movies by find what features determine high grossing movies. In other words, how would I make a movie, and when would I release it in order to return the highest amount of revenue
 
 Key Findings:
 none of the analasises done show anyting statisticly significant when put in refrenc to the Questins though there are some small difrences in move revinue depending on the season and other facters.
@@ -34,105 +35,106 @@ this project has 2 intorested partys. one is indeviduals who want to enjoy a goo
 ## Data Sources
 
 - _Primary dataset:_ 
-* List of movies: [Universal Movies from 2020-2029](https://en.wikipedia.org/wiki/List_of_Universal_Pictures_films_(2020%E2%80%932029)) and [Universal Movies from 2010-2019](https://en.wikipedia.org/wiki/List_of_Universal_Pictures_films_(2010%E2%80%932019))
-* Financial Data for movies: [The Numbers](https://www.the-numbers.com/)
-- _Supplementary data:_ These were the only sites used `TODO - describe any external references`
-- _Data access notes:_ Wait five seconds between requests, all information is open access with no licenses needed `TODO - mention licenses or refresh cadence`
+    * [Universal Movies from 2020-2029](https://en.wikipedia.org/wiki/List_of_Universal_Pictures_films_(2020%E2%80%932029)) and [Universal Movies from 2010-2019](https://en.wikipedia.org/wiki/List_of_Universal_Pictures_films_(2010%E2%80%932019))
+    * Financial Data for movies: [The Numbers](https://www.the-numbers.com/)
+- _Supplementary data:_ These were the only sites/sources used 
+- _Data access notes:_ Wait five seconds between requests, all information is open access with no licenses needed.
 
 ## Methodology
 
-1. _Data acquisition:_ Used common web scraping techniques to obtain data from Wikipedia and The Numbers. Specifically the libraries: requests and beautiful soup. `TODO - outline collection scripts/APIs`
+`TODO - outline collection scripts/APIs`
+1. _Data acquisition:_ Used common web scraping techniques to obtain data from Wikipedia and The Numbers. Specifically the libraries: requests and beautiful soup. 
 
-2. _Cleaning pipeline:_ `TODO - summarize transformations and validations implemented`
-* Separated Release Date into Year and Month, and used month to create a new column called Season
+2. _Cleaning pipeline:_
+* Changed Release Date into a datetime object.
 * Changed all revenue numbers from strings containing $ to proper integers. 
 * Changed runtime from a string to an integer 
 * Changed all None values to np.Nan
 * Removed all extraneous information, specifically 
-- Who released the movie and what type of release it was (for both video and theater release date)
-- Percentage of total gross for opening weekend
-- Production budget as related to worldwide box office
-- MPAA Rating specifics
+    - Who released the movie and what type of release it was (for both video and theater release date)
+    - Percentage of total gross for opening weekend
+    - Production budget as related to worldwide box office
+    - MPAA Rating specifics
 * Created a profits column by taking Total Box Office Revenue - Budget
-* A separated .csv was created for Machine Learning Analysis wherein the target, Total Box Office Revenue, was analyzed as a log of the original target due to the skewness of the target data 
+* Also created a Year, Month, and Season column based upon release date
+* This was validated by checking that all columns were of specified types and manually viewing the dataset, and all was as expected
+* A separated csv was created for Machine Learning Analysis wherein the target, Total Box Office Revenue, was analyzed as a log of the original target due to the skewness of the target data, this separate csv, `ml_movie_data.csv`, also removes all non-numeric columns.
+* `ml_movie_data.csv` is the transformed version of `movie_data.csv`
+* This was validated by checking the new transformed column
+
 
 3. _Analysis workflow:_ 
-* correlate all the data to see what has an effect on income
-* find the NAs for reference
-* plot the money against one another to check for anomalies
-* find the average revenue for each year and then plot it for clearer visuals
-* find the statistics for some of the means
-* plot the categorical data with regards to the Inflation Adjusted Domestic Revenue
+* Correlate all the data to see what has an effect on income
+* Find the NAs for reference
+* Plot the money against one another to check for anomalies
+* Find the average revenue for each year and then plot it for clearer visuals
+* Find the statistics for some of the means
+* Plot the categorical data with regards to the Inflation Adjusted Domestic Revenue
 
 "We used some basic analysis such as  correlation, plots to visualize it (mostly line plots but some box plots for categorical data). This required only a few changes such as adding a column for year or doing basic math, mostly wit dates, to get usable numbers for plots and correlation. There are some NAs in the data set, around 60 to 70 for each column. The highest one was 146 but that was Franchise which wasn't really used in any analysis"
 
-4. _Tooling:_ `TODO - list packages, environments, and reproducibility steps`
+4. _Tooling:_ 
 * Packages: The packages used were: 
-- bs4
-- ipykernel
-- lxml
-- matplotlib
-- numpy
-- pandas
-- requests
-- scikit-learn
-- seaborn
-- shap
-- streamlit
-- twine
-- quarto
-* Environments: The virtual environment UV was used for htis project 
-* Reproducibility Steps: Run the functions in order as given in the Tutorial
+    - bs4
+    - ipykernel
+    - lxml
+    - matplotlib
+    - numpy
+    - pandas
+    - requests
+    - scikit-learn
+    - shap
+* Environments: The virtual environment UV was used for this project with Python 3.13. 
+* Reproducibility Steps: Run `totality()` to reproduce our dataset, results, and interpretation, for more details see the [tutorial](tutorial.qmd)
 
 ## Results & Diagnostics
 
-`_TODO: Summarize the main metrics, charts, or model diagnostics produced. Include links to figures or tables once available._`
-Main Metrics:
-the main metrics for the plots and data of importance are as fallowes
-    genaral move revinue:
-        mean = 9.1 e^7
-        sd = 1. e^8
-    season of releas:
-        spring has the hiest revinue (there isnt a significant difrence between any except for summer and fall summer is beter (0.011))
+`_TODO: Summarize the main metrics, charts, or model diagnostics produced. Include links to figures or tables once available._` `(Attach units to values)`
+*Main Metrics*:
+The main metrics for the plots and data of importance are as follows:
+    General Movie Revenue:
+        mean = 9.1 e^7 [**Attach unit to numbers like these Ex: 9.1 M dollars**]
+        sd = 1. e^8  [Since this sd shows that the data is skewed, add the median]
+    Season of Release:
+        spring has the highest revenue (there isn't a significant difference between any except for summer and fall summer is better (0.011))
         fall:   mean =  5.5 e^7,    sd = 7.17 e^7
         winter: mean =  7.9 e^7,    sd = 7.62 e^7
         spring: mean =  9.3 e^8,    sd = 1.3 e^8
         summer: mean =  1.493 e^8,  sd = 1.8 e^8
 
-    Genra:
-        the hiest means are in 'Musicals', 'Action', 'Adventuer' with means and sd of
+    Genre:
+        the highest means are in 'Musicals', 'Action', 'Adventure' with means and sd of
         Musicals: mean = 1.6 e^8 ,sd = 1.8 e^8
         Action:   mean = 1.9 e^8 ,sd = 2.18 e^8
-        Adventuer:mean = 1.88 e^8,sd = 1.78 e^8
+        Adventure:mean = 1.88 e^8,sd = 1.78 e^8
 
     Movie Rating:
         PG: mean = 1.2 e^8 ,sd = 1.5 e^8
         R: mean = 5.5 e^7  ,sd = 6.4 e^7
 
     Production Method:
-        Anamation/ Live Actin: mean = 1.58 e^8 ,sd = 1.68 e^8
+        Animation/ Live Actin: mean = 1.58 e^8 ,sd = 1.68 e^8
         Digital Animation:     mean = 2.1 e^8  ,sd = 1.7 e^8
 
+*Charts*: (Add description underneath it if chart doesn't include labels)
+MSE
+Cross Validation 
+Variable and Prepositions Plot
 
+*Model Diagnostics*: We chose not to createa prediciton model, and thus have no model diagnostics. 
+(Could do t-test or ANOVA if wanted for model diagnostics) (Could include significance stats here.)
 
-
-Charts:
-
-Model Diagnostics:
-mse
-crose valid daion 
-variable and prepostions plot
 
 ## Discussion & Next Steps
 
 `_TODO: Interpret the results, note limitations, and capture open questions or future experiments._`
-Results:
+*Results*:
 
-Limitations:
-the catigorical and numarical analasis for coralation cant show causeation so we dont know if ajusting one will directly influence the other. whats more is that none of the resolts shown significance, this means that the vareance of revinue in any of our analasises is not difrent form the avrage mean.
+*Limitations*:
+The categorical and numerical analysis for correlation can't show causation so we don't know if adjusting one will directly influence the other. Additionally, none of the results shown significance, this means that the variance of revenue in any of our analyses is not different form the average mean.
 
 Open Questions:
 1) if you seporate things further
 
-Future Experiments:
-inorder to reduce the amount of vareance it would be smart to seporte data more an exsample might be only action movies in winter compared to adventuer movies in winter. this would hopefully reduec the vareance and creat a more acurate analsis aswll as show any influence between vareables for exsample if R movies earning less revinue because most of them where relesed in winter. an analasis of movie ratings for these movies would also be informative as to what watchers value and there for what you could charge more for.
+*Future Experiments*:
+In order to reduce the amount of variance it would be smart to separate data more, an example might be only action movies in winter compared to adventure movies in winter. This would hopefully reduce the variance and create a more accurate analysis as well as show any influence between variables, for example if R movies earning less revenue because most of them were released in winter. An analysis of movie ratings for these movies would also be informative as to what watchers value and there for what you could charge more for.
