@@ -10,3 +10,9 @@ Documentation [here](documentation.qmd)
 Get Started [here](tutorial.qmd)
 
 Review the technical report [here](technical_report.qmd)
+
+Find streamlit app showing these functions [here](https://final-movie-analysis.streamlit.app/)
+
+Find original github repo [here](https://github.com/CNelson2004/Final_Movie_Analysis)
+
+Find python package location [here](https://pypi.org/project/final-movie-analysis/1.0.0/)
