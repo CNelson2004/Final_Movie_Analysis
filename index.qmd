@@ -8,4 +8,4 @@ Documentation [here](documentation.qmd)
 
 Get Started [here](tutorial.qmd)
 
-Review the [Technical Report](technical_report.qmd)
+Review the technical report [here](technical_report.qmd)

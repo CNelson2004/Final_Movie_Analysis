@@ -5,24 +5,19 @@ description: "Project Summary, Methodology, and Findings Placeholder"
 
 ## Executive Summary
 
-`_TODO: Provide a concise overview of the project objectives, key findings, and actionable recommendations._`
-Project Objectives: (Research Question)
+Project Objectives: The objective of this project is to find what features determine high grossing movies. In other words, how would I make a movie, and when would I release it in order to return the highest amount of revenue?
 
-Key Findings: (Answer to Research Question)
+Key Findings: In total, we found that making a movie that appeals to everyone, is released in the summer, and has a high starting budget, results in the highest revenue. Specifically, making a PG movie using Digital Animation in the genre of Adventure or Action, which appeals to those inside and outside the US will result in the highest overall revenue. This movie should be made with the largest production budget possible, (to get the best talent), and should be released in the summer, specifically on whatever weekend has the best chance of creating the highest opening weekend revenue possible.
 
-Actionable Recommendations: 
+Actionable Recommendations: Create a movie as described in the Key Findings above. 
 
 ## Project Context
 
-`_TODO: Describe the motivation, stakeholders, and success criteria for this analysis._`
-Motivation: (What you want to do with your research question) (why of the research question)
-Identify best time to release a movie to maximize profit
+Motivation: Identify best way to create a movie, and the best time to release a movie to maximize revenue.
 
-Stakeholders: (As if we are presenting to a business/board of trustees/boss)
+Stakeholders: Business/Board of Trustees/Boss
 
-Success Criteria:
-Distinct features and their influence identified. 
-(What success of your research question looks like)
+Success Criteria: Identify distinct features that are important for overall movie revenue
 
 ## Data Sources
 
@@ -107,9 +102,6 @@ The main metrics for the plots and data of importance are as follows:
     Production Method:
         Animation/ Live Actin: mean = 1.58 e^8 ,sd = 1.68 e^8
         Digital Animation:     mean = 2.1 e^8  ,sd = 1.7 e^8
-
-
-
 
 Charts:
 

@@ -4,28 +4,28 @@
     "href": "index.html",
     "title": "Universal Studios Movie Analysis Package",
     "section": "",
-    "text": "Here is a website all about my package for STAT 386\nDocumentation here\nGet Started here\nReview the Technical Report"
+    "text": "Here is a website all about my package for STAT 386\nDocumentation here\nGet Started here\nReview the technical report here"
   },
   {
     "objectID": "technical_report.html",
     "href": "technical_report.html",
     "title": "Technical Report",
     "section": "",
-    "text": "_TODO: Provide a concise overview of the project objectives, key findings, and actionable recommendations._ Project Objectives: (Research Question)\nKey Findings: (Answer to Research Question)\nActionable Recommendations:"
+    "text": "Project Objectives: The objective of this project is to find what features determine high grossing movies. In other words, how would I make a movie, and when would I release it in order to return the highest amount of revenue?\nKey Findings: In total, we found that making a movie that appeals to everyone, is released in the summer, and has a high starting budget, results in the highest revenue. Specifically, making a PG movie using Digital Animation in the genre of Adventure or Action, which appeals to those inside and outside the US will result in the highest overall revenue. This movie should be made with the largest production budget possible, (to get the best talent), and should be released in the summer, specifically on whatever weekend has the best chance of creating the highest opening weekend revenue possible.\nActionable Recommendations: Create a movie as described in the Key Findings above."
   },
   {
     "objectID": "technical_report.html#executive-summary",
     "href": "technical_report.html#executive-summary",
     "title": "Technical Report",
     "section": "",
-    "text": "_TODO: Provide a concise overview of the project objectives, key findings, and actionable recommendations._ Project Objectives: (Research Question)\nKey Findings: (Answer to Research Question)\nActionable Recommendations:"
+    "text": "Project Objectives: The objective of this project is to find what features determine high grossing movies. In other words, how would I make a movie, and when would I release it in order to return the highest amount of revenue?\nKey Findings: In total, we found that making a movie that appeals to everyone, is released in the summer, and has a high starting budget, results in the highest revenue. Specifically, making a PG movie using Digital Animation in the genre of Adventure or Action, which appeals to those inside and outside the US will result in the highest overall revenue. This movie should be made with the largest production budget possible, (to get the best talent), and should be released in the summer, specifically on whatever weekend has the best chance of creating the highest opening weekend revenue possible.\nActionable Recommendations: Create a movie as described in the Key Findings above."
   },
   {
     "objectID": "technical_report.html#project-context",
     "href": "technical_report.html#project-context",
     "title": "Technical Report",
     "section": "Project Context",
-    "text": "Project Context\n_TODO: Describe the motivation, stakeholders, and success criteria for this analysis._ Motivation: (What you want to do with your research question) (why of the research question) Identify best time to release a movie to maximize profit\nStakeholders: (As if we are presenting to a business/board of trustees/boss)\nSuccess Criteria: Distinct features and their influence identified. (What success of your research question looks like)"
+    "text": "Project Context\nMotivation: Identify best way to create a movie, and the best time to release a movie to maximize revenue.\nStakeholders: Business/Board of Trustees/Boss\nSuccess Criteria: Identify distinct features that are important for overall movie revenue"
   },
   {
     "objectID": "technical_report.html#data-sources",
