@@ -22,7 +22,7 @@ The analysis did not show any statistically significant data, but some actions t
 We want to know what movies have the highest revenue and see what could help maximize the revenue of a movie. Please note that this is with the belief that revenue for movies is an indicator of how good a movie is. 
 
 *Success Criteria:*
-Identify distinct features that are important for and impact overall movie revenue.
+Identify distinct features that have the greatest impact on overall movie revenue and what degree that impact is.
 
 *Stakeholders:*
 This project has two interested parties. One is individuals who want to enjoy a good movie and do not want to pay for low quality entertainment, and the second is companies, (Business/Board of Trustees/Boss), who want to maximize the amount of revenue they earn when creating a movie.
@@ -32,45 +32,47 @@ This project has two interested parties. One is individuals who want to enjoy a 
 - *Primary dataset:* 
     * [Universal Movies from 2020-2029](https://en.wikipedia.org/wiki/List_of_Universal_Pictures_films_(2020%E2%80%932029)) and [Universal Movies from 2010-2019](https://en.wikipedia.org/wiki/List_of_Universal_Pictures_films_(2010%E2%80%932019))
     * Financial Data for movies: [The Numbers](https://www.the-numbers.com/)
-- *Supplementary data:* These were the only sites/sources used 
-- *Data access notes:* Wait five seconds between requests, all information is open access with no licenses needed.
+- *Supplementary data:* The primary dataset were the only sites/sources used, there was no supplementary data
+- *Data access notes:* Wait five seconds between requests, otherwise all information is open access with no licenses needed
 
 ## Methodology
 
 1. *Data acquisition:* Used common web scraping techniques to obtain data from Wikipedia and The Numbers using the libraries: requests, beautiful soup, regex, and pandas. Specifically, our function `data_creation` uses the init function for both requests and beautiful soup, `read_html` from pandas, `sub`, `match` from regex, `get` from requests, and `find` from beautiful soup. 
 
 2. *Cleaning pipeline:*
-* Changed Release Date into a datetime object.
-* Changed all revenue numbers from strings containing $ to proper integers. 
+* Note: The following were all done using basic methods from pandas and regex
+* Changed Release Date from a string into a datetime object
+* Changed all revenue numbers from strings containing $ to proper integers
 * Changed runtime from a string to an integer 
 * Changed all None values to np.Nan
 * Removed all extraneous information, specifically 
-    - Who released the movie and what type of release it was (for both video and theater release date)
-    - Percentage of total gross for opening weekend
+    - Which company released the movie and what type of release it was (for both video and theater release date)
+    - Percentage of total gross for opening weekend as compared to total revenue
     - Production budget as related to worldwide box office
-    - MPAA Rating specifics
+    - MPAA Rating specifics (Ex: for violence, swearing, etc)
 * Created a profits column by taking Total Box Office Revenue - Budget
-* Also created a Year, Month, and Season column based upon release date
+* Also created a Year, Month, and Season column from the release date
 * This was validated by checking that all columns were of specified types and manually viewing the dataset, and all was as expected
-* A separated csv was created for Machine Learning Analysis wherein the target, Total Box Office Revenue, was analyzed as a log of the original target due to the skewness of the target data, this separate csv, `ml_movie_data.csv`, also removes all non-numeric columns.
+* A separated csv was created for Machine Learning Analysis wherein the target, Total Box Office Revenue, was analyzed as a log of the original target due to the skewness of the target data, this separate csv, `ml_movie_data.csv`, also removes all non-numeric columns
 * `ml_movie_data.csv` is the transformed version of `movie_data.csv`
-* This was validated by checking the new transformed column and csv as a whole.
+* This was validated by checking the new transformed column and csv as a whole
 
 
 3. *Analysis workflow:*
-* Correlate all the data to see what has an effect on income
-* Find the NAs for reference
-* Plot the money against one another to check for anomalies
-* Find the average revenue for each year and then plot it for clearer visuals
-* Find the statistics for some of the means
-* Plot the categorical data with regards to the Inflation Adjusted Domestic Revenue
+* Correlate all the data to see what has an effect on income using panda's `corr`
+* Find the NAs for reference panda's `isna`
+* Plot the revenue against one another to check for anomalies using panda's `plot`
+* Find the average revenue for each year and then plot it for clearer visuals using panda's `plot` (accentuated with matplotlib features such as `legend` and `title`)
+* Find the statistics for some of the means using panda's `describe`
+* Plot the categorical data with regards to the Total Box Office Revenue using pandas's `boxplot` (accentuated with matplotlib)
+* Find the significance of the features with pingouin's `pairwise_gameshowell` and scipy's `f_oneway`
+* Find the impact of the features in regards to predicting Total Box Office Revenue using shap's `shap_values` and `summary_plot` in regards to a Random Forest Model trained on the data using `ml_movie_data.csv`
 
-"We used some basic analysis such as  correlation, plots to visualize it (mostly line plots but some box plots for categorical data). This required only a few changes such as adding a column for year or doing basic math, mostly wit dates, to get usable numbers for plots and correlation. There are some NAs in the data set, around 60 to 70 for each column. The highest one was 146 but that was Franchise which wasn't really used in any analysis"
+We used some basic analysis such as  correlation, along with plots to visualize it (mostly line plots but some box plots for categorical data). This required only a few changes such as adding a column for year or doing basic math, mostly with dates, to get usable numbers for plots and correlation. There are some NAs in the data set, around 60 to 70 for each column. The highest one was 146 but that was Franchise which wasn't really used in any analysis.
 
 4. *Tooling:*
 * Packages: The packages used were: 
     - bs4
-    - ipykernel
     - lxml
     - matplotlib
     - numpy
@@ -214,7 +216,7 @@ We chose not to create a prediction model because no statistically significant v
 ## Discussion & Next Steps
 
 *Results:*
-There were no statistically significant variables because the variance was so high. There are some factors that appear to have some influence such as season of release, genre, and rating, (R, PG, G), but further analysis could reveal more influence if variance was reduced.
+There were no statistically significant variables because the variance was so high. There are some factors that appear to have some influence such as season of release, genre, and rating, (R, PG, G), but further analysis could reveal more influence if variance was reduced.Additionally, from our ML analysis, it seems as though international revenue has the highest effect on predicting the overall gross revenue. This isn't interesting in and of itself, but comparing it to how little effect the domestic revenue has is interesting, as it tells us how much the international audience matters to the success of a movie compared to the domestic (US) audience.
 
 *Limitations:*
 The categorical and numerical analysis for correlation can't show causation so we don't know if adjusting one will directly influence the other. Additionally, none of the results shown significance, this means that the variance of revenue in any of our analyses is not different from the average mean.
