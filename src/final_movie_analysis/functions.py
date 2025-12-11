@@ -943,7 +943,8 @@ if __name__ == "__main__":
     #data_creation()
     #do_analysis_specific()
     #all_analysis()
-    #factors_analysis()
+    factors_analysis()
+    analyze_revenue()
     #do_ml_analysis_plots()
     #do_ml_analysis_numbers()
     pass

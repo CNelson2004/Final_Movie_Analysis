@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-029b10fc0dc652dab2ec1ac156c1a037.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dec27a635df3619fee3abd01ce5a42f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,10 +108,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -157,23 +156,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
-<div id="ea535182" class="cell" data-execution_count="128">
+<div id="ea535182" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Imports</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="88a8e545" class="cell" data-execution_count="129">
+<div id="88a8e545" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Getting dataframe from csv file</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"movie_data.csv"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_columns'</span>, <span class="va">None</span>)</span>
@@ -342,13 +339,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="de53954f" class="cell" data-execution_count="130">
+<div id="de53954f" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#check correlation between the different earnings</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df.corr(numeric_only<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#domestic revenue, international revenue, total box revenue, and domestic video revenue, are all strongly correlated (between0.9 and 0.8)</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># thus we dont need to do analysis for all of them one will strongly correlate with another but a graph to show which would be good.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="130">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -617,10 +614,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="a569acbd" class="cell" data-execution_count="131">
+<div id="a569acbd" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check the number of NAs</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df.isna().<span class="bu">sum</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="131">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>Title                                    0
 Release Date                             0
 Inflation Adjusted Domestic Revenue      9
@@ -646,7 +643,7 @@ Profit                                  40
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="69e92979" class="cell" data-execution_count="132">
+<div id="69e92979" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># graph of the revenues</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mean_of <span class="op">=</span> pd.DataFrame()</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -660,7 +657,7 @@ dtype: int64</code></pre>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># the graphs show the correlations  and the difference in there earnings</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="132">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>(array([-25.,   0.,  25.,  50.,  75., 100., 125., 150., 175., 200.]),
  [Text(-25.0, 0, '2023-08-11'),
   Text(0.0, 0, '2014-01-17'),
@@ -688,7 +685,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="64f7fa1c" class="cell" data-execution_count="133">
+<div id="64f7fa1c" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this shows a more simplified version of the above graph</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Release_Date'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'Release Date'</span>])</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'year'</span>] <span class="op">=</span> df[<span class="st">'Release_Date'</span>].dt.year</span>
@@ -702,7 +699,7 @@ dtype: int64</code></pre>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Average Revenue by Year'</span>)</span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="133">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>(array([2012., 2014., 2016., 2018., 2020., 2022., 2024., 2026.]),
  [Text(2012.0, 0, '2012'),
   Text(2014.0, 0, '2014'),
@@ -721,7 +718,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="2f2d0189" class="cell" data-execution_count="134">
+<div id="2f2d0189" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check why it drops at 2019</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> title <span class="kw">in</span> df.loc[df[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">2019</span>, <span class="st">'Title'</span>]:</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(title)</span>
@@ -731,13 +728,13 @@ dtype: int64</code></pre>
 The Wolf Hour</code></pre>
 </div>
 </div>
-<div id="7ec416d0" class="cell" data-execution_count="135">
+<div id="7ec416d0" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Doing the same as above for profits</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mean_of <span class="op">=</span> pd.DataFrame()</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>mean_of <span class="op">=</span> df.groupby(<span class="st">'Release Date'</span>)[[<span class="st">'Profit'</span>]].mean()</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>mean_of[[<span class="st">'Profit'</span>]].plot()</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="135">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>(array([-25.,   0.,  25.,  50.,  75., 100., 125., 150., 175., 200.]),
  [Text(-25.0, 0, '2023-08-11'),
   Text(0.0, 0, '2014-01-17'),
@@ -758,7 +755,7 @@ The Wolf Hour</code></pre>
 </div>
 </div>
 </div>
-<div id="6288f4c5" class="cell" data-execution_count="136">
+<div id="6288f4c5" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this shows a more simplified version of the above graph</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Release_Date'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'Release Date'</span>])</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'year'</span>] <span class="op">=</span> df[<span class="st">'Release_Date'</span>].dt.year</span>
@@ -771,7 +768,7 @@ The Wolf Hour</code></pre>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Avg Profit'</span>)</span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Average Profit by Year'</span>)</span>
 <span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="136">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>(array([2012., 2014., 2016., 2018., 2020., 2022., 2024., 2026.]),
  [Text(2012.0, 0, '2012'),
   Text(2014.0, 0, '2014'),
@@ -790,13 +787,13 @@ The Wolf Hour</code></pre>
 </div>
 </div>
 </div>
-<div id="8fcf082e" class="cell" data-execution_count="137">
+<div id="8fcf082e" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mean_of <span class="op">=</span> pd.DataFrame()</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>mean_of <span class="op">=</span> df.groupby(<span class="st">'Release Date'</span>)[[<span class="st">'Total Box Office Revenue'</span>,<span class="st">'Profit'</span>]].mean()</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 'Total Box Office Revenue','International Revenue',</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>mean_of[[<span class="st">'Total Box Office Revenue'</span>,<span class="st">'Profit'</span>]].plot()</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="137">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>(array([-25.,   0.,  25.,  50.,  75., 100., 125., 150., 175., 200.]),
  [Text(-25.0, 0, '2023-08-11'),
   Text(0.0, 0, '2014-01-17'),
@@ -817,16 +814,16 @@ The Wolf Hour</code></pre>
 </div>
 </div>
 </div>
-<div id="1d433303" class="cell" data-execution_count="138">
+<div id="1d433303" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Seems to follow the same trend as revenue</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="2158e2b6" class="cell" data-execution_count="139">
+<div id="2158e2b6" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># checking data </span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(df)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#212</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Inflation Adjusted Domestic Revenue'</span>].describe()</span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="139">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>count    1.840000e+02
 mean     9.166218e+07
 std      1.253947e+08
@@ -838,9 +835,9 @@ max      8.763738e+08
 Name: Inflation Adjusted Domestic Revenue, dtype: float64</code></pre>
 </div>
 </div>
-<div id="c448b59b" class="cell" data-execution_count="140">
+<div id="c448b59b" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Domestic Revenue'</span>].describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="140">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>count    1.840000e+02
 mean     7.700907e+07
 std      1.056860e+08
@@ -852,9 +849,9 @@ max      6.534066e+08
 Name: Domestic Revenue, dtype: float64</code></pre>
 </div>
 </div>
-<div id="1bb5bb15" class="cell" data-execution_count="141">
+<div id="1bb5bb15" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'International Revenue'</span>].describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="141">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>count    1.860000e+02
 mean     1.188179e+08
 std      2.075318e+08
@@ -866,7 +863,7 @@ max      1.157058e+09
 Name: International Revenue, dtype: float64</code></pre>
 </div>
 </div>
-<div id="af2e2d8c" class="cell" data-execution_count="142">
+<div id="af2e2d8c" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># product budget is most strongly correlated with international earnings, this implies that the hight earning movies had the most funding (on average)</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># run time isn't strongly correlated with anything but its strongest correlation (0.3) is with product budget, this could mean tha with more budget </span></span>
@@ -874,7 +871,7 @@ Name: International Revenue, dtype: float64</code></pre>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#most of the numeric variables seem uninteresting so I will move on</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="cf1cee46" class="cell" data-execution_count="143">
+<div id="cf1cee46" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># catigorical vareable enalasis</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>df.boxplot(column<span class="op">=</span><span class="st">'Inflation Adjusted Domestic Revenue'</span>, by<span class="op">=</span><span class="st">'Season'</span>)</span>
@@ -892,10 +889,10 @@ Name: International Revenue, dtype: float64</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="204412a2" class="cell" data-execution_count="144">
+<div id="204412a2" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># spring and summer have the most revinue but summer has the most outlisers and revine </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="885582f1" class="cell" data-execution_count="145">
+<div id="885582f1" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df.boxplot(column<span class="op">=</span><span class="st">'Inflation Adjusted Domestic Revenue'</span>, by<span class="op">=</span><span class="st">'Genre'</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
@@ -909,7 +906,7 @@ Name: International Revenue, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="07b95a3a" class="cell" data-execution_count="163">
+<div id="07b95a3a" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">'''filtered = df[df['Season'] == 'Winter']</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co">mean_val = filtered['Inflation Adjusted Domestic Revenue'].mean()</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co">std_val = filtered['Inflation Adjusted Domestic Revenue'].std()</span></span>
@@ -934,12 +931,12 @@ Name: International Revenue, dtype: float64</code></pre>
 <span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="co">print("Standard deviation spring:", std_val_b)</span></span>
 <span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="co">print("Mean summer:", mean_val_c)</span></span>
 <span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="co">print("Standard deviation summer:", std_val_c)'''</span></span>
-<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'Genre'</span>)[<span class="st">'Inflation Adjusted Domestic Revenue'</span>].agg([<span class="st">'mean'</span>,<span class="st">'std'</span>])</span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'Genre'</span>)[<span class="st">'Inflation Adjusted Domestic Revenue'</span>].agg([<span class="st">'mean'</span>,<span class="st">'std'</span>,<span class="st">'median'</span>])</span>
 <span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="co">#mean_ac.groupby('Genre')['Inflation Adjusted Domestic Revenue'].agg(['mean','std'])</span></span>
 <span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="co">#print(mean_ac)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="163">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <div>
 
 
@@ -949,9 +946,11 @@ Name: International Revenue, dtype: float64</code></pre>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">mean</th>
 <th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">median</th>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Genre</th>
+<th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 </tr>
@@ -961,61 +960,73 @@ Name: International Revenue, dtype: float64</code></pre>
 <th data-quarto-table-cell-role="th">Action</th>
 <td>1.963182e+08</td>
 <td>2.187968e+08</td>
+<td>88921721.5</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Adventure</th>
 <td>1.882093e+08</td>
 <td>1.788459e+08</td>
+<td>101407036.0</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Black Comedy</th>
 <td>4.237018e+07</td>
 <td>3.463021e+07</td>
+<td>42370178.0</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Comedy</th>
 <td>8.285935e+07</td>
 <td>6.704363e+07</td>
+<td>80259916.5</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Concert/Performance</th>
 <td>3.084563e+07</td>
 <td>NaN</td>
+<td>30845627.0</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Documentary</th>
 <td>7.169701e+06</td>
 <td>3.658477e+06</td>
+<td>7169701.0</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Drama</th>
 <td>5.195661e+07</td>
 <td>7.671564e+07</td>
+<td>21189762.0</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Horror</th>
 <td>6.924574e+07</td>
 <td>5.434529e+07</td>
+<td>62516511.5</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Musical</th>
 <td>1.677520e+08</td>
 <td>1.844120e+08</td>
+<td>149767416.0</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Romantic Comedy</th>
 <td>4.220978e+07</td>
 <td>4.769524e+07</td>
+<td>26780027.0</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Thriller/Suspense</th>
 <td>3.812061e+07</td>
 <td>5.669924e+07</td>
+<td>24792781.5</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Western</th>
 <td>3.683710e+07</td>
 <td>3.154111e+07</td>
+<td>36837105.0</td>
 </tr>
 </tbody>
 </table>
@@ -1023,55 +1034,16 @@ Name: International Revenue, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="4ed98843" class="cell">
+<div id="4ed98843" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># action:    mean = 1.9 e^8,sd</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># adventuer: mean = 1.88 e^8,sd</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># musical:   mean = 1.6 e^8,sd</span></span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the mean revinue for any movie is 1.1 e^8 so all have higer than avrege revinue</span></span>
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="db47df0e" class="cell" data-execution_count="147">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the means revinu for each season is as falowes</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># fall   mean = 5.57 e^7, sd = 7.17e^7</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># spring mena = 9.33 e^7, sd = 1.3 e^8</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># summer mean = 1.4 e^8, sd = 1.8 e^8</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># winter mean = 7.954 e^7,sd = 7.6 e^7</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co"># the mean for all the data is 1.1 e^8</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># spring and sumer are the 2 best season for movie relases though not statisticly significnt for most.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="1308d5b9" class="cell" data-execution_count="148">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the difrent Genres are mostly the same with means but they have a lot of vareance and outliers. </span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># doucumnteries are the lowes revanue erners </span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the highest erning movie is an action, but most of the out liers for high revinue are from adventure</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="3dcf1cc5" class="cell" data-execution_count="149">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df.boxplot(column<span class="op">=</span><span class="st">'Inflation Adjusted Domestic Revenue'</span>, by<span class="op">=</span><span class="st">'MPAA Rating'</span>)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'revinue ajusted for inflation'</span>)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="analyze_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="6bed9815" class="cell" data-execution_count="158">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>filtered_one <span class="op">=</span> df[df[<span class="st">'MPAA Rating'</span>] <span class="op">==</span> <span class="st">'Inflation Adjusted Domestic Revenue'</span>]</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>mean_val_one <span class="op">=</span> filtered_one[<span class="st">'Inflation Adjusted Domestic Revenue'</span>].mean()</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>std_val_one <span class="op">=</span> filtered_one[<span class="st">'Inflation Adjusted Domestic Revenue'</span>].std()</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mean:"</span>, mean_val_one)</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Standard deviation:"</span>, std_val_one)</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'MPAA Rating'</span>)[<span class="st">'Inflation Adjusted Domestic Revenue'</span>].agg([<span class="st">'mean'</span>,<span class="st">'std'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Mean: nan
-Standard deviation: nan</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="158">
+<div id="868a5732" class="cell" data-execution_count="35">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'Season'</span>)[<span class="st">'Inflation Adjusted Domestic Revenue'</span>].agg([<span class="st">'mean'</span>,<span class="st">'std'</span>,<span class="st">'median'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
 <div>
 
 
@@ -1081,9 +1053,102 @@ Standard deviation: nan</code></pre>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">mean</th>
 <th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">median</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Season</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Fall</th>
+<td>5.578652e+07</td>
+<td>7.173429e+07</td>
+<td>39321672.5</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Spring</th>
+<td>9.337217e+07</td>
+<td>1.353250e+08</td>
+<td>47701644.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Summer</th>
+<td>1.493809e+08</td>
+<td>1.830196e+08</td>
+<td>85606436.5</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Winter</th>
+<td>7.954824e+07</td>
+<td>7.623341e+07</td>
+<td>55285298.5</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="db47df0e" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the means revinu for each season is as falowes</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># fall   mean = 5.57 e^7, sd = 7.17e^7</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># spring mena = 9.33 e^7, sd = 1.3 e^8</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># summer mean = 1.4 e^8, sd = 1.8 e^8</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># winter mean = 7.954 e^7,sd = 7.6 e^7</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># the mean for all the data is 1.1 e^8</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co"># spring and sumer are the 2 best season for movie relases though not statisticly significnt for most.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="1308d5b9" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the difrent Genres are mostly the same with means but they have a lot of vareance and outliers. </span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># doucumnteries are the lowes revanue erners </span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the highest erning movie is an action, but most of the out liers for high revinue are from adventure</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="3dcf1cc5" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>df.boxplot(column<span class="op">=</span><span class="st">'Inflation Adjusted Domestic Revenue'</span>, by<span class="op">=</span><span class="st">'MPAA Rating'</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'revinue ajusted for inflation'</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analyze_files/figure-html/cell-26-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="6bed9815" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>filtered_one <span class="op">=</span> df[df[<span class="st">'MPAA Rating'</span>] <span class="op">==</span> <span class="st">'Inflation Adjusted Domestic Revenue'</span>]</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>mean_val_one <span class="op">=</span> filtered_one[<span class="st">'Inflation Adjusted Domestic Revenue'</span>].mean()</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>std_val_one <span class="op">=</span> filtered_one[<span class="st">'Inflation Adjusted Domestic Revenue'</span>].std()</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mean:"</span>, mean_val_one)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Standard deviation:"</span>, std_val_one)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'MPAA Rating'</span>)[<span class="st">'Inflation Adjusted Domestic Revenue'</span>].agg([<span class="st">'mean'</span>,<span class="st">'std'</span>,<span class="st">'median'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean: nan
+Standard deviation: nan</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">median</th>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">MPAA Rating</th>
+<th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 </tr>
@@ -1093,16 +1158,19 @@ Standard deviation: nan</code></pre>
 <th data-quarto-table-cell-role="th">Not Rated</th>
 <td>1.201100e+04</td>
 <td>NaN</td>
+<td>12011.0</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">PG</th>
 <td>1.237362e+08</td>
 <td>1.536613e+08</td>
+<td>70361489.0</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">R</th>
 <td>5.560414e+07</td>
 <td>6.411607e+07</td>
+<td>34132551.0</td>
 </tr>
 </tbody>
 </table>
@@ -1110,22 +1178,14 @@ Standard deviation: nan</code></pre>
 </div>
 </div>
 </div>
-<div id="aa2fa7b5" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># not reated mean = 1.2e^4, sd = na</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># PG mean = 1.23 e^8, sd = 1.5 e^8</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># R mean = 5.5 e^7, sd = 6.4 e^7</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the mean revinue of any movie is 1.18 e^8 so </span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># R is low in comparison and PG is better to produce for revinue.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="aa2fa7b5" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># not reated mean = 1.2e^4, sd = na</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># PG mean = 1.23 e^8, sd = 1.5 e^8</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># R mean = 5.5 e^7, sd = 6.4 e^7</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the mean revinue of any movie is 1.18 e^8 so </span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># R is low in comparison and PG is better to produce for revinue.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="3a774a68" class="cell" data-execution_count="151">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># fall   mean = 5.57 e^7, sd = 7.17e^7</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># spring mena = 9.33 e^7, sd = 1.3 e^8</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># summer mean = 1.4 e^8, sd = 1.8 e^8</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># winter mean = 7.954 e^7,sd = 7.6 e^7</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co"># the mean for all the data is 1.1 e^8</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="21626ae5" class="cell" data-execution_count="152">
+<div id="21626ae5" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#production method</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>df.boxplot(column<span class="op">=</span><span class="st">'Inflation Adjusted Domestic Revenue'</span>, by<span class="op">=</span><span class="st">'Production Method'</span>)</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
@@ -1138,10 +1198,10 @@ Standard deviation: nan</code></pre>
 </div>
 </div>
 </div>
-<div id="6288fb29" class="cell" data-execution_count="159">
+<div id="6288fb29" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'Production Method'</span>)[<span class="st">'Inflation Adjusted Domestic Revenue'</span>].agg([<span class="st">'mean'</span>,<span class="st">'std'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="159">
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'Production Method'</span>)[<span class="st">'Inflation Adjusted Domestic Revenue'</span>].agg([<span class="st">'mean'</span>,<span class="st">'std'</span>,<span class="st">'median'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 
 
@@ -1151,9 +1211,11 @@ Standard deviation: nan</code></pre>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">mean</th>
 <th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">median</th>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Production Method</th>
+<th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 </tr>
@@ -1163,21 +1225,25 @@ Standard deviation: nan</code></pre>
 <th data-quarto-table-cell-role="th">Animation/Live Action</th>
 <td>1.584505e+08</td>
 <td>1.683092e+08</td>
+<td>102117865.5</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Digital Animation</th>
 <td>2.101516e+08</td>
 <td>1.780478e+08</td>
+<td>160829725.5</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Live Action</th>
 <td>7.529021e+07</td>
 <td>1.084894e+08</td>
+<td>42851865.5</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Stop-Motion Animation</th>
 <td>6.657618e+07</td>
 <td>5.353228e+06</td>
+<td>66576185.0</td>
 </tr>
 </tbody>
 </table>
@@ -1185,7 +1251,7 @@ Standard deviation: nan</code></pre>
 </div>
 </div>
 </div>
-<div id="879d5e1b" class="cell">
+<div id="879d5e1b" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the mean of the productin type are </span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Animation/Live Action: mean = 1.584 e^8</span></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Digital Animation:     mean = 2.1e^8</span></span>
@@ -1194,16 +1260,650 @@ Standard deviation: nan</code></pre>
 <span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># the avrage mean is 1.1 e^8 so animation and animation live/action have the hiest revinue.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="b51a0215" class="cell" data-execution_count="153">
+<div id="b51a0215" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># most revinue comes from anamated videos but the outliers are in the live action section, the way to maxamise revinue would be to do mostly animation </span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co"># videos but also do some live actions in hopes of hiting an outlier sale.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="3fd9bc8b" class="cell" data-execution_count="154">
+<div id="3fd9bc8b" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the earning for movies is mostly PG with a few in R. the means are genaraly the same but</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="b1649361" class="cell" data-execution_count="155">
+<div id="b1649361" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the most resanable option for getting a high revinue movie wold be to releas a PG rated action movie in summer and should have a longer run time, </span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># though it should be noted that this would only test wether one predicts the other or if they are only related</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="25490ada" class="cell" data-execution_count="36">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Extra</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Total Box Office Revenue'</span>].describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>count    1.860000e+02
+mean     1.948039e+08
+std      3.013249e+08
+min      1.259000e+03
+25%      2.743617e+07
+50%      8.365688e+07
+75%      2.098266e+08
+max      1.671064e+09
+Name: Total Box Office Revenue, dtype: float64</code></pre>
+</div>
+</div>
+<div id="85de16c0" class="cell" data-execution_count="37">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Season</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'Season'</span>)[<span class="st">'Total Box Office Revenue'</span>].agg([<span class="st">'mean'</span>,<span class="st">'std'</span>,<span class="st">'median'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">median</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Season</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Fall</th>
+<td>1.142491e+08</td>
+<td>1.471936e+08</td>
+<td>77305447.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Spring</th>
+<td>2.244286e+08</td>
+<td>3.964487e+08</td>
+<td>64364198.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Summer</th>
+<td>3.192993e+08</td>
+<td>4.203788e+08</td>
+<td>137054597.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Winter</th>
+<td>1.522472e+08</td>
+<td>1.584120e+08</td>
+<td>96226228.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="2418447f" class="cell" data-execution_count="38">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Genre</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'Genre'</span>)[<span class="st">'Total Box Office Revenue'</span>].agg([<span class="st">'mean'</span>,<span class="st">'std'</span>,<span class="st">'median'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">median</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Genre</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Action</th>
+<td>5.356958e+08</td>
+<td>5.126322e+08</td>
+<td>334486852.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Adventure</th>
+<td>4.411048e+08</td>
+<td>4.261965e+08</td>
+<td>251509294.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Black Comedy</th>
+<td>5.842046e+07</td>
+<td>4.461294e+07</td>
+<td>58420460.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Comedy</th>
+<td>1.162750e+08</td>
+<td>1.208467e+08</td>
+<td>94523781.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Concert/Performance</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Documentary</th>
+<td>1.232870e+07</td>
+<td>2.236986e+06</td>
+<td>12328703.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Drama</th>
+<td>1.120343e+08</td>
+<td>1.964587e+08</td>
+<td>35752851.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Horror</th>
+<td>1.091003e+08</td>
+<td>7.993100e+07</td>
+<td>90254841.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Musical</th>
+<td>3.165030e+08</td>
+<td>3.142137e+08</td>
+<td>396143331.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Romantic Comedy</th>
+<td>8.117336e+07</td>
+<td>7.888094e+07</td>
+<td>43818333.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Thriller/Suspense</th>
+<td>5.801647e+07</td>
+<td>7.886680e+07</td>
+<td>42657052.5</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Western</th>
+<td>8.677856e+07</td>
+<td>NaN</td>
+<td>86778557.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="c1bae30d" class="cell" data-execution_count="39">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Rating</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'MPAA Rating'</span>)[<span class="st">'Total Box Office Revenue'</span>].agg([<span class="st">'mean'</span>,<span class="st">'std'</span>,<span class="st">'median'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">median</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">MPAA Rating</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Not Rated</th>
+<td>1.056320e+05</td>
+<td>NaN</td>
+<td>105632.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">PG</th>
+<td>2.838864e+08</td>
+<td>3.698621e+08</td>
+<td>125010260.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">R</th>
+<td>9.672076e+07</td>
+<td>1.424924e+08</td>
+<td>55992892.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="da08fc4b" class="cell" data-execution_count="40">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Production</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'Production Method'</span>)[<span class="st">'Total Box Office Revenue'</span>].agg([<span class="st">'mean'</span>,<span class="st">'std'</span>,<span class="st">'median'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">median</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Production Method</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Animation/Live Action</th>
+<td>3.048055e+08</td>
+<td>4.048029e+08</td>
+<td>217214143.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Digital Animation</th>
+<td>4.979137e+08</td>
+<td>4.215917e+08</td>
+<td>369547400.5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Live Action</th>
+<td>1.544766e+08</td>
+<td>2.588639e+08</td>
+<td>76950525.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Stop-Motion Animation</th>
+<td>9.472343e+07</td>
+<td>2.428956e+07</td>
+<td>94723431.5</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="b63b6738" class="cell" data-execution_count="41">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pingouin <span class="im">as</span> pg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="89f1e8f8" class="cell" data-execution_count="42">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"movie_data.csv"</span>)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Size of dataset before dropping NA values for Season and Total Box Office Revenue"</span>)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(df))</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'Season'</span>])</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'Total Box Office Revenue'</span>])</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Size of dataset after dropping NA values"</span>)</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(df))</span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Size of groups within Season"</span>)</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"Season"</span>].value_counts())</span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>groups <span class="op">=</span> [df[df[<span class="st">'Season'</span>] <span class="op">==</span> s][<span class="st">'Total Box Office Revenue'</span>]</span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> s <span class="kw">in</span> df[<span class="st">'Season'</span>].unique()]</span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>f_stat, p_value <span class="op">=</span> stats.f_oneway(<span class="op">*</span>groups)</span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"F value and p value of Season as in relation to Total Box Office Revenue"</span>)</span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"F="</span>,f_stat,<span class="st">"p ="</span>, p_value)</span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>gh <span class="op">=</span> pg.pairwise_gameshowell(dv<span class="op">=</span><span class="st">'Total Box Office Revenue'</span>,between<span class="op">=</span><span class="st">"Season"</span>,data<span class="op">=</span>df)</span>
+<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Actual significance between groups"</span>)</span>
+<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gh)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Size of dataset before dropping NA values for Season and Total Box Office Revenue
+193
+Size of dataset after dropping NA values
+186
+Size of groups within Season
+Season
+Fall      61
+Summer    47
+Winter    45
+Spring    33
+Name: count, dtype: int64
+F value and p value of Season as in relation to Total Box Office Revenue
+F= 4.8133364705066946 p = 0.00299691621340345
+Actual significance between groups
+        A       B       mean(A)       mean(B)          diff            se  \
+0    Fall  Spring  1.142491e+08  2.244286e+08 -1.101795e+08  7.153988e+07   
+1    Fall  Summer  1.142491e+08  3.192993e+08 -2.050502e+08  6.414938e+07   
+2    Fall  Winter  1.142491e+08  1.522472e+08 -3.799812e+07  3.021311e+07   
+3  Spring  Summer  2.244286e+08  3.192993e+08 -9.487069e+07  9.231868e+07   
+4  Spring  Winter  2.244286e+08  1.522472e+08  7.218136e+07  7.294126e+07   
+5  Summer  Winter  3.192993e+08  1.522472e+08  1.670521e+08  6.570857e+07   
+
+          T         df      pval    hedges  
+0 -1.540113  36.841428  0.424671 -0.416627  
+1 -3.196448  54.726719  0.012031 -0.682636  
+2 -1.257670  90.866460  0.592068 -0.248114  
+3 -1.027644  71.478483  0.733863 -0.228753  
+4  0.989582  39.537967  0.756160  0.251566  
+5  2.542318  59.293126  0.063644  0.517193  </code></pre>
+</div>
+</div>
+<div id="714a5b2b" class="cell" data-execution_count="43">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"movie_data.csv"</span>)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Size of dataset before dropping NA values for Genre and Total Box Office Revenue"</span>)</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(df))</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'Genre'</span>])</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'Total Box Office Revenue'</span>])</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Size of dataset after dropping NA values"</span>)</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(df))</span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Size of groups within Genre"</span>)</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"Genre"</span>].value_counts())</span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>groups <span class="op">=</span> [df[df[<span class="st">'Genre'</span>] <span class="op">==</span> s][<span class="st">'Total Box Office Revenue'</span>]</span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> s <span class="kw">in</span> df[<span class="st">'Genre'</span>].unique()]</span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>f_stat, p_value <span class="op">=</span> stats.f_oneway(<span class="op">*</span>groups)</span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"F value and p value of Genre as in relation to Total Box Office Revenue"</span>)</span>
+<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"F="</span>,f_stat,<span class="st">"p ="</span>, p_value)</span>
+<span id="cb54-15"><a href="#cb54-15" aria-hidden="true" tabindex="-1"></a>gh <span class="op">=</span> pg.pairwise_gameshowell(dv<span class="op">=</span><span class="st">'Total Box Office Revenue'</span>,between<span class="op">=</span><span class="st">"Genre"</span>,data<span class="op">=</span>df)</span>
+<span id="cb54-16"><a href="#cb54-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Actual significance between groups"</span>)</span>
+<span id="cb54-17"><a href="#cb54-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gh)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Size of dataset before dropping NA values for Genre and Total Box Office Revenue
+193
+Size of dataset after dropping NA values
+186
+Size of groups within Genre
+Genre
+Drama                35
+Horror               34
+Comedy               31
+Thriller/Suspense    24
+Action               21
+Adventure            21
+Romantic Comedy       8
+Musical               7
+Documentary           2
+Black Comedy          2
+Western               1
+Name: count, dtype: int64
+F value and p value of Genre as in relation to Total Box Office Revenue
+F= 7.773535657834159 p = 2.925780200877024e-10
+Actual significance between groups
+                    A                  B       mean(A)       mean(B)  \
+0              Action          Adventure  5.356958e+08  4.411048e+08   
+1              Action       Black Comedy  5.356958e+08  5.842046e+07   
+2              Action             Comedy  5.356958e+08  1.162750e+08   
+3              Action        Documentary  5.356958e+08  1.232870e+07   
+4              Action              Drama  5.356958e+08  1.120343e+08   
+5              Action             Horror  5.356958e+08  1.091003e+08   
+6              Action            Musical  5.356958e+08  3.165030e+08   
+7              Action    Romantic Comedy  5.356958e+08  8.117336e+07   
+8              Action  Thriller/Suspense  5.356958e+08  5.801647e+07   
+9              Action            Western  5.356958e+08  8.677856e+07   
+10          Adventure       Black Comedy  4.411048e+08  5.842046e+07   
+11          Adventure             Comedy  4.411048e+08  1.162750e+08   
+12          Adventure        Documentary  4.411048e+08  1.232870e+07   
+13          Adventure              Drama  4.411048e+08  1.120343e+08   
+14          Adventure             Horror  4.411048e+08  1.091003e+08   
+15          Adventure            Musical  4.411048e+08  3.165030e+08   
+16          Adventure    Romantic Comedy  4.411048e+08  8.117336e+07   
+17          Adventure  Thriller/Suspense  4.411048e+08  5.801647e+07   
+18          Adventure            Western  4.411048e+08  8.677856e+07   
+19       Black Comedy             Comedy  5.842046e+07  1.162750e+08   
+20       Black Comedy        Documentary  5.842046e+07  1.232870e+07   
+21       Black Comedy              Drama  5.842046e+07  1.120343e+08   
+22       Black Comedy             Horror  5.842046e+07  1.091003e+08   
+23       Black Comedy            Musical  5.842046e+07  3.165030e+08   
+24       Black Comedy    Romantic Comedy  5.842046e+07  8.117336e+07   
+25       Black Comedy  Thriller/Suspense  5.842046e+07  5.801647e+07   
+26       Black Comedy            Western  5.842046e+07  8.677856e+07   
+27             Comedy        Documentary  1.162750e+08  1.232870e+07   
+28             Comedy              Drama  1.162750e+08  1.120343e+08   
+29             Comedy             Horror  1.162750e+08  1.091003e+08   
+30             Comedy            Musical  1.162750e+08  3.165030e+08   
+31             Comedy    Romantic Comedy  1.162750e+08  8.117336e+07   
+32             Comedy  Thriller/Suspense  1.162750e+08  5.801647e+07   
+33             Comedy            Western  1.162750e+08  8.677856e+07   
+34        Documentary              Drama  1.232870e+07  1.120343e+08   
+35        Documentary             Horror  1.232870e+07  1.091003e+08   
+36        Documentary            Musical  1.232870e+07  3.165030e+08   
+37        Documentary    Romantic Comedy  1.232870e+07  8.117336e+07   
+38        Documentary  Thriller/Suspense  1.232870e+07  5.801647e+07   
+39        Documentary            Western  1.232870e+07  8.677856e+07   
+40              Drama             Horror  1.120343e+08  1.091003e+08   
+41              Drama            Musical  1.120343e+08  3.165030e+08   
+42              Drama    Romantic Comedy  1.120343e+08  8.117336e+07   
+43              Drama  Thriller/Suspense  1.120343e+08  5.801647e+07   
+44              Drama            Western  1.120343e+08  8.677856e+07   
+45             Horror            Musical  1.091003e+08  3.165030e+08   
+46             Horror    Romantic Comedy  1.091003e+08  8.117336e+07   
+47             Horror  Thriller/Suspense  1.091003e+08  5.801647e+07   
+48             Horror            Western  1.091003e+08  8.677856e+07   
+49            Musical    Romantic Comedy  3.165030e+08  8.117336e+07   
+50            Musical  Thriller/Suspense  3.165030e+08  5.801647e+07   
+51            Musical            Western  3.165030e+08  8.677856e+07   
+52    Romantic Comedy  Thriller/Suspense  8.117336e+07  5.801647e+07   
+53    Romantic Comedy            Western  8.117336e+07  8.677856e+07   
+54  Thriller/Suspense            Western  5.801647e+07  8.677856e+07   
+
+            diff            se         T         df      pval  \
+0   9.459097e+07  1.454771e+08  0.650212  38.709495  0.999858   
+1   4.772753e+08  1.162285e+08  4.106355  20.690478  0.017101   
+2   4.194208e+08  1.139517e+08  3.680689  21.513847  0.040775   
+3   5.233671e+08  1.118767e+08  4.678070  20.007982  0.005204   
+4   4.236615e+08  1.166904e+08  3.630647  23.572491  0.042022   
+5   4.265955e+08  1.127023e+08  3.785154  20.602341  0.034082   
+6   2.191928e+08  1.631509e+08  1.343497  17.287453  0.947038   
+7   4.545224e+08  1.152895e+08  3.942444  22.317062  0.022336   
+8   4.776793e+08  1.130180e+08  4.226579  20.829218  0.013044   
+9   4.489172e+08           NaN       NaN        NaN       NaN   
+10  3.826844e+08  9.820818e+07  3.896665  19.661646  0.028362   
+11  3.248298e+08  9.550279e+07  3.401260  22.193988  0.071115   
+12  4.287761e+08  9.301715e+07  4.609646  20.011539  0.006037   
+13  3.290705e+08  9.875440e+07  3.332211  25.183863  0.076117   
+14  3.320045e+08  9.400851e+07  3.531644  20.872451  0.056906   
+15  1.246018e+08  1.508443e+08  0.826029  14.032488  0.998173   
+16  3.599315e+08  9.709513e+07  3.706998  23.222026  0.036035   
+17  3.830884e+08  9.438673e+07  4.058710  21.199902  0.018385   
+18  3.543263e+08           NaN       NaN        NaN       NaN   
+19 -5.785457e+07  3.829167e+07 -1.510892   2.154774  0.846222   
+20  4.609176e+07  3.158575e+07  1.459258   1.005028  0.850109   
+21 -5.361384e+07  4.580284e+07 -1.170535   4.289220  0.958040   
+22 -5.067983e+07  3.439575e+07 -1.473433   1.411780  0.849620   
+23 -2.580826e+08  1.228799e+08 -2.100283   6.677110  0.608730   
+24 -2.275290e+07  4.210621e+07 -0.540369   2.919219  0.999657   
+25  4.039878e+05  3.541642e+07  0.011407   1.584005  1.000000   
+26 -2.835810e+07           NaN       NaN        NaN       NaN   
+27  1.039463e+08  2.176228e+07  4.776445  30.293879  0.001816   
+28  4.240728e+06  3.967162e+07  0.106896  57.385485  1.000000   
+29  7.174740e+06  2.567110e+07  0.279487  51.287692  1.000000   
+30 -2.002280e+08  1.207287e+08 -1.658496   6.406073  0.817317   
+31  3.510167e+07  3.533936e+07  0.993274  16.624687  0.993029   
+32  5.825856e+07  2.702333e+07  2.155862  51.684594  0.544863   
+33  2.949647e+07           NaN       NaN        NaN       NaN   
+34 -9.970560e+07  3.324522e+07 -2.999095  34.148486  0.135163   
+35 -9.677159e+07  1.379901e+07 -7.012935  33.687554  0.000002   
+36 -3.041743e+08  1.187721e+08 -2.560991   6.002128  0.411758   
+37 -6.884466e+07  2.793345e+07 -2.464596   7.044599  0.437765   
+38 -4.568777e+07  1.617614e+07 -2.824392  23.396086  0.208779   
+39 -7.444985e+07           NaN       NaN        NaN       NaN   
+40  2.934012e+06  3.592567e+07  0.081669  45.221765  1.000000   
+41 -2.044687e+08  1.233169e+08 -1.658075   6.967379  0.819344   
+42  3.086094e+07  4.336494e+07  0.711656  28.942541  0.999645   
+43  5.401783e+07  3.690404e+07  1.463737  47.944564  0.924441   
+44  2.525575e+07           NaN       NaN        NaN       NaN   
+45 -2.074027e+08  1.195501e+08 -1.734860   6.160741  0.783222   
+46  2.792693e+07  3.107549e+07  0.898680  10.659021  0.995783   
+47  5.108382e+07  2.114418e+07  2.415976  50.090665  0.377627   
+48  2.232173e+07           NaN       NaN        NaN       NaN   
+49  2.353297e+08  1.219922e+08  1.929055   6.662613  0.692578   
+50  2.584866e+08  1.198477e+08  2.156791   6.221977  0.583737   
+51  2.297245e+08           NaN       NaN        NaN       NaN   
+52  2.315689e+07  3.220157e+07  0.719123  12.035508  0.999348   
+53 -5.605197e+06           NaN       NaN        NaN       NaN   
+54 -2.876208e+07           NaN       NaN        NaN       NaN   
+
+                    hedges  
+0                 0.196874  
+1                 0.919364  
+2                  1.22414  
+3                  1.00834  
+4                 1.197825  
+5                 1.309404  
+6                 0.448708  
+7                  0.99718  
+8                 1.324437  
+9     [0.8757101189450837]  
+10                0.886581  
+11                1.121228  
+12                0.993635  
+13                1.072246  
+14                1.215312  
+15                0.300087  
+16                0.948066  
+17                 1.27009  
+18    [0.8313683052714432]  
+19               -0.473712  
+20                0.833862  
+21               -0.270704  
+22               -0.626329  
+23               -0.787274  
+24               -0.272367  
+25                0.005032  
+26    [-0.635647336020317]  
+27                0.853037  
+28                0.025341  
+29                0.069847  
+30               -1.158628  
+31                0.301368  
+32                0.548434  
+33   [0.24408165207538765]  
+34               -0.503809  
+35               -1.201573  
+36                -0.92943  
+37               -0.842685  
+38               -0.573065  
+39    [-33.28132254243199]  
+40                0.019241  
+41               -0.919342  
+42                0.166584  
+43                0.333593  
+44   [0.12855501871724626]  
+45               -1.417236  
+46                0.343581  
+47                0.633954  
+48    [0.2792625506275961]  
+49                1.001411  
+50                1.580823  
+51    [0.7311091206916546]  
+52                0.286206  
+53  [-0.07105895073763303]  
+54  [-0.36469189916224204]  </code></pre>
+</div>
+</div>
+<div id="35f9895f" class="cell" data-execution_count="44">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"movie_data.csv"</span>)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Size of dataset before dropping NA values for MPAA Rating and Total Box Office Revenue"</span>)</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(df))</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'MPAA Rating'</span>])</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'Total Box Office Revenue'</span>])</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Size of dataset after dropping NA values"</span>)</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(df))</span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Size of groups within MPAA Rating"</span>)</span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"MPAA Rating"</span>].value_counts())</span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>groups <span class="op">=</span> [df[df[<span class="st">'MPAA Rating'</span>] <span class="op">==</span> s][<span class="st">'Total Box Office Revenue'</span>]</span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> s <span class="kw">in</span> df[<span class="st">'MPAA Rating'</span>].unique()]</span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>f_stat, p_value <span class="op">=</span> stats.f_oneway(<span class="op">*</span>groups)</span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"F value and p value of MPAA Rating as in relation to Total Box Office Revenue"</span>)</span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"F="</span>,f_stat,<span class="st">"p ="</span>, p_value)</span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a>gh <span class="op">=</span> pg.pairwise_gameshowell(dv<span class="op">=</span><span class="st">'Total Box Office Revenue'</span>,between<span class="op">=</span><span class="st">"MPAA Rating"</span>,data<span class="op">=</span>df)</span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Actual significance between groups"</span>)</span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gh)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Size of dataset before dropping NA values for MPAA Rating and Total Box Office Revenue
+193
+Size of dataset after dropping NA values
+184
+Size of groups within MPAA Rating
+MPAA Rating
+PG           99
+R            84
+Not Rated     1
+Name: count, dtype: int64
+F value and p value of MPAA Rating as in relation to Total Box Office Revenue
+F= 9.779781023907752 p = 9.265861514620973e-05
+Actual significance between groups
+           A   B       mean(A)       mean(B)          diff            se  \
+0  Not Rated  PG  1.056320e+05  2.838864e+08 -2.837808e+08           NaN   
+1  Not Rated   R  1.056320e+05  9.672076e+07 -9.661513e+07           NaN   
+2         PG   R  2.838864e+08  9.672076e+07  1.871657e+08  4.029284e+07   
+
+          T          df      pval    hedges  
+0       NaN         NaN       NaN       NaN  
+1       NaN         NaN       NaN       NaN  
+2  4.645135  130.567314  0.000024  0.645497  </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>c:\Users\cnels\Desktop\stat386\Final_Movie_Analysis\.venv\Lib\site-packages\pingouin\effsize.py:802: RuntimeWarning: Degrees of freedom &lt;= 0 for slice
+  poolsd = np.sqrt(((nx - 1) * x.var(ddof=1) + (ny - 1) * y.var(ddof=1)) / dof)
+c:\Users\cnels\Desktop\stat386\Final_Movie_Analysis\.venv\Lib\site-packages\numpy\_core\_methods.py:214: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)</code></pre>
+</div>
+</div>
+<div id="0ec4d886" class="cell" data-execution_count="45">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"movie_data.csv"</span>)</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Size of dataset before dropping NA values for Production Method and Total Box Office Revenue"</span>)</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(df))</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'Production Method'</span>])</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'Total Box Office Revenue'</span>])</span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Size of dataset after dropping NA values"</span>)</span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(df))</span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Size of groups within Production Method"</span>)</span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"Production Method"</span>].value_counts())</span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>groups <span class="op">=</span> [df[df[<span class="st">'Production Method'</span>] <span class="op">==</span> s][<span class="st">'Total Box Office Revenue'</span>]</span>
+<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> s <span class="kw">in</span> df[<span class="st">'Production Method'</span>].unique()]</span>
+<span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a>f_stat, p_value <span class="op">=</span> stats.f_oneway(<span class="op">*</span>groups)</span>
+<span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"F value and p value of Production Method as in relation to Total Box Office Revenue"</span>)</span>
+<span id="cb59-14"><a href="#cb59-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"F="</span>,f_stat,<span class="st">"p ="</span>, p_value)</span>
+<span id="cb59-15"><a href="#cb59-15" aria-hidden="true" tabindex="-1"></a>gh <span class="op">=</span> pg.pairwise_gameshowell(dv<span class="op">=</span><span class="st">'Total Box Office Revenue'</span>,between<span class="op">=</span><span class="st">"Production Method"</span>,data<span class="op">=</span>df)</span>
+<span id="cb59-16"><a href="#cb59-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Actual significance between groups"</span>)</span>
+<span id="cb59-17"><a href="#cb59-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gh)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Size of dataset before dropping NA values for Production Method and Total Box Office Revenue
+193
+Size of dataset after dropping NA values
+186
+Size of groups within Production Method
+Production Method
+Live Action              159
+Digital Animation         20
+Animation/Live Action      5
+Stop-Motion Animation      2
+Name: count, dtype: int64
+F value and p value of Production Method as in relation to Total Box Office Revenue
+F= 9.031580982709437 p = 1.3193888260951837e-05
+Actual significance between groups
+                       A                      B       mean(A)       mean(B)  \
+0  Animation/Live Action      Digital Animation  3.048055e+08  4.979137e+08   
+1  Animation/Live Action            Live Action  3.048055e+08  1.544766e+08   
+2  Animation/Live Action  Stop-Motion Animation  3.048055e+08  9.472343e+07   
+3      Digital Animation            Live Action  4.979137e+08  1.544766e+08   
+4      Digital Animation  Stop-Motion Animation  4.979137e+08  9.472343e+07   
+5            Live Action  Stop-Motion Animation  1.544766e+08  9.472343e+07   
+
+           diff            se         T         df      pval    hedges  
+0 -1.931082e+08  2.041079e+08 -0.946108   6.364932  0.782734 -0.445983  
+1  1.503289e+08  1.821936e+08  0.825105   4.103521  0.840866  0.567987  
+2  2.100821e+08  1.818463e+08  1.155273   4.071013  0.680289  0.488395  
+3  3.434371e+08  9.648020e+07  3.559664  20.839180  0.009330  1.217506  
+4  4.031903e+08  9.582260e+07  4.207675  19.866399  0.002280  0.943854  
+5  5.975317e+07  2.676642e+07  2.232394   5.823285  0.219374  0.230457  </code></pre>
+</div>
 </div>
 
 
@@ -1280,60 +1980,9 @@ Standard deviation: nan</code></pre>
       });
       clipboardModal.on('success', onCopySuccess);
     }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
-    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/cnelson2004\.github\.io\/Final_Movie_Analysis\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

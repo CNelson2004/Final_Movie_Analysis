@@ -149,15 +149,15 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="executive-summary" class="level2">
 <h2 class="anchored" data-anchor-id="executive-summary">Executive Summary</h2>
-<p>Project Objectives: Identify the best movies or highest revenue movies by find what features determine high grossing movies. In other words, how would I make a movie, and when would I release it in order to return the highest amount of revenue</p>
-<p>Key Findings: None of the analyses done show anything statistically significant results when put in reference to the Questions though there are some small differences in move revenue depending on the season and other factors.</p>
-<p>Actionable Recommendations: Because there are no significant factors, more analysis is highly advised to reduce uncertainty. We suggest separating data (separating it in to season, movie type, and other differences) more for deeper analysis this would hopefully reduce the variation. The other idea for better analysis is to identify the high earning revenue movies and find what they have in common and use that to see what could influence revenue. The analysis did not show any statistically significant data but some actions that might indicate a quality movie or improve revenue are making a movie that appeals to everyone, and releasing in the summer, with a high starting budget, could results in the higher revenue. Making a PG movie using Digital Animation in the genre of Adventure or Action, which appeals to those inside and outside the US is anticipated to result in higher overall revenue.</p>
+<p><em>Project Objectives:</em> Identify the highest revenue movies by finding what features determine high grossing movies. In other words, how would I make a movie, and when would I release it in order to return the highest amount of revenue?</p>
+<p><em>Key Findings:</em> None of the analyses done show anything statistically significant results when put in reference to the questions, though there are some small differences in movie revenue depending on various factors, (such as Season and Genre), these factors are not mentioned specifically since they are statistically irrelevant.</p>
+<p><em>Actionable Recommendations:</em> Because there are no significant factors, more analysis is highly advised to reduce uncertainty. We suggest separating data (such as into season, movie type, etc) for a deeper analysis, which likely reduce the variation. Additionally, analysis identifying the high earning revenue movies and finding what they have in common could be used to see what influences revenue. The analysis did not show any statistically significant data, but some actions that might indicate a high revenue movie is a movie that appeals to everyone, is released in the summer, and has a high starting budget. Making a PG movie using Digital Animation in the genre of Adventure or Action, which appeals to those inside and outside the US, is anticipated to result in higher overall revenue.</p>
 </section>
 <section id="project-context" class="level2">
 <h2 class="anchored" data-anchor-id="project-context">Project Context</h2>
-<p>Motivation: We want to know what movies have the highest revenue and see what could help maximize the revenue of a movie. All this with the belief that revenue for movies is an indicator of how good a movie is.</p>
-<p>Success Criteria: Identify distinct features that are important for overall movie revenue.</p>
-<p>Stakeholders: This project has 2 interested parties. One is individuals who want to enjoy a good movie and not pay for low quality entertainment, and the second is companies (Business/Board of Trustees/Boss) who want to maximize the amount of revenue they earn with as little loss as possible.</p>
+<p><em>Motivation:</em> We want to know what movies have the highest revenue and see what could help maximize the revenue of a movie. Please note that this is with the belief that revenue for movies is an indicator of how good a movie is.</p>
+<p><em>Success Criteria:</em> Identify distinct features that are important for and impact overall movie revenue.</p>
+<p><em>Stakeholders:</em> This project has two interested parties. One is individuals who want to enjoy a good movie and do not want to pay for low quality entertainment, and the second is companies, (Business/Board of Trustees/Boss), who want to maximize the amount of revenue they earn when creating a movie.</p>
 </section>
 <section id="data-sources" class="level2">
 <h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
@@ -173,9 +173,9 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="methodology" class="level2">
 <h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
-<p><code>TODO - outline collection scripts/APIs</code> 1. <em>Data acquisition:</em> Used common web scraping techniques to obtain data from Wikipedia and The Numbers. Specifically the libraries: requests and beautiful soup.</p>
-<ol start="2" type="1">
-<li><em>Cleaning pipeline:</em></li>
+<ol type="1">
+<li><p><em>Data acquisition:</em> Used common web scraping techniques to obtain data from Wikipedia and The Numbers using the libraries: requests, beautiful soup, regex, and pandas. Specifically, our function <code>data_creation</code> uses the init function for both requests and beautiful soup, <code>read_html</code> from pandas, <code>sub</code>, <code>match</code> from regex, <code>get</code> from requests, and <code>find</code> from beautiful soup.</p></li>
+<li><p><em>Cleaning pipeline:</em></p></li>
 </ol>
 <ul>
 <li>Changed Release Date into a datetime object.</li>
@@ -194,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
 <li>This was validated by checking that all columns were of specified types and manually viewing the dataset, and all was as expected</li>
 <li>A separated csv was created for Machine Learning Analysis wherein the target, Total Box Office Revenue, was analyzed as a log of the original target due to the skewness of the target data, this separate csv, <code>ml_movie_data.csv</code>, also removes all non-numeric columns.</li>
 <li><code>ml_movie_data.csv</code> is the transformed version of <code>movie_data.csv</code></li>
-<li>This was validated by checking the new transformed column</li>
+<li>This was validated by checking the new transformed column and csv as a whole.</li>
 </ul>
 <ol start="3" type="1">
 <li><em>Analysis workflow:</em></li>
@@ -230,29 +230,124 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="results-diagnostics" class="level2">
 <h2 class="anchored" data-anchor-id="results-diagnostics">Results &amp; Diagnostics</h2>
-<p><code>_TODO: Summarize the main metrics, charts, or model diagnostics produced. Include links to figures or tables once available._</code> <code>(Attach units to values)</code> <em>Main Metrics</em>: The main metrics for the plots and data of importance are as follows: General Movie Revenue: mean = 9.1 e^7 [<strong>Attach unit to numbers like these Ex: 9.1 M dollars</strong>] sd = 1. e^8 [Since this sd shows that the data is skewed, add the median] Season of Release: spring has the highest revenue (there isn’t a significant difference between any except for summer and fall summer is better (0.011)) fall: mean = 5.5 e^7, sd = 7.17 e^7 winter: mean = 7.9 e^7, sd = 7.62 e^7 spring: mean = 9.3 e^8, sd = 1.3 e^8 summer: mean = 1.493 e^8, sd = 1.8 e^8</p>
-<pre><code>Genre:
-    the highest means are in 'Musicals', 'Action', 'Adventure' with means and sd of
-    Musicals: mean = 1.6 e^8 ,sd = 1.8 e^8
-    Action:   mean = 1.9 e^8 ,sd = 2.18 e^8
-    Adventure:mean = 1.88 e^8,sd = 1.78 e^8
+<p><em>Main Metrics:</em></p>
+<p>The main metrics for the plots and data of importance are as follows:</p>
+<pre><code>Total Box Office Revenue:
+    mean = 1.9 e^8 (190 million US dollars)
+    sd = 3.0 e^8 (300 million US dollars) 
+    median = 8.37 e^7 (83 million US dollars)
 
-Movie Rating:
-    PG: mean = 1.2 e^8 ,sd = 1.5 e^8
-    R: mean = 5.5 e^7  ,sd = 6.4 e^7
+Season of Release:
+    Fall:   mean = 1.14 e^8 (114 million US dollars),
+            sd = 1.47 e^8 (147 million US dollars)
+            median = 7.73 e^7 (77 million US dollars)
+
+    Spring: mean = 2.24 e^8 (224 million US dollars),
+            sd = 3.96 e^8 (396 million US dollars)
+            median = 6.44 e^7 (64 million US dollars)
+
+    Summer: mean = 3.19 e^8 (319 million US dollars),
+            sd = 4.20 e^8 (420 million US dollars)
+            median = 1.37 e^8 (137 million US dollars)
+
+    Winter: mean = 1.52 e^8 (152 million US dollars),
+            sd = 1.58 e^8 (158 million US dollars)
+            median = 9.62 e^7 (96 million US dollars)
+
+Genre:
+    The highest means are in 'Musicals', 'Action', 'Adventure' with means, sd, and median of:
+    Action:     mean = 5.36 e^8 (536 million US dollars),
+                sd = 5.13 e^8 (513 million US dollars)
+                median = 3.34 e^8 (334 million US dollars)
+
+    Adventure:  mean = 4.41 e^8 (441 million US dollars),
+                sd = 4.26 e^8 (426 million US dollars)
+                median = 2.52 e^8 (252 million US dollars)
+
+    Musical:    mean = 3.17 e^8 (317 million US dollars),
+                sd = 3.14 e^8 (314 million US dollars)
+                median = 3.96 e^8 (396 million US dollars)
+
+Movie Rating: 
+    PG: mean = 2.84 e^8 (284 million US dollars),
+        sd = 3.70 e^8 (370 million US dollars)
+        median = 1.25 e^8 (125 million US dollars)
+
+    R:  mean = 9.67 e^7 (97 million US dollars),
+        sd = 1.42 e^8 (142 million US dollars)
+        median = 5.60 e^7 (56 million US dollars)
 
 Production Method:
-    Animation/ Live Actin: mean = 1.58 e^8 ,sd = 1.68 e^8
-    Digital Animation:     mean = 2.1 e^8  ,sd = 1.7 e^8</code></pre>
-<p><em>Charts</em>: (Add description underneath it if chart doesn’t include labels) MSE Cross Validation Variable and Prepositions Plot</p>
-<p><em>Model Diagnostics</em>: We chose not to create a prediction model, and thus have no model diagnostics. (Could do t-test or ANOVA if wanted for model diagnostics) (Could include significance stats here.)</p>
+    Animation/Live Action:  mean = 3.05 e^8 (305 million US dollars),
+                            sd = 4.05 e^8 (405 million US dollars)
+                            median = 2.17 e^8 (217 million US dollars)
+
+    Digital Animation:      mean = 4.98 e^8 (498 million US dollars),
+                            sd = 4.22 e^8 (422 million US dollars)
+                            median = 3.70 e^8 (370 million US dollars)
+
+    Live Action:            mean = 1.54 e^8 (154 million US dollars)
+                            sd = 2.59 e^8 (259 million US dollars)
+                            median = 7.70 e^7 (77 million US dollars)
+
+    Stop-Motion Animation:  mean = 9.47 e^7 (95 million US dollars)
+                            sd = 2.43 e^7 (24 million US dollars)
+                            median = 9.47 e^7 (95 million US dollars)</code></pre>
+<p>Statistical Significance of the following features:</p>
+<pre><code>Season (Relation to Total Box Office Revenue)
+    Overall F-value = 4.81
+    Overall p-value = 0.0030
+    
+Significance Between Groups:
+    Fall vs Spring:   p = 0.4247
+    Fall vs Summer:   p = 0.0120
+    Fall vs Winter:   p = 0.5921
+    Spring vs Summer: p = 0.7339
+    Spring vs Winter: p = 0.7562
+    Summer vs Winter: p = 0.0636
+
+
+Genre (Relation to Total Box Office Revenue)
+    Overall F = 7.77
+    Overall p = 2.93e-10
+
+Significance Between Groups:
+    Action vs Adventure:           p = 0.9999
+    Action vs Musical:             p = 0.9470
+    Adventure vs Musical:          p = 0.998173
+
+
+Movie Rating (Relation to Total Box Office Revenue)
+    Overall F = 9.78
+    Overall p = 0.000093
+
+Significance Between Groups:
+    Not Rated vs PG: p = NaN
+    Not Rated vs R:  p = NaN
+    PG vs R:         p = 0.000024
+
+
+Production Method (Relation to Total Box Office Revenue)
+    Overall F = 9.03
+    Overall p = 0.000013
+
+Significance Between Groups:
+    Animation/Live Action vs Digital Animation: p = 0.7827
+    Animation/Live Action vs Live Action:       p = 0.8409
+    Animation/Live Action vs Stop-Motion:       p = 0.6803
+    Digital Animation vs Live Action:           p = 0.0093
+    Digital Animation vs Stop-Motion:           p = 0.0023
+    Live Action vs Stop-Motion:                 p = 0.2194</code></pre>
+<p><em>Charts:</em> The following graph shows the differences in revenue and their correlation, (and why international matters to total so much). <img src="revenue_by_year.png" class="img-fluid" alt="average yearly revenue"></p>
+<p>The following charts show the median and other ranges regarding the values described above and how they compare to each other: <img src="revenue_by_season.png" class="img-fluid" alt="revenue by season"> <img src="revenue_by_genre.png" class="img-fluid" alt="revenue by genre"> <img src="revenue_by_rating.png" class="img-fluid" alt="revenue by rating"> <img src="revenue_by_production_method.png" class="img-fluid" alt="revenue by method"></p>
+<p><em>Model Diagnostics:</em> We chose not to create a prediction model because no statistically significant variables were identified, and thus have no model diagnostics.</p>
 </section>
 <section id="discussion-next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="discussion-next-steps">Discussion &amp; Next Steps</h2>
-<p><em>Results</em>:</p>
-<p><em>Limitations</em>: The categorical and numerical analysis for correlation can’t show causation so we don’t know if adjusting one will directly influence the other. Additionally, none of the results shown significance, this means that the variance of revenue in any of our analyses is not different form the average mean.</p>
-<p>Open Questions: 1. if you separate things further</p>
-<p><em>Future Experiments</em>: In order to reduce the amount of variance it would be smart to separate data more, an example might be only action movies in winter compared to adventure movies in winter. This would hopefully reduce the variance and create a more accurate analysis as well as show any influence between variables, for example if R movies earning less revenue because most of them were released in winter. An analysis of movie ratings for these movies would also be informative as to what watchers value and there for what you could charge more for.</p>
+<p><em>Results:</em> There were no statistically significant variables because the variance was so high. There are some factors that appear to have some influence such as season of release, genre, and rating (R, PG, G) but further analysis could reveal more influence if variance was reduced.</p>
+<p><em>Limitations:</em> The categorical and numerical analysis for correlation can’t show causation so we don’t know if adjusting one will directly influence the other. Additionally, none of the results shown significance, this means that the variance of revenue in any of our analyses is not different form the average mean.</p>
+<p><em>Open Questions:</em> 1. If you separate things further (year of production, season of production, genre, etc.) dose it tell a clearer story about the data? 2. Are movie ratings related to the revenue earned for that movie? 3. Are there other factors that influence revenue? (storyline, plot twists, etc) 4. Do outliers (very high or very low revenue movies) have common factors?</p>
+<p><em>Future Experiments:</em> In order to reduce the amount of variance it would be smart to separate data more, an example might be only action movies in winter compared to adventure movies in winter. This would hopefully reduce the variance and create a more accurate analysis as well as show any influence between variables, for example if R movies earning less revenue because most of them were released in winter, then an analysis of movie ratings for these movies would be informative as to what watchers value and therefore what you could charge more for.</p>
 
 
 </section>

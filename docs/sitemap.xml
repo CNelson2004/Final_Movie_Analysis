@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cnelson2004.github.io/Final_Movie_Analysis/index.html</loc>
-    <lastmod>2025-12-10T20:30:11.631Z</lastmod>
+    <lastmod>2025-12-10T22:58:07.719Z</lastmod>
   </url>
   <url>
     <loc>https://cnelson2004.github.io/Final_Movie_Analysis/documentation.html</loc>
@@ -14,6 +14,10 @@
   </url>
   <url>
     <loc>https://cnelson2004.github.io/Final_Movie_Analysis/technical_report.html</loc>
-    <lastmod>2025-12-10T20:28:48.198Z</lastmod>
+    <lastmod>2025-12-11T00:47:04.604Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cnelson2004.github.io/Final_Movie_Analysis/analyze.html</loc>
+    <lastmod>2025-12-11T00:22:38.447Z</lastmod>
   </url>
 </urlset>
